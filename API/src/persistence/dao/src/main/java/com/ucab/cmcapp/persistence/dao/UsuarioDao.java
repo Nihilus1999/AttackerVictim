@@ -44,7 +44,7 @@ public class UsuarioDao extends BaseDao<Usuario> {
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
             _logger.error(String.format("Error UsuarioDao.getUserByCorreo: No Result {%s}", e.getMessage()));
-            throw new CupraException(e.getMessage());
+            return null;
         } catch (Exception e) {
             _logger.error(String.format("Error UsuarioDao.getUserByCorreo: {%s}", e.getMessage()));
             throw new CupraException(e.getMessage());
@@ -67,7 +67,7 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            throw new CupraException(e.getMessage());
+            return null;
         } catch (Exception e) {
             throw new CupraException(e.getMessage());
         }
@@ -86,7 +86,7 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            throw new CupraException(e.getMessage());
+            return null;
         } catch (Exception e) {
             throw new CupraException(e.getMessage());
         }
