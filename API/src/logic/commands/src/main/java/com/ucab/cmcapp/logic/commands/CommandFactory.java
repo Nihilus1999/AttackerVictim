@@ -2,10 +2,7 @@ package com.ucab.cmcapp.logic.commands;
 
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
-import com.ucab.cmcapp.logic.commands.usuario.composite.DeleteUsuarioCommand;
-import com.ucab.cmcapp.logic.commands.usuario.composite.CreateUsuarioCommand;
-import com.ucab.cmcapp.logic.commands.usuario.composite.GetUsuarioCommand;
-import com.ucab.cmcapp.logic.commands.usuario.composite.UpdateUsuarioCommand;
+import com.ucab.cmcapp.logic.commands.usuario.composite.*;
 import com.ucab.cmcapp.persistence.DBHandler;
 
 public class CommandFactory {
@@ -28,6 +25,18 @@ public class CommandFactory {
 
     public static GetUsuarioByCedulaCommand createGetUsuarioByCedulaCommand(Usuario usuario){
         return new GetUsuarioByCedulaCommand(usuario);
+    }
+
+    public static GetUsuarioByMacCommand createGetUsuarioByMacCommand(Usuario usuario){
+        return new GetUsuarioByMacCommand(usuario);
+    }
+
+    public static GetAllUsuarioCommand createGetAllUsuarioCommand(){
+        return new GetAllUsuarioCommand();
+    }
+
+    public static GetUsuarioByListCommand createGetUsuarioByListCommand(DBHandler handler) {
+        return new GetUsuarioByListCommand(handler);
     }
 
     /*public static GetUsuarioByCorreoCommand createGetUsuarioByCorreoCommand(User user, DBHandler handler) {
