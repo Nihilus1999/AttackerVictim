@@ -27,6 +27,10 @@ public class CommandFactory {
         return new GetUsuarioByCedulaCommand(usuario);
     }
 
+    public static GetUsuarioByMacCommand createGetUsuarioByMacCommand(Usuario usuario){
+        return new GetUsuarioByMacCommand(usuario);
+    }
+
     public static GetAllUsuarioCommand createGetAllUsuarioCommand(){
         return new GetAllUsuarioCommand();
     }

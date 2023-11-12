@@ -103,4 +103,10 @@ public class UsuarioMapper extends BaseMapper {
         return entity;
     }
 
+    public static Usuario mapDtoToEntityMac(String mac){
+        Usuario entity = EntityFactory.createUsuario();
+        entity.set_direccion_mac(mac);
+        return entity;
+    }
+
 }
