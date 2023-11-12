@@ -62,7 +62,7 @@ public class UsuarioService extends BaseService {
             responseDTO = UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
 
             if (responseDTO.size() == 0) {
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia ")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia")).build();
             }
 
         } catch (Exception e) {
@@ -143,7 +143,7 @@ public class UsuarioService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La MAC " + cedula + " no ha sido encontrada en la BBDD")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con la cedula " + cedula + " no ha sido encontrada en la BBDD")).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta cedula: " + e.getMessage())).build();
         } finally {
@@ -151,7 +151,7 @@ public class UsuarioService extends BaseService {
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la MAC " + cedula + " ha sido encontrado exitosamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la cedula " + cedula + " ha sido encontrado exitosamente")).build();
     }
 
     @GET
@@ -169,7 +169,7 @@ public class UsuarioService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con el alias " + mac + " no existen en la BBDD")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con la MAC " + mac + " no existen en la BBDD")).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta MAC: " + e.getMessage())).build();
         } finally {
@@ -177,7 +177,7 @@ public class UsuarioService extends BaseService {
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL usuario con el alias " + mac + " ha sido encontrado exitosamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL usuario con la MAC " + mac + " ha sido encontrado exitosamente")).build();
     }
 
     @POST
