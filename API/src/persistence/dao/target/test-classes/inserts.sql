@@ -1451,13 +1451,13 @@ INSERT INTO `country` (id, name, prefix, language, flag) VALUES (2,'Spain','ES',
 INSERT INTO `country` (id, name, prefix, language, flag) VALUES (3,'Chile','CL','Spanish', 'Flag_of_Chile');
 INSERT INTO `country` (id, name, prefix, language, flag) VALUES (4,'Germany','DE','German', 'Flag_alemania');
 
-/* Table: user */
-INSERT INTO `user` (id, username, email, user_type_id,uid) VALUES (1,'ana.perez', 'anaperez@gmail.com',1 ,'890897');
-INSERT INTO `user` (id, username, email, user_type_id,uid) VALUES (2,'jhonny.doe', 'jhonny.doe@gmail.com',1,'4564654');
-INSERT INTO `user` (id, username, email, user_type_id,uid) VALUES (3,'maria.estevez', 'maria.estevez@gmail.com',1,'324234');
-INSERT INTO `user` (id, username, email, user_type_id,uid) VALUES (4,'perer.annn', 'perer.annn@gmail.com',1,'423432e');
-INSERT INTO `user` (id, username, email, user_type_id,uid) VALUES (5,'kolin.kloh', 'guestapple@guestapple.com',1,'4324dff');
-INSERT INTO `user` (id, username, email, user_type_id,uid) VALUES (6,'jong.ko', 'jong.ko@gmail.com',1,'4234da');
+/* Table: usuario */
+INSERT INTO `usuario` (id, username, email, user_type_id,uid) VALUES (1,'ana.perez', 'anaperez@gmail.com',1 ,'890897');
+INSERT INTO `usuario` (id, username, email, user_type_id,uid) VALUES (2,'jhonny.doe', 'jhonny.doe@gmail.com',1,'4564654');
+INSERT INTO `usuario` (id, username, email, user_type_id,uid) VALUES (3,'maria.estevez', 'maria.estevez@gmail.com',1,'324234');
+INSERT INTO `usuario` (id, username, email, user_type_id,uid) VALUES (4,'perer.annn', 'perer.annn@gmail.com',1,'423432e');
+INSERT INTO `usuario` (id, username, email, user_type_id,uid) VALUES (5,'kolin.kloh', 'guestapple@guestapple.com',1,'4324dff');
+INSERT INTO `usuario` (id, username, email, user_type_id,uid) VALUES (6,'jong.ko', 'jong.ko@gmail.com',1,'4234da');
 
 
 /* Table: profile */
