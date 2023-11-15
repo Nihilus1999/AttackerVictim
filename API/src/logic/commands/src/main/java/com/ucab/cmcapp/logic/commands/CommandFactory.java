@@ -1,48 +1,79 @@
 package com.ucab.cmcapp.logic.commands;
 
-import com.ucab.cmcapp.common.entities.User;
-import com.ucab.cmcapp.logic.commands.user.atomic.AddUserCommand;
-import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByIdCommand;
-import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
-import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
-import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
+import com.ucab.cmcapp.common.entities.Usuario;
+import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
+import com.ucab.cmcapp.logic.commands.usuario.composite.*;
 import com.ucab.cmcapp.persistence.DBHandler;
 
-public class CommandFactory
-{
+public class CommandFactory {
 
-    public static GetUserCommand createGetUserCommand(User user)
-    {
-        return new GetUserCommand(user);
+    public static GetUsuarioCommand createGetUsuarioCommand(Usuario usuario) {
+        return new GetUsuarioCommand(usuario);
     }
 
-    public static GetUserByEmailCommand createGetUserByEmailCommand(User user)
-    {
-        return new GetUserByEmailCommand(user);
+    public static GetUsuarioByIdCommand createGetUsuarioByIdCommand(DBHandler handler, long userId) {
+        return new GetUsuarioByIdCommand(handler, userId);
     }
 
-    public static GetUserByEmailCommand createGetUserByEmailCommand(User user, DBHandler handler)
-    {
+    public static GetUsuarioByCorreoCommand createGetUsuarioByCorreoCommand(Usuario usuario) {
+        return new GetUsuarioByCorreoCommand(usuario);
+    }
+
+    public static GetUsuarioByAliasCommand createGetUsuarioByAliasCommand(Usuario usuario){
+        return new GetUsuarioByAliasCommand(usuario);
+    }
+
+    public static GetUsuarioByCedulaCommand createGetUsuarioByCedulaCommand(Usuario usuario){
+        return new GetUsuarioByCedulaCommand(usuario);
+    }
+
+    public static GetUsuarioByMacCommand createGetUsuarioByMacCommand(Usuario usuario){
+        return new GetUsuarioByMacCommand(usuario);
+    }
+
+    public static GetAllUsuarioCommand createGetAllUsuarioCommand(){
+        return new GetAllUsuarioCommand();
+    }
+
+    public static GetUsuarioByListCommand createGetUsuarioByListCommand(DBHandler handler) {
+        return new GetUsuarioByListCommand(handler);
+    }
+
+    /*public static GetUsuarioByCorreoCommand createGetUsuarioByCorreoCommand(User user, DBHandler handler) {
         return new GetUserByEmailCommand(user, handler);
+    }*/
+
+
+    public static AddUsuarioCommand createAddUsuarioCommand(Usuario usuario, DBHandler handler) {
+        return new AddUsuarioCommand(usuario, handler);
     }
 
-    public static GetUserByIdCommand createGetUserByIdCommand (DBHandler handler, long userId )
-    {
-        return new GetUserByIdCommand(handler, userId);
+    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
+        return new AddUsuarioCommand(user);
+    }*/
+
+    public static CreateUsuarioCommand createCreateUsuarioCommand(Usuario usuario) {
+        return new CreateUsuarioCommand(usuario);
     }
 
-    public static AddUserCommand createAddUserCommand(User user, DBHandler handler)
-    {
-        return new AddUserCommand(user, handler);
+    public static DeleteUsuarioCommand createDeleteUsuarioCommand(Usuario usuario) {
+        return new DeleteUsuarioCommand(usuario);
     }
 
-    public static AddUserCommand createAddUserCommand(User user)
-    {
-        return new AddUserCommand(user);
+    public static EraseUsuarioCommand createEraseUsuarioCommand(Usuario usuario, DBHandler handler) {
+        return new EraseUsuarioCommand(usuario, handler);
     }
 
-    public static CreateUserCommand createCreateUserCommand(User user)
-    {
-        return new CreateUserCommand(user);
+    public static UpdateUsuarioCommand createUpdateUsuarioCommand(Usuario usuario){
+        return new UpdateUsuarioCommand(usuario);
     }
+
+    public static ModifyUsuarioCommand createModifyUsuarioCommand(Usuario usuario, DBHandler handler){
+        return new ModifyUsuarioCommand(usuario, handler);
+    }
+
+    //public static UpdateUsuarioCommand - composite - primero
+
+    // public static ModifyUsuarioCommand - atomic - este es el del handler
+
 }

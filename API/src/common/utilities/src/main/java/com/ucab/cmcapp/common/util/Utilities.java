@@ -6,25 +6,20 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Utilities
-{
+public class Utilities {
 
-    private static Logger _logger = LoggerFactory.getLogger( Utilities.class );
+    private static Logger _logger = LoggerFactory.getLogger(Utilities.class);
 
-    public JSONObject jsonToObject(String json)
-    {
-        _logger.debug( "Get in Utilities.jsonToObject" );
+    public JSONObject jsonToObject(String json) {
+        _logger.debug("Get in Utilities.jsonToObject");
         JSONObject obj = null;
-        try
-        {
+        try {
             obj = new JSONObject(json);
+        } catch (JSONException ex) {
+            _logger.error(String.format("Error: ", ex.getMessage()));
+            throw new ConvertObjectToJsonException(ex.getMessage());
         }
-        catch (JSONException ex)
-        {
-            _logger.error( String.format("Error: ", ex.getMessage()) );
-            throw new ConvertObjectToJsonException( ex.getMessage());
-        }
-        _logger.debug( "Leavin Utilities.jsonToObject" );
+        _logger.debug("Leavin Utilities.jsonToObject");
         return obj;
     }
 }
