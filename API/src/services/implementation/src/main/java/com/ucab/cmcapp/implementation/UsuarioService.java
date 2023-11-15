@@ -5,9 +5,10 @@ import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCorreoCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByAliasCommand;
-import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCedulaCommand;
-import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByMacCommand;
-import com.ucab.cmcapp.logic.commands.usuario.composite.*;
+import com.ucab.cmcapp.logic.commands.usuario.composite.DeleteUsuarioCommand;
+import com.ucab.cmcapp.logic.commands.usuario.composite.CreateUsuarioCommand;
+import com.ucab.cmcapp.logic.commands.usuario.composite.GetUsuarioCommand;
+import com.ucab.cmcapp.logic.commands.usuario.composite.UpdateUsuarioCommand;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
@@ -16,9 +17,8 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
-@Path("/usuario")
+@Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UsuarioService extends BaseService {
@@ -26,7 +26,7 @@ public class UsuarioService extends BaseService {
 
     @GET
     @Path("/{id}")
-    public Response getUsuario(@PathParam("id") long userId) {
+    public Response getUser(@PathParam("id") long userId) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         GetUsuarioCommand command = null;
@@ -39,149 +39,72 @@ public class UsuarioService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El ID " + userId + " de usuario no existe en la BBDD ")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No user found for id " + userId)).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno en la ruta ID " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error getUser with id " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + userId + " del usuario ha sido encontrado correctamente")).build();
-    }
-
-    @GET
-    @Path("/todos")
-    public Response getAllUsuario() {
-        List <UsuarioDto> responseDTO = null;
-        GetAllUsuarioCommand command = null;
-
-        try {
-            command = CommandFactory.createGetAllUsuarioCommand();
-            command.execute();
-            responseDTO = UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
-
-            if (responseDTO.size() == 0) {
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia")).build();
-            }
-
-        } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno al ejecutar la ruta todos: " + e.getMessage())).build();
-        } finally {
-            if (command != null)
-                command.closeHandlerSession();
-        }
-
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Los usuarios se han obtenido correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "User for id " + userId + " found correctly")).build();
     }
 
 
     @GET
     @Path("correo/{correo}")
-    public Response getUsuarioByCorreo(@PathParam("correo") String correo) {
+    public Response getUserByEmail(@PathParam("correo") String correo) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         GetUsuarioByCorreoCommand command = null;
 
         try {
-            entity = UsuarioMapper.mapDtoToEntityCorreo(correo);
+            entity = UsuarioMapper.mapDtoToEntityEmail(correo);
             command = CommandFactory.createGetUsuarioByCorreoCommand(entity);
             command.execute();
 
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El correo " + correo + " no ha sido encontrado en la BBDD")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No user found for email " + correo)).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al obtener el correo: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error getUser with email: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL correo " + correo + " del usuario ha sido encontrado exitosamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "User for email " + correo + " found correctly")).build();
     }
 
     @GET
     @Path("alias/{alias}")
-    public Response getUsuarioByAlias(@PathParam("alias") String alias) {
+    public Response getUserByUsername(@PathParam("alias") String alias) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         GetUsuarioByAliasCommand command = null;
 
         try {
-            entity = UsuarioMapper.mapDtoToEntityAlias(alias);
+            entity = UsuarioMapper.mapDtoToEntityUsername(alias);
             command = CommandFactory.createGetUsuarioByAliasCommand(entity);
             command.execute();
 
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con el alias " + alias + " no existen en la BBDD")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No user found for username " + alias)).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta alias: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error getUser with username: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL usuario con el alias " + alias + " ha sido encontrado exitosamente")).build();
-    }
-
-    @GET
-    @Path("cedula/{cedula}")
-    public Response getUsuarioByCedula(@PathParam("cedula") String cedula) {
-        Usuario entity;
-        UsuarioDto responseDTO = null;
-        GetUsuarioByCedulaCommand command = null;
-
-        try {
-            entity = UsuarioMapper.mapDtoToEntityCedula(cedula);
-            command = CommandFactory.createGetUsuarioByCedulaCommand(entity);
-            command.execute();
-
-            if (command.getReturnParam() != null)
-                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con la cedula " + cedula + " no ha sido encontrada en la BBDD")).build();
-        } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta cedula: " + e.getMessage())).build();
-        } finally {
-            if (command != null)
-                command.closeHandlerSession();
-        }
-
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la cedula " + cedula + " ha sido encontrado exitosamente")).build();
-    }
-
-    @GET
-    @Path("mac/{mac}")
-    public Response getUsuarioByMac(@PathParam("mac") String mac) {
-        Usuario entity;
-        UsuarioDto responseDTO = null;
-        GetUsuarioByMacCommand command = null;
-
-        try {
-            entity = UsuarioMapper.mapDtoToEntityMac(mac);
-            command = CommandFactory.createGetUsuarioByMacCommand(entity);
-            command.execute();
-
-            if (command.getReturnParam() != null)
-                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con la MAC " + mac + " no existen en la BBDD")).build();
-        } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta MAC: " + e.getMessage())).build();
-        } finally {
-            if (command != null)
-                command.closeHandlerSession();
-        }
-
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL usuario con la MAC " + mac + " ha sido encontrado exitosamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "User for username " + alias + " found correctly")).build();
     }
 
     @POST
-    public Response addUsuario(UsuarioDto usuarioDto) {
+    public Response addUser(UsuarioDto usuarioDto) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         CreateUsuarioCommand command = null;
@@ -192,18 +115,18 @@ public class UsuarioService extends BaseService {
             command.execute();
             responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido creado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "User created correctly")).build();
     }
 
     @DELETE
     @Path("/{id}")
-    public Response deleteUsuario(@PathParam("id") long userId) {
+    public Response deleteUser(@PathParam("id") long userId) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         DeleteUsuarioCommand command = null;
@@ -216,22 +139,21 @@ public class UsuarioService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar el usuario con ese ID")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("Could not delete user")).build();
 
 
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido eliminado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "User eliminated correctly")).build();
     }
 
-
     @PUT
-    public Response updateUsuario(UsuarioDto usuarioDto) {
+    public Response updateUser(UsuarioDto usuarioDto) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         UpdateUsuarioCommand command = null;
@@ -242,13 +164,13 @@ public class UsuarioService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo editar el ID: " + usuarioDto.getId()) + " debido a que no existe en la base de datos").build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("Could not edit user with id: " + usuarioDto.getId())).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar el usuario: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Exception error in updateUser: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con el ID " + usuarioDto.getId() + " se actualizo correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "User with id " + usuarioDto.getId() + " modified correctly")).build();
     }
 }

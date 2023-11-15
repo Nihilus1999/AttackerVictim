@@ -70,10 +70,6 @@ public class Usuario {
         _id = id;
     }
 
-    public Usuario(String alias) {
-        _alias = alias;
-    }
-
     public long get_id() {
         return _id;
     }

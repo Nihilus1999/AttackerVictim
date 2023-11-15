@@ -12,10 +12,6 @@ public class EntityFactory {
         return new Usuario(id);
     }
 
-    public static Usuario createUsuario(String alias) {
-        return new Usuario(alias);
-    }
-
     public static TipoUsuario createTipoUsuario() {
         return new TipoUsuario();
     }

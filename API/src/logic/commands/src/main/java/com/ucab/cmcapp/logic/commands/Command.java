@@ -17,7 +17,7 @@ public abstract class Command<T> {
 
     public abstract void execute() throws IOException;
 
-    public abstract Object getReturnParam();
+    public abstract T getReturnParam();
 
     public abstract void closeHandlerSession();
 
