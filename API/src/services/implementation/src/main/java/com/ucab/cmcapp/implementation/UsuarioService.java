@@ -6,6 +6,7 @@ import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCorreoCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByAliasCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCedulaCommand;
+import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByMacCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
@@ -61,7 +62,7 @@ public class UsuarioService extends BaseService {
             responseDTO = UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
 
             if (responseDTO.size() == 0) {
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia ")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia")).build();
             }
 
         } catch (Exception e) {
@@ -118,7 +119,7 @@ public class UsuarioService extends BaseService {
             else
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con el alias " + alias + " no existen en la BBDD")).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta cedula: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta alias: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
@@ -142,9 +143,9 @@ public class UsuarioService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La cedula " + cedula + " no ha sido encontrada en la BBDD")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con la cedula " + cedula + " no ha sido encontrada en la BBDD")).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error getUser with username: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta cedula: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
@@ -153,26 +154,33 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la cedula " + cedula + " ha sido encontrado exitosamente")).build();
     }
 
-    @POST
-    public Response addUsuario(UsuarioDto usuarioDto) {
+    @GET
+    @Path("mac/{mac}")
+    public Response getUsuarioByMac(@PathParam("mac") String mac) {
         Usuario entity;
         UsuarioDto responseDTO = null;
-        CreateUsuarioCommand command = null;
+        GetUsuarioByMacCommand command = null;
 
         try {
-            entity = UsuarioMapper.mapDtoToEntity(usuarioDto);
-            command = CommandFactory.createCreateUsuarioCommand(entity);
+            entity = UsuarioMapper.mapDtoToEntityMac(mac);
+            command = CommandFactory.createGetUsuarioByMacCommand(entity);
             command.execute();
-            responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+
+            if (command.getReturnParam() != null)
+                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+            else
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con la MAC " + mac + " no ha sido encontrada en la BBDD")).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta cedula: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido creado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la MAC " + mac + " ha sido encontrado exitosamente")).build();
     }
+
+
 
     @DELETE
     @Path("/{id}")
@@ -202,33 +210,6 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido eliminado correctamente")).build();
     }
 
-    /*@DELETE
-    @Path("alias/{alias}")
-    public Response deleteUsuario2(@PathParam("alias") String alias) {
-        Usuario entity;
-        UsuarioDto responseDTO = null;
-        DeleteUsuarioCommand command = null;
-
-        try {
-            entity = UsuarioMapper.mapDtoToEntity(alias);
-            command = CommandFactory.createDeleteUsuarioCommand(entity);
-            command.execute();
-
-            if (command.getReturnParam() != null)
-                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("Could not delete user")).build();
-
-
-        } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, e.getMessage())).build();
-        } finally {
-            if (command != null)
-                command.closeHandlerSession();
-        }
-
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "User eliminated correctly")).build();
-    }*/
 
     @PUT
     public Response updateUsuario(UsuarioDto usuarioDto) {

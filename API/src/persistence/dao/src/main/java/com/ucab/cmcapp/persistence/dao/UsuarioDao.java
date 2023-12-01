@@ -94,4 +94,23 @@ public class UsuarioDao extends BaseDao<Usuario> {
         return result;
     }
 
+    public Usuario getUserByMac(String mac) {
+        Usuario result = EntityFactory.createUsuario();
+        try {
+            CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
+            Root<Usuario> root = query.from(Usuario.class);
+
+            query.select(root);
+            query.where(_builder.equal(root.get("_direccion_mac"), mac));
+
+            result = _em.createQuery(query).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception e) {
+            throw new CupraException(e.getMessage());
+        }
+
+        return result;
+    }
+
 }

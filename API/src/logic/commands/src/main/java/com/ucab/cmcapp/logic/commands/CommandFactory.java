@@ -1,12 +1,18 @@
 package com.ucab.cmcapp.logic.commands;
 
+import com.ucab.cmcapp.common.entities.Coordenada;
 import com.ucab.cmcapp.common.entities.Usuario;
+import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
+import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
 import com.ucab.cmcapp.persistence.DBHandler;
 
 public class CommandFactory {
 
+    //COMMAND DE USUARIO
+
+    // GET USUARIO
     public static GetUsuarioCommand createGetUsuarioCommand(Usuario usuario) {
         return new GetUsuarioCommand(usuario);
     }
@@ -27,6 +33,10 @@ public class CommandFactory {
         return new GetUsuarioByCedulaCommand(usuario);
     }
 
+    public static GetUsuarioByMacCommand createGetUsuarioByMacCommand(Usuario usuario){
+        return new GetUsuarioByMacCommand(usuario);
+    }
+
     public static GetAllUsuarioCommand createGetAllUsuarioCommand(){
         return new GetAllUsuarioCommand();
     }
@@ -39,7 +49,7 @@ public class CommandFactory {
         return new GetUserByEmailCommand(user, handler);
     }*/
 
-
+    //POST/AGREGAR USUARIO
     public static AddUsuarioCommand createAddUsuarioCommand(Usuario usuario, DBHandler handler) {
         return new AddUsuarioCommand(usuario, handler);
     }
@@ -52,6 +62,8 @@ public class CommandFactory {
         return new CreateUsuarioCommand(usuario);
     }
 
+    //DELETE USUARIO
+
     public static DeleteUsuarioCommand createDeleteUsuarioCommand(Usuario usuario) {
         return new DeleteUsuarioCommand(usuario);
     }
@@ -60,6 +72,7 @@ public class CommandFactory {
         return new EraseUsuarioCommand(usuario, handler);
     }
 
+    //UPDATE USUARIO
     public static UpdateUsuarioCommand createUpdateUsuarioCommand(Usuario usuario){
         return new UpdateUsuarioCommand(usuario);
     }
@@ -68,8 +81,59 @@ public class CommandFactory {
         return new ModifyUsuarioCommand(usuario, handler);
     }
 
-    //public static UpdateUsuarioCommand - composite - primero
 
-    // public static ModifyUsuarioCommand - atomic - este es el del handler
+    // COMMAND DE COORDENADA
+
+    // GET COORDENADA
+    public static GetCoordenadaCommand createGetCoordenadaCommand(Coordenada coordenada) {
+        return new GetCoordenadaCommand(coordenada);
+    }
+
+    public static GetCoordenadaByIdCommand createGetCoordenadaByIdCommand(DBHandler handler, long coordenadaId) {
+        return new GetCoordenadaByIdCommand(handler, coordenadaId);
+    }
+
+    public static GetAllCoordenadaCommand createGetAllCoordenadaCommand(){
+        return new GetAllCoordenadaCommand();
+    }
+
+    public static GetCoordenadaByListCommand createGetCoordenadaByListCommand(DBHandler handler) {
+        return new GetCoordenadaByListCommand(handler);
+    }
+
+
+    // POST/AGREGAR COORDENADA
+    public static AddCoordenadaCommand createAddCoordenadaCommand(Coordenada coordenada, DBHandler handler) {
+        return new AddCoordenadaCommand(coordenada, handler);
+    }
+
+    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
+        return new AddUsuarioCommand(user);
+    }*/
+
+    public static CreateCoordenadaCommand createCreateCoordenadaCommand(Coordenada coordenada) {
+        return new CreateCoordenadaCommand(coordenada);
+    }
+
+    //DELETE COORDENADA
+
+    public static DeleteCoordenadaCommand createDeleteCoordenadaCommand(Coordenada coordenada) {
+        return new DeleteCoordenadaCommand(coordenada);
+    }
+
+    public static EraseCoordenadaCommand createEraseCoordenadaCommand(Coordenada coordenada, DBHandler handler) {
+        return new EraseCoordenadaCommand(coordenada, handler);
+    }
+
+    //UPDATE COORDENADA
+    public static UpdateCoordenadaCommand createUpdateCoordenadaCommand(Coordenada coordenada){
+        return new UpdateCoordenadaCommand(coordenada);
+    }
+
+    public static ModifyCoordenadaCommand createModifyCoordenadaCommand(Coordenada coordenada, DBHandler handler){
+        return new ModifyCoordenadaCommand(coordenada, handler);
+    }
+
+
 
 }
