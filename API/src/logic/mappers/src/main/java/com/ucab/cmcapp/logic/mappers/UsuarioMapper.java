@@ -26,7 +26,7 @@ public class UsuarioMapper extends BaseMapper {
         entity.set_direccion_mac(dto.get_direccion_mac());
 
         if (Objects.nonNull(dto.get_userType())) {
-            entity.set_userType(TipoUsuarioMapper.mapDtoToEntity(dto.get_userType()));
+            entity.set_tipoUsuario(TipoUsuarioMapper.mapDtoToEntity(dto.get_userType()));
         }
 
         return entity;
@@ -44,8 +44,8 @@ public class UsuarioMapper extends BaseMapper {
         dto.set_correo(entity.get_correo());
         dto.set_direccion_mac(entity.get_direccion_mac());
 
-        if (Objects.nonNull(entity.get_userType()))
-            dto.set_userType(TipoUsuarioMapper.mapEntityToDto(entity.get_userType()));
+        if (Objects.nonNull(entity.get_tipoUsuario()))
+            dto.set_userType(TipoUsuarioMapper.mapEntityToDto(entity.get_tipoUsuario()));
 
         return dto;
     }
@@ -70,19 +70,13 @@ public class UsuarioMapper extends BaseMapper {
             usuarioDto.set_correo(usuario.get_correo());
             usuarioDto.set_direccion_mac(usuario.get_direccion_mac());
 
-            if (Objects.nonNull(usuario.get_userType()))
-                usuarioDto.set_userType(TipoUsuarioMapper.mapEntityToDto(usuario.get_userType()));
+            if (Objects.nonNull(usuario.get_tipoUsuario()))
+                usuarioDto.set_userType(TipoUsuarioMapper.mapEntityToDto(usuario.get_tipoUsuario()));
 
             dtoList.add(usuarioDto);
         }
 
         return dtoList;
-    }
-
-    public static Usuario mapDtoToEntity(String alias) {
-        Usuario entity = EntityFactory.createUsuario(alias);
-        entity.set_alias(alias);
-        return entity;
     }
 
     public static Usuario mapDtoToEntityCorreo(String email) {
@@ -103,7 +97,11 @@ public class UsuarioMapper extends BaseMapper {
         return entity;
     }
 
+<<<<<<< Updated upstream
     public static Usuario mapDtoToEntityMac(String mac){
+=======
+    public static Usuario mapDtoToEntityMac(String mac) {
+>>>>>>> Stashed changes
         Usuario entity = EntityFactory.createUsuario();
         entity.set_direccion_mac(mac);
         return entity;

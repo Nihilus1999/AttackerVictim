@@ -156,7 +156,11 @@ public class UsuarioService extends BaseService {
 
     @GET
     @Path("mac/{mac}")
+<<<<<<< Updated upstream
     public Response getUsuarioByMac(@PathParam("mac") String mac) {
+=======
+    public Response getUsuarioByMAC(@PathParam("mac") String mac) {
+>>>>>>> Stashed changes
         Usuario entity;
         UsuarioDto responseDTO = null;
         GetUsuarioByMacCommand command = null;
@@ -169,15 +173,25 @@ public class UsuarioService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
+<<<<<<< Updated upstream
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con la MAC " + mac + " no existen en la BBDD")).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta MAC: " + e.getMessage())).build();
+=======
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La mac " + mac + " no ha sido encontrada en la BBDD")).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error getUser with username: " + e.getMessage())).build();
+>>>>>>> Stashed changes
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
+<<<<<<< Updated upstream
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL usuario con la MAC " + mac + " ha sido encontrado exitosamente")).build();
+=======
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la mac " + mac + " ha sido encontrado exitosamente")).build();
+>>>>>>> Stashed changes
     }
 
     @POST

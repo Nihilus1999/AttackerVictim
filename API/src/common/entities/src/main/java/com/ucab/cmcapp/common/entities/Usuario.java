@@ -48,7 +48,7 @@ public class Usuario {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_type_id", nullable = false)
+    @JoinColumn(name = "id_TipoUsuario", nullable = false)
     private TipoUsuario _tipoUsuario;
 
 
@@ -138,11 +138,12 @@ public class Usuario {
         this._password = _password;
     }
 
-    public TipoUsuario get_userType() {
+    public TipoUsuario get_tipoUsuario() {
         return _tipoUsuario;
     }
 
-    public void set_userType(TipoUsuario _tipoUsuario) {
+    public void set_tipoUsuario(TipoUsuario _tipoUsuario) {
         this._tipoUsuario = _tipoUsuario;
     }
+
 }
