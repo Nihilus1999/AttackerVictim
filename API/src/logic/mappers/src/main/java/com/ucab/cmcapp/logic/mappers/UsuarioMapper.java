@@ -97,11 +97,9 @@ public class UsuarioMapper extends BaseMapper {
         return entity;
     }
 
-<<<<<<< Updated upstream
-    public static Usuario mapDtoToEntityMac(String mac){
-=======
+
     public static Usuario mapDtoToEntityMac(String mac) {
->>>>>>> Stashed changes
+
         Usuario entity = EntityFactory.createUsuario();
         entity.set_direccion_mac(mac);
         return entity;
