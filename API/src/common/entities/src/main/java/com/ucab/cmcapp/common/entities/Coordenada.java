@@ -17,6 +17,10 @@ public class Coordenada {
     @Column(name = "longitud", nullable = false)
     private float _longitud;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn( name = "id_zona_segura", nullable = false )
+    private Zona_Segura _zona_segura;
+
     public Coordenada() {
 
     }
@@ -52,5 +56,13 @@ public class Coordenada {
 
     public void set_longitud(float _longitud) {
         this._longitud = _longitud;
+    }
+
+    public Zona_Segura get_zona_segura() {
+        return _zona_segura;
+    }
+
+    public void set_zona_segura(Zona_Segura _zona_segura) {
+        this._zona_segura = _zona_segura;
     }
 }

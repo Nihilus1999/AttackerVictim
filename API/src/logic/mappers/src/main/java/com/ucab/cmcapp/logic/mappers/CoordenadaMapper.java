@@ -23,6 +23,11 @@ public class CoordenadaMapper extends BaseMapper {
         entity.set_latitud(dto.get_latitud());
         entity.set_longitud(dto.get_longitud());
 
+
+        if ( Objects.nonNull( dto.get_zona_segura() ) ) {
+            entity.set_zona_segura( Zona_SeguraMapper.mapDtoToEntity( dto.get_zona_segura() ) );
+        }
+
         return entity;
     }
 
@@ -33,6 +38,9 @@ public class CoordenadaMapper extends BaseMapper {
         dto.setId(entity.get_id());
         dto.set_latitud(entity.get_latitud());
         dto.set_longitud(entity.get_longitud());
+
+        if ( Objects.nonNull( entity.get_zona_segura() ) )
+            dto.set_zona_segura( Zona_SeguraMapper.mapEntityToDto( entity.get_zona_segura() ) );
 
         return dto;
     }
@@ -52,6 +60,9 @@ public class CoordenadaMapper extends BaseMapper {
             coordenadaDto.setId(coordenada.get_id());
             coordenadaDto.set_latitud(coordenada.get_latitud());
             coordenadaDto.set_longitud(coordenada.get_longitud());
+
+            if ( Objects.nonNull( coordenada.get_zona_segura() ) )
+                coordenadaDto.set_zona_segura( Zona_SeguraMapper.mapEntityToDto( coordenada.get_zona_segura() ) );
 
             dtoList.add(coordenadaDto);
         }
