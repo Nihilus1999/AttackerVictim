@@ -9,7 +9,7 @@ public class UsuarioDto extends BaseDto {
     private String _cedula;
     private String _correo;
     private String _direccion_mac;
-    private TipoUsuarioDto _userType;
+    private Boolean _activate;
 
 
     public UsuarioDto() {
@@ -68,11 +68,11 @@ public class UsuarioDto extends BaseDto {
         this._direccion_mac = _direccion_mac;
     }
 
-    public TipoUsuarioDto get_userType() {
-        return _userType;
+    public Boolean get_activate() {
+        return _activate;
     }
 
-    public void set_userType(TipoUsuarioDto _userType) {
-        this._userType = _userType;
+    public void set_activate(Boolean _activate) {
+        this._activate = _activate;
     }
 }

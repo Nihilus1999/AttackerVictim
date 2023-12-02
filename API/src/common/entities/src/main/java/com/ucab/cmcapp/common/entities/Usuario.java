@@ -47,9 +47,8 @@ public class Usuario {
     private Date _createAt;*/
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_TipoUsuario", nullable = false)
-    private TipoUsuario _tipoUsuario;
+    @Column(name = "activate", nullable = false)
+    private Boolean _activate;
 
 
     public Usuario() {
@@ -63,7 +62,6 @@ public class Usuario {
         _cedula = usuario._cedula;
         _correo = usuario._correo;
         _direccion_mac = usuario._direccion_mac;
-        _tipoUsuario = usuario._tipoUsuario;
     }
 
     public Usuario(long id) {
@@ -138,12 +136,11 @@ public class Usuario {
         this._password = _password;
     }
 
-    public TipoUsuario get_tipoUsuario() {
-        return _tipoUsuario;
+    public Boolean get_activate() {
+        return _activate;
     }
 
-    public void set_tipoUsuario(TipoUsuario _tipoUsuario) {
-        this._tipoUsuario = _tipoUsuario;
+    public void set_activate(Boolean _activate) {
+        this._activate = _activate;
     }
-
 }

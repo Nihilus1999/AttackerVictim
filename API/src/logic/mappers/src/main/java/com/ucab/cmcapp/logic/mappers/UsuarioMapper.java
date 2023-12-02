@@ -24,10 +24,7 @@ public class UsuarioMapper extends BaseMapper {
         entity.set_cedula(dto.get_cedula());
         entity.set_correo(dto.get_correo());
         entity.set_direccion_mac(dto.get_direccion_mac());
-
-        if (Objects.nonNull(dto.get_userType())) {
-            entity.set_tipoUsuario(TipoUsuarioMapper.mapDtoToEntity(dto.get_userType()));
-        }
+        entity.set_activate(dto.get_activate());
 
         return entity;
     }
@@ -43,9 +40,7 @@ public class UsuarioMapper extends BaseMapper {
         dto.set_cedula(entity.get_cedula());
         dto.set_correo(entity.get_correo());
         dto.set_direccion_mac(entity.get_direccion_mac());
-
-        if (Objects.nonNull(entity.get_tipoUsuario()))
-            dto.set_userType(TipoUsuarioMapper.mapEntityToDto(entity.get_tipoUsuario()));
+        dto.set_activate(entity.get_activate());
 
         return dto;
     }
@@ -69,9 +64,8 @@ public class UsuarioMapper extends BaseMapper {
             usuarioDto.set_cedula(usuario.get_cedula());
             usuarioDto.set_correo(usuario.get_correo());
             usuarioDto.set_direccion_mac(usuario.get_direccion_mac());
+            usuarioDto.set_activate(usuario.get_activate());
 
-            if (Objects.nonNull(usuario.get_tipoUsuario()))
-                usuarioDto.set_userType(TipoUsuarioMapper.mapEntityToDto(usuario.get_tipoUsuario()));
 
             dtoList.add(usuarioDto);
         }

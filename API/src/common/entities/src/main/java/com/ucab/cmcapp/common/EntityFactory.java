@@ -5,13 +5,6 @@ import com.ucab.cmcapp.common.entities.*;
 public class EntityFactory {
 
     //TipoUsuario
-    public static TipoUsuario createTipoUsuario() {
-        return new TipoUsuario();
-    }
-
-    public static TipoUsuario createTipoUsuario(long id) {
-        return new TipoUsuario(id);
-    }
 
 
     //Usuario

@@ -22,20 +22,20 @@ public class CoordenadaService extends BaseService {
 
     @GET
     @Path("/{id}")
-    public Response getCoordenada(@PathParam("id") long userId) {
+    public Response getCoordenada(@PathParam("id") long coordenadaId) {
         Coordenada entity;
         CoordenadaDto responseDTO = null;
         GetCoordenadaCommand command = null;
 
         try {
-            entity = CoordenadaMapper.mapDtoToEntity(userId);
+            entity = CoordenadaMapper.mapDtoToEntity(coordenadaId);
             command = CommandFactory.createGetCoordenadaCommand(entity);
             command.execute();
 
             if (command.getReturnParam() != null)
                 responseDTO = CoordenadaMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El ID " + userId + " de usuario no existe en la BBDD ")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El ID " + coordenadaId + " de coordenada no existe en la BBDD ")).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno en la ruta ID " + e.getMessage())).build();
         } finally {
@@ -43,12 +43,12 @@ public class CoordenadaService extends BaseService {
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + userId + " del usuario ha sido encontrado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + coordenadaId + " de la coordenada ha sido encontrado correctamente")).build();
     }
 
     @GET
     @Path("/todos")
-    public Response getAllUsuario() {
+    public Response getAllCoordenada() {
         List <CoordenadaDto> responseDTO = null;
         GetAllCoordenadaCommand command = null;
 
@@ -68,11 +68,11 @@ public class CoordenadaService extends BaseService {
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Los usuarios se han obtenido correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Las coordenadas se han obtenido correctamente")).build();
     }
 
     @POST
-    public Response addUsuario(CoordenadaDto coordenadaDto) {
+    public Response addCoordenada(CoordenadaDto coordenadaDto) {
         Coordenada entity;
         CoordenadaDto responseDTO = null;
         CreateCoordenadaCommand command = null;
@@ -83,18 +83,18 @@ public class CoordenadaService extends BaseService {
             command.execute();
             responseDTO = CoordenadaMapper.mapEntityToDto(command.getReturnParam());
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de registrar una coordenada", e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido creado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La coordenada ha sido creado correctamente")).build();
     }
 
     @DELETE
     @Path("/{id}")
-    public Response deleteUsuario(@PathParam("id") long userId) {
+    public Response deleteCoordenada(@PathParam("id") long userId) {
         Coordenada entity;
         CoordenadaDto responseDTO = null;
         DeleteCoordenadaCommand command = null;
@@ -107,7 +107,7 @@ public class CoordenadaService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = CoordenadaMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar el usuario con ese ID")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar la coordenada con ese ID")).build();
 
 
         } catch (Exception e) {
@@ -117,7 +117,7 @@ public class CoordenadaService extends BaseService {
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido eliminado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La coordenada ha sido eliminado correctamente")).build();
     }
 
     @PUT
@@ -134,11 +134,11 @@ public class CoordenadaService extends BaseService {
             else
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo editar el ID: " + CoordenadaDto.getId()) + " debido a que no existe en la base de datos").build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar el usuario: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar la coordenada: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con el ID " + CoordenadaDto.getId() + " se actualizo correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La coordenada con el ID " + CoordenadaDto.getId() + " se actualizo correctamente")).build();
     }
 }

@@ -1,14 +1,18 @@
 package com.ucab.cmcapp.implementation;
 
+import com.ucab.cmcapp.common.entities.Coordenada;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
+import com.ucab.cmcapp.logic.commands.coordenada.composite.CreateCoordenadaCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCorreoCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByAliasCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCedulaCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByMacCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
+import com.ucab.cmcapp.logic.dtos.CoordenadaDto;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
+import com.ucab.cmcapp.logic.mappers.CoordenadaMapper;
 import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -178,6 +182,27 @@ public class UsuarioService extends BaseService {
         }
 
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la MAC " + mac + " ha sido encontrado exitosamente")).build();
+    }
+
+    @POST
+    public Response addUsuario(UsuarioDto usuarioDto) {
+        Usuario entity;
+        UsuarioDto responseDTO = null;
+        CreateUsuarioCommand command = null;
+
+        try {
+            entity = UsuarioMapper.mapDtoToEntity(usuarioDto);
+            command = CommandFactory.createCreateUsuarioCommand(entity);
+            command.execute();
+            responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
+        } finally {
+            if (command != null)
+                command.closeHandlerSession();
+        }
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido creado correctamente")).build();
     }
 
 
