@@ -47,7 +47,7 @@ public class Usuario {
     private Date _createAt;*/
 
 
-    @Column(name = "activate", nullable = false)
+    @Column(name = "activate", nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private Boolean _activate;
 
 

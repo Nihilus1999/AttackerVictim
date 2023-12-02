@@ -7,6 +7,8 @@
         <non-jta-data-source>java:/AttackerVictim_DS</non-jta-data-source>
         <class>com.ucab.cmcapp.common.entities.Usuario</class>
         <class>com.ucab.cmcapp.common.entities.Coordenada</class>
+        <class>com.ucab.cmcapp.common.entities.Historico_Usuario</class>
+        <class>com.ucab.cmcapp.common.entities.Zona_Segura</class>
 
         <properties>
             <property name="hibernate.generate_statistics" value="true"/>

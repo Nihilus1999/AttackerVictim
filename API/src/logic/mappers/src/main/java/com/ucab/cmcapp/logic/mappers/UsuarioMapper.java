@@ -66,7 +66,6 @@ public class UsuarioMapper extends BaseMapper {
             usuarioDto.set_direccion_mac(usuario.get_direccion_mac());
             usuarioDto.set_activate(usuario.get_activate());
 
-
             dtoList.add(usuarioDto);
         }
 
