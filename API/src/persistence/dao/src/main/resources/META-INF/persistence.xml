@@ -9,6 +9,8 @@
         <class>com.ucab.cmcapp.common.entities.Coordenada</class>
         <class>com.ucab.cmcapp.common.entities.Historico_Usuario</class>
         <class>com.ucab.cmcapp.common.entities.Zona_Segura</class>
+        <class>com.ucab.cmcapp.common.entities.Usuario_Victima</class>
+        <class>com.ucab.cmcapp.common.entities.Usuario_Atacante</class>
 
         <properties>
             <property name="hibernate.generate_statistics" value="true"/>

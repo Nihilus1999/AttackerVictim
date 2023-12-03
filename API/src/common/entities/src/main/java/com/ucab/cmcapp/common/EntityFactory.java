@@ -4,10 +4,8 @@ import com.ucab.cmcapp.common.entities.*;
 
 public class EntityFactory {
 
-    //TipoUsuario
 
-
-    //Usuario
+    //USUARIO
     public static Usuario createUsuario() {
         return new Usuario();
     }
@@ -15,7 +13,8 @@ public class EntityFactory {
         return new Usuario(id);
     }
 
-    //Historico_Usuario
+
+    //HISTORICO_USUARIO
 
     public static Historico_Usuario createHistorico_Usuario() {
         return new Historico_Usuario();
@@ -25,7 +24,26 @@ public class EntityFactory {
     }
 
 
-    //Zona Segura
+    //USUARIO_VICTIMA
+
+    public static Usuario_Victima createUsuario_Victima() {
+        return new Usuario_Victima();
+    }
+    public static Usuario_Victima createUsuario_Victima(long id) {
+        return new Usuario_Victima(id);
+    }
+
+
+    //USUARIO_ATACANTE
+
+    public static Usuario_Atacante createUsuario_Atacante() {
+        return new Usuario_Atacante();
+    }
+    public static Usuario_Atacante createUsuario_Atacante(long id) {
+        return new Usuario_Atacante(id);
+    }
+
+    //ZONA_SEGURA
     public static Zona_Segura createZona_Segura() {
         return new Zona_Segura();
     }
@@ -34,7 +52,7 @@ public class EntityFactory {
     }
 
 
-    //Coordenada
+    //COORDENADAS
     public static Coordenada createCoordenada() {
         return new Coordenada();
     }

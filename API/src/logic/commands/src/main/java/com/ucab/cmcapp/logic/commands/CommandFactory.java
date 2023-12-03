@@ -1,15 +1,16 @@
 package com.ucab.cmcapp.logic.commands;
 
-import com.ucab.cmcapp.common.entities.Coordenada;
-import com.ucab.cmcapp.common.entities.Historico_Usuario;
-import com.ucab.cmcapp.common.entities.Usuario;
-import com.ucab.cmcapp.common.entities.Zona_Segura;
+import com.ucab.cmcapp.common.entities.*;
 import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
+import com.ucab.cmcapp.logic.commands.usuario_atacante.atomic.*;
+import com.ucab.cmcapp.logic.commands.usuario_atacante.composite.*;
+import com.ucab.cmcapp.logic.commands.usuario_victima.atomic.*;
+import com.ucab.cmcapp.logic.commands.usuario_victima.composite.*;
 import com.ucab.cmcapp.logic.commands.zona_segura.atomic.*;
 import com.ucab.cmcapp.logic.commands.zona_segura.composite.*;
 import com.ucab.cmcapp.persistence.DBHandler;
@@ -138,6 +139,112 @@ public class CommandFactory {
 
     public static ModifyHistoricoCommand createModifyHistorico_UsuarioCommand(Historico_Usuario historicoUsuario, DBHandler handler){
         return new ModifyHistoricoCommand(historicoUsuario, handler);
+    }
+
+
+
+    // COMMAND DE USUARIO_VICTIMA
+
+    // GET USUARIO_VICTIMA
+    public static GetVictimaCommand createGetUsuario_VictimaCommand(Usuario_Victima usuarioVictima) {
+        return new GetVictimaCommand(usuarioVictima);
+    }
+
+    public static GetVictimaByIdCommand createGetUsuario_VictimaByIdCommand(DBHandler handler, long victimaId) {
+        return new GetVictimaByIdCommand(handler, victimaId);
+    }
+
+    public static GetAllVictimaCommand createGetAllUsuario_VictimaCommand(){
+        return new GetAllVictimaCommand();
+    }
+
+    public static GetVictimaByListCommand createGetUsuario_VictimaByListCommand(DBHandler handler) {
+        return new GetVictimaByListCommand(handler);
+    }
+
+
+    // POST/AGREGAR USUARIO_VICTIMA
+    public static AddVictimaCommand createAddUsuario_VictimaCommand(Usuario_Victima usuarioVictima, DBHandler handler) {
+        return new AddVictimaCommand(usuarioVictima, handler);
+    }
+
+    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
+        return new AddUsuarioCommand(user);
+    }*/
+
+    public static CreateVictimaCommand createCreateUsuario_VictimaCommand(Usuario_Victima usuarioVictima) {
+        return new CreateVictimaCommand(usuarioVictima);
+    }
+
+    //DELETE USUARIO_VICTIMA
+
+    public static DeleteVictimaCommand createDeleteUsuario_VictimaCommand(Usuario_Victima usuarioVictima) {
+        return new DeleteVictimaCommand(usuarioVictima);
+    }
+
+    public static EraseVictimaCommand createEraseUsuario_VictimaCommand(Usuario_Victima usuarioVictima, DBHandler handler) {
+        return new EraseVictimaCommand(usuarioVictima, handler);
+    }
+
+    //UPDATE USUARIO_VICTIMA
+    public static UpdateVictimaCommand createUpdateUsuario_VictimaCommand(Usuario_Victima usuarioVictima){
+        return new UpdateVictimaCommand(usuarioVictima);
+    }
+
+    public static ModifyVictimaCommand createModifyUsuario_VictimaCommand(Usuario_Victima usuarioVictima, DBHandler handler){
+        return new ModifyVictimaCommand(usuarioVictima, handler);
+    }
+
+    // COMMAND DE USUARIO_ATACANTE
+
+    // GET USUARIO_ATACANTE
+    public static GetAtacanteCommand createGetUsuario_AtacanteCommand(Usuario_Atacante usuarioAtacante) {
+        return new GetAtacanteCommand(usuarioAtacante);
+    }
+
+    public static GetAtacanteByIdCommand createGetUsuario_AtacanteByIdCommand(DBHandler handler, long atacanteId) {
+        return new GetAtacanteByIdCommand(handler, atacanteId);
+    }
+
+    public static GetAllAtacanteCommand createGetAllUsuario_AtacanteCommand(){
+        return new GetAllAtacanteCommand();
+    }
+
+    public static GetAtacanteByListCommand createGetUsuario_AtacanteByListCommand(DBHandler handler) {
+        return new GetAtacanteByListCommand(handler);
+    }
+
+
+    // POST/AGREGAR USUARIO_ATACANTE
+    public static AddAtacanteCommand createAddUsuario_AtacanteCommand(Usuario_Atacante usuarioAtacante, DBHandler handler) {
+        return new AddAtacanteCommand(usuarioAtacante, handler);
+    }
+
+    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
+        return new AddUsuarioCommand(user);
+    }*/
+
+    public static CreateAtacanteCommand createCreateUsuario_AtacanteCommand(Usuario_Atacante usuarioAtacante) {
+        return new CreateAtacanteCommand(usuarioAtacante);
+    }
+
+    //DELETE USUARIO_ATACANTE
+
+    public static DeleteAtacanteCommand createDeleteUsuario_AtacanteCommand(Usuario_Atacante usuarioAtacante) {
+        return new DeleteAtacanteCommand(usuarioAtacante);
+    }
+
+    public static EraseAtacanteCommand createEraseUsuario_AtacanteCommand(Usuario_Atacante usuarioAtacante, DBHandler handler) {
+        return new EraseAtacanteCommand(usuarioAtacante, handler);
+    }
+
+    //UPDATE USUARIO_ATACANTE
+    public static UpdateAtacanteCommand createUpdateUsuario_AtacanteCommand(Usuario_Atacante usuarioAtacante){
+        return new UpdateAtacanteCommand(usuarioAtacante);
+    }
+
+    public static ModifyAtacanteCommand createModifyUsuario_AtacanteCommand(Usuario_Atacante usuarioAtacante, DBHandler handler){
+        return new ModifyAtacanteCommand(usuarioAtacante, handler);
     }
 
 

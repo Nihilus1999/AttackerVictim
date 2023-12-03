@@ -1,5 +1,7 @@
 package com.ucab.cmcapp.persistence;
 
+import com.ucab.cmcapp.common.entities.Usuario_Atacante;
+import com.ucab.cmcapp.common.entities.Usuario_Victima;
 import com.ucab.cmcapp.persistence.dao.*;
 
 public class DaoFactory {
@@ -20,6 +22,14 @@ public class DaoFactory {
 
     public static Historico_UsuarioDao createHistorico_UsuarioDao(DBHandler handler) {
         return new Historico_UsuarioDao(handler);
+    }
+
+    public static Usuario_VictimaDao createUsuario_VictimaDao(DBHandler handler) {
+        return new Usuario_VictimaDao(handler);
+    }
+
+    public static Usuario_AtacanteDao createUsuario_AtacanteDao(DBHandler handler) {
+        return new Usuario_AtacanteDao(handler);
     }
 
 }
