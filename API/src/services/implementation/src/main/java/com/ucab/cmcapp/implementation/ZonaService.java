@@ -134,7 +134,7 @@ public class ZonaService extends BaseService {
             else
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo editar el ID: " + zonasSegurasDto.getId()) + " debido a que no existe en la base de datos").build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar la coordenada: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar la zona segura: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();

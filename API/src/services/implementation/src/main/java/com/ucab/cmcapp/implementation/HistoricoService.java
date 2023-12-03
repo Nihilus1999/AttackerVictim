@@ -98,13 +98,13 @@ public class HistoricoService extends BaseService {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteHistorico(@PathParam("id") long userId) {
+    public Response deleteHistorico(@PathParam("id") long historicoId) {
         Historico_Usuario entity;
         Historico_UsuarioDto responseDTO = null;
         DeleteHistoricoCommand command = null;
 
         try {
-            entity = Historico_UsuarioMapper.mapDtoToEntity(userId);
+            entity = Historico_UsuarioMapper.mapDtoToEntity(historicoId);
             command = CommandFactory.createDeleteHistorico_UsuarioCommand(entity);
             command.execute();
 
@@ -121,7 +121,7 @@ public class HistoricoService extends BaseService {
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La historico ha sido eliminado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El historico ha sido eliminado correctamente")).build();
     }
 
     @PUT
@@ -138,7 +138,7 @@ public class HistoricoService extends BaseService {
             else
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo editar el ID: " + historicoUsuarioDto.getId()) + " debido a que no existe en la base de datos").build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar la coordenada: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar el historico: " + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();

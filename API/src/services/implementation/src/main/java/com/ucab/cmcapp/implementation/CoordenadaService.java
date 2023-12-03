@@ -94,13 +94,13 @@ public class CoordenadaService extends BaseService {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteCoordenada(@PathParam("id") long userId) {
+    public Response deleteCoordenada(@PathParam("id") long coordenadaId) {
         Coordenada entity;
         CoordenadaDto responseDTO = null;
         DeleteCoordenadaCommand command = null;
 
         try {
-            entity = CoordenadaMapper.mapDtoToEntity(userId);
+            entity = CoordenadaMapper.mapDtoToEntity(coordenadaId);
             command = CommandFactory.createDeleteCoordenadaCommand(entity);
             command.execute();
 
@@ -111,7 +111,7 @@ public class CoordenadaService extends BaseService {
 
 
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear una coordenada", e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
