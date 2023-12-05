@@ -43,6 +43,15 @@ public class EntityFactory {
         return new Usuario_Atacante(id);
     }
 
+    //RELACION_VICTIMA-ATACANTE
+
+    public static Relacion_VA createRelacion_VA() {
+        return new Relacion_VA();
+    }
+    public static Relacion_VA createRelacion_VA(long id) {
+        return new Relacion_VA(id);
+    }
+
     //ZONA_SEGURA
     public static Zona_Segura createZona_Segura() {
         return new Zona_Segura();

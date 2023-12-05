@@ -48,14 +48,14 @@ public class Zona_SeguraMapper extends BaseMapper {
         List<Zona_SeguraDto> dtoList = new ArrayList<Zona_SeguraDto>();
         Zona_SeguraDto Zona_SeguraDto;
 
-        for (Zona_Segura historicoUsuario : entityList) {
+        for (Zona_Segura zonasSegura : entityList) {
 
             Zona_SeguraDto = new Zona_SeguraDto();
-            Zona_SeguraDto.setId(historicoUsuario.get_id());
-            Zona_SeguraDto.set_nombre(historicoUsuario.get_nombre());
+            Zona_SeguraDto.setId(zonasSegura.get_id());
+            Zona_SeguraDto.set_nombre(zonasSegura.get_nombre());
 
-            if (Objects.nonNull(historicoUsuario.get_usuario()))
-                Zona_SeguraDto.set_usuario(UsuarioMapper.mapEntityToDto(historicoUsuario.get_usuario()));
+            if (Objects.nonNull(zonasSegura.get_usuario()))
+                Zona_SeguraDto.set_usuario(UsuarioMapper.mapEntityToDto(zonasSegura.get_usuario()));
 
             dtoList.add(Zona_SeguraDto);
 

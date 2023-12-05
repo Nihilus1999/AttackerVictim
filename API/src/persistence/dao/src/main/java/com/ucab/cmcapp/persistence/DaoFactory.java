@@ -32,4 +32,8 @@ public class DaoFactory {
         return new Usuario_AtacanteDao(handler);
     }
 
+    public static Relacion_VADao createRelacion_VADao(DBHandler handler) {
+        return new Relacion_VADao(handler);
+    }
+
 }

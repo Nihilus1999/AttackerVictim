@@ -121,7 +121,7 @@ public class VictimaService extends BaseService {
     }
 
     @PUT
-    public Response updateHistorico(Usuario_VictimaDto usuarioVictimaDto) {
+    public Response updateVictima(Usuario_VictimaDto usuarioVictimaDto) {
         Usuario_Victima entity;
         Usuario_VictimaDto responseDTO = null;
         UpdateVictimaCommand command = null;

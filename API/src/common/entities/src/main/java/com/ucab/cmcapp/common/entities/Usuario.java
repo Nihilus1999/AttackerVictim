@@ -1,6 +1,5 @@
 package com.ucab.cmcapp.common.entities;
 
-
 import javax.persistence.*;
 
 
@@ -11,7 +10,7 @@ public class Usuario {
 
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id_usuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long _id;
 
@@ -47,7 +46,7 @@ public class Usuario {
     private Date _createAt;*/
 
 
-    @Column(name = "activate", nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
+    @Column(name = "activate", nullable = false, insertable = false, columnDefinition = "BOOLEAN DEFAULT true")
     private Boolean _activate;
 
 

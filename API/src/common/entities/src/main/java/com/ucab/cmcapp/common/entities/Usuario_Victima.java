@@ -2,11 +2,10 @@ package com.ucab.cmcapp.common.entities;
 
 
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Entity
-@Table(name = "usuario_victima")
+@Table(name = "usuario_victima", uniqueConstraints = @UniqueConstraint(columnNames = "id_usuario"))
 public class Usuario_Victima {
 
 
@@ -16,8 +15,9 @@ public class Usuario_Victima {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long _id;
 
+
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn( name = "id_usuario", nullable = false, unique = true)
+    @JoinColumn( name = "id_usuario")
     private Usuario _usuario;
 
 

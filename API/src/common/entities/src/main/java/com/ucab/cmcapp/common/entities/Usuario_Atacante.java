@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "usuario_atacante")
+@Table(name = "usuario_atacante", uniqueConstraints = @UniqueConstraint(columnNames = "id_usuario"))
 public class Usuario_Atacante {
 
 
@@ -15,8 +15,9 @@ public class Usuario_Atacante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long _id;
 
+
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn( name = "id_usuario", nullable = false, unique = true)
+    @JoinColumn( name = "id_usuario")
     private Usuario _usuario;
 
 

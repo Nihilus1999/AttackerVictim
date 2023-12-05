@@ -5,6 +5,8 @@ import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
+import com.ucab.cmcapp.logic.commands.relacion_VA.atomic.*;
+import com.ucab.cmcapp.logic.commands.relacion_VA.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario_atacante.atomic.*;
@@ -245,6 +247,60 @@ public class CommandFactory {
 
     public static ModifyAtacanteCommand createModifyUsuario_AtacanteCommand(Usuario_Atacante usuarioAtacante, DBHandler handler){
         return new ModifyAtacanteCommand(usuarioAtacante, handler);
+    }
+
+
+
+    // COMMAND DE RELACION_VICTIMA-ATACANTE
+
+    // GET RELACION_VICTIMA-ATACANTE
+    public static GetRelacionCommand createGetRelacion_VACommand(Relacion_VA usuarioRelacion) {
+        return new GetRelacionCommand(usuarioRelacion);
+    }
+
+    public static GetRelacionByIdCommand createGetRelacion_VAByIdCommand(DBHandler handler, long atacanteId) {
+        return new GetRelacionByIdCommand(handler, atacanteId);
+    }
+
+    public static GetAllRelacionCommand createGetAllRelacion_VACommand(){
+        return new GetAllRelacionCommand();
+    }
+
+    public static GetRelacionByListCommand createGetRelacion_VAByListCommand(DBHandler handler) {
+        return new GetRelacionByListCommand(handler);
+    }
+
+
+    // POST/AGREGAR RELACION_VICTIMA-ATACANTE
+    public static AddRelacionCommand createAddRelacion_VACommand(Relacion_VA usuarioRelacion, DBHandler handler) {
+        return new AddRelacionCommand(usuarioRelacion, handler);
+    }
+
+    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
+        return new AddUsuarioCommand(user);
+    }*/
+
+    public static CreateRelacionCommand createCreateRelacion_VACommand(Relacion_VA usuarioRelacion) {
+        return new CreateRelacionCommand(usuarioRelacion);
+    }
+
+    //DELETE RELACION_VICTIMA-ATACANTE
+
+    public static DeleteRelacionCommand createDeleteRelacion_VACommand(Relacion_VA usuarioRelacion) {
+        return new DeleteRelacionCommand(usuarioRelacion);
+    }
+
+    public static EraseRelacionCommand createEraseRelacion_VACommand(Relacion_VA usuarioRelacion, DBHandler handler) {
+        return new EraseRelacionCommand(usuarioRelacion, handler);
+    }
+
+    //UPDATE RELACION_VICTIMA-ATACANTE
+    public static UpdateRelacionCommand createUpdateRelacion_VACommand(Relacion_VA usuarioRelacion){
+        return new UpdateRelacionCommand(usuarioRelacion);
+    }
+
+    public static ModifyRelacionCommand createModifyRelacion_VACommand(Relacion_VA usuarioRelacion, DBHandler handler){
+        return new ModifyRelacionCommand(usuarioRelacion, handler);
     }
 
 

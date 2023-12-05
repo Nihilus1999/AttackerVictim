@@ -48,13 +48,13 @@ public class Usuario_AtacanteMapper extends BaseMapper {
         List<Usuario_AtacanteDto> dtoList = new ArrayList<Usuario_AtacanteDto>();
         Usuario_AtacanteDto Usuario_AtacanteDto;
 
-        for (Usuario_Atacante historicoUsuario : entityList) {
+        for (Usuario_Atacante atacanteUsuario : entityList) {
 
             Usuario_AtacanteDto = new Usuario_AtacanteDto();
-            Usuario_AtacanteDto.setId(historicoUsuario.get_id());
+            Usuario_AtacanteDto.setId(atacanteUsuario.get_id());
 
-            if (Objects.nonNull(historicoUsuario.get_usuario()))
-                Usuario_AtacanteDto.set_usuario(UsuarioMapper.mapEntityToDto(historicoUsuario.get_usuario()));
+            if (Objects.nonNull(atacanteUsuario.get_usuario()))
+                Usuario_AtacanteDto.set_usuario(UsuarioMapper.mapEntityToDto(atacanteUsuario.get_usuario()));
 
             dtoList.add(Usuario_AtacanteDto);
 
