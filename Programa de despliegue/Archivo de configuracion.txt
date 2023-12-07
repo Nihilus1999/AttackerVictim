@@ -1,0 +1,18 @@
+A) Como agregar la cuenta de ngrok por primera vez
+
+1. Abre el termina dentro de la carpeta "programa de despliegue", en el repositorio del proyecto AttackerVictim-GrupoC
+
+2. Ejecutar el siguiente comando:
+
+ngrok config add-authtoken 2WJkNn3PMl3DsISyQDnXbXGClBc_27hFj35JqvabFkSCc4UrR
+
+Nota: solo es necesario hacer este paso una sola vez
+
+
+B) Como Activar el ngrok en el terminal
+
+1. Abre el terminal dentro de la carpeta "programa de despliegue", en el repositorio del proyecto AttackerVictim-GrupoC
+
+2. Ejecuta el siguiente comando: ngrok http --domain=worm-finer-gar.ngrok-free.app 8080
+
+Nota: si estan usando otro puerto localhost, colocar el numero de ese puerto donde dice "8080"
