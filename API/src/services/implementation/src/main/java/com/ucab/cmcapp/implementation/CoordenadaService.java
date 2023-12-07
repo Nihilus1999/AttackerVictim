@@ -1,11 +1,16 @@
 package com.ucab.cmcapp.implementation;
 
 import com.ucab.cmcapp.common.entities.Coordenada;
+import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
+import com.ucab.cmcapp.logic.commands.coordenada.atomic.GetCoordenadaByZonaIdCommand;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
+import com.ucab.cmcapp.logic.commands.zona_segura.atomic.GetZonaByUsuarioIdCommand;
 import com.ucab.cmcapp.logic.dtos.CoordenadaDto;
+import com.ucab.cmcapp.logic.dtos.Zona_SeguraDto;
 import com.ucab.cmcapp.logic.mappers.CoordenadaMapper;
+import com.ucab.cmcapp.logic.mappers.Zona_SeguraMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,6 +74,32 @@ public class CoordenadaService extends BaseService {
         }
 
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Las coordenadas se han obtenido correctamente")).build();
+    }
+
+    @GET
+    @Path("zona_segura/{zona_id}")
+    public Response getAllZonasByUsuarioId(@PathParam("zona_id") long zonaId) {
+        Coordenada entity;
+        List<CoordenadaDto> responseDTO = null;
+        GetCoordenadaByZonaIdCommand command = null;
+
+        try {
+            entity = CoordenadaMapper.mapDtoToEntityZonaId(zonaId);
+            command = CommandFactory.createGetCoordenadaByZonaCommand(entity);
+            command.execute();
+
+            if (command.getReturnParam() != null)
+                responseDTO = CoordenadaMapper.mapEntityListToDtoList(command.getReturnParam());
+            else
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No hay coordenada asociada al ID " + zonaId + " de la zona segura")).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de ejecutar la ruta id zona" + e.getMessage())).build();
+        } finally {
+            if (command != null)
+                command.closeHandlerSession();
+        }
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La coordenadas de la zona segura con el ID " + zonaId + " se han obtenido correctamente")).build();
     }
 
     @POST

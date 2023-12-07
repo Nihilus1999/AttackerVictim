@@ -2,6 +2,8 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Historico_Usuario;
+import com.ucab.cmcapp.common.entities.Usuario;
+import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.logic.dtos.Historico_UsuarioDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,6 +74,13 @@ public class Historico_UsuarioMapper extends BaseMapper {
         }
 
         return dtoList;
+    }
+
+    public static Historico_Usuario mapDtoToEntityUsuarioId(long usuarioId){
+        Usuario usuario = new Usuario(usuarioId);
+        Historico_Usuario historico = EntityFactory.createHistorico_Usuario();
+        historico.set_usuario(usuario);
+        return historico;
     }
 
 }

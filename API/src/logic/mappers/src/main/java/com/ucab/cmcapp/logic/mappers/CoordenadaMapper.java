@@ -3,6 +3,7 @@ package com.ucab.cmcapp.logic.mappers;
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Coordenada;
 import com.ucab.cmcapp.common.entities.Usuario;
+import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.logic.dtos.CoordenadaDto;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import org.slf4j.Logger;
@@ -68,6 +69,13 @@ public class CoordenadaMapper extends BaseMapper {
         }
 
         return dtoList;
+    }
+
+    public static Coordenada mapDtoToEntityZonaId(long zonaId){
+        Zona_Segura zona = new Zona_Segura(zonaId);
+        Coordenada coordenada = EntityFactory.createCoordenada();
+        coordenada.set_zona_segura(zona);
+        return coordenada;
     }
 
 }

@@ -1,6 +1,8 @@
 package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
+import com.ucab.cmcapp.common.entities.Historico_Usuario;
+import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.logic.dtos.Zona_SeguraDto;
 import org.slf4j.Logger;
@@ -62,6 +64,13 @@ public class Zona_SeguraMapper extends BaseMapper {
         }
 
         return dtoList;
+    }
+
+    public static Zona_Segura mapDtoToEntityUsuarioId(long usuarioId){
+        Usuario usuario = new Usuario(usuarioId);
+        Zona_Segura zonaSegura = EntityFactory.createZona_Segura();
+        zonaSegura.set_usuario(usuario);
+        return zonaSegura;
     }
 
 }
