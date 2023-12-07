@@ -33,14 +33,14 @@ public class Zona_SeguraDao extends BaseDao<Zona_Segura> {
         _builder = _em.getCriteriaBuilder();
     }
 
-    public List<Zona_Segura> getAllZona_SeguraByUserId(Usuario userId) {
+    public List<Zona_Segura> getZonaByUsuarioId(Usuario usuarioId) {
         List<Zona_Segura> results;
         try {
             CriteriaQuery<Zona_Segura> query = _builder.createQuery(Zona_Segura.class);
             Root<Zona_Segura> root = query.from(Zona_Segura.class);
 
             query.select(root);
-            query.where(_builder.equal(root.get("_usuario"), userId));
+            query.where(_builder.equal(root.get("_usuario"), usuarioId));
 
             results = _em.createQuery(query).getResultList();
 

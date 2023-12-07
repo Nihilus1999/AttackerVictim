@@ -3,12 +3,13 @@ package com.ucab.cmcapp.implementation;
 import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
-import com.ucab.cmcapp.logic.commands.zona_segura.atomic.GetAllZonaByUsuarioIdCommand;
+import com.ucab.cmcapp.logic.commands.zona_segura.atomic.GetZonaByUsuarioIdCommand;
 import com.ucab.cmcapp.logic.commands.zona_segura.composite.*;
 import com.ucab.cmcapp.logic.dtos.Zona_SeguraDto;
 import com.ucab.cmcapp.logic.mappers.Zona_SeguraMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -71,30 +72,31 @@ public class ZonaService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos las zonas seguras se han obtenido correctamente")).build();
     }
 
+
     @GET
-    @Path("usuario/{user_id}")
-    public Response getAllSafeZonesByUserId(@PathParam("user_id") long userId) {
+    @Path("usuario/{usuario_id}")
+    public Response getAllZonasByUsuarioId(@PathParam("usuario_id") long usuarioId) {
         Zona_Segura entity;
         List<Zona_SeguraDto> responseDTO = null;
-        GetAllZonaByUsuarioIdCommand command = null;
+        GetZonaByUsuarioIdCommand command = null;
 
         try {
-            entity = Zona_SeguraMapper.mapDtoToEntityUsuarioId(userId);
+            entity = Zona_SeguraMapper.mapDtoToEntityUsuarioId(usuarioId);
             command = CommandFactory.createGetZona_SeguraByUsuarioCommand(entity);
             command.execute();
 
             if (command.getReturnParam() != null)
                 responseDTO = Zona_SeguraMapper.mapEntityListToDtoList(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("[OK EMPTY RESPONSE] No safe zones found for user_id: " + userId)).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No hay zona segura asociada al ID " + usuarioId + " del usuario")).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("[GENERAL EXCEPTION] at method getAllSafeZonesByUserId: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de ejecutar la ruta id usuario" + e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "[OK NORMAL RESPONSE] Successfully found all histories with user_id: " + userId)).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zonas seguras del usuario con el ID: " + usuarioId + " se han obtenido correctamente")).build();
     }
 
     @POST

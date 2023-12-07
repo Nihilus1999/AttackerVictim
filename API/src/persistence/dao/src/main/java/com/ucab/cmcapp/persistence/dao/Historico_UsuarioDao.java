@@ -13,6 +13,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 
 public class Historico_UsuarioDao extends BaseDao<Historico_Usuario> {
@@ -30,5 +31,29 @@ public class Historico_UsuarioDao extends BaseDao<Historico_Usuario> {
 
         _em = getDBHandler().getSession();
         _builder = _em.getCriteriaBuilder();
+    }
+
+    public List<Historico_Usuario> getAllHistoricoByUserId(Usuario userId) {
+        List<Historico_Usuario> results;
+        try {
+            CriteriaQuery<Historico_Usuario> query = _builder.createQuery(Historico_Usuario.class);
+            Root<Historico_Usuario> root = query.from(Historico_Usuario.class);
+
+            query.select(root);
+            query.where(_builder.equal(root.get("_usuario"), userId));
+
+            results = _em.createQuery(query).getResultList();
+
+            if (results.isEmpty()) // Retornar null en lugar de []
+                return null;
+
+        } catch (NoResultException e) {
+            //return Collections.emptyList();  // En caso de que quieras retornar []
+            return null;
+        } catch (Exception e) {
+            throw new CupraException(e.getMessage());
+        }
+
+        return results;
     }
 }

@@ -110,6 +110,10 @@ public class CommandFactory {
         return new GetHistoricoByListCommand(handler);
     }
 
+    public static GetHistoricoByUsuarioIdCommand createGetHistorico_UsuarioByUsuarioCommand(Historico_Usuario historico) {
+        return new GetHistoricoByUsuarioIdCommand(historico);
+    }
+
 
     // POST/AGREGAR HISTORICO_USUARIO
     public static AddHistoricoCommand createAddHistorico_UsuarioCommand(Historico_Usuario historicoUsuario, DBHandler handler) {
@@ -324,11 +328,9 @@ public class CommandFactory {
         return new GetZonaByListCommand(handler);
     }
 
-    public static GetAllZonaByUsuarioIdCommand createGetZona_SeguraByUsuarioCommand(Zona_Segura zonaSegura) {
-        return new GetAllZonaByUsuarioIdCommand(zonaSegura);
+    public static GetZonaByUsuarioIdCommand createGetZona_SeguraByUsuarioCommand(Zona_Segura zonaSegura) {
+        return new GetZonaByUsuarioIdCommand(zonaSegura);
     }
-
-
 
 
     // POST/AGREGAR ZONA_SEGURA
@@ -383,6 +385,10 @@ public class CommandFactory {
 
     public static GetCoordenadaByListCommand createGetCoordenadaByListCommand(DBHandler handler) {
         return new GetCoordenadaByListCommand(handler);
+    }
+
+    public static GetCoordenadaByZonaIdCommand createGetCoordenadaByZonaCommand(Coordenada coordenada) {
+        return new GetCoordenadaByZonaIdCommand(coordenada);
     }
 
 

@@ -1,14 +1,12 @@
 package com.ucab.cmcapp.implementation;
 
-import com.ucab.cmcapp.common.entities.Coordenada;
+
 import com.ucab.cmcapp.common.entities.Historico_Usuario;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
-import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
+import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.GetHistoricoByUsuarioIdCommand;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
-import com.ucab.cmcapp.logic.dtos.CoordenadaDto;
 import com.ucab.cmcapp.logic.dtos.Historico_UsuarioDto;
-import com.ucab.cmcapp.logic.mappers.CoordenadaMapper;
 import com.ucab.cmcapp.logic.mappers.Historico_UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,6 +71,32 @@ public class HistoricoService extends BaseService {
         }
 
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos los historicos se han obtenido correctamente")).build();
+    }
+
+    @GET
+    @Path("usuario/{usuario_id}")
+    public Response getAllHistoricoByUsuarioId(@PathParam("usuario_id") long usuarioId) {
+        Historico_Usuario entity;
+        List<Historico_UsuarioDto> responseDTO = null;
+        GetHistoricoByUsuarioIdCommand command = null;
+
+        try {
+            entity = Historico_UsuarioMapper.mapDtoToEntityUsuarioId(usuarioId);
+            command = CommandFactory.createGetHistorico_UsuarioByUsuarioCommand(entity);
+            command.execute();
+
+            if (command.getReturnParam() != null)
+                responseDTO = Historico_UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
+            else
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No hay historico asociado al ID " + usuarioId + "del usuario")).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de ejecutar la ruta id usuario" + e.getMessage())).build();
+        } finally {
+            if (command != null)
+                command.closeHandlerSession();
+        }
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El historico del usuario con el ID " + usuarioId + " se han obtenido correctamente")).build();
     }
 
     @POST
