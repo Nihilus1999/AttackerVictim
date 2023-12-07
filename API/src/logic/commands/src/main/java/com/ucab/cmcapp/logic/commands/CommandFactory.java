@@ -324,6 +324,12 @@ public class CommandFactory {
         return new GetZonaByListCommand(handler);
     }
 
+    public static GetAllZonaByUsuarioIdCommand createGetZona_SeguraByUsuarioCommand(Zona_Segura zonaSegura) {
+        return new GetAllZonaByUsuarioIdCommand(zonaSegura);
+    }
+
+
+
 
     // POST/AGREGAR ZONA_SEGURA
     public static AddZonaCommand createAddZona_SeguraCommand(Zona_Segura zonaSegura, DBHandler handler) {
