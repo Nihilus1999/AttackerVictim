@@ -18,7 +18,7 @@ function Dashboard() {
             <div className="bg"></div>
             <div className="bg bg2"></div>
             <div className="bg bg3"></div>
-                <Card imageSrc={userImage} buttonText="Usuarios" navigateTo="/usuarios" />
+                <Card imageSrc={userImage} buttonText="Usuarios" navigateTo="/user-config" />
                 <Card imageSrc={distanciaImage} buttonText="Distancia minima" navigateTo="/view2" />
                 <Card imageSrc={intervalosImage} buttonText="Intervalos de tiempo" navigateTo="/view3" />
                 <Card imageSrc={zonaSeguraImage} buttonText="Zonas seguras" navigateTo="/view4" />
