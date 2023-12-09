@@ -27,12 +27,12 @@ function LoginController() {
         setError(null);
         try {
             const data = await model.login();
-            console.log('HOLAAAAA: ',data);
+            console.log('data: ', data);
             if (data.success) {
                 console.log("Login exitoso:", data);
                 navigate("/dashboard");
             } else {
-                setError(data.message || "Error durante el login.");
+                setError(data.description || "Error durante el login.");
             }
         } catch (err) {
             setError("Hubo un error al comunicarse con el servidor.");

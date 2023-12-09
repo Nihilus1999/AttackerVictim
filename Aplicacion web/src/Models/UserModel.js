@@ -1,3 +1,4 @@
+import Url from '../config.js';
 export default class UserModel {
     constructor(nombres, apellidos, username, cedula, correo, mac, tipoUsuario, contraseña) {
         this.nombres = nombres;
@@ -19,6 +20,7 @@ export default class UserModel {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(this)
+
             });
 
             if (!response.ok) {
