@@ -9,6 +9,8 @@ public class UsuarioDto extends BaseDto {
     private String _cedula;
     private String _correo;
     private String _direccion_mac;
+
+    private String _clave;
     private Boolean _activate;
 
 
@@ -66,6 +68,14 @@ public class UsuarioDto extends BaseDto {
 
     public void set_direccion_mac(String _direccion_mac) {
         this._direccion_mac = _direccion_mac;
+    }
+
+    public String get_clave() {
+        return _clave;
+    }
+
+    public void set_clave(String _clave) {
+        this._clave = _clave;
     }
 
     public Boolean get_activate() {

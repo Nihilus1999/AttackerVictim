@@ -32,8 +32,8 @@ public class Usuario {
     @Column(name = "direccion_mac", nullable = false, unique = true)
     private String _direccion_mac;
 
-    @Transient
-    private String _password;
+    @Column(name = "clave", nullable = false, unique = true)
+    private String _clave;
 
     /*@Basic(optional = false)
     @Column(name = "term_condition", insertable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
@@ -61,6 +61,8 @@ public class Usuario {
         _cedula = usuario._cedula;
         _correo = usuario._correo;
         _direccion_mac = usuario._direccion_mac;
+        _clave = usuario._clave;
+        _activate = usuario._activate;
     }
 
     public Usuario(long id) {
@@ -127,12 +129,12 @@ public class Usuario {
         this._direccion_mac = _direccion_mac;
     }
 
-    public String get_password() {
-        return _password;
+    public String get_clave() {
+        return _clave;
     }
 
-    public void set_password(String _password) {
-        this._password = _password;
+    public void set_clave(String _clave) {
+        this._clave = _clave;
     }
 
     public Boolean get_activate() {
