@@ -24,6 +24,7 @@ public class UsuarioMapper extends BaseMapper {
         entity.set_cedula(dto.get_cedula());
         entity.set_correo(dto.get_correo());
         entity.set_direccion_mac(dto.get_direccion_mac());
+        entity.set_clave(dto.get_clave());
         entity.set_activate(dto.get_activate());
 
         return entity;
@@ -40,6 +41,7 @@ public class UsuarioMapper extends BaseMapper {
         dto.set_cedula(entity.get_cedula());
         dto.set_correo(entity.get_correo());
         dto.set_direccion_mac(entity.get_direccion_mac());
+        dto.set_clave(entity.get_clave());
         dto.set_activate(entity.get_activate());
 
         return dto;
@@ -64,8 +66,8 @@ public class UsuarioMapper extends BaseMapper {
             usuarioDto.set_cedula(usuario.get_cedula());
             usuarioDto.set_correo(usuario.get_correo());
             usuarioDto.set_direccion_mac(usuario.get_direccion_mac());
+            usuarioDto.set_clave(usuario.get_clave());
             usuarioDto.set_activate(usuario.get_activate());
-
             dtoList.add(usuarioDto);
         }
 
@@ -92,7 +94,6 @@ public class UsuarioMapper extends BaseMapper {
 
 
     public static Usuario mapDtoToEntityMac(String mac) {
-
         Usuario entity = EntityFactory.createUsuario();
         entity.set_direccion_mac(mac);
         return entity;
