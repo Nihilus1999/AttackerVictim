@@ -21,7 +21,7 @@ public class GetAllZonaByUsuarioIdCommand extends Command<Zona_Segura> {
 
     @Override
     public void execute() {
-        _result = _dao.getAllZona_SeguraByUserId(_safeZone.get_usuario());
+        _result = _dao.getZonaByUsuarioId(_safeZone.get_usuario());
     }
 
     @Override
