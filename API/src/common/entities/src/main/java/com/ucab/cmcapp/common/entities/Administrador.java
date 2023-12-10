@@ -20,7 +20,7 @@ public class Administrador {
     @Column(name = "correo", nullable = false, unique = true)
     private String _correo;
 
-    @Column(name = "clave", nullable = false, unique = true)
+    @Column(name = "clave", nullable = false)
     private String _clave;
 
     /*@Basic(optional = false)

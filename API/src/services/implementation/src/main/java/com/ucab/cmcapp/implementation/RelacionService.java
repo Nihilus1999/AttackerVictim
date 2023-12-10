@@ -111,7 +111,7 @@ public class RelacionService extends BaseService {
 
 
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar una victima", e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar una relacion victima-atacante", e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();

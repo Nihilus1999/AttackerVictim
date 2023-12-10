@@ -2,6 +2,7 @@ package com.ucab.cmcapp.common.entities;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity

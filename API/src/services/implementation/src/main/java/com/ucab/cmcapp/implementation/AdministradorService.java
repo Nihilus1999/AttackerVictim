@@ -169,7 +169,7 @@ public class AdministradorService extends BaseService {
 
 
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un Administrador", e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar un Administrador", e.getMessage())).build();
         } finally {
             if (command != null)
                 command.closeHandlerSession();

@@ -32,7 +32,7 @@ public class Usuario {
     @Column(name = "direccion_mac", nullable = false, unique = true)
     private String _direccion_mac;
 
-    @Column(name = "clave", nullable = false, unique = true)
+    @Column(name = "clave", nullable = false)
     private String _clave;
 
     /*@Basic(optional = false)
