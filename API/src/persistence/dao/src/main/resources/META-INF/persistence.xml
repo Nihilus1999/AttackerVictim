@@ -5,6 +5,8 @@
     <persistence-unit name="cmcapp" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <non-jta-data-source>java:/AttackerVictim_DS</non-jta-data-source>
+
+        <class>com.ucab.cmcapp.common.entities.Administrador</class>
         <class>com.ucab.cmcapp.common.entities.Usuario</class>
         <class>com.ucab.cmcapp.common.entities.Coordenada</class>
         <class>com.ucab.cmcapp.common.entities.Historico_Usuario</class>

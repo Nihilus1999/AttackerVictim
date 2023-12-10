@@ -30,20 +30,20 @@ public class UsuarioService extends BaseService {
 
     @GET
     @Path("/{id}")
-    public Response getUsuario(@PathParam("id") long userId) {
+    public Response getUsuario(@PathParam("id") long usuarioId) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         GetUsuarioCommand command = null;
 
         try {
-            entity = UsuarioMapper.mapDtoToEntity(userId);
+            entity = UsuarioMapper.mapDtoToEntity(usuarioId);
             command = CommandFactory.createGetUsuarioCommand(entity);
             command.execute();
 
             if (command.getReturnParam() != null)
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El ID " + userId + " de usuario no existe en la BBDD ")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El ID " + usuarioId + " de usuario no existe en la BBDD ")).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno en la ruta ID " + e.getMessage())).build();
         } finally {
@@ -51,7 +51,7 @@ public class UsuarioService extends BaseService {
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + userId + " del usuario ha sido encontrado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + usuarioId + " del usuario ha sido encontrado correctamente")).build();
     }
 
     @GET
@@ -209,13 +209,13 @@ public class UsuarioService extends BaseService {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteUsuario(@PathParam("id") long userId) {
+    public Response deleteUsuario(@PathParam("id") long usuarioId) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         DeleteUsuarioCommand command = null;
 
         try {
-            entity = UsuarioMapper.mapDtoToEntity(userId);
+            entity = UsuarioMapper.mapDtoToEntity(usuarioId);
             command = CommandFactory.createDeleteUsuarioCommand(entity);
             command.execute();
 

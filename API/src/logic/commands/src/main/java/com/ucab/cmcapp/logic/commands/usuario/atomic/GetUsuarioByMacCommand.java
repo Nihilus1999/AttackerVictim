@@ -19,7 +19,7 @@ public class GetUsuarioByMacCommand extends Command<Usuario> {
 
     @Override
     public void execute() {
-        _usuario = _dao.getUserByMac(_usuario.get_direccion_mac());
+        _usuario = _dao.getUsuarioByMac(_usuario.get_direccion_mac());
     }
 
     @Override

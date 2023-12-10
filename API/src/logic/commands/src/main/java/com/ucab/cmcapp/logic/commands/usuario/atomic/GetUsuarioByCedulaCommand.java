@@ -19,7 +19,7 @@ public class GetUsuarioByCedulaCommand extends Command<Usuario> {
 
     @Override
     public void execute() {
-        _usuario = _dao.getUserByCedula(_usuario.get_cedula());
+        _usuario = _dao.getUsuarioByCedula(_usuario.get_cedula());
     }
 
     @Override

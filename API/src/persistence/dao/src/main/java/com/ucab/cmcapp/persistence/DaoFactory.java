@@ -8,6 +8,10 @@ public class DaoFactory {
     private DaoFactory() {
     }
 
+    public static AdministradorDao createAdministradorDao(DBHandler handler) {
+        return new AdministradorDao(handler);
+    }
+
     public static UsuarioDao createUsuarioDao(DBHandler handler) {
         return new UsuarioDao(handler);
     }

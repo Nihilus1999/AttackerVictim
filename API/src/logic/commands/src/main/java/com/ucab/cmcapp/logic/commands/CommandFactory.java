@@ -1,6 +1,8 @@
 package com.ucab.cmcapp.logic.commands;
 
 import com.ucab.cmcapp.common.entities.*;
+import com.ucab.cmcapp.logic.commands.administrador.atomic.*;
+import com.ucab.cmcapp.logic.commands.administrador.composite.*;
 import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.*;
@@ -19,7 +21,71 @@ import com.ucab.cmcapp.persistence.DBHandler;
 
 public class CommandFactory {
 
-    //COMMAND DE USUARIO
+    //COMMAND DE ADMINISTRADOR
+
+    // GET ADMINISTRADOR
+
+    public static GetAdministradorCommand createGetAdministradorCommand(Administrador administrador) {
+        return new GetAdministradorCommand(administrador);
+    }
+
+    public static GetAdministradorByIdCommand createGetAdministradorByIdCommand(DBHandler handler, long adminId) {
+        return new GetAdministradorByIdCommand(handler, adminId);
+    }
+
+    public static GetAdministradorByCorreoCommand createGetAdministradorByCorreoCommand(Administrador administrador) {
+        return new GetAdministradorByCorreoCommand(administrador);
+    }
+
+    public static GetAdministradorByAliasCommand createGetAdministradorByAliasCommand(Administrador administrador){
+        return new GetAdministradorByAliasCommand(administrador);
+    }
+
+    public static GetAdministradorByListCommand createGetAdministradorByListCommand(DBHandler handler) {
+        return new GetAdministradorByListCommand(handler);
+    }
+
+    public static GetAllAdministradorCommand createGetAllAdministradorCommand(){
+        return new GetAllAdministradorCommand();
+    }
+
+
+    //POST/AGREGAR ADMINISTRADOR
+
+    public static AddAdministradorCommand createAddAdministradorCommand(Administrador administrador, DBHandler handler) {
+        return new AddAdministradorCommand(administrador, handler);
+    }
+
+    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
+        return new AddUsuarioCommand(user);
+    }*/
+
+    public static CreateAdministradorCommand createCreateAdministradorCommand(Administrador administrador) {
+        return new CreateAdministradorCommand(administrador);
+    }
+
+    //DELETE ADMINISTRADOR
+
+    public static DeleteAdministradorCommand createDeleteAdministradorCommand(Administrador administrador) {
+        return new DeleteAdministradorCommand(administrador);
+    }
+
+    public static EraseAdministradorCommand createEraseAdministradorCommand(Administrador administrador, DBHandler handler) {
+        return new EraseAdministradorCommand(administrador, handler);
+    }
+
+    //UPDATE ADMINISTRADOR
+    public static UpdateAdministradorCommand createUpdateAdministradorCommand(Administrador administrador){
+        return new UpdateAdministradorCommand(administrador);
+    }
+
+    public static ModifyAdministradorCommand createModifyAdministradorCommand(Administrador administrador, DBHandler handler){
+        return new ModifyAdministradorCommand(administrador, handler);
+    }
+
+
+
+    // COMMAND DE USUARIO
 
     // GET USUARIO
     public static GetUsuarioCommand createGetUsuarioCommand(Usuario usuario) {

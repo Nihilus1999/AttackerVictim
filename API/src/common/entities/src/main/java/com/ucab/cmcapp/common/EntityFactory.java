@@ -4,6 +4,15 @@ import com.ucab.cmcapp.common.entities.*;
 
 public class EntityFactory {
 
+    //ADMINISTRADOR
+
+    public static Administrador createAdministrador() {
+        return new Administrador();
+    }
+    public static Administrador createAdministrador(long id) {
+        return new Administrador(id);
+    }
+
 
     //USUARIO
     public static Usuario createUsuario() {
