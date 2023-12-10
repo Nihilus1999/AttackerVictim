@@ -19,7 +19,7 @@ public class GetUsuarioByAliasCommand extends Command<Usuario> {
 
     @Override
     public void execute() {
-        _usuario = _dao.getUserByAlias(_usuario.get_alias());
+        _usuario = _dao.getUsuarioByAlias(_usuario.get_alias());
     }
 
     @Override

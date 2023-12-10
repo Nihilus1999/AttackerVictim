@@ -42,7 +42,7 @@ public class GetUsuarioByCorreoCommand extends Command<Usuario> {
         //region Instrumentation DEBUG
         _logger.debug("Get in  GetUserByEmailCommand.execute");
         //endregion
-        _usuario = _dao.getUserByCorreo(_usuario.get_correo());
+        _usuario = _dao.getUsuarioByCorreo(_usuario.get_correo());
         //region Instrumentation DEBUG
         _logger.debug("Leavin  GetUserByEmailCommand.execute");
         //endregion

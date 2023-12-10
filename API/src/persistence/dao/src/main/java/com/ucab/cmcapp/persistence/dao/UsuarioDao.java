@@ -31,7 +31,7 @@ public class UsuarioDao extends BaseDao<Usuario> {
         _builder = _em.getCriteriaBuilder();
     }
 
-    public Usuario getUserByCorreo(String correo) {
+    public Usuario getUsuarioByCorreo(String correo) {
         Usuario result = EntityFactory.createUsuario();
         _logger.debug(String.format("Get in UsuarioDao.getUserByEmail: parameter {%s}", correo));
         try {
@@ -43,20 +43,20 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            _logger.error(String.format("Error UsuarioDao.getUserByCorreo: No Result {%s}", e.getMessage()));
+            _logger.error(String.format("Error UsuarioDao.getUsuarioByCorreo: No Result {%s}", e.getMessage()));
             return null;
         } catch (Exception e) {
-            _logger.error(String.format("Error UsuarioDao.getUserByCorreo: {%s}", e.getMessage()));
+            _logger.error(String.format("Error UsuarioDao.getUsuarioByCorreo: {%s}", e.getMessage()));
             throw new CupraException(e.getMessage());
         }
         //region Instrumentation
-        _logger.debug(String.format("Leavin UsuarioDao.getUserByCorreo: result {%s}", result));
+        _logger.debug(String.format("Leavin UsuarioDao.getUsuarioByCorreo: result {%s}", result));
         //endregion
 
         return result;
     }
 
-    public Usuario getUserByAlias(String alias) {
+    public Usuario getUsuarioByAlias(String alias) {
         Usuario result = EntityFactory.createUsuario();
         try {
             CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
@@ -75,7 +75,7 @@ public class UsuarioDao extends BaseDao<Usuario> {
         return result;
     }
 
-    public Usuario getUserByCedula(String cedula) {
+    public Usuario getUsuarioByCedula(String cedula) {
         Usuario result = EntityFactory.createUsuario();
         try {
             CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
@@ -94,7 +94,7 @@ public class UsuarioDao extends BaseDao<Usuario> {
         return result;
     }
 
-    public Usuario getUserByMac(String mac) {
+    public Usuario getUsuarioByMac(String mac) {
         Usuario result = EntityFactory.createUsuario();
         try {
             CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
