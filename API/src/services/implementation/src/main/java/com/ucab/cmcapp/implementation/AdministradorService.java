@@ -22,6 +22,7 @@ import java.util.List;
 public class AdministradorService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(AdministradorService.class);
 
+    //creando los servicios
     @GET
     @Path("/{id}")
     public Response getAdministrador(@PathParam("id") long adminId) {
