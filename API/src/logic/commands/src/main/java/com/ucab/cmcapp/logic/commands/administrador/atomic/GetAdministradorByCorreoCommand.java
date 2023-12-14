@@ -15,36 +15,36 @@ public class GetAdministradorByCorreoCommand extends Command<Administrador> {
 
     public GetAdministradorByCorreoCommand(Administrador Administrador) {
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetUserByEmailCommand.ctor: parameter {%s}", Administrador.toString()));
+        _logger.debug(String.format("Tomando de GetUsuarioByCorreoCommand.ctor: parameter {%s}", Administrador.toString()));
         _Administrador = Administrador;
         setHandler(new DBHandler());
         _dao = DaoFactory.createAdministradorDao(getHandler());
 
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Leavin GetUserByEmailCommand.ctor: atribute {%s}", _Administrador.toString()));
+        _logger.debug(String.format("Dejando GetUsuarioByCorreoCommand.ctor: atribute {%s}", _Administrador.toString()));
         //endregion
     }
 
     public GetAdministradorByCorreoCommand(Administrador Administrador, DBHandler handler) {
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetUserByEmailCommand.ctor: parameter {%s}", Administrador.toString()));
+        _logger.debug(String.format("Get in GetUsuarioByCorreoCommand.ctor: parameter {%s}", Administrador.toString()));
         _Administrador = Administrador;
         setHandler(handler);
         _dao = DaoFactory.createAdministradorDao(getHandler());
 
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Leavin GetUserByEmailCommand.ctor: atribute {%s}", _Administrador.toString()));
+        _logger.debug(String.format("Dejando GetUsuarioByCorreoCommand.ctor: atribute {%s}", _Administrador.toString()));
         //endregion
     }
 
     @Override
     public void execute() {
         //region Instrumentation DEBUG
-        _logger.debug("Get in  GetUserByEmailCommand.execute");
+        _logger.debug("Tomar de  GetUsuarioByCorreoCommand.execute");
         //endregion
         _Administrador = _dao.getAdministradorByCorreo(_Administrador.get_correo());
         //region Instrumentation DEBUG
-        _logger.debug("Leavin  GetUserByEmailCommand.execute");
+        _logger.debug("Dejando  GetUsuarioByCorreoCommand.execute");
         //endregion
     }
 

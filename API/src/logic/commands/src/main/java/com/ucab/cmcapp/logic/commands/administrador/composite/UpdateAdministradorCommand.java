@@ -5,12 +5,16 @@ import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.ModifyAdministradorCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UpdateAdministradorCommand extends Command<Administrador> {
 
     private Administrador _Administrador;
     private Administrador _result;
     private ModifyAdministradorCommand _modifyAdministradorCommand;
+
+    private static Logger _logger = LoggerFactory.getLogger(CreateAdministradorCommand.class);
 
     public UpdateAdministradorCommand(Administrador Administrador) {
         _Administrador = Administrador;
@@ -19,6 +23,9 @@ public class UpdateAdministradorCommand extends Command<Administrador> {
 
     @Override
     public void execute() {
+
+        _logger.debug("Entrando en UpdateAdministradorCommand.execute");
+
         try {
             getHandler().beginTransaction();
             _modifyAdministradorCommand = CommandFactory.createModifyAdministradorCommand(_Administrador, getHandler());
@@ -31,6 +38,8 @@ public class UpdateAdministradorCommand extends Command<Administrador> {
             getHandler().closeSession();
             throw e;
         }
+
+        _logger.debug("Entrando en UpdateAdministradorCommand.execute");
     }
 
     @Override

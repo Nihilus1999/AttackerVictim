@@ -16,21 +16,21 @@ public class CreateAdministradorCommand extends Command<Administrador> {
 
     public CreateAdministradorCommand(Administrador Administrador) {
         //region Instrumentation DEBUG
-        _logger.debug("Entering CreateAdministradorCommand.ctor");
+        _logger.debug("Entrando en CreateAdministradorCommand.ctor");
         //endregion
 
         _Administrador = Administrador;
         setHandler(new DBHandler());
 
         //region Instrumentation DEBUG
-        _logger.debug("Leaving CreateAdministradorCommand.ctor");
+        _logger.debug("Dejando CreateAdministradorCommand.ctor");
         //endregion
     }
 
     @Override
     public void execute() {
         //region Instrumentation DEBUG
-        _logger.debug("Entering CreateAdministradorCommand.execute");
+        _logger.debug("Entrando CreateAdministradorCommand.execute");
         //endregion
 
         try {
@@ -46,7 +46,7 @@ public class CreateAdministradorCommand extends Command<Administrador> {
             throw e;
         }
         //region Instrumentation DEBUG
-        _logger.debug("Leaving CreateAdministradorCommand.execute");
+        _logger.debug("Dejando de  CreateAdministradorCommand.execute");
         //endregion
     }
 

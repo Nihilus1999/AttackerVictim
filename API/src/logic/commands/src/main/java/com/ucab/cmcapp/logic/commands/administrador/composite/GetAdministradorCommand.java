@@ -15,20 +15,23 @@ public class GetAdministradorCommand extends Command<Administrador> {
 
     public GetAdministradorCommand(Administrador Administrador) {
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetAdministradorCommand.ctor: parameter {%s}",
+        _logger.debug(String.format("Tomar de GetAdministradorCommand.ctor: parameter {%s}",
                 Administrador.toString()));
         _id = Administrador.get_id();
         _Administrador = Administrador;
         setHandler(new DBHandler());
 
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving GetAdministradorCommand.ctor: attribute {%s}",
+        _logger.debug(String.format("Dejando GetAdministradorCommand.ctor: attribute {%s}",
                 _Administrador.toString()));
         //endregion
     }
 
     @Override
     public void execute() {
+
+        _logger.debug("Entrando en GetAdministradorCommand.execute");
+
         try {
             GetAdministradorByIdCommand getAdministradorByIdCommand = CommandFactory.createGetAdministradorByIdCommand(getHandler(), _id);
             getAdministradorByIdCommand.execute();
@@ -38,6 +41,8 @@ public class GetAdministradorCommand extends Command<Administrador> {
             getHandler().closeSession();
             throw e;
         }
+
+        _logger.debug("Dejando el GetAdministradorCommand.execute");
     }
 
     @Override

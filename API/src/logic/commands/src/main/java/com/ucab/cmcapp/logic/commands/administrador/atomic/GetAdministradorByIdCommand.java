@@ -16,7 +16,7 @@ public class GetAdministradorByIdCommand extends Command<Administrador> {
 
     public GetAdministradorByIdCommand(DBHandler handler, long adminId) {
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetAdministradorByIdCommand.ctor: parameter {%s}", adminId));
+        _logger.debug(String.format("Tomar de GetAdministradorByIdCommand.ctor: parameter {%s}", adminId));
         //endregion
 
         _adminId = adminId;
@@ -24,18 +24,18 @@ public class GetAdministradorByIdCommand extends Command<Administrador> {
         _dao = DaoFactory.createAdministradorDao(getHandler());
 
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving GetAdministradorByIdCommand.ctor: attribute {%s}", adminId));
+        _logger.debug(String.format("Dejando GetAdministradorByIdCommand.ctor: attribute {%s}", adminId));
         //endregion
     }
 
     @Override
     public void execute() {
         //region Instrumentation DEBUG
-        _logger.debug("Get in  GetAdministradorByIdCommand.execute");
+        _logger.debug("Tomando de  GetAdministradorByIdCommand.execute");
         //endregion
         _result = _dao.find(_adminId, Administrador.class);
         //region Instrumentation DEBUG
-        _logger.debug("Leaving  GetAdministradorByIdCommand.execute");
+        _logger.debug("Dejando GetAdministradorByIdCommand.execute");
         //endregion
     }
 

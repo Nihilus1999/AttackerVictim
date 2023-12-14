@@ -5,31 +5,31 @@ import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.persistence.DBHandler;
 import com.ucab.cmcapp.persistence.DaoFactory;
 import com.ucab.cmcapp.persistence.dao.AdministradorDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public class GetAdministradorByListCommand extends Command<Administrador> {
 
+    private static Logger _logger = LoggerFactory.getLogger(GetAdministradorByIdCommand.class);
+
     private List<Administrador> _result;
     private AdministradorDao _dao;
 
     public GetAdministradorByListCommand(DBHandler handler) {
-        //region Instrumentation DEBUG
-        //endregion
-
         setHandler(handler);
         _dao = DaoFactory.createAdministradorDao(getHandler());
-
-        //region Instrumentation DEBUG
-        //endregion
     }
 
     @Override
     public void execute() {
         //region Instrumentation DEBUG
+        _logger.debug("Tomando de GetAdministradorByListCommand.execute");
         //endregion
         _result = _dao.findAll(Administrador.class);
         //region Instrumentation DEBUG
+        _logger.debug("Dejando GetAdministradorByListCommand.execute");
         //endregion
     }
 

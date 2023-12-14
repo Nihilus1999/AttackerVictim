@@ -25,6 +25,9 @@ public class GetAllAdministradorCommand extends Command <Administrador> {
 
     @Override
     public void execute() {
+
+        _logger.debug("Entrando en GetAllAdministradorCommand.execute");
+
         try {
             GetAdministradorByListCommand getAdministradorByListCommand = CommandFactory.createGetAdministradorByListCommand(getHandler());
             getAdministradorByListCommand.execute();
@@ -34,6 +37,8 @@ public class GetAllAdministradorCommand extends Command <Administrador> {
             getHandler().closeSession();
             throw e;
         }
+
+        _logger.debug("Dejando en GetAllAdministradorCommand.execute");
     }
 
     @Override

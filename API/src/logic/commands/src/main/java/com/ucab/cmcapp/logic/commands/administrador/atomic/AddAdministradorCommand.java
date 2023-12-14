@@ -15,7 +15,7 @@ public class AddAdministradorCommand extends Command<Administrador> {
 
     public AddAdministradorCommand(Administrador Administrador, DBHandler handler) {
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in AddAdministradorCommand.ctor: parameter {%s}",
+        _logger.debug(String.format("Tomar de AddAdministradorCommand.ctor: parameter {%s}",
                 Administrador.toString()));
         setHandler(handler);
         _Administrador = Administrador;
@@ -23,14 +23,14 @@ public class AddAdministradorCommand extends Command<Administrador> {
 
 
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving AddAdministradorCommand.ctor: attribute {%s}",
+        _logger.debug(String.format("Dejando AddAdministradorCommand.ctor: attribute {%s}",
                 _Administrador.toString()));
         //endregion
     }
 
     public AddAdministradorCommand(Administrador Administrador) {
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in AddAdministradorCommand.ctor: parameter {%s}",
+        _logger.debug(String.format("Tomando de AddAdministradorCommand.ctor: parameter {%s}",
                 Administrador.toString()));
         _Administrador = Administrador;
         setHandler(new DBHandler());
@@ -38,7 +38,7 @@ public class AddAdministradorCommand extends Command<Administrador> {
 
 
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving AddAdministradorCommand.ctor: attribute {%s}",
+        _logger.debug(String.format("Dejando AddAdministradorCommand.ctor: attribute {%s}",
                 _Administrador.toString()));
         //endregion
     }
@@ -46,13 +46,13 @@ public class AddAdministradorCommand extends Command<Administrador> {
     @Override
     public void execute() {
         //region Instrumentation DEBUG
-        _logger.debug("Get in  AddAdministradorCommand.execute");
+        _logger.debug("Tomando de  AddAdministradorCommand.execute");
         //endregion
 
         _Administrador = _dao.insert(_Administrador);
 
         //region Instrumentation DEBUG
-        _logger.debug("Get in  AddAdministradorCommand.execute");
+        _logger.debug("Dejando de  AddAdministradorCommand.execute");
         //endregion
     }
 

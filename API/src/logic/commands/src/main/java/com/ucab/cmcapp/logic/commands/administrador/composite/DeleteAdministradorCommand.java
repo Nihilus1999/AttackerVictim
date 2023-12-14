@@ -5,21 +5,35 @@ import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.EraseAdministradorCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DeleteAdministradorCommand extends Command<Administrador> {
 
     private Administrador _Administrador;
     private Administrador _result;
 
+    private static Logger _logger = LoggerFactory.getLogger(CreateAdministradorCommand.class);
+
     private EraseAdministradorCommand _eraseAdministradorCommand;
 
     public DeleteAdministradorCommand(Administrador Administrador) {
+
+
+
+        //region Instrumentation DEBUG
+        _logger.debug("Entrando en DeleteAdministradorCommand.ctor");
+        //endregion
+
         _Administrador = Administrador;
         setHandler(new DBHandler());
     }
 
     @Override
     public void execute() {
+
+        _logger.debug("Entrando en DeleteAdministradorCommand.execute");
+
         try {
             getHandler().beginTransaction();
             _eraseAdministradorCommand = CommandFactory.createEraseAdministradorCommand(_Administrador, getHandler());
@@ -32,6 +46,8 @@ public class DeleteAdministradorCommand extends Command<Administrador> {
             getHandler().closeSession();
             throw e;
         }
+
+        _logger.debug("Dejando en DeleteAdministradorCommand.execute");
     }
 
     @Override
