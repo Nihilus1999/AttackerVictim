@@ -29,6 +29,8 @@ public class AdministradorService extends BaseService {
         AdministradorDto responseDTO = null;
         GetAdministradorCommand command = null;
 
+        _logger.debug( "Tomando de AdministradorService.getAdministrador" );
+
         try {
             entity = AdministradorMapper.mapDtoToEntity(adminId);
             command = CommandFactory.createGetAdministradorCommand(entity);
@@ -45,6 +47,8 @@ public class AdministradorService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando AdministradorService.getAdministrador" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + adminId + " del Administrador ha sido encontrado correctamente")).build();
     }
 
@@ -53,6 +57,8 @@ public class AdministradorService extends BaseService {
     public Response getAllAdministrador() {
         List <AdministradorDto> responseDTO = null;
         GetAllAdministradorCommand command = null;
+
+        _logger.debug( "Tomando de AdministradorService.getAllAdministrador" );
 
         try {
             command = CommandFactory.createGetAllAdministradorCommand();
@@ -70,6 +76,8 @@ public class AdministradorService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando AdministradorService.getAllAdministrador" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Los Administradores se han obtenido correctamente")).build();
     }
 
@@ -80,6 +88,8 @@ public class AdministradorService extends BaseService {
         Administrador entity;
         AdministradorDto responseDTO = null;
         GetAdministradorByCorreoCommand command = null;
+
+        _logger.debug( "Tomando de AdministradorService.getAdministradorbyCorreo" );
 
         try {
             entity = AdministradorMapper.mapDtoToEntityCorreo(correo);
@@ -97,6 +107,8 @@ public class AdministradorService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando AdministradorService.getAdministradorbyCorreo" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL correo " + correo + " del Administrador ha sido encontrado exitosamente")).build();
     }
 
@@ -106,6 +118,8 @@ public class AdministradorService extends BaseService {
         Administrador entity;
         AdministradorDto responseDTO = null;
         GetAdministradorByAliasCommand command = null;
+
+        _logger.debug( "Tomando de AdministradorService.getAdministradorbyAlias" );
 
         try {
             entity = AdministradorMapper.mapDtoToEntityAlias(alias);
@@ -123,6 +137,8 @@ public class AdministradorService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando AdministradorService.getAdministradorbyAlias" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL Administrador con el alias " + alias + " ha sido encontrado exitosamente")).build();
     }
 
@@ -132,6 +148,8 @@ public class AdministradorService extends BaseService {
         Administrador entity;
         AdministradorDto responseDTO = null;
         CreateAdministradorCommand command = null;
+
+        _logger.debug( "Tomando de AdministradorService.addAdministrador" );
 
         try {
             entity = AdministradorMapper.mapDtoToEntity(AdministradorDto);
@@ -145,6 +163,8 @@ public class AdministradorService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando AdministradorService.addAdministrador" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El Administrador ha sido creado correctamente")).build();
     }
 
@@ -156,6 +176,8 @@ public class AdministradorService extends BaseService {
         Administrador entity;
         AdministradorDto responseDTO = null;
         DeleteAdministradorCommand command = null;
+
+        _logger.debug( "Tomando de AdministradorService.deleteAdministrador" );
 
         try {
             entity = AdministradorMapper.mapDtoToEntity(adminId);
@@ -175,6 +197,8 @@ public class AdministradorService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando AdministradorService.deleteAdministrador" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El Administrador ha sido eliminado correctamente")).build();
     }
 
@@ -184,6 +208,9 @@ public class AdministradorService extends BaseService {
         Administrador entity;
         AdministradorDto responseDTO = null;
         UpdateAdministradorCommand command = null;
+
+        _logger.debug( "Tomando de AdministradorService.updateAdministrador" );
+
         try {
             entity = AdministradorMapper.mapDtoToEntity(AdministradorDto);
             command = CommandFactory.createUpdateAdministradorCommand(entity);
@@ -198,6 +225,9 @@ public class AdministradorService extends BaseService {
             if (command != null)
                 command.closeHandlerSession();
         }
+
+        _logger.debug( "Dejando AdministradorService.updateAdministrador" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El Administrador con el ID " + AdministradorDto.getId() + " se actualizo correctamente")).build();
     }
 }
