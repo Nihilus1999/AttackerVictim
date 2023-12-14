@@ -15,6 +15,8 @@ public class AdministradorMapper extends BaseMapper {
     public static Administrador mapDtoToEntity(AdministradorDto dto) throws ParseException {
         Administrador entity = EntityFactory.createAdministrador();
 
+        _logger.debug( "Tomar en AdministradorMapper.mapDtoToEntity: dto {}", dto );
+
         entity.set_id(dto.getId());
         entity.set_alias(dto.get_alias());
         entity.set_correo(dto.get_correo());
@@ -26,6 +28,8 @@ public class AdministradorMapper extends BaseMapper {
     public static AdministradorDto mapEntityToDto(Administrador entity) {
         final AdministradorDto dto = new AdministradorDto();
 
+        _logger.debug( "Tomar en AdministradorMapper.mapEntityToDto: entity {}", entity );
+
         dto.setId(entity.get_id());
         dto.set_alias(entity.get_alias());
         dto.set_correo(entity.get_correo());
@@ -36,6 +40,9 @@ public class AdministradorMapper extends BaseMapper {
 
     public static Administrador mapDtoToEntity(long id) {
         Administrador entity = EntityFactory.createAdministrador(id);
+
+        _logger.debug( "Tomar en AdministradorMapper.mapDtoToEntity: id {}", id );
+
         entity.set_id(id);
         return entity;
     }
@@ -43,6 +50,8 @@ public class AdministradorMapper extends BaseMapper {
     public static List<AdministradorDto> mapEntityListToDtoList(List<Administrador> entityList){
         List<AdministradorDto> dtoList = new ArrayList<AdministradorDto>();
         AdministradorDto AdministradorDto;
+
+        _logger.debug( "Tomar en AdministradorMapper.mapEntityListToDtoList: entityList {}", entityList );
 
         for (Administrador Administrador : entityList) {
             AdministradorDto = new AdministradorDto();
@@ -58,12 +67,18 @@ public class AdministradorMapper extends BaseMapper {
 
     public static Administrador mapDtoToEntityCorreo(String email) {
         Administrador entity = EntityFactory.createAdministrador();
+
+        _logger.debug( "Tomar en AdministradorMapper.mapDtoToEntityCorreo: email {}", email );
+
         entity.set_correo(email);
         return entity;
     }
 
     public static Administrador mapDtoToEntityAlias(String alias){
         Administrador entity = EntityFactory.createAdministrador();
+
+        _logger.debug( "Tomar en AdministradorMapper.mapDtoToEntityAlias: alias {}", alias );
+
         entity.set_alias(alias);
         return entity;
     }

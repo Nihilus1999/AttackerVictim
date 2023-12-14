@@ -34,7 +34,7 @@ public class AdministradorDao extends BaseDao<Administrador> {
 
     public Administrador getAdministradorByCorreo(String correo) {
         Administrador result = EntityFactory.createAdministrador();
-        _logger.debug(String.format("Get in AdministradorDao.getUserByEmail: parameter {%s}", correo));
+        _logger.debug(String.format("tomando de AdministradorDao.getUsuarioByCorreo: parametro {%s}", correo));
         try {
             CriteriaQuery<Administrador> query = _builder.createQuery(Administrador.class);
             Root<Administrador> root = query.from(Administrador.class);
@@ -44,14 +44,14 @@ public class AdministradorDao extends BaseDao<Administrador> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            _logger.error(String.format("Error AdministradorDao.getUserByCorreo: No Result {%s}", e.getMessage()));
+            _logger.error(String.format("Error AdministradorDao.getUsuarioByCorreo: No Result {%s}", e.getMessage()));
             return null;
         } catch (Exception e) {
-            _logger.error(String.format("Error AdministradorDao.getUserByCorreo: {%s}", e.getMessage()));
+            _logger.error(String.format("Error AdministradorDao.getUsuarioByCorreo: {%s}", e.getMessage()));
             throw new CupraException(e.getMessage());
         }
         //region Instrumentation
-        _logger.debug(String.format("Leavin AdministradorDao.getUserByCorreo: result {%s}", result));
+        _logger.debug(String.format("Dejando AdministradorDao.getUsuarioByCorreo: result {%s}", result));
         //endregion
 
         return result;
