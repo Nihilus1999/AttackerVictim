@@ -8,9 +8,9 @@ export default class UserModel {
     async login() {
         const username = this.username;
         const password = this.password;
-        console.log(Url() + 'usuario/alias/' + username);
+        console.log(Url() + '/administrador/alias/' + username);
         try {
-            const response = await fetch(Url() + '/usuario/alias/' + username, {
+            const response = await fetch(Url() + '/administrador/alias/' + username, {
                 method: 'GET',
             });
 
@@ -21,7 +21,7 @@ export default class UserModel {
             var data = await response.json();
             if (data.response == null) {
                 data.success = false;
-            } else if (data.response['_alias'] != password) {
+            } else if (data.response['_clave'] != password) {
                 data.description = 'Contraseña incorrecta';
                 data.success = false;
             } else {
