@@ -3,7 +3,7 @@ package com.ucab.cmcapp.common.exceptions;
 public class BaseException extends RuntimeException {
 
     public BaseException(IllegalArgumentException e) {
-
+        super(e.getMessage(), e);
     }
 
     public BaseException(Exception e, String str) {

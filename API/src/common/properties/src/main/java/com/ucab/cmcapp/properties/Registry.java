@@ -82,9 +82,10 @@ public class Registry {
     }
 
     public static Registry getInstance() {
-        if (_instance == null)
+        if (_instance == null) {
             _instance = new Registry();
-
+            return _instance;
+        }
         return _instance;
     }
 
