@@ -15,6 +15,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.sql.ResultSet;
 
 @Path("/historico")
 @Produces(MediaType.APPLICATION_JSON)
@@ -59,7 +60,7 @@ public class HistoricoService extends BaseService {
             command.execute();
             responseDTO = Historico_UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
 
-            if (responseDTO.size() == 0) {
+            if (responseDTO.isEmpty()) {
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia ")).build();
             }
 
@@ -138,7 +139,8 @@ public class HistoricoService extends BaseService {
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar el historico con ese ID")).build();
 
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar un usuario", e.getMessage())).build();
         } finally {
             if (command != null)
