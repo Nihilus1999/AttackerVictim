@@ -7,7 +7,7 @@ function Navbar() {
     <nav className="navbar">
       <Link to="/dashboard" className="nav-item">Home</Link>
       <Link to="/settings" className="nav-item">Settings</Link>
-      <Link to="/profile" className="nav-item">Cerrar Sesión</Link>
+      <Link to="/" className="nav-item">Cerrar Sesión</Link>
     </nav>
   );
 }
