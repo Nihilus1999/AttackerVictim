@@ -1,5 +1,7 @@
-package com.ucab.cmcapp.logic.dtos;
+package com.ucab.cmcapp.logic.dtos.dtos;
 
+
+import com.ucab.cmcapp.logic.dtos.dtos.BaseDto;
 
 public class UsuarioDto extends BaseDto {
 

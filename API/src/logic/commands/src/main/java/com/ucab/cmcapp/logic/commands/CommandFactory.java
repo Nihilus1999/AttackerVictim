@@ -340,6 +340,10 @@ public class CommandFactory {
         return new GetRelacionByListCommand(handler);
     }
 
+    public static GetPosicionByRelacionIDCommand createGetPosicionByRelacionIDCommand(Relacion_VA relacion) {
+        return new GetPosicionByRelacionIDCommand(relacion);
+    }
+
 
     // POST/AGREGAR RELACION_VICTIMA-ATACANTE
     public static AddRelacionCommand createAddRelacion_VACommand(Relacion_VA usuarioRelacion, DBHandler handler) {

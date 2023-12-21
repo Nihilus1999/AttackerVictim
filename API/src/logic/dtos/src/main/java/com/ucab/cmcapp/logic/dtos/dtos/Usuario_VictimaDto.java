@@ -1,7 +1,5 @@
-package com.ucab.cmcapp.logic.dtos;
+package com.ucab.cmcapp.logic.dtos.dtos;
 
-
-import java.util.Date;
 
 public class Usuario_VictimaDto extends BaseDto {
 

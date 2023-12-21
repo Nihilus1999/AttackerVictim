@@ -2,7 +2,7 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Usuario_Victima;
-import com.ucab.cmcapp.logic.dtos.Usuario_VictimaDto;
+import com.ucab.cmcapp.logic.dtos.dtos.Usuario_VictimaDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

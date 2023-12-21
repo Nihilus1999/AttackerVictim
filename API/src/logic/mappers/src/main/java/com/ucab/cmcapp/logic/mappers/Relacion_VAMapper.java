@@ -2,7 +2,7 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Relacion_VA;
-import com.ucab.cmcapp.logic.dtos.Relacion_VADto;
+import com.ucab.cmcapp.logic.dtos.dtos.Relacion_VADto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

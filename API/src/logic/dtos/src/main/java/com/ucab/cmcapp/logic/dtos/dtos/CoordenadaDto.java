@@ -1,4 +1,4 @@
-package com.ucab.cmcapp.logic.dtos;
+package com.ucab.cmcapp.logic.dtos.dtos;
 
 
 public class CoordenadaDto extends BaseDto {

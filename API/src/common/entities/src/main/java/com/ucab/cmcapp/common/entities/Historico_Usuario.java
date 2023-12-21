@@ -22,10 +22,10 @@ public class Historico_Usuario {
     @Column(name = "estadoConexion", nullable = false)
     private Boolean _estadoConexion;
 
-    @Column(name = "latitud", nullable = false, unique = true)
+    @Column(name = "latitud", nullable = false)
     private float _latitud;
 
-    @Column(name = "longitud", nullable = false, unique = true)
+    @Column(name = "longitud", nullable = false)
     private float _longitud;
 
     @ManyToOne(fetch = FetchType.EAGER)

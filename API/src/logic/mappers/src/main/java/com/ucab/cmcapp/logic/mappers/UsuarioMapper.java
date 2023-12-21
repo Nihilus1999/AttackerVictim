@@ -2,14 +2,13 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Usuario;
-import com.ucab.cmcapp.logic.dtos.UsuarioDto;
+import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class UsuarioMapper extends BaseMapper {
     private static Logger _logger = LoggerFactory.getLogger(UsuarioMapper.class);

@@ -8,9 +8,8 @@ import javax.persistence.*;
 public class Usuario {
 
 
-
     @Id
-    @Column(name = "id_usuario")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long _id;
 
@@ -35,6 +34,7 @@ public class Usuario {
     @Column(name = "clave", nullable = false)
     private String _clave;
 
+
     /*@Basic(optional = false)
     @Column(name = "term_condition", insertable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean _termCondition;
@@ -46,7 +46,7 @@ public class Usuario {
     private Date _createAt;*/
 
 
-    @Column(name = "activate", nullable = false, insertable = false, columnDefinition = "BOOLEAN DEFAULT true")
+    @Column(name = "activate", columnDefinition = "BOOLEAN DEFAULT true")
     private Boolean _activate;
 
 

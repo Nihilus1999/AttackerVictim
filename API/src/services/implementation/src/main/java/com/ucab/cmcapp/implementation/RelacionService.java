@@ -4,7 +4,7 @@ import com.ucab.cmcapp.common.entities.Relacion_VA;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.*;
-import com.ucab.cmcapp.logic.dtos.Relacion_VADto;
+import com.ucab.cmcapp.logic.dtos.dtos.Relacion_VADto;
 import com.ucab.cmcapp.logic.mappers.Relacion_VAMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

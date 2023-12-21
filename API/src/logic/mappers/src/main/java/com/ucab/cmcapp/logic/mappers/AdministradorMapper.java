@@ -2,7 +2,7 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Administrador;
-import com.ucab.cmcapp.logic.dtos.AdministradorDto;
+import com.ucab.cmcapp.logic.dtos.dtos.AdministradorDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.text.ParseException;

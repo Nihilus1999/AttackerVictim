@@ -1,18 +1,14 @@
 package com.ucab.cmcapp.implementation;
 
-import com.ucab.cmcapp.common.entities.Coordenada;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
-import com.ucab.cmcapp.logic.commands.coordenada.composite.CreateCoordenadaCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCorreoCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByAliasCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCedulaCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByMacCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
-import com.ucab.cmcapp.logic.dtos.CoordenadaDto;
-import com.ucab.cmcapp.logic.dtos.UsuarioDto;
-import com.ucab.cmcapp.logic.mappers.CoordenadaMapper;
+import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,8 @@
-package com.ucab.cmcapp.logic.dtos;
+package com.ucab.cmcapp.logic.dtos.dtos;
 
 
-import java.util.Date;
+import com.ucab.cmcapp.logic.dtos.dtos.BaseDto;
+import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
 
 public class Zona_SeguraDto extends BaseDto {
 

@@ -4,7 +4,7 @@ import com.ucab.cmcapp.common.entities.Usuario_Atacante;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.usuario_atacante.composite.*;
-import com.ucab.cmcapp.logic.dtos.Usuario_AtacanteDto;
+import com.ucab.cmcapp.logic.dtos.dtos.Usuario_AtacanteDto;
 import com.ucab.cmcapp.logic.mappers.Usuario_AtacanteMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

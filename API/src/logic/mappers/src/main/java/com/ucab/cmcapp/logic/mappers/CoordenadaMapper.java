@@ -2,10 +2,8 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Coordenada;
-import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.entities.Zona_Segura;
-import com.ucab.cmcapp.logic.dtos.CoordenadaDto;
-import com.ucab.cmcapp.logic.dtos.UsuarioDto;
+import com.ucab.cmcapp.logic.dtos.dtos.CoordenadaDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

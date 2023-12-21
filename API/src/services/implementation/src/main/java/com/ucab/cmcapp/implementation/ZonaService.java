@@ -5,7 +5,7 @@ import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.zona_segura.atomic.GetZonaByUsuarioIdCommand;
 import com.ucab.cmcapp.logic.commands.zona_segura.composite.*;
-import com.ucab.cmcapp.logic.dtos.Zona_SeguraDto;
+import com.ucab.cmcapp.logic.dtos.dtos.Zona_SeguraDto;
 import com.ucab.cmcapp.logic.mappers.Zona_SeguraMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

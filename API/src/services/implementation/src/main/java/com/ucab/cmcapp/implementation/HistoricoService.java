@@ -6,7 +6,7 @@ import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.GetHistoricoByUsuarioIdCommand;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
-import com.ucab.cmcapp.logic.dtos.Historico_UsuarioDto;
+import com.ucab.cmcapp.logic.dtos.dtos.Historico_UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.Historico_UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-import java.sql.ResultSet;
 
 @Path("/historico")
 @Produces(MediaType.APPLICATION_JSON)

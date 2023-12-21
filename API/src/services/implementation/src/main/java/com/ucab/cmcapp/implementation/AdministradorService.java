@@ -6,7 +6,7 @@ import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.GetAdministradorByAliasCommand;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.GetAdministradorByCorreoCommand;
 import com.ucab.cmcapp.logic.commands.administrador.composite.*;
-import com.ucab.cmcapp.logic.dtos.AdministradorDto;
+import com.ucab.cmcapp.logic.dtos.dtos.AdministradorDto;
 import com.ucab.cmcapp.logic.mappers.AdministradorMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
