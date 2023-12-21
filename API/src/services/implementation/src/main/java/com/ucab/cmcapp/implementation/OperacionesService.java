@@ -36,17 +36,19 @@ public class OperacionesService extends BaseService {
                 distanciaSeparacion = new calcularDistanciaSeparacionDto().calcularDistanciaSeperacion2(responseDTO.get(0), responseDTO.get(1));
 
             } else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("[GENERAL EXCEPTION] Could not calculate the separation distance with incident id: " + relacionId)).build();
+
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El ID "+ relacionId +" de la entidad Relacion_Victima-Atacante no existe en la BBDD")).build();
+
         } catch (Exception e) {
 
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("[GENERAL EXCEPTION] at method getSeparationDistanceByIncidentId: " + e.getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("No se puede calcular la distancia con el ID "+ relacionId +" de la entidad Relacion_Victima-Atacante" + e.getMessage())).build();
 
         } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(distanciaSeparacion, "La distancia es menor a la minima establecida, por lo tanto la victima esta cerca de la victima" + relacionId)).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(distanciaSeparacion, "La distancia se ha obtenido correctamente")).build();
 
     }
 }
