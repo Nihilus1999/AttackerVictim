@@ -33,7 +33,7 @@ public class OperacionesService extends BaseService {
 
             if (command.getReturnParam() != null) {
                 responseDTO = Historico_UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
-                distanciaSeparacion = new calcularDistanciaSeparacionDto().calcularDistanciaSeperacion2(responseDTO.get(0), responseDTO.get(1));
+                distanciaSeparacion = new calcularDistanciaSeparacionDto().calcularDistanciaSeperacion(responseDTO.get(0), responseDTO.get(1));
 
             } else
 

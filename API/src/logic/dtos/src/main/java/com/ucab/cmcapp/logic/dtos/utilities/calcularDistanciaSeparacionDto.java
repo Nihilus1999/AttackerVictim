@@ -10,7 +10,7 @@ public class calcularDistanciaSeparacionDto {
     double FLATTENING = 1 / 298.257223563;
     double ERROR_TOLERANCE = 1e-12;
 
-    public double calcularDistanciaSeperacion2(Historico_UsuarioDto usuario1, Historico_UsuarioDto usuario2){
+    public double calcularDistanciaSeperacion(Historico_UsuarioDto usuario1, Historico_UsuarioDto usuario2){
 
         double latitude1 = usuario1.get_latitud();
         double longitude1 = usuario1.get_longitud();
