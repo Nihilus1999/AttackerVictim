@@ -8,20 +8,21 @@ import com.ucab.cmcapp.persistence.dao.Zona_SeguraDao;
 
 import java.util.List;
 
-public class GetAllZonaByUsuarioIdCommand extends Command<Zona_Segura> {
-    private Zona_Segura _safeZone;
+public class GetZonaByVictimaIdCommand extends Command<Zona_Segura> {
+
+    private Zona_Segura _zonaSegura;
     private List<Zona_Segura> _result;
     private Zona_SeguraDao _dao;
 
-    public GetAllZonaByUsuarioIdCommand(Zona_Segura safeZone) {
-        _safeZone = safeZone;
+    public GetZonaByVictimaIdCommand(Zona_Segura safeZone) {
+        _zonaSegura = safeZone;
         setHandler(new DBHandler());
         _dao = DaoFactory.createZona_SeguraDao(getHandler());
     }
 
     @Override
     public void execute() {
-        _result = _dao.getZonaByUsuarioId(_safeZone.get_usuario());
+        _result = _dao.getZonaByVictimaId(_zonaSegura.get_victima());
     }
 
     @Override
