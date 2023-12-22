@@ -11,10 +11,14 @@ import javax.ws.rs.ext.ExceptionMapper;
 public class FindAllExceptionMapper implements ExceptionMapper<FindAllException> {
     @Override
     public Response toResponse(FindAllException exception) {
+        try{
         FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_FINDALLDB_CODE),
                 Registry.getInstance().getProperty(Registry.EXC_FINDALLDB_MSG),
                 exception.getMessage());
 
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+        }catch (NullPointerException e){
+            return null;
+        }
     }
 }

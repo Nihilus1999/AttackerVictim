@@ -12,10 +12,14 @@ import javax.ws.rs.ext.Provider;
 public class CupraExceptionMapper implements ExceptionMapper<CupraException> {
     @Override
     public Response toResponse(CupraException exception) {
+        try{
         FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_GENERIC_CODE),
                 Registry.getInstance().getProperty(Registry.EXC_GENERIC_MSG),
                 exception.getMessage());
 
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+        }catch (NullPointerException e){
+            return null;
+        }
     }
 }

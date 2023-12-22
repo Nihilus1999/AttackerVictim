@@ -10,10 +10,14 @@ import javax.ws.rs.ext.ExceptionMapper;
 public class DeleteExceptionMapper implements ExceptionMapper<DeleteException> {
     @Override
     public Response toResponse(DeleteException exception) {
+        try{
         FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_DELETEDB_CODE),
                 Registry.getInstance().getProperty(Registry.EXC_DELETEDB_MSG),
                 exception.getMessage());
 
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+        }catch (NullPointerException e){
+            return null;
+        }
     }
 }

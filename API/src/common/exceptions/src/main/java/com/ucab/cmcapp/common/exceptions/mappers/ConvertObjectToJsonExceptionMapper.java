@@ -10,10 +10,14 @@ import javax.ws.rs.ext.ExceptionMapper;
 public class ConvertObjectToJsonExceptionMapper implements ExceptionMapper<ConvertObjectToJsonException> {
     @Override
     public Response toResponse(ConvertObjectToJsonException exception) {
+        try{
         FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_UTILITIES_CODE),
                 Registry.getInstance().getProperty(Registry.EXC_UTILITIES_MSG),
                 exception.getMessage());
 
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+        }catch (NullPointerException e){
+            return null;
+        }
     }
 }
