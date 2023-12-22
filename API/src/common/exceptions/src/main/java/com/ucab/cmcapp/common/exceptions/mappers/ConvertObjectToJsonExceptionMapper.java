@@ -11,11 +11,11 @@ public class ConvertObjectToJsonExceptionMapper implements ExceptionMapper<Conve
     @Override
     public Response toResponse(ConvertObjectToJsonException exception) {
         try{
-        FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_UTILITIES_CODE),
-                Registry.getInstance().getProperty(Registry.EXC_UTILITIES_MSG),
-                exception.getMessage());
+            FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_UTILITIES_CODE),
+                    Registry.getInstance().getProperty(Registry.EXC_UTILITIES_MSG),
+                    exception.getMessage());
 
-        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
         }catch (NullPointerException e){
             return null;
         }

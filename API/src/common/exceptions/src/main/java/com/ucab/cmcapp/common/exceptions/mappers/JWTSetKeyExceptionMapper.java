@@ -11,11 +11,11 @@ public class JWTSetKeyExceptionMapper implements ExceptionMapper<JWTSetKeyExcept
     @Override
     public Response toResponse(JWTSetKeyException exception) {
         try{
-        FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_JWTSETKEY_CODE),
-                Registry.getInstance().getProperty(Registry.EXC_JWTSETKEY_MSG),
-                exception.getMessage());
+            FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_JWTSETKEY_CODE),
+                    Registry.getInstance().getProperty(Registry.EXC_JWTSETKEY_MSG),
+                    exception.getMessage());
 
-        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
         }catch (NullPointerException e){
             return null;
         }

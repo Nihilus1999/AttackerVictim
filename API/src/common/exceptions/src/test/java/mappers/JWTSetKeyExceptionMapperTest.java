@@ -1,37 +1,35 @@
 package mappers;
 
-import com.ucab.cmcapp.common.exceptions.AuthenticationException;
-import com.ucab.cmcapp.common.exceptions.BaseException;
-import com.ucab.cmcapp.common.exceptions.mappers.AuthenticationExceptionMapper;
+import com.ucab.cmcapp.common.exceptions.JWTSetKeyException;
+import com.ucab.cmcapp.common.exceptions.mappers.JWTSetKeyExceptionMapper;
 import com.ucab.cmcapp.properties.Registry;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Response;
-import java.io.Serializable;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class BadIdExceptionTest {
+class JWTSetKeyExceptionMapperTest {
     @Test
     void testToResponse() {
         // Crear un objeto AuthenticationException con los valores esperados
-        AuthenticationException exception = new AuthenticationException("Mensaje de error");
+        JWTSetKeyException exception = new JWTSetKeyException("Mensaje de error");
 
         // Mockear el objeto Registry para simular el comportamiento de getProperty
 
 
         try {
             Registry registry = mock(Registry.class);
-            when(registry.getProperty(Registry.EXC_BADID_CODE)).thenReturn("1");
-            when(registry.getProperty(Registry.EXC_UTILITIES_MSG)).thenReturn("Mensaje de error");
+            when(registry.getProperty(Registry.EXC_JWTSETKEY_CODE)).thenReturn("1");
+            when(registry.getProperty(Registry.EXC_JWTSETKEY_MSG)).thenReturn("Mensaje de error");
 
         } catch (NullPointerException e) {
             // Manejar la excepción NullPointerException
 
         } finally {
-            AuthenticationExceptionMapper mapper = new AuthenticationExceptionMapper();
+            JWTSetKeyExceptionMapper mapper = new JWTSetKeyExceptionMapper();
 
             // Simular el método toResponse
             Response response = mapper.toResponse(exception);

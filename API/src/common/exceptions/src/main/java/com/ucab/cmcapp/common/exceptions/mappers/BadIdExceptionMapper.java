@@ -12,11 +12,11 @@ public class BadIdExceptionMapper implements ExceptionMapper<BadIdException> {
     @Override
     public Response toResponse(BadIdException exception) {
         try{
-        FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_BADID_CODE),
-                Registry.getInstance().getProperty(Registry.EXC_BADID_MSG),
-                exception.getMessage());
+            FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_BADID_CODE),
+                    Registry.getInstance().getProperty(Registry.EXC_BADID_MSG),
+                    exception.getMessage());
 
-        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
         }catch (NullPointerException e){
             return null;
         }

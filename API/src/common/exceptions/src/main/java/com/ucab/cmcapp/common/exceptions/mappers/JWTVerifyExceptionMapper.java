@@ -14,11 +14,11 @@ public class JWTVerifyExceptionMapper implements ExceptionMapper<JWTVerifyExcept
     @Override
     public Response toResponse(JWTVerifyException exception) {
         try{
-        FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_JWTVERIFY_CODE),
-                Registry.getInstance().getProperty(Registry.EXC_JWTVERIFY_MSG),
-                exception.getMessage());
+            FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_JWTVERIFY_CODE),
+                    Registry.getInstance().getProperty(Registry.EXC_JWTVERIFY_MSG),
+                    exception.getMessage());
 
-        return Response.status(Response.Status.UNAUTHORIZED).entity(faultBean).build();
+            return Response.status(Response.Status.UNAUTHORIZED).entity(faultBean).build();
         }catch (NullPointerException e){
             return null;
         }
