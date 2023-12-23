@@ -16,10 +16,8 @@
         <module name="properties" />
         <module name="command" />
         <module name="mappers" />
+        <module name="exceptions" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="exceptions" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
