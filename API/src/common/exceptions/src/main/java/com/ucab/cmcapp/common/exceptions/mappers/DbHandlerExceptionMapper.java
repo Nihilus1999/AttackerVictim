@@ -12,10 +12,14 @@ import javax.ws.rs.ext.Provider;
 public class DbHandlerExceptionMapper implements ExceptionMapper<DbHandlerException> {
     @Override
     public Response toResponse(DbHandlerException exception) {
-        FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_DBHANDLER_CODE),
-                Registry.getInstance().getProperty(Registry.EXC_DBHANDLER_MSG),
-                exception.getMessage());
+        try{
+            FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_DBHANDLER_CODE),
+                    Registry.getInstance().getProperty(Registry.EXC_DBHANDLER_MSG),
+                    exception.getMessage());
 
-        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
+        }catch (NullPointerException e){
+            return null;
+        }
     }
 }
