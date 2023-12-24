@@ -2,6 +2,8 @@ package com.ucab.cmcapp.common.entities;
 
 import javax.persistence.*;
 
+import static javax.persistence.ConstraintMode.CONSTRAINT;
+
 @Entity
 @Table(name = "coordenadas")
 public class Coordenada {
@@ -18,7 +20,7 @@ public class Coordenada {
     private float _longitud;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn( name = "id_zona_segura", nullable = false )
+    @JoinColumn( name = "id_zona_segura", nullable = false)
     private Zona_Segura _zona_segura;
 
     public Coordenada() {

@@ -35,7 +35,7 @@ public class Zona_SeguraMapper extends BaseMapper {
         dto.set_nombre(entity.get_nombre());
 
         if(Objects.nonNull(entity.get_victima()))
-            dto.get_victima(Usuario_VictimaMapper.mapEntityToDto(entity.));
+            dto.set_victima( Usuario_VictimaMapper.mapEntityToDto( entity.get_victima() ) );
 
         return dto;
     }

@@ -12,7 +12,7 @@
         <class>com.ucab.cmcapp.common.entities.Historico_Usuario</class>
         <class>com.ucab.cmcapp.common.entities.Zona_Segura</class>
         <class>com.ucab.cmcapp.common.entities.Usuario_Victima</class>
-        <class>com.ucab.cmcapp.common.entities.Usuario_AtacanteTest</class>
+        <class>com.ucab.cmcapp.common.entities.Usuario_Atacante</class>
         <class>com.ucab.cmcapp.common.entities.Relacion_VA</class>
 
         <properties>

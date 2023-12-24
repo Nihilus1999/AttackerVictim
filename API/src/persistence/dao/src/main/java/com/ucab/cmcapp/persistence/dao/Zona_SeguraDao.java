@@ -1,7 +1,5 @@
 package com.ucab.cmcapp.persistence.dao;
 
-import com.ucab.cmcapp.common.entities.Historico_Usuario;
-import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.entities.Usuario_Victima;
 import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.common.exceptions.CupraException;
@@ -34,7 +32,7 @@ public class Zona_SeguraDao extends BaseDao<Zona_Segura> {
         _builder = _em.getCriteriaBuilder();
     }
 
-    public List<Zona_Segura> getZonaByUsuarioId(Usuario_Victima victimaId) {
+    public List<Zona_Segura> getZonaByVictimaId(Usuario_Victima victimaId) {
         List<Zona_Segura> results;
         try {
             CriteriaQuery<Zona_Segura> query = _builder.createQuery(Zona_Segura.class);
