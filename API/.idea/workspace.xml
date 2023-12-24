@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="implementation:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="01ad7a91-0dfd-4c91-a684-d32972191400" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AttackerVictim_API.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/azure/azureSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/azure/azureSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/EntityFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/entities/Administrador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/entities/Coordenada.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/entities/Historico_Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/entities/Relacion_VA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/entities/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/entities/Usuario_Atacante.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/entities/Usuario_Victima.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/main/java/com/ucab/cmcapp/common/entities/Zona_Segura.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/EntityFactoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/UserTypeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/entities/AdministradorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/entities/CoordenadaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/entities/Historico_UsuarioTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/entities/Relacion_VATest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/entities/UsuarioTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/entities/Usuario_AtacanteTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/entities/Usuario_VictimaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/entities/src/test/java/entities/Zona_SeguraTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/enums/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/enums/src/main/java/com/ucab/cmcapp/common/enums/UserType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/enums/src/test/java/UserTypeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/AuthenticationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/BadIdException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/BaseException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/ConvertObjectToJsonException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/CupraException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/DbHandlerException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/DeleteException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/FaultBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/FindAllException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/FindException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/InsertException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/JWTCreateException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/JWTSetKeyException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/JWTVerifyException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/UpdateException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/AuthenticationExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/BadIdExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/ConvertObjectToJsonExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/CupraExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/DbHandlerExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/DeleteExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/FindAllExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/FindExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/InsertExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/JWTCreateExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/JWTSetKeyExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/JWTVerifyExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/main/java/com/ucab/cmcapp/common/exceptions/mappers/UpdateExceptionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/AuthenticationExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/BadIdExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/BaseExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/ConvertObjectToJsonExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/CupraExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/DbHandlerExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/DeleteExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/FaultBeanTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/FindAllExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/FindExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/InsertExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/JWTCreateExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/JWTSetKeyExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/JWTVerifyExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/UpdateExceptionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/AuthenticationExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/BadIdExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/ConvertObjectToJsonExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/CupraExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/DBHandlerExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/DeleteExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/FindAllExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/FindExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/InsertExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/JWTCreateExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/JWTSetKeyExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/JWTVerifyExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/exceptions/src/test/java/mappers/UpdateExceptionMapperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/properties/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/properties/src/main/java/com/ucab/cmcapp/properties/Registry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/src/main/java/com/ucab/cmcapp/common/util/CORSFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/src/main/java/com/ucab/cmcapp/common/util/CustomResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/src/main/java/com/ucab/cmcapp/common/util/JWT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/src/main/java/com/ucab/cmcapp/common/util/Utilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/src/test/java/CORSFilterTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/src/test/java/CustomResponseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/src/test/java/UtilitiesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/CommandFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/atomic/AddAdministradorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/atomic/EraseAdministradorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/atomic/GetAdministradorByAliasCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/atomic/GetAdministradorByCorreoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/atomic/GetAdministradorByIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/atomic/GetAdministradorByListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/atomic/ModifyAdministradorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/composite/CreateAdministradorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/composite/DeleteAdministradorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/composite/GetAdministradorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/composite/GetAllAdministradorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/administrador/composite/UpdateAdministradorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/atomic/AddCoordenadaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/atomic/EraseCoordenadaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/atomic/GetCoordenadaByIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/atomic/GetCoordenadaByListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/atomic/GetCoordenadaByZonaIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/atomic/ModifyCoordenadaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/composite/CreateCoordenadaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/composite/DeleteCoordenadaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/composite/GetAllCoordenadaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/composite/GetCoordenadaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/coordenada/composite/UpdateCoordenadaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/atomic/AddHistoricoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/atomic/EraseHistoricoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/atomic/GetHistoricoByIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/atomic/GetHistoricoByListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/atomic/GetHistoricoByUsuarioIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/atomic/ModifyHistoricoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/composite/CreateHistoricoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/composite/DeleteHistoricoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/composite/GetAllHistoricoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/composite/GetHistoricoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/historico_usuario/composite/UpdateHistoricoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/atomic/AddRelacionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/atomic/EraseRelacionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/atomic/GetPosicionByRelacionIDCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/atomic/GetRelacionByIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/atomic/GetRelacionByListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/atomic/ModifyRelacionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/composite/CreateRelacionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/composite/DeleteRelacionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/composite/GetAllRelacionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/composite/GetRelacionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/relacion_VA/composite/UpdateRelacionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/AddUsuarioCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/EraseUsuarioCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/GetUsuarioByAliasCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/GetUsuarioByCedulaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/GetUsuarioByCorreoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/GetUsuarioByIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/GetUsuarioByListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/GetUsuarioByMacCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/atomic/ModifyUsuarioCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/composite/CreateUsuarioCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/composite/DeleteUsuarioCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/composite/GetAllUsuarioCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/composite/GetUsuarioCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario/composite/UpdateUsuarioCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/atomic/AddAtacanteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/atomic/EraseAtacanteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/atomic/GetAtacanteByIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/atomic/GetAtacanteByListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/atomic/ModifyAtacanteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/composite/CreateAtacanteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/composite/DeleteAtacanteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/composite/GetAllAtacanteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/composite/GetAtacanteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_atacante/composite/UpdateAtacanteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/atomic/AddVictimaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/atomic/EraseVictimaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/atomic/GetVictimaByIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/atomic/GetVictimaByListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/atomic/ModifyVictimaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/composite/CreateVictimaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/composite/DeleteVictimaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/composite/GetAllVictimaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/composite/GetVictimaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/usuario_victima/composite/UpdateVictimaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/atomic/AddZonaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/atomic/EraseZonaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/atomic/GetZonaByIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/atomic/GetZonaByListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/atomic/GetZonaByVictimaIdCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/atomic/ModifyZonaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/composite/CreateZonaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/composite/DeleteZonaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/composite/GetAllZonaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/composite/GetZonaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/main/java/com/ucab/cmcapp/logic/commands/zona_segura/composite/UpdateZonaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/test/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/test/resources/cmcappconfig.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/commands/src/test/resources/cmcappmsg.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/AdministradorDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/BaseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/CoordenadaDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/Historico_UsuarioDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/Relacion_VADto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/UsuarioDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/Usuario_AtacanteDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/Usuario_VictimaDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/dtos/Zona_SeguraDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/utilities/calcularDistanciaSeparacionDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/dtos/src/main/java/com/ucab/cmcapp/logic/dtos/utilities/zonaDeterminada.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/AdministradorMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/BaseMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/CoordenadaMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/Historico_UsuarioMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/Relacion_VAMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/UsuarioMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/Usuario_AtacanteMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/Usuario_VictimaMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/mappers/src/main/java/com/ucab/cmcapp/logic/mappers/Zona_SeguraMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/DBHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/DaoFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/AdministradorDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/BaseDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/CoordenadaDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/Historico_UsuarioDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/Relacion_VADao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/UsuarioDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/Usuario_AtacanteDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/Usuario_VictimaDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/java/com/ucab/cmcapp/persistence/dao/Zona_SeguraDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/main/resources/testcmapp-b557b-firebase-adminsdk-ldte3-1eeac016dd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/test/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/test/resources/cmcappconfig.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/dao/src/test/resources/inserts.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/AdministradorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/AtacanteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/BaseService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/CoordenadaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/HistoricoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/OperacionesService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/RelacionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/UsuarioService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/VictimaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/java/com/ucab/cmcapp/implementation/ZonaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/resources/cmcappconfig.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/webapp/WEB-INF/jboss-deployment-structure.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/webapp/WEB-INF/jboss-web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/main/webapp/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/test/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/implementation/src/test/resources/cmcappconfig.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/pom.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="2" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/pom.xml" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;contexts&quot;: [
+    {
+      &quot;name&quot;: &quot;pj-jdelasmar-18/okd-cluster-ucab-edu-ve:8443/jdelasmar.18&quot;,
+      &quot;originalNamespace&quot;: &quot;pj-jdelasmar-18&quot;
+    }
+  ],
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="KubernetesSettings">
+    <option name="contextName" value="pj-jdelasmar-18/okd-cluster-ucab-edu-ve:8443/jdelasmar.18" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2Xmaetu909AfflcwoHk6cyetsbW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JBoss/WildFly Server.JBoss/WildFly 11.0.0.Final.executor": "Run",
+    "JUnit.AdministradorTest.executor": "Coverage",
+    "JUnit.All in common.executor": "Coverage",
+    "JUnit.All in entities (1).executor": "Coverage",
+    "JUnit.All in entities.executor": "Run",
+    "JUnit.All in enums.executor": "Coverage",
+    "JUnit.All in exceptions (1).executor": "Coverage",
+    "JUnit.All in exceptions (2).executor": "Coverage",
+    "JUnit.All in exceptions (3).executor": "Coverage",
+    "JUnit.All in exceptions.executor": "Coverage",
+    "JUnit.All in properties (1).executor": "Coverage",
+    "JUnit.All in properties.executor": "Coverage",
+    "JUnit.All in utilities (1).executor": "Coverage",
+    "JUnit.All in utilities (2).executor": "Coverage",
+    "JUnit.All in utilities.executor": "Coverage",
+    "JUnit.AuthenticationExceptionTest.executor": "Coverage",
+    "JUnit.BadIdExceptionMapperTest.executor": "Coverage",
+    "JUnit.BadIdExceptionTest.executor": "Coverage",
+    "JUnit.BaseExceptionTest.executor": "Coverage",
+    "JUnit.BaseExceptionTest.testConstructorWithIllegalArgumentException.executor": "Coverage",
+    "JUnit.CORSFilterTest.executor": "Coverage",
+    "JUnit.CupraExceptionTest.executor": "Coverage",
+    "JUnit.CustomResponseTest.executor": "Coverage",
+    "JUnit.DbHandlerExceptionTest.executor": "Coverage",
+    "JUnit.DeleteExceptionTest.executor": "Coverage",
+    "JUnit.EntityFactoryTest.executor": "Coverage",
+    "JUnit.FaultBeanTest.executor": "Coverage",
+    "JUnit.FindAllExceptionTest.executor": "Coverage",
+    "JUnit.InsertExceptionTest (1).executor": "Coverage",
+    "JUnit.InsertExceptionTest.executor": "Coverage",
+    "JUnit.JWTCreateExceptionMapperTest (1).executor": "Coverage",
+    "JUnit.JWTCreateExceptionMapperTest.executor": "Coverage",
+    "JUnit.JWTCreateExceptionMapperTest.testToResponse.executor": "Coverage",
+    "JUnit.JWTCreateExceptionTest (1).executor": "Coverage",
+    "JUnit.JWTCreateExceptionTest.executor": "Coverage",
+    "JUnit.JWTSetKeyExceptionTest.testConstructor.executor": "Coverage",
+    "JUnit.JWTTest.executor": "Coverage",
+    "JUnit.JWTVerifyExceptionTest.executor": "Coverage",
+    "JUnit.RegistryTest (1).executor": "Coverage",
+    "JUnit.RegistryTest.executor": "Coverage",
+    "JUnit.RegistryTest.givenInvalidKey_whenGetProperty_thenReturnNull.executor": "Coverage",
+    "JUnit.RegistryTest.givenValidKey_whenGetProperty_thenReturnExpectedValue.executor": "Coverage",
+    "JUnit.RegistryTest.testGetProperty.executor": "Coverage",
+    "JUnit.Relacion_VATest.executor": "Coverage",
+    "JUnit.UpdateExceptionMapperTest.executor": "Coverage",
+    "JUnit.UpdateExceptionTest.testConstructor.executor": "Coverage",
+    "JUnit.UserTypeTest.executor": "Coverage",
+    "JUnit.UsuarioTest.executor": "Coverage",
+    "JUnit.Usuario_AtacanteTest.executor": "Coverage",
+    "JUnit.Usuario_VictimaTest.executor": "Coverage",
+    "JUnit.UtilitiesTest.executor": "Coverage",
+    "JUnit.Zona_SeguraTest.executor": "Coverage",
+    "JUnit.java in exceptions.executor": "Coverage",
+    "Maven.backend [clean].executor": "Run",
+    "Maven.backend [install].executor": "Run",
+    "Maven.backend [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.backend [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "develop",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/jose-/Documents/GitHub/AttackerVictim-GrupoC/API/src/common/properties/src/main/java/com/ucab/cmcapp/properties",
+    "last_opened_file_path": "C:/Users/jose-/Documents/GitHub/AttackerVictim-GrupoC/API/src/common/utilities/src/test/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jose-\Documents\GitHub\AttackerVictim-GrupoC\API\src\common\utilities\src\test\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jose-\Documents\GitHub\AttackerVictim-GrupoC\API\src\services\implementation\src\main\webapp" />
+      <recent name="C:\Users\jose-\Documents\GitHub\AttackerVictim-GrupoC\API\src\services\implementation\src\main\webapp\WEB-INF" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="mappers" />
+      <recent name="com.ucab.cmcapp.logic.dtos.utilities" />
+      <recent name="com.ucab.cmcapp.logic.commands.relacion_VA.atomic" />
+      <recent name="com.ucab.cmcapp.implementation" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="JBoss/WildFly 11.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 11.0.0.Final" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <artifact name="implementation:war">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" value="main-server-group" />
+        <option name="USERNAME" value="" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="64089" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="implementation:war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.16-jbr_dcevm-11.0.16-3183f394aec4-aafaa85f" />
+        <option value="jdk-11.0.21-corretto-11.0.21-3183f394aec4-d55de845" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01ad7a91-0dfd-4c91-a684-d32972191400" name="Changes" comment="" />
+      <created>1699236807373</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699236807373</updated>
+      <workItem from="1699236808624" duration="2000" />
+      <workItem from="1699236821462" duration="757000" />
+      <workItem from="1699289556044" duration="9046000" />
+      <workItem from="1699320198970" duration="3506000" />
+      <workItem from="1699383560581" duration="17037000" />
+      <workItem from="1699478949597" duration="10599000" />
+      <workItem from="1699496583556" duration="133000" />
+      <workItem from="1699526819753" duration="547000" />
+      <workItem from="1699540263774" duration="10880000" />
+      <workItem from="1699554803672" duration="744000" />
+      <workItem from="1699561257197" duration="10972000" />
+      <workItem from="1701381357684" duration="15606000" />
+      <workItem from="1701441655776" duration="2835000" />
+      <workItem from="1701473598418" duration="3474000" />
+      <workItem from="1701478736932" duration="18000" />
+      <workItem from="1701478760018" duration="251000" />
+      <workItem from="1701479045772" duration="611000" />
+      <workItem from="1701479670266" duration="113000" />
+      <workItem from="1701479797316" duration="443000" />
+      <workItem from="1701480266069" duration="23000" />
+      <workItem from="1701480297631" duration="133000" />
+      <workItem from="1701480556467" duration="211000" />
+      <workItem from="1701480795998" duration="166000" />
+      <workItem from="1701480973271" duration="199000" />
+      <workItem from="1701481209524" duration="35000" />
+      <workItem from="1701481258294" duration="239000" />
+      <workItem from="1701481508067" duration="774000" />
+      <workItem from="1701482306959" duration="80000" />
+      <workItem from="1701482412433" duration="589000" />
+      <workItem from="1701483071765" duration="35314000" />
+      <workItem from="1701624505576" duration="240000" />
+      <workItem from="1701630548993" duration="1083000" />
+      <workItem from="1701638587222" duration="6447000" />
+      <workItem from="1701645364433" duration="571000" />
+      <workItem from="1701653221650" duration="1214000" />
+      <workItem from="1701713890056" duration="3493000" />
+      <workItem from="1701719375053" duration="2290000" />
+      <workItem from="1701721878886" duration="10320000" />
+      <workItem from="1701736438408" duration="27000" />
+      <workItem from="1701737475154" duration="641000" />
+      <workItem from="1701869857815" duration="3297000" />
+      <workItem from="1701874975960" duration="3155000" />
+      <workItem from="1701884377174" duration="784000" />
+      <workItem from="1701885701907" duration="1274000" />
+      <workItem from="1701899577998" duration="3995000" />
+      <workItem from="1701905159011" duration="4568000" />
+      <workItem from="1701967889700" duration="658000" />
+      <workItem from="1701970049601" duration="1459000" />
+      <workItem from="1701974050512" duration="8721000" />
+      <workItem from="1701983620473" duration="95000" />
+      <workItem from="1702056996492" duration="1006000" />
+      <workItem from="1702141769944" duration="9241000" />
+      <workItem from="1702157533388" duration="542000" />
+      <workItem from="1702159765211" duration="720000" />
+      <workItem from="1702161629907" duration="1271000" />
+      <workItem from="1702215388778" duration="392000" />
+      <workItem from="1702215812223" duration="6856000" />
+      <workItem from="1702225229861" duration="4947000" />
+      <workItem from="1702249510805" duration="827000" />
+      <workItem from="1702254942261" duration="1149000" />
+      <workItem from="1702335621428" duration="209000" />
+      <workItem from="1702394936768" duration="1394000" />
+      <workItem from="1702403618229" duration="233000" />
+      <workItem from="1702405990877" duration="2071000" />
+      <workItem from="1702421171681" duration="521000" />
+      <workItem from="1702484050689" duration="412000" />
+      <workItem from="1702509579941" duration="2172000" />
+      <workItem from="1702557979161" duration="239000" />
+      <workItem from="1702558374465" duration="1291000" />
+      <workItem from="1702571780547" duration="181000" />
+      <workItem from="1702572021567" duration="5000" />
+      <workItem from="1702572035805" duration="253000" />
+      <workItem from="1702572497668" duration="2301000" />
+      <workItem from="1702575081487" duration="153000" />
+      <workItem from="1702575462094" duration="15199000" />
+      <workItem from="1702601817207" duration="389000" />
+      <workItem from="1702647243644" duration="507000" />
+      <workItem from="1702648486215" duration="1764000" />
+      <workItem from="1702730746916" duration="70000" />
+      <workItem from="1702948931924" duration="1108000" />
+      <workItem from="1703032510479" duration="75000" />
+      <workItem from="1703032601979" duration="43000" />
+      <workItem from="1703085788136" duration="8000" />
+      <workItem from="1703098451348" duration="17202000" />
+      <workItem from="1703182803826" duration="174000" />
+      <workItem from="1703183002424" duration="1327000" />
+      <workItem from="1703184646633" duration="86000" />
+      <workItem from="1703268517817" duration="10567000" />
+      <workItem from="1703283682711" duration="11345000" />
+      <workItem from="1703370892104" duration="593000" />
+      <workItem from="1703375355637" duration="189000" />
+      <workItem from="1703375576076" duration="655000" />
+      <workItem from="1703376280728" duration="326000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/API$UpdateExceptionTest_testConstructor.ic" NAME="UpdateExceptionTest.testConstructor Coverage Results" MODIFIED="1702598493846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ucab.cmcapp.common.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$InsertExceptionTest__1_.ic" NAME="InsertExceptionTest (1) Coverage Results" MODIFIED="1702594820512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$JWTSetKeyExceptionTest_testConstructor.ic" NAME="JWTSetKeyExceptionTest.testConstructor Coverage Results" MODIFIED="1702598501915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ucab.cmcapp.common.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$Relacion_VATest.ic" NAME="Relacion_VATest Coverage Results" MODIFIED="1703289694207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entities.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$All_in_entities__1_.ic" NAME="All in entities (1) Coverage Results" MODIFIED="1703290753928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$Usuario_AtacanteTest.ic" NAME="Usuario_AtacanteTest Coverage Results" MODIFIED="1703291748152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entities.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$Zona_SeguraTest.ic" NAME="Zona_SeguraTest Coverage Results" MODIFIED="1703291543781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entities.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$All_in_exceptions__3_.ic" NAME="All in exceptions (3) Coverage Results" MODIFIED="1702577973290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$CORSFilterTest.ic" NAME="CORSFilterTest Coverage Results" MODIFIED="1702591391114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$BadIdExceptionTest.ic" NAME="BadIdExceptionTest Coverage Results" MODIFIED="1702406818022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$RegistryTest__1_.ic" NAME="RegistryTest (1) Coverage Results" MODIFIED="1702590479745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ucab.cmcapp.properties.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$All_in_properties.ic" NAME="All in properties Coverage Results" MODIFIED="1703274929773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$All_in_exceptions__2_.ic" NAME="All in exceptions (2) Coverage Results" MODIFIED="1702578835110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$UserTypeTest.ic" NAME="UserTypeTest Coverage Results" MODIFIED="1702591989756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$JWTCreateExceptionTest__1_.ic" NAME="JWTCreateExceptionTest (1) Coverage Results" MODIFIED="1702597583049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$JWTCreateExceptionMapperTest.ic" NAME="JWTCreateExceptionMapperTest Coverage Results" MODIFIED="1702595296963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>mappers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$CupraExceptionTest.ic" NAME="CupraExceptionTest Coverage Results" MODIFIED="1702592424772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$FindAllExceptionTest.ic" NAME="FindAllExceptionTest Coverage Results" MODIFIED="1702594610553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$All_in_exceptions__1_.ic" NAME="All in exceptions (1) Coverage Results" MODIFIED="1703285242397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$InsertExceptionTest.ic" NAME="InsertExceptionTest Coverage Results" MODIFIED="1702594766329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ucab.cmcapp.common.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$JWTCreateExceptionMapperTest__1_.ic" NAME="JWTCreateExceptionMapperTest (1) Coverage Results" MODIFIED="1702596089940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ucab.cmcapp.common.exceptions.mappers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$EntityFactoryTest.ic" NAME="EntityFactoryTest Coverage Results" MODIFIED="1703289189118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$All_in_exceptions.ic" NAME="All in exceptions Coverage Results" MODIFIED="1703292956889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$JWTCreateExceptionTest.ic" NAME="JWTCreateExceptionTest Coverage Results" MODIFIED="1702596382041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ucab.cmcapp.common.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$BaseExceptionTest_testConstructorWithIllegalArgumentException.ic" NAME="BaseExceptionTest.testConstructorWithIllegalArgumentException Coverage Results" MODIFIED="1702578735321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$RegistryTest.ic" NAME="RegistryTest Coverage Results" MODIFIED="1703273591402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$JWTVerifyExceptionTest.ic" NAME="JWTVerifyExceptionTest Coverage Results" MODIFIED="1702598353841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$UtilitiesTest.ic" NAME="UtilitiesTest Coverage Results" MODIFIED="1702591815123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ucab.cmcapp.common.util.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$Usuario_VictimaTest.ic" NAME="Usuario_VictimaTest Coverage Results" MODIFIED="1703292317619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entities.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$UsuarioTest.ic" NAME="UsuarioTest Coverage Results" MODIFIED="1703289956535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entities.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$AuthenticationExceptionTest.ic" NAME="AuthenticationExceptionTest Coverage Results" MODIFIED="1702577904198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>mappers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$All_in_entities.ic" NAME="All in entities Coverage Results" MODIFIED="1703294067776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$java_in_exceptions.ic" NAME="java in exceptions Coverage Results" MODIFIED="1702579356633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$DeleteExceptionTest.ic" NAME="DeleteExceptionTest Coverage Results" MODIFIED="1702593462467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$All_in_utilities__1_.ic" NAME="All in utilities (1) Coverage Results" MODIFIED="1702598738842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$All_in_common.ic" NAME="All in common Coverage Results" MODIFIED="1703287333045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$JWTCreateExceptionMapperTest_testToResponse.ic" NAME="JWTCreateExceptionMapperTest.testToResponse Coverage Results" MODIFIED="1702595434119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>mappers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$JWTTest.ic" NAME="JWTTest Coverage Results" MODIFIED="1702592265035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$DbHandlerExceptionTest.ic" NAME="DbHandlerExceptionTest Coverage Results" MODIFIED="1702592945227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ucab.cmcapp.common.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$FaultBeanTest.ic" NAME="FaultBeanTest Coverage Results" MODIFIED="1702593900479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$All_in_utilities__2_.ic" NAME="All in utilities (2) Coverage Results" MODIFIED="1702598752692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$RegistryTest_givenValidKey_whenGetProperty_thenReturnExpectedValue.ic" NAME="RegistryTest.givenValidKey_whenGetProperty_thenReturnExpectedValue Coverage Results" MODIFIED="1703272633151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$RegistryTest_givenInvalidKey_whenGetProperty_thenReturnNull.ic" NAME="RegistryTest.givenInvalidKey_whenGetProperty_thenReturnNull Coverage Results" MODIFIED="1703272642196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$All_in_enums.ic" NAME="All in enums Coverage Results" MODIFIED="1703292941263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$BaseExceptionTest.ic" NAME="BaseExceptionTest Coverage Results" MODIFIED="1702578204976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$RegistryTest_testGetProperty.ic" NAME="RegistryTest.testGetProperty Coverage Results" MODIFIED="1702589951529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$BadIdExceptionMapperTest.ic" NAME="BadIdExceptionMapperTest Coverage Results" MODIFIED="1702577774232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>mappers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$UpdateExceptionMapperTest.ic" NAME="UpdateExceptionMapperTest Coverage Results" MODIFIED="1703287251353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>mappers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$AdministradorTest.ic" NAME="AdministradorTest Coverage Results" MODIFIED="1703293240815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entities.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/API$All_in_utilities.ic" NAME="All in utilities Coverage Results" MODIFIED="1703293068630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/API$CustomResponseTest.ic" NAME="CustomResponseTest Coverage Results" MODIFIED="1702591127096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
