@@ -2,7 +2,6 @@ package com.ucab.cmcapp.common.entities;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -18,8 +17,8 @@ public class Zona_Segura {
     private String _nombre;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn( name = "id_usuario", nullable = false )
-    private Usuario _usuario;
+    @JoinColumn( name = "id_usuario_victima", nullable = false )
+    private Usuario_Victima _victima;
 
 
     public Zona_Segura() {
@@ -50,11 +49,11 @@ public class Zona_Segura {
         this._nombre = _nombre;
     }
 
-    public Usuario get_usuario() {
-        return _usuario;
+    public Usuario_Victima get_victima() {
+        return _victima;
     }
 
-    public void set_usuario(Usuario _usuario) {
-        this._usuario = _usuario;
+    public void set_victima(Usuario_Victima _victima) {
+        this._victima = _victima;
     }
 }

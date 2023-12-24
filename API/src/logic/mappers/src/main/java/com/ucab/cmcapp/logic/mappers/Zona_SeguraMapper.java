@@ -2,6 +2,7 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Usuario;
+import com.ucab.cmcapp.common.entities.Usuario_Victima;
 import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.logic.dtos.dtos.Zona_SeguraDto;
 import org.slf4j.Logger;
@@ -20,8 +21,8 @@ public class Zona_SeguraMapper extends BaseMapper {
         entity.set_id(dto.getId());
         entity.set_nombre(dto.get_nombre());
 
-        if ( Objects.nonNull( dto.get_usuario() ) ) {
-            entity.set_usuario( UsuarioMapper.mapDtoToEntity( dto.get_usuario() ) );
+        if ( Objects.nonNull( dto.get_victima() ) ) {
+            entity.set_victima( Usuario_VictimaMapper.mapDtoToEntity( dto.get_victima() ) );
         }
 
         return entity;
@@ -33,8 +34,8 @@ public class Zona_SeguraMapper extends BaseMapper {
         dto.setId(entity.get_id());
         dto.set_nombre(entity.get_nombre());
 
-        if(Objects.nonNull(entity.get_usuario()))
-            dto.set_usuario( UsuarioMapper.mapEntityToDto( entity.get_usuario()));
+        if(Objects.nonNull(entity.get_victima()))
+            dto.get_victima(Usuario_VictimaMapper.mapEntityToDto(entity.));
 
         return dto;
     }
@@ -55,8 +56,8 @@ public class Zona_SeguraMapper extends BaseMapper {
             Zona_SeguraDto.setId(zonasSegura.get_id());
             Zona_SeguraDto.set_nombre(zonasSegura.get_nombre());
 
-            if (Objects.nonNull(zonasSegura.get_usuario()))
-                Zona_SeguraDto.set_usuario(UsuarioMapper.mapEntityToDto(zonasSegura.get_usuario()));
+            if (Objects.nonNull(zonasSegura.get_victima()))
+                Zona_SeguraDto.set_victima(Usuario_VictimaMapper.mapEntityToDto(zonasSegura.get_victima()));
 
             dtoList.add(Zona_SeguraDto);
 
@@ -66,9 +67,9 @@ public class Zona_SeguraMapper extends BaseMapper {
     }
 
     public static Zona_Segura mapDtoToEntityUsuarioId(long usuarioId){
-        Usuario usuario = new Usuario(usuarioId);
+        Usuario_Victima victima = new Usuario_Victima(usuarioId);
         Zona_Segura zonaSegura = EntityFactory.createZona_Segura();
-        zonaSegura.set_usuario(usuario);
+        zonaSegura.set_victima(victima);
         return zonaSegura;
     }
 

@@ -398,8 +398,8 @@ public class CommandFactory {
         return new GetZonaByListCommand(handler);
     }
 
-    public static GetZonaByUsuarioIdCommand createGetZona_SeguraByUsuarioCommand(Zona_Segura zonaSegura) {
-        return new GetZonaByUsuarioIdCommand(zonaSegura);
+    public static GetZonaByVictimaIdCommand createGetZona_SeguraByVictimaCommand(Zona_Segura zonaSegura) {
+        return new GetZonaByVictimaIdCommand(zonaSegura);
     }
 
 

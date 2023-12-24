@@ -1,14 +1,11 @@
 package com.ucab.cmcapp.logic.dtos.dtos;
 
 
-import com.ucab.cmcapp.logic.dtos.dtos.BaseDto;
-import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
-
 public class Zona_SeguraDto extends BaseDto {
 
     private String _nombre;
 
-    private UsuarioDto _usuario;
+    private Usuario_VictimaDto _victima;
 
     public Zona_SeguraDto() {
 
@@ -26,11 +23,11 @@ public class Zona_SeguraDto extends BaseDto {
         this._nombre = _nombre;
     }
 
-    public UsuarioDto get_usuario() {
-        return _usuario;
+    public Usuario_VictimaDto get_victima() {
+        return _victima;
     }
 
-    public void set_usuario(UsuarioDto _usuario) {
-        this._usuario = _usuario;
+    public void set_victima(Usuario_VictimaDto _victima) {
+        this._victima = _victima;
     }
 }

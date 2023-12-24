@@ -10,14 +10,10 @@ import javax.ws.rs.ext.ExceptionMapper;
 public class UpdateExceptionMapper implements ExceptionMapper<UpdateException> {
     @Override
     public Response toResponse(UpdateException exception) {
-        try{
-            FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_UPDATEDB_CODE),
-                    Registry.getInstance().getProperty(Registry.EXC_UPDATEDB_MSG),
-                    exception.getMessage());
+        FaultBean faultBean = new FaultBean(Registry.getInstance().getProperty(Registry.EXC_UPDATEDB_CODE),
+                Registry.getInstance().getProperty(Registry.EXC_UPDATEDB_MSG),
+                exception.getMessage());
 
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
-        }catch (NullPointerException e){
-            return null;
-        }
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(faultBean).build();
     }
 }
