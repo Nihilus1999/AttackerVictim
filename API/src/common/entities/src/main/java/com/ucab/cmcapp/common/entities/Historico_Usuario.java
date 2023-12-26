@@ -23,10 +23,10 @@ public class Historico_Usuario {
     private Boolean _estadoConexion;
 
     @Column(name = "latitud", nullable = false)
-    private float _latitud;
+    private double _latitud;
 
     @Column(name = "longitud", nullable = false)
-    private float _longitud;
+    private double _longitud;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "id_usuario", nullable = false )
@@ -73,19 +73,19 @@ public class Historico_Usuario {
         this._estadoConexion = _estadoConexion;
     }
 
-    public float get_latitud() {
+    public double get_latitud() {
         return _latitud;
     }
 
-    public void set_latitud(float _latitud) {
+    public void set_latitud(double _latitud) {
         this._latitud = _latitud;
     }
 
-    public float get_longitud() {
+    public double get_longitud() {
         return _longitud;
     }
 
-    public void set_longitud(float _longitud) {
+    public void set_longitud(double _longitud) {
         this._longitud = _longitud;
     }
 

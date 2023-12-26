@@ -7,8 +7,8 @@ public class Historico_UsuarioDto extends BaseDto {
 
     private Date _fecha;
     private Boolean _estadoConexion;
-    private float _latitud;
-    private float _longitud;
+    private double _latitud;
+    private double _longitud;
 
     private UsuarioDto _usuario;
 
@@ -37,19 +37,19 @@ public class Historico_UsuarioDto extends BaseDto {
         this._estadoConexion = _estadoConexion;
     }
 
-    public float get_latitud() {
+    public double get_latitud() {
         return _latitud;
     }
 
-    public void set_latitud(float _latitud) {
+    public void set_latitud(double _latitud) {
         this._latitud = _latitud;
     }
 
-    public float get_longitud() {
+    public double get_longitud() {
         return _longitud;
     }
 
-    public void set_longitud(float _longitud) {
+    public void set_longitud(double _longitud) {
         this._longitud = _longitud;
     }
 

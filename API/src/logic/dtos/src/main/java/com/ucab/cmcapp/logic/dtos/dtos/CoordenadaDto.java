@@ -3,8 +3,8 @@ package com.ucab.cmcapp.logic.dtos.dtos;
 
 public class CoordenadaDto extends BaseDto {
 
-    private float _latitud;
-    private float _longitud;
+    private double _latitud;
+    private double _longitud;
 
     private Zona_SeguraDto _zona_segura;
 
@@ -18,19 +18,19 @@ public class CoordenadaDto extends BaseDto {
         super(id);
     }
 
-    public float get_latitud() {
+    public double get_latitud() {
         return _latitud;
     }
 
-    public void set_latitud(float _latitud) {
+    public void set_latitud(double _latitud) {
         this._latitud = _latitud;
     }
 
-    public float get_longitud() {
+    public double get_longitud() {
         return _longitud;
     }
 
-    public void set_longitud(float _longitud) {
+    public void set_longitud(double _longitud) {
         this._longitud = _longitud;
     }
 

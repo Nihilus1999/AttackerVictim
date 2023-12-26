@@ -14,10 +14,10 @@ public class Coordenada {
     private long _id;
 
     @Column(name = "latitud", nullable = false)
-    private float _latitud;
+    private double _latitud;
 
     @Column(name = "longitud", nullable = false)
-    private float _longitud;
+    private double _longitud;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "id_zona_segura", nullable = false)
@@ -44,19 +44,19 @@ public class Coordenada {
         this._id = _id;
     }
 
-    public float get_latitud() {
+    public double get_latitud() {
         return _latitud;
     }
 
-    public void set_latitud(float _latitud) {
+    public void set_latitud(double _latitud) {
         this._latitud = _latitud;
     }
 
-    public float get_longitud() {
+    public double get_longitud() {
         return _longitud;
     }
 
-    public void set_longitud(float _longitud) {
+    public void set_longitud(double _longitud) {
         this._longitud = _longitud;
     }
 
