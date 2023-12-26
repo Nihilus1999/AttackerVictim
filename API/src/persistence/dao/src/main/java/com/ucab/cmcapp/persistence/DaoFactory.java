@@ -9,7 +9,12 @@ public class DaoFactory {
     }
 
     public static AdministradorDao createAdministradorDao(DBHandler handler) {
-        return new AdministradorDao(handler);
+        try{
+            return new AdministradorDao(handler);
+        }catch(Exception e){
+            return null;
+        }
+
     }
 
     public static UsuarioDao createUsuarioDao(DBHandler handler) {

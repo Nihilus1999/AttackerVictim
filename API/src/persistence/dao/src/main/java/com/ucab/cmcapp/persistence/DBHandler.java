@@ -167,7 +167,10 @@ public class DBHandler {
         if (_emf == null) {
             try {
                 _emf = Persistence.createEntityManagerFactory(Registry.getInstance().getProperty(Registry.DB_UNIT));
-            } catch (Exception e) {
+            } catch( Exception e){
+
+            }
+            catch (ExceptionInInitializerError e) {
                 //region Instrumentation DEBUG
                 _logger.debug("Exception in DbHandler.getEntityManagerFactory : {}", e.getMessage());
                 //endregion

@@ -17,8 +17,8 @@ import javax.persistence.criteria.Root;
 
 public class AdministradorDao extends BaseDao<Administrador> {
     private static Logger _logger = LoggerFactory.getLogger(AdministradorDao.class);
-    private EntityManager _em;
-    private CriteriaBuilder _builder;
+    public EntityManager _em;
+    public CriteriaBuilder _builder;
 
 
     public AdministradorDao() {

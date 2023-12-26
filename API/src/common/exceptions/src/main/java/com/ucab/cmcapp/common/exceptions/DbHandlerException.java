@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Description: Exception that is generated when an unexpected error occurs trying to connect to the database
  */
 public class DbHandlerException extends BaseException implements Serializable {
-    public DbHandlerException(String e) {
+    public DbHandlerException(String e){
         super(e);
     }
 }
