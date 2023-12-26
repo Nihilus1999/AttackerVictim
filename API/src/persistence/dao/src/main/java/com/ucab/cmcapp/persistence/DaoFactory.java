@@ -18,31 +18,60 @@ public class DaoFactory {
     }
 
     public static UsuarioDao createUsuarioDao(DBHandler handler) {
-        return new UsuarioDao(handler);
+        try{
+            return new UsuarioDao(handler);
+        }catch(Exception e){
+            return null;
+        }
+
     }
 
     public static CoordenadaDao createCoordenadaDao(DBHandler handler) {
-        return new CoordenadaDao(handler);
+        try{
+            return new CoordenadaDao(handler);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     public static Zona_SeguraDao createZona_SeguraDao(DBHandler handler) {
-        return new Zona_SeguraDao(handler);
+        try{
+            return new Zona_SeguraDao(handler);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     public static Historico_UsuarioDao createHistorico_UsuarioDao(DBHandler handler) {
-        return new Historico_UsuarioDao(handler);
+        try{
+            return new Historico_UsuarioDao(handler);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     public static Usuario_VictimaDao createUsuario_VictimaDao(DBHandler handler) {
-        return new Usuario_VictimaDao(handler);
+        try{
+            return new Usuario_VictimaDao(handler);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     public static Usuario_AtacanteDao createUsuario_AtacanteDao(DBHandler handler) {
-        return new Usuario_AtacanteDao(handler);
+        try{
+            return new Usuario_AtacanteDao(handler);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     public static Relacion_VADao createRelacion_VADao(DBHandler handler) {
-        return new Relacion_VADao(handler);
+        try{
+            return new Relacion_VADao(handler);
+        }catch(Exception e){
+            return null;
+        }
     }
 
 }
