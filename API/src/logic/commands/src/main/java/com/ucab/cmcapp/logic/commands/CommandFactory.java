@@ -156,7 +156,6 @@ public class CommandFactory {
         return new ModifyUsuarioCommand(usuario, handler);
     }
 
-
     // COMMAND DE HISTORICO_USUARIO
 
     // GET HISTORICO_USUARIO

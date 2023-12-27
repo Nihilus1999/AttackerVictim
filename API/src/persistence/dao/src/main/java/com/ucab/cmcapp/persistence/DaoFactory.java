@@ -26,7 +26,13 @@ public class DaoFactory {
     public static UsuarioDao createUsuarioDao(DBHandler handler) {
         try{
             return new UsuarioDao(handler);
-        }catch(Exception e){
+        }catch(NoClassDefFoundError e){
+            return null;
+        }
+        catch(ExceptionInInitializerError e){
+            return null;
+        }
+        catch(Exception e){
             return null;
         }
 
@@ -51,7 +57,12 @@ public class DaoFactory {
     public static Historico_UsuarioDao createHistorico_UsuarioDao(DBHandler handler) {
         try{
             return new Historico_UsuarioDao(handler);
-        }catch(Exception e){
+        }catch(NoClassDefFoundError e){
+            return null;
+        }catch(ExceptionInInitializerError e){
+            return null;
+        }
+        catch(Exception e){
             return null;
         }
     }

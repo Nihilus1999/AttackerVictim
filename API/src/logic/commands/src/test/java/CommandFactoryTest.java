@@ -185,4 +185,322 @@ public class CommandFactoryTest {
         assertEquals(handler, command.getHandler());
     }
 
+    @Test
+    public void testCreateGetUsuarioCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+
+        // Act
+        GetUsuarioCommand command = CommandFactory.createGetUsuarioCommand(usuario);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(usuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetUsuarioByIdCommand() {
+        // Arrange
+        DBHandler handler = mock(DBHandler.class);
+        long userId = 123;
+
+        // Act
+        GetUsuarioByIdCommand command = CommandFactory.createGetUsuarioByIdCommand(handler, userId);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(handler, command.getHandler());
+        assertNotEquals(userId, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetUsuarioByCorreoCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+
+        // Act
+        GetUsuarioByCorreoCommand command = CommandFactory.createGetUsuarioByCorreoCommand(usuario);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(usuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetUsuarioByAliasCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+
+        // Act
+        GetUsuarioByAliasCommand command = CommandFactory.createGetUsuarioByAliasCommand(usuario);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(usuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetUsuarioByCedulaCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+
+        // Act
+        GetUsuarioByCedulaCommand command = CommandFactory.createGetUsuarioByCedulaCommand(usuario);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(usuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetUsuarioByMacCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+
+        // Act
+        GetUsuarioByMacCommand command = CommandFactory.createGetUsuarioByMacCommand(usuario);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(usuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetAllUsuarioCommand() {
+        // Act
+        GetAllUsuarioCommand command = CommandFactory.createGetAllUsuarioCommand();
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateGetUsuarioByListCommand() {
+        // Arrange
+        DBHandler handler = mock(DBHandler.class);
+
+        // Act
+        GetUsuarioByListCommand command = CommandFactory.createGetUsuarioByListCommand(handler);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(handler, command.getHandler());
+    }
+
+    @Test
+    public void testCreateAddUsuarioCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+        DBHandler handler = mock(DBHandler.class);
+
+        // Act
+        AddUsuarioCommand command = CommandFactory.createAddUsuarioCommand(usuario, handler);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(usuario, command.getReturnParam());
+        assertEquals(handler, command.getHandler());
+    }
+
+    @Test
+    public void testCreateCreateUsuarioCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+
+        // Act
+        CreateUsuarioCommand command = CommandFactory.createCreateUsuarioCommand(usuario);
+
+        // Assert
+        assertNotNull(command);
+        assertNotEquals(usuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateDeleteUsuarioCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+
+        // Act
+        DeleteUsuarioCommand command = CommandFactory.createDeleteUsuarioCommand(usuario);
+
+        // Assert
+        assertNotNull(command);
+        assertNotEquals(usuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateEraseUsuarioCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+        DBHandler handler = mock(DBHandler.class);
+
+        // Act
+        EraseUsuarioCommand command = CommandFactory.createEraseUsuarioCommand(usuario, handler);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(usuario, command.getReturnParam());
+        assertEquals(handler, command.getHandler());
+    }
+
+    @Test
+    public void testCreateUpdateUsuarioCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+
+        // Act
+        UpdateUsuarioCommand command = CommandFactory.createUpdateUsuarioCommand(usuario);
+
+        // Assert
+        assertNotNull(command);
+        assertNotEquals(usuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateModifyUsuarioCommand() {
+        // Arrange
+        Usuario usuario = mock(Usuario.class);
+        DBHandler handler = mock(DBHandler.class);
+
+        // Act
+        ModifyUsuarioCommand command = CommandFactory.createModifyUsuarioCommand(usuario, handler);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(usuario, command.getReturnParam());
+        assertEquals(handler, command.getHandler());
+    }
+
+    @Test
+    public void testCreateGetHistorico_UsuarioCommand() {
+        // Arrange
+        Historico_Usuario historicoUsuario = mock(Historico_Usuario.class);
+
+        // Act
+        GetHistoricoCommand command = CommandFactory.createGetHistorico_UsuarioCommand(historicoUsuario);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(historicoUsuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetHistorico_UsuarioByIdCommand() {
+        // Arrange
+        DBHandler handler = mock(DBHandler.class);
+        long historicoId = 12345L;
+
+        // Act
+        GetHistoricoByIdCommand command = CommandFactory.createGetHistorico_UsuarioByIdCommand(handler, historicoId);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(handler, command.getHandler());
+        assertNotEquals(historicoId, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetAllHistorico_UsuarioCommand() {
+        // Act
+        GetAllHistoricoCommand command = CommandFactory.createGetAllHistorico_UsuarioCommand();
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateGetHistorico_UsuarioByListCommand() {
+        // Arrange
+        DBHandler handler = mock(DBHandler.class);
+
+        // Act
+        GetHistoricoByListCommand command = CommandFactory.createGetHistorico_UsuarioByListCommand(handler);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(handler, command.getHandler());
+    }
+
+    @Test
+    public void testCreateGetHistorico_UsuarioByUsuarioCommand() {
+        // Arrange
+        Historico_Usuario historicoUsuario = mock(Historico_Usuario.class);
+
+        // Act
+        GetHistoricoByUsuarioIdCommand command = CommandFactory.createGetHistorico_UsuarioByUsuarioCommand(historicoUsuario);
+
+        // Assert
+        assertNotNull(command);
+        assertNotEquals(historicoUsuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateAddHistorico_UsuarioCommand() {
+        // Arrange
+        Historico_Usuario historicoUsuario = mock(Historico_Usuario.class);
+        DBHandler handler = mock(DBHandler.class);
+
+        // Act
+        AddHistoricoCommand command = CommandFactory.createAddHistorico_UsuarioCommand(historicoUsuario, handler);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(historicoUsuario, command.getReturnParam());
+        assertEquals(handler, command.getHandler());
+    }
+
+    @Test
+    public void testCreateCreateHistorico_UsuarioCommand() {
+        // Arrange
+        Historico_Usuario historicoUsuario = mock(Historico_Usuario.class);
+
+        // Act
+        CreateHistoricoCommand command = CommandFactory.createCreateHistorico_UsuarioCommand(historicoUsuario);
+
+        // Assert
+        assertNotNull(command);
+        assertNotEquals(historicoUsuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateDeleteHistorico_UsuarioCommand() {
+        // Arrange
+        Historico_Usuario historicoUsuario = mock(Historico_Usuario.class);
+
+        // Act
+        DeleteHistoricoCommand command = CommandFactory.createDeleteHistorico_UsuarioCommand(historicoUsuario);
+
+        // Assert
+        assertNotNull(command);
+        assertNotEquals(historicoUsuario, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateEraseHistorico_UsuarioCommand() {
+        // Arrange
+        Historico_Usuario historicoUsuario = mock(Historico_Usuario.class);
+        DBHandler handler = mock(DBHandler.class);
+
+        // Act
+        EraseHistoricoCommand command = CommandFactory.createEraseHistorico_UsuarioCommand(historicoUsuario, handler);
+
+        // Assert
+        assertNotNull(command);
+        assertEquals(historicoUsuario, command.getReturnParam());
+        assertEquals(handler, command.getHandler());
+    }
+
+    @Test
+    public void testCreateUpdateHistorico_UsuarioCommand() {
+        // Arrange
+        Historico_Usuario historicoUsuario = mock(Historico_Usuario.class);
+
+        // Act
+        UpdateHistoricoCommand command = CommandFactory.createUpdateHistorico_UsuarioCommand(historicoUsuario);
+
+        // Assert
+        assertNotNull(command);
+        assertNotEquals(historicoUsuario, command.getReturnParam());
+    }
+
 }
