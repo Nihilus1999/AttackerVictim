@@ -18,8 +18,12 @@ public class GetAdministradorByListCommand extends Command<Administrador> {
     private AdministradorDao _dao;
 
     public GetAdministradorByListCommand(DBHandler handler) {
-        setHandler(handler);
-        _dao = DaoFactory.createAdministradorDao(getHandler());
+        try {
+            setHandler(handler);
+            _dao = DaoFactory.createAdministradorDao(getHandler());
+        }catch(NoClassDefFoundError e){
+
+        }
     }
 
     @Override

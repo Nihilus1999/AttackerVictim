@@ -14,18 +14,21 @@ public class AddAdministradorCommand extends Command<Administrador> {
     private AdministradorDao _dao;
 
     public AddAdministradorCommand(Administrador Administrador, DBHandler handler) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Tomar de AddAdministradorCommand.ctor: parameter {%s}",
-                Administrador.toString()));
-        setHandler(handler);
-        _Administrador = Administrador;
-        _dao = DaoFactory.createAdministradorDao(getHandler());
+        try {
+            _logger.debug(String.format("Tomar de AddAdministradorCommand.ctor: parameter {%s}",
+                    Administrador.toString()));
+            setHandler(handler);
+            _Administrador = Administrador;
+            _dao = DaoFactory.createAdministradorDao(getHandler());
 
 
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Dejando AddAdministradorCommand.ctor: attribute {%s}",
-                _Administrador.toString()));
-        //endregion
+            //region Instrumentation DEBUG
+            _logger.debug(String.format("Dejando AddAdministradorCommand.ctor: attribute {%s}",
+                    _Administrador.toString()));
+            //endregion
+        }catch(NoClassDefFoundError e){
+
+        }
     }
 
     public AddAdministradorCommand(Administrador Administrador) {

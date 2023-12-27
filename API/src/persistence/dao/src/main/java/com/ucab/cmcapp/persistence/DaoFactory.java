@@ -11,7 +11,13 @@ public class DaoFactory {
     public static AdministradorDao createAdministradorDao(DBHandler handler) {
         try{
             return new AdministradorDao(handler);
-        }catch(Exception e){
+        }catch(NoClassDefFoundError e){
+            return null;
+        }
+        catch(ExceptionInInitializerError e){
+            return null;
+        }
+        catch(Exception e){
             return null;
         }
 

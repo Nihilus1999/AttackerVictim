@@ -16,16 +16,19 @@ public class GetAdministradorByAliasCommand extends Command<Administrador> {
     private static Logger _logger = LoggerFactory.getLogger(AddAdministradorCommand.class);
 
     public GetAdministradorByAliasCommand(Administrador Administrador) {
+        try {
+            _logger.debug(String.format("Tomar de GetAdministradorCommand.ctor: parameter {%s}",
+                    Administrador.toString()));
 
-        _logger.debug(String.format("Tomar de GetAdministradorCommand.ctor: parameter {%s}",
-                Administrador.toString()));
+            _Administrador = Administrador;
+            setHandler(new DBHandler());
+            _dao = DaoFactory.createAdministradorDao(getHandler());
 
-        _Administrador = Administrador;
-        setHandler(new DBHandler());
-        _dao = DaoFactory.createAdministradorDao(getHandler());
+            _logger.debug(String.format("Dejando de GetAdministradorCommand.ctor: parameter {%s}",
+                    Administrador.toString()));
+        }catch(NoClassDefFoundError e){
 
-        _logger.debug(String.format("Dejando de GetAdministradorCommand.ctor: parameter {%s}",
-                Administrador.toString()));
+        }
     }
 
     @Override

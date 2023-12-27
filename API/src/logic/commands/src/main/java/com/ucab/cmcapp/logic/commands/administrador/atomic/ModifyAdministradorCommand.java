@@ -16,9 +16,13 @@ public class ModifyAdministradorCommand extends Command<Administrador> {
     private static Logger _logger = LoggerFactory.getLogger(AddAdministradorCommand.class);
 
     public ModifyAdministradorCommand(Administrador Administrador, DBHandler handler) {
-        setHandler(handler);
-        _Administrador = Administrador;
-        _dao = DaoFactory.createAdministradorDao(getHandler());
+        try {
+            setHandler(handler);
+            _Administrador = Administrador;
+            _dao = DaoFactory.createAdministradorDao(getHandler());
+        }catch(NoClassDefFoundError e){
+
+        }
     }
 
     @Override

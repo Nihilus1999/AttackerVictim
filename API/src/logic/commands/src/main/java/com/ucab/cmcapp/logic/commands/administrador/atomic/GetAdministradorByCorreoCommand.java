@@ -15,14 +15,18 @@ public class GetAdministradorByCorreoCommand extends Command<Administrador> {
 
     public GetAdministradorByCorreoCommand(Administrador Administrador) {
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Tomando de GetUsuarioByCorreoCommand.ctor: parameter {%s}", Administrador.toString()));
-        _Administrador = Administrador;
-        setHandler(new DBHandler());
-        _dao = DaoFactory.createAdministradorDao(getHandler());
+        try {
+            _logger.debug(String.format("Tomando de GetUsuarioByCorreoCommand.ctor: parameter {%s}", Administrador.toString()));
+            _Administrador = Administrador;
+            setHandler(new DBHandler());
+            _dao = DaoFactory.createAdministradorDao(getHandler());
 
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Dejando GetUsuarioByCorreoCommand.ctor: atribute {%s}", _Administrador.toString()));
-        //endregion
+            //region Instrumentation DEBUG
+            _logger.debug(String.format("Dejando GetUsuarioByCorreoCommand.ctor: atribute {%s}", _Administrador.toString()));
+            //endregion
+        }catch(NoClassDefFoundError e){
+
+        }
     }
 
     public GetAdministradorByCorreoCommand(Administrador Administrador, DBHandler handler) {

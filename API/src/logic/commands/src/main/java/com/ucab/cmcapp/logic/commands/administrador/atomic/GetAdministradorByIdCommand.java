@@ -15,17 +15,21 @@ public class GetAdministradorByIdCommand extends Command<Administrador> {
     private AdministradorDao _dao;
 
     public GetAdministradorByIdCommand(DBHandler handler, long adminId) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Tomar de GetAdministradorByIdCommand.ctor: parameter {%s}", adminId));
-        //endregion
+        try {
+            //region Instrumentation DEBUG
+            _logger.debug(String.format("Tomar de GetAdministradorByIdCommand.ctor: parameter {%s}", adminId));
+            //endregion
 
-        _adminId = adminId;
-        setHandler(handler);
-        _dao = DaoFactory.createAdministradorDao(getHandler());
+            _adminId = adminId;
+            setHandler(handler);
+            _dao = DaoFactory.createAdministradorDao(getHandler());
 
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Dejando GetAdministradorByIdCommand.ctor: attribute {%s}", adminId));
-        //endregion
+            //region Instrumentation DEBUG
+            _logger.debug(String.format("Dejando GetAdministradorByIdCommand.ctor: attribute {%s}", adminId));
+            //endregion
+        }catch(Exception e){
+
+        }
     }
 
     @Override
