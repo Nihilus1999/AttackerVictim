@@ -3,6 +3,7 @@ import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Administrador;
 import com.ucab.cmcapp.logic.dtos.dtos.AdministradorDto;
 import com.ucab.cmcapp.logic.mappers.AdministradorMapper;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -33,6 +34,24 @@ public class AdministradorMapperTest {
         assertEquals(dto.get_alias(), entity.get_alias());
         assertEquals(dto.get_correo(), entity.get_correo());
         assertEquals(dto.get_clave(), entity.get_clave());
+    }
+
+    @Test
+    public void testMapDtoToEntityotro() {
+        // Arrange
+        long id = 1;
+
+        // Act
+        Administrador entity = AdministradorMapper.mapDtoToEntity(id);
+
+        // Assert
+        Assertions.assertNotNull(entity);
+        Assertions.assertEquals(id, entity.get_id());
+
+        // Verificar que se haya llamado a EntityFactory.createAdministrador con el id correcto
+        EntityFactory entityFactoryMock = Mockito.mock(EntityFactory.class);
+        Administrador expectedEntity = EntityFactory.createAdministrador(id);
+        Mockito.verify(entityFactoryMock, Mockito.times(1)).createAdministrador(id);
     }
 
     @Test
