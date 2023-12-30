@@ -377,7 +377,6 @@ public class CommandFactory {
     }
 
 
-
     // COMMAND DE ZONA_SEGURA
 
     // GET ZONA_SEGURA

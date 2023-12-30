@@ -70,7 +70,13 @@ public class DaoFactory {
     public static Usuario_VictimaDao createUsuario_VictimaDao(DBHandler handler) {
         try{
             return new Usuario_VictimaDao(handler);
-        }catch(Exception e){
+        }catch(NoClassDefFoundError e){
+            return null;
+        }
+        catch(ExceptionInInitializerError e){
+            return null;
+        }
+        catch(Exception e){
             return null;
         }
     }
@@ -78,7 +84,10 @@ public class DaoFactory {
     public static Usuario_AtacanteDao createUsuario_AtacanteDao(DBHandler handler) {
         try{
             return new Usuario_AtacanteDao(handler);
-        }catch(Exception e){
+        }catch(NoClassDefFoundError e){
+            return null;
+        }
+        catch(Exception e){
             return null;
         }
     }
@@ -86,9 +95,17 @@ public class DaoFactory {
     public static Relacion_VADao createRelacion_VADao(DBHandler handler) {
         try{
             return new Relacion_VADao(handler);
-        }catch(Exception e){
+        }catch(ExceptionInInitializerError e){
+            return null;
+        }
+        catch(NoClassDefFoundError e){
+            return null;
+        }
+        catch(Exception e){
             return null;
         }
     }
+
+
 
 }

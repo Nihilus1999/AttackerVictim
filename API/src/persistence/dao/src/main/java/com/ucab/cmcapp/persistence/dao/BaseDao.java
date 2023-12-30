@@ -19,8 +19,7 @@ import java.util.Objects;
 
 public abstract class BaseDao<T> {
 
-    static final int MAX_RESULTS_PER_PAGE =
-            Integer.parseInt(Registry.getInstance().getProperty(Registry.MAX_RESULTS_PER_PAGE));
+
     static private DBHandler _dbHandler;
     private static Logger _logger = LoggerFactory.getLogger(BaseDao.class);
     private EntityManager _entityManager;
@@ -53,7 +52,8 @@ public abstract class BaseDao<T> {
             getEntityManager().persist(entity);
             getEntityManager().flush();
             getEntityManager().refresh(entity);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             //implementar logger
             throw new InsertException(e.getMessage() + "Entity: " + entity.toString());
         }

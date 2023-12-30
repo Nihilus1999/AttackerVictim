@@ -31,29 +31,16 @@ public class AddAdministradorCommand extends Command<Administrador> {
         }
     }
 
-    public AddAdministradorCommand(Administrador Administrador) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Tomando de AddAdministradorCommand.ctor: parameter {%s}",
-                Administrador.toString()));
-        _Administrador = Administrador;
-        setHandler(new DBHandler());
-        _dao = DaoFactory.createAdministradorDao(getHandler());
-
-
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Dejando AddAdministradorCommand.ctor: attribute {%s}",
-                _Administrador.toString()));
-        //endregion
-    }
-
     @Override
     public void execute() {
         //region Instrumentation DEBUG
         _logger.debug("Tomando de  AddAdministradorCommand.execute");
         //endregion
+        try{
+            _Administrador = _dao.insert(_Administrador);
+        }catch(NullPointerException e){
 
-        _Administrador = _dao.insert(_Administrador);
-
+        }
         //region Instrumentation DEBUG
         _logger.debug("Dejando de  AddAdministradorCommand.execute");
         //endregion
@@ -67,5 +54,9 @@ public class AddAdministradorCommand extends Command<Administrador> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(AdministradorDao administradorDao) {
+
     }
 }

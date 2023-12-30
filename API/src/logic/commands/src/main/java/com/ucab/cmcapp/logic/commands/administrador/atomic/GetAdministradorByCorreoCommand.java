@@ -29,17 +29,6 @@ public class GetAdministradorByCorreoCommand extends Command<Administrador> {
         }
     }
 
-    public GetAdministradorByCorreoCommand(Administrador Administrador, DBHandler handler) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetUsuarioByCorreoCommand.ctor: parameter {%s}", Administrador.toString()));
-        _Administrador = Administrador;
-        setHandler(handler);
-        _dao = DaoFactory.createAdministradorDao(getHandler());
-
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Dejando GetUsuarioByCorreoCommand.ctor: atribute {%s}", _Administrador.toString()));
-        //endregion
-    }
 
     @Override
     public void execute() {

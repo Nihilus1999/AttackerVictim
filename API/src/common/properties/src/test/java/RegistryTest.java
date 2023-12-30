@@ -11,7 +11,6 @@ public class RegistryTest {
         String expectedValue = "value";
         String mockConfigDbUnit = "config.db.unit=" + expectedValue;
 
-        // Mockito.doReturn(mockConfigDbUnit).when(registry).getProperty(anyString());
         // Act
         String actualValue = registry.getProperty("config.db.unit");
 

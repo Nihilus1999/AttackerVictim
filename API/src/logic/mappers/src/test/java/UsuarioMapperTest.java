@@ -10,6 +10,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 public class UsuarioMapperTest {
 
     private UsuarioDto dto;
@@ -125,6 +128,58 @@ public class UsuarioMapperTest {
         Assertions.assertEquals(usuario.get_direccion_mac(), resultDto.get_direccion_mac());
         Assertions.assertEquals(usuario.get_clave(), resultDto.get_clave());
         Assertions.assertEquals(usuario.get_activate(), resultDto.get_activate());
+    }
+
+    @Test
+    public void testMapDtoToEntityCorreo() {
+        // Arrange
+        String email = "test@example.com";
+
+        // Act
+        Usuario entity = UsuarioMapper.mapDtoToEntityCorreo(email);
+
+        // Assert
+        assertNotNull(entity);
+        assertEquals(email, entity.get_correo());
+    }
+
+    @Test
+    public void testMapDtoToEntityAlias() {
+        // Arrange
+        String alias = "test_alias";
+
+        // Act
+        Usuario entity = UsuarioMapper.mapDtoToEntityAlias(alias);
+
+        // Assert
+        assertNotNull(entity);
+        assertEquals(alias, entity.get_alias());
+    }
+
+    @Test
+    public void testMapDtoToEntityCedula() {
+        // Arrange
+        String cedula = "1234567890";
+
+        // Act
+        Usuario entity = UsuarioMapper.mapDtoToEntityCedula(cedula);
+
+        // Assert
+        assertNotNull(entity);
+        assertEquals(cedula, entity.get_cedula());
+    }
+
+    @Test
+    public void testMapDtoToEntityMac() {
+        // Arrange
+        String mac = "00:11:22:33:44:55";
+
+        // Act
+        Usuario entity = UsuarioMapper.mapDtoToEntityMac(mac);
+
+        // Assert
+        assertNotNull(entity);
+        assertEquals(mac, entity.get_direccion_mac());
     }
 
 }
