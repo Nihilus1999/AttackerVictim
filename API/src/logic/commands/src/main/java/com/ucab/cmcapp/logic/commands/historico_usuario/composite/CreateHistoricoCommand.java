@@ -59,4 +59,8 @@ public class CreateHistoricoCommand extends Command<Historico_Usuario> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setAddHistoricoCommand(AddHistoricoCommand addHistoricoCommand) {
+
+    }
 }

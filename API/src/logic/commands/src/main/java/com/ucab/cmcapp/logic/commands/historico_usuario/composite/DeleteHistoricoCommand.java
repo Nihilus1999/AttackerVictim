@@ -44,4 +44,7 @@ public class DeleteHistoricoCommand extends Command<Historico_Usuario> {
         getHandler().closeSession();
     }
 
+    public void setEraseHistoricoCommand(EraseHistoricoCommand eraseHistoricoCommand) {
+
+    }
 }

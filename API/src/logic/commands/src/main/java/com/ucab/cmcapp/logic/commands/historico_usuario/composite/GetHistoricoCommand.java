@@ -49,4 +49,8 @@ public class GetHistoricoCommand extends Command<Historico_Usuario> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetHistoricoByIdCommand(GetHistoricoByIdCommand getHistoricoByIdCommand) {
+
+    }
 }

@@ -43,4 +43,7 @@ public class UpdateHistoricoCommand extends Command<Historico_Usuario> {
         getHandler().closeSession();
     }
 
+    public void setModifyHistoricoCommand(ModifyHistoricoCommand modifyHistoricoCommand) {
+
+    }
 }
