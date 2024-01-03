@@ -54,4 +54,8 @@ public class GetAdministradorCommand extends Command<Administrador> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetAdministradorByIdCommand(GetAdministradorByIdCommand getAdministradorByIdCommand) {
+
+    }
 }

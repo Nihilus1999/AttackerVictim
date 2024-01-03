@@ -37,7 +37,11 @@ public class GetAdministradorByIdCommand extends Command<Administrador> {
         //region Instrumentation DEBUG
         _logger.debug("Tomando de  GetAdministradorByIdCommand.execute");
         //endregion
-        _result = _dao.find(_adminId, Administrador.class);
+        try {
+            _result = _dao.find(_adminId, Administrador.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         _logger.debug("Dejando GetAdministradorByIdCommand.execute");
         //endregion
@@ -51,5 +55,9 @@ public class GetAdministradorByIdCommand extends Command<Administrador> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(AdministradorDao administradorDao) {
+
     }
 }

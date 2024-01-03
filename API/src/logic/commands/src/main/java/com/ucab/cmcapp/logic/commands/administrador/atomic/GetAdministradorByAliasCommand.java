@@ -36,7 +36,12 @@ public class GetAdministradorByAliasCommand extends Command<Administrador> {
 
         _logger.debug("Tomando de  GetAdministradorCommand.execute");
 
-        _Administrador = _dao.getAdministradorByAlias(_Administrador.get_alias());
+        try{
+            _Administrador = _dao.getAdministradorByAlias(_Administrador.get_alias());
+        }catch(NullPointerException e){
+
+        }
+
 
         _logger.debug("Dejando de  GetAdministradorCommand.execute");
     }
@@ -51,4 +56,6 @@ public class GetAdministradorByAliasCommand extends Command<Administrador> {
         getHandler().closeSession();
     }
 
+    public void setDao(AdministradorDao administradorDao) {
+    }
 }

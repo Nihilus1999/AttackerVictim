@@ -35,7 +35,11 @@ public class GetAdministradorByCorreoCommand extends Command<Administrador> {
         //region Instrumentation DEBUG
         _logger.debug("Tomar de  GetUsuarioByCorreoCommand.execute");
         //endregion
-        _Administrador = _dao.getAdministradorByCorreo(_Administrador.get_correo());
+        try {
+            _Administrador = _dao.getAdministradorByCorreo(_Administrador.get_correo());
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         _logger.debug("Dejando  GetUsuarioByCorreoCommand.execute");
         //endregion
@@ -49,5 +53,9 @@ public class GetAdministradorByCorreoCommand extends Command<Administrador> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(AdministradorDao administradorDao) {
+
     }
 }

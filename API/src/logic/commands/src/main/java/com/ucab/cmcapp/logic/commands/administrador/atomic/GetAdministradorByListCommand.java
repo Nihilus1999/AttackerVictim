@@ -31,7 +31,11 @@ public class GetAdministradorByListCommand extends Command<Administrador> {
         //region Instrumentation DEBUG
         _logger.debug("Tomando de GetAdministradorByListCommand.execute");
         //endregion
-        _result = _dao.findAll(Administrador.class);
+        try {
+            _result = _dao.findAll(Administrador.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         _logger.debug("Dejando GetAdministradorByListCommand.execute");
         //endregion
@@ -45,5 +49,9 @@ public class GetAdministradorByListCommand extends Command<Administrador> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(AdministradorDao administradorDao) {
+
     }
 }

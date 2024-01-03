@@ -52,4 +52,7 @@ public class UpdateAdministradorCommand extends Command<Administrador> {
         getHandler().closeSession();
     }
 
+    public void setModifyAdministradorCommand(ModifyAdministradorCommand modifyAdministradorCommand) {
+
+    }
 }

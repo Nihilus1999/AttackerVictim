@@ -60,4 +60,7 @@ public class DeleteAdministradorCommand extends Command<Administrador> {
         getHandler().closeSession();
     }
 
+    public void setEraseAdministradorCommand(EraseAdministradorCommand eraseAdministradorCommand) {
+
+    }
 }

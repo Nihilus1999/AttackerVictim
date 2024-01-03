@@ -33,8 +33,11 @@ public class EraseAdministradorCommand extends Command<Administrador> {
 
         _logger.debug("Tomando de  EraseAdministradorCommand.execute");
 
-        _Administrador = _dao.delete(_Administrador);
+        try {
+            _Administrador = _dao.delete(_Administrador);
+        }catch(NullPointerException e){
 
+        }
         _logger.debug("Dejando de  EraseAdministradorCommand.execute");
     }
 
@@ -48,4 +51,7 @@ public class EraseAdministradorCommand extends Command<Administrador> {
         getHandler().closeSession();
     }
 
+    public void setDao(AdministradorDao administradorDao) {
+
+    }
 }

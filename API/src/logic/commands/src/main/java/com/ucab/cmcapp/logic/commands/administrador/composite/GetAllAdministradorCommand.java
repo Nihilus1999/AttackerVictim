@@ -50,4 +50,8 @@ public class GetAllAdministradorCommand extends Command <Administrador> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetAdministradorByListCommand(GetAdministradorByListCommand getAdministradorByListCommand) {
+
+    }
 }
