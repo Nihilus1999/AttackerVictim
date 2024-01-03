@@ -19,7 +19,11 @@ public class EraseHistoricoCommand extends Command<Historico_Usuario> {
 
     @Override
     public void execute() {
-        _Historico_Usuario = _dao.delete(_Historico_Usuario);
+        try {
+            _Historico_Usuario = _dao.delete(_Historico_Usuario);
+        }catch(NullPointerException e){
+            
+        }
     }
 
     @Override
@@ -32,4 +36,10 @@ public class EraseHistoricoCommand extends Command<Historico_Usuario> {
         getHandler().closeSession();
     }
 
+    public void setHistoricoUsuario(Historico_Usuario result) {
+        
+    }
+
+    public void setHistoricoUsuarioDao(Historico_UsuarioDao historicoUsuarioDao) {
+    }
 }

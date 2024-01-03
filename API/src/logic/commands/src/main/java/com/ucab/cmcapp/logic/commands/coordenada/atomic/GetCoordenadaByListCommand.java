@@ -28,7 +28,11 @@ public class GetCoordenadaByListCommand extends Command<Coordenada> {
     public void execute() {
         //region Instrumentation DEBUG
         //endregion
-        _result = _dao.findAll(Coordenada.class);
+        try {
+            _result = _dao.findAll(Coordenada.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         //endregion
     }
@@ -41,5 +45,9 @@ public class GetCoordenadaByListCommand extends Command<Coordenada> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setCoordenadaDao(CoordenadaDao coordenadaDao) {
+
     }
 }

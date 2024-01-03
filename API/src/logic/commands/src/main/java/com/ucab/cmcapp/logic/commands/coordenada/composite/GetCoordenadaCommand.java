@@ -49,4 +49,8 @@ public class GetCoordenadaCommand extends Command<Coordenada> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetCoordenadaByIdCommand(GetCoordenadaByIdCommand getCoordenadaByIdCommand) {
+
+    }
 }

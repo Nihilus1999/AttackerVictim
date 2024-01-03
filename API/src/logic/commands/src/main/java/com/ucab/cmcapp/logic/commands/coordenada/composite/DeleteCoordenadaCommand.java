@@ -44,4 +44,7 @@ public class DeleteCoordenadaCommand extends Command<Coordenada> {
         getHandler().closeSession();
     }
 
+    public void setEraseCoordenadaCommand(EraseCoordenadaCommand eraseCoordenadaCommand) {
+
+    }
 }

@@ -33,7 +33,11 @@ public class GetCoordenadaByIdCommand extends Command<Coordenada> {
         //region Instrumentation DEBUG
         _logger.debug("Get in  GetCoordenadaByIdCommand.execute");
         //endregion
-        _result = _dao.find(_userId, Coordenada.class);
+        try {
+            _result = _dao.find(_userId, Coordenada.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         _logger.debug("Leaving  GetCoordenadaByIdCommand.execute");
         //endregion
@@ -47,5 +51,9 @@ public class GetCoordenadaByIdCommand extends Command<Coordenada> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setCoordenadaDao(CoordenadaDao coordenadaDao) {
+
     }
 }

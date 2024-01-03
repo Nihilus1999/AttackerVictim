@@ -19,7 +19,11 @@ public class ModifyHistoricoCommand extends Command<Historico_Usuario> {
 
     @Override
     public void execute() {
-        _Historico_Usuario = _dao.update(_Historico_Usuario);
+        try {
+            _Historico_Usuario = _dao.update(_Historico_Usuario);
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -30,5 +34,9 @@ public class ModifyHistoricoCommand extends Command<Historico_Usuario> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setHistoricoUsuarioDao(Historico_UsuarioDao historicoUsuarioDao) {
+
     }
 }

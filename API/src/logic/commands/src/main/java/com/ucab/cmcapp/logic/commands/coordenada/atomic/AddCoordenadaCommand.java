@@ -48,8 +48,11 @@ public class AddCoordenadaCommand extends Command<Coordenada> {
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddCoordenadaCommand.execute");
         //endregion
+        try {
+            _Coordenada = _dao.insert(_Coordenada);
+        }catch(NullPointerException e){
 
-        _Coordenada = _dao.insert(_Coordenada);
+        }
 
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddCoordenadaCommand.execute");
@@ -64,5 +67,9 @@ public class AddCoordenadaCommand extends Command<Coordenada> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setCoordenadaDao(CoordenadaDao coordenadaDao) {
+
     }
 }

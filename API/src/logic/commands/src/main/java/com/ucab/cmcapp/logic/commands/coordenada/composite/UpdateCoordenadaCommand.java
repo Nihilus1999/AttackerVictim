@@ -43,4 +43,7 @@ public class UpdateCoordenadaCommand extends Command<Coordenada> {
         getHandler().closeSession();
     }
 
+    public void setModifyCoordenadaCommand(ModifyCoordenadaCommand modifyCoordenadaCommand) {
+
+    }
 }

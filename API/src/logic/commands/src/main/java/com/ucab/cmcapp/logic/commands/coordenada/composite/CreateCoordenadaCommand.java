@@ -59,4 +59,8 @@ public class CreateCoordenadaCommand extends Command<Coordenada> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setAddCoordenadaCommand(AddCoordenadaCommand addCoordenadaCommand) {
+
+    }
 }

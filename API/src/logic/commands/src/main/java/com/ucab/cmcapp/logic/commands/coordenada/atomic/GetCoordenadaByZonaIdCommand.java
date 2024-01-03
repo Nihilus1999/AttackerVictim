@@ -24,7 +24,11 @@ public class GetCoordenadaByZonaIdCommand extends Command<Zona_Segura> {
 
     @Override
     public void execute() {
-        _result = _dao.getCoordenadaByZonaId(_coordenada.get_zona_segura());
+        try {
+            _result = _dao.getCoordenadaByZonaId(_coordenada.get_zona_segura());
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -37,4 +41,7 @@ public class GetCoordenadaByZonaIdCommand extends Command<Zona_Segura> {
         getHandler().closeSession();
     }
 
+    public void setCoordenadaDao(CoordenadaDao coordenadaDao) {
+
+    }
 }

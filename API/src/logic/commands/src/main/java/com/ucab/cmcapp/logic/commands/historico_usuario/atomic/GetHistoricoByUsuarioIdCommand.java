@@ -22,7 +22,11 @@ public class GetHistoricoByUsuarioIdCommand extends Command<Historico_Usuario> {
 
     @Override
     public void execute() {
-        _result = _dao.getAllHistoricoByUserId(_historico.get_usuario());
+        try {
+            _result = _dao.getAllHistoricoByUserId(_historico.get_usuario());
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -35,4 +39,7 @@ public class GetHistoricoByUsuarioIdCommand extends Command<Historico_Usuario> {
         getHandler().closeSession();
     }
 
+    public void setHistoricoUsuarioDao(Historico_UsuarioDao historicoUsuarioDao) {
+
+    }
 }

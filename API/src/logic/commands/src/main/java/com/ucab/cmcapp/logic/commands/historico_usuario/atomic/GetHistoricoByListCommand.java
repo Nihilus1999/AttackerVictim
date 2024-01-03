@@ -28,7 +28,11 @@ public class GetHistoricoByListCommand extends Command<Historico_Usuario> {
     public void execute() {
         //region Instrumentation DEBUG
         //endregion
-        _result = _dao.findAll(Historico_Usuario.class);
+        try {
+            _result = _dao.findAll(Historico_Usuario.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         //endregion
     }
@@ -41,5 +45,9 @@ public class GetHistoricoByListCommand extends Command<Historico_Usuario> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setHistoricoUsuarioDao(Historico_UsuarioDao historicoUsuarioDao) {
+
     }
 }

@@ -33,7 +33,11 @@ public class GetHistoricoByIdCommand extends Command<Historico_Usuario> {
         //region Instrumentation DEBUG
         _logger.debug("Get in  GetHistorico_UsuarioByIdCommand.execute");
         //endregion
-        _result = _dao.find(_userId, Historico_Usuario.class);
+        try {
+            _result = _dao.find(_userId, Historico_Usuario.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         _logger.debug("Leaving  GetHistorico_UsuarioByIdCommand.execute");
         //endregion
@@ -47,5 +51,9 @@ public class GetHistoricoByIdCommand extends Command<Historico_Usuario> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setHistoricoUsuarioDao(Historico_UsuarioDao historicoUsuarioDao) {
+
     }
 }

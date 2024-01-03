@@ -15,11 +15,16 @@ public class EraseCoordenadaCommand extends Command<Coordenada> {
         setHandler(handler);
         _Coordenada = Coordenada;
         _dao = DaoFactory.createCoordenadaDao(getHandler());
+
     }
 
     @Override
     public void execute() {
-        _Coordenada = _dao.delete(_Coordenada);
+        try {
+            _Coordenada = _dao.delete(_Coordenada);
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -32,4 +37,7 @@ public class EraseCoordenadaCommand extends Command<Coordenada> {
         getHandler().closeSession();
     }
 
+    public void setCoordenadaDao(CoordenadaDao coordenadaDao) {
+
+    }
 }

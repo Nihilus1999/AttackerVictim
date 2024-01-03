@@ -44,4 +44,8 @@ public class GetAllCoordenadaCommand extends Command <Coordenada> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetCoordenadaByListCommand(GetCoordenadaByListCommand getCoordenadaByListCommand) {
+
+    }
 }

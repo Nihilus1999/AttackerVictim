@@ -28,28 +28,16 @@ public class AddHistoricoCommand extends Command<Historico_Usuario> {
         //endregion
     }
 
-    public AddHistoricoCommand(Historico_Usuario Historico_Usuario) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in AddHistorico_UsuarioCommand.ctor: parameter {%s}",
-                Historico_Usuario.toString()));
-        _Historico_Usuario = Historico_Usuario;
-        setHandler(new DBHandler());
-        _dao = DaoFactory.createHistorico_UsuarioDao(getHandler());
-
-
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving AddHistorico_UsuarioCommand.ctor: attribute {%s}",
-                _Historico_Usuario.toString()));
-        //endregion
-    }
-
     @Override
     public void execute() {
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddHistorico_UsuarioCommand.execute");
         //endregion
+        try {
+            _Historico_Usuario = _dao.insert(_Historico_Usuario);
+        }catch(NullPointerException e){
 
-        _Historico_Usuario = _dao.insert(_Historico_Usuario);
+        }
 
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddHistorico_UsuarioCommand.execute");
@@ -64,5 +52,9 @@ public class AddHistoricoCommand extends Command<Historico_Usuario> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setHistoricoUsuarioDao(Historico_UsuarioDao historicoUsuarioDao) {
+
     }
 }

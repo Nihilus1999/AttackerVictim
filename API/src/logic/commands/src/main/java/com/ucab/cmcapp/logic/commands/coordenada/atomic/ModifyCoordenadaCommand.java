@@ -19,7 +19,11 @@ public class ModifyCoordenadaCommand extends Command<Coordenada> {
 
     @Override
     public void execute() {
-        _Coordenada = _dao.update(_Coordenada);
+        try {
+            _Coordenada = _dao.update(_Coordenada);
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -30,5 +34,9 @@ public class ModifyCoordenadaCommand extends Command<Coordenada> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setCoordenadaDao(CoordenadaDao coordenadaDao) {
+
     }
 }
