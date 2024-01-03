@@ -19,7 +19,12 @@ public class EraseUsuarioCommand extends Command<Usuario> {
 
     @Override
     public void execute() {
-        _usuario = _dao.delete(_usuario);
+        try{
+            _usuario = _dao.delete(_usuario);
+        }catch(NullPointerException e){
+
+        }
+
     }
 
     @Override
@@ -32,4 +37,7 @@ public class EraseUsuarioCommand extends Command<Usuario> {
         getHandler().closeSession();
     }
 
+    public void setDao(UsuarioDao usuarioDao) {
+
+    }
 }

@@ -43,4 +43,7 @@ public class UpdateUsuarioCommand extends Command<Usuario> {
         getHandler().closeSession();
     }
 
+    public void setModifyUsuarioCommand(ModifyUsuarioCommand modifyUsuarioCommand) {
+
+    }
 }

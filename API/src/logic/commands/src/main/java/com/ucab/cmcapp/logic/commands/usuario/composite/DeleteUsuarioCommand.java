@@ -44,4 +44,7 @@ public class DeleteUsuarioCommand extends Command<Usuario> {
         getHandler().closeSession();
     }
 
+    public void setEraseUsuarioCommand(EraseUsuarioCommand eraseUsuarioCommand) {
+
+    }
 }

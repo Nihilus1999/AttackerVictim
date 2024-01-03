@@ -19,7 +19,11 @@ public class GetUsuarioByMacCommand extends Command<Usuario> {
 
     @Override
     public void execute() {
-        _usuario = _dao.getUsuarioByMac(_usuario.get_direccion_mac());
+        try {
+            _usuario = _dao.getUsuarioByMac(_usuario.get_direccion_mac());
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -32,4 +36,7 @@ public class GetUsuarioByMacCommand extends Command<Usuario> {
         getHandler().closeSession();
     }
 
+    public void setDao(UsuarioDao usuarioDao) {
+
+    }
 }

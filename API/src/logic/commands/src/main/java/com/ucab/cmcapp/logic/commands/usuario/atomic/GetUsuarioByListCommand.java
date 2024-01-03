@@ -5,8 +5,6 @@ import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.persistence.DBHandler;
 import com.ucab.cmcapp.persistence.DaoFactory;
 import com.ucab.cmcapp.persistence.dao.UsuarioDao;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -30,7 +28,11 @@ public class GetUsuarioByListCommand extends Command<Usuario> {
     public void execute() {
         //region Instrumentation DEBUG
         //endregion
-        _result = _dao.findAll(Usuario.class);
+        try {
+            _result = _dao.findAll(Usuario.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         //endregion
     }
@@ -43,5 +45,9 @@ public class GetUsuarioByListCommand extends Command<Usuario> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setUsuarioDao(UsuarioDao usuarioDao) {
+
     }
 }

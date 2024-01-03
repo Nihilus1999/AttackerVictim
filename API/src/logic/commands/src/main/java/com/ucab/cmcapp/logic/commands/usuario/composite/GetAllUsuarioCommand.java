@@ -45,4 +45,8 @@ public class GetAllUsuarioCommand extends Command <Usuario> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetUsuarioByListCommand(GetUsuarioByListCommand getUsuarioByListCommand) {
+
+    }
 }

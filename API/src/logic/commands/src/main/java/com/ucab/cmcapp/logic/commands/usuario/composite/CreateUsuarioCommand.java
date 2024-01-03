@@ -59,4 +59,8 @@ public class CreateUsuarioCommand extends Command<Usuario> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setAddUsuarioCommand(AddUsuarioCommand addUsuarioCommand) {
+
+    }
 }

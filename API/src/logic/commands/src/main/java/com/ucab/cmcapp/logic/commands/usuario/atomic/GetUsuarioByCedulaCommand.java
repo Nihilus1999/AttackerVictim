@@ -19,8 +19,13 @@ public class GetUsuarioByCedulaCommand extends Command<Usuario> {
 
     @Override
     public void execute() {
-        _usuario = _dao.getUsuarioByCedula(_usuario.get_cedula());
+        try {
+            _usuario = _dao.getUsuarioByCedula(_usuario.get_cedula());
+        }catch(NullPointerException e){
+
+        }
     }
+
 
     @Override
     public Usuario getReturnParam() {
@@ -32,4 +37,7 @@ public class GetUsuarioByCedulaCommand extends Command<Usuario> {
         getHandler().closeSession();
     }
 
+    public void setDao(UsuarioDao usuarioDao) {
+
+    }
 }

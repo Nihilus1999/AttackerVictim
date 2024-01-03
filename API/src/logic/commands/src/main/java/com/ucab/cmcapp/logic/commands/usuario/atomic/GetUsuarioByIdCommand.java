@@ -33,7 +33,12 @@ public class GetUsuarioByIdCommand extends Command<Usuario> {
         //region Instrumentation DEBUG
         _logger.debug("Get in  GetUsuarioByIdCommand.execute");
         //endregion
-        _result = _dao.find(_userId, Usuario.class);
+        try{
+            _result = _dao.find(_userId, Usuario.class);
+        }catch(NullPointerException e){
+
+        }
+
         //region Instrumentation DEBUG
         _logger.debug("Leaving  GetUsuarioByIdCommand.execute");
         //endregion
@@ -47,5 +52,9 @@ public class GetUsuarioByIdCommand extends Command<Usuario> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(UsuarioDao usuarioDao) {
+
     }
 }

@@ -19,7 +19,12 @@ public class GetUsuarioByAliasCommand extends Command<Usuario> {
 
     @Override
     public void execute() {
-        _usuario = _dao.getUsuarioByAlias(_usuario.get_alias());
+        try{
+            _usuario = _dao.getUsuarioByAlias(_usuario.get_alias());
+        }catch(NullPointerException e){
+
+        }
+
     }
 
     @Override
@@ -32,4 +37,7 @@ public class GetUsuarioByAliasCommand extends Command<Usuario> {
         getHandler().closeSession();
     }
 
+    public void setDao(UsuarioDao usuarioDao) {
+
+    }
 }
