@@ -44,4 +44,7 @@ public class DeleteAtacanteCommand extends Command<Usuario_Atacante> {
         getHandler().closeSession();
     }
 
+    public void setEraseAtacanteCommand(EraseAtacanteCommand eraseAtacanteCommand) {
+
+    }
 }

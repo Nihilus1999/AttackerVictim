@@ -28,29 +28,17 @@ public class AddAtacanteCommand extends Command<Usuario_Atacante> {
         //endregion
     }
 
-    public AddAtacanteCommand(Usuario_Atacante Usuario_Atacante) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in AddUsuario_AtacanteCommand.ctor: parameter {%s}",
-                Usuario_Atacante.toString()));
-        _Usuario_Atacante = Usuario_Atacante;
-        setHandler(new DBHandler());
-        _dao = DaoFactory.createUsuario_AtacanteDao(getHandler());
-
-
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving AddUsuario_AtacanteCommand.ctor: attribute {%s}",
-                _Usuario_Atacante.toString()));
-        //endregion
-    }
 
     @Override
     public void execute() {
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddUsuario_AtacanteCommand.execute");
         //endregion
+        try {
+            _Usuario_Atacante = _dao.insert(_Usuario_Atacante);
+        }catch(NullPointerException e){
 
-        _Usuario_Atacante = _dao.insert(_Usuario_Atacante);
-
+        }
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddUsuario_AtacanteCommand.execute");
         //endregion
@@ -64,5 +52,8 @@ public class AddAtacanteCommand extends Command<Usuario_Atacante> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Usuario_AtacanteDao usuarioAtacanteDao) {
     }
 }

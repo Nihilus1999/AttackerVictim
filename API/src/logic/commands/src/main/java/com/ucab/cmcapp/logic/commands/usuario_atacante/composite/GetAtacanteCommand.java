@@ -49,4 +49,7 @@ public class GetAtacanteCommand extends Command<Usuario_Atacante> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetAtacanteByIdCommand(GetAtacanteByIdCommand getAtacanteByIdCommand) {
+    }
 }

@@ -19,7 +19,11 @@ public class ModifyAtacanteCommand extends Command<Usuario_Atacante> {
 
     @Override
     public void execute() {
-        _Usuario_Atacante = _dao.update(_Usuario_Atacante);
+        try {
+            _Usuario_Atacante = _dao.update(_Usuario_Atacante);
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -30,5 +34,9 @@ public class ModifyAtacanteCommand extends Command<Usuario_Atacante> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Usuario_AtacanteDao usuarioAtacanteDao) {
+
     }
 }

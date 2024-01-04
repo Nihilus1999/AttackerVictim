@@ -28,7 +28,11 @@ public class GetAtacanteByListCommand extends Command<Usuario_Atacante> {
     public void execute() {
         //region Instrumentation DEBUG
         //endregion
-        _result = _dao.findAll(Usuario_Atacante.class);
+        try {
+            _result = _dao.findAll(Usuario_Atacante.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         //endregion
     }
@@ -41,5 +45,9 @@ public class GetAtacanteByListCommand extends Command<Usuario_Atacante> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Usuario_AtacanteDao usuarioAtacanteDao) {
+
     }
 }

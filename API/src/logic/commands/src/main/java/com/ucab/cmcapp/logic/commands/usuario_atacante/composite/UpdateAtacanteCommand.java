@@ -43,4 +43,7 @@ public class UpdateAtacanteCommand extends Command<Usuario_Atacante> {
         getHandler().closeSession();
     }
 
+    public void setModifyAtacanteCommand(ModifyAtacanteCommand modifyAtacanteCommand) {
+
+    }
 }

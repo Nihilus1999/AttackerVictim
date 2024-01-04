@@ -59,4 +59,8 @@ public class CreateAtacanteCommand extends Command<Usuario_Atacante> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setAddAtacanteCommand(AddAtacanteCommand addAtacanteCommand) {
+
+    }
 }

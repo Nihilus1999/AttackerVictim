@@ -44,4 +44,8 @@ public class GetAllAtacanteCommand extends Command <Usuario_Atacante> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetAtacanteByListCommand(GetAtacanteByListCommand getAtacanteByListCommand) {
+
+    }
 }
