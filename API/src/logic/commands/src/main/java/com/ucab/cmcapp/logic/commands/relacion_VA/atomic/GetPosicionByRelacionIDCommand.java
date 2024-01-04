@@ -32,7 +32,11 @@ public class GetPosicionByRelacionIDCommand extends Command<Relacion_VA> {
     public void execute() {
         //region Instrumentation DEBUG
         //endregion
-        _result = _dao.getPosicionByRelacionId(_relacion_va);
+        try {
+            _result = _dao.getPosicionByRelacionId(_relacion_va);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         //endregion
     }
@@ -45,5 +49,9 @@ public class GetPosicionByRelacionIDCommand extends Command<Relacion_VA> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Relacion_VADao relacionVADao) {
+
     }
 }

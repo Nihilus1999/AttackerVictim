@@ -33,7 +33,11 @@ public class GetRelacionByIdCommand extends Command<Relacion_VA> {
         //region Instrumentation DEBUG
         _logger.debug("Get in  GetRelacion_VAByIdCommand.execute");
         //endregion
-        _result = _dao.find(_userId, Relacion_VA.class);
+        try {
+            _result = _dao.find(_userId, Relacion_VA.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         _logger.debug("Leaving  GetRelacion_VAByIdCommand.execute");
         //endregion
@@ -47,5 +51,9 @@ public class GetRelacionByIdCommand extends Command<Relacion_VA> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Relacion_VADao relacionVADao) {
+
     }
 }

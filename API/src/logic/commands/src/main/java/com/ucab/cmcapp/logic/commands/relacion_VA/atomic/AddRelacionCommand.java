@@ -28,28 +28,16 @@ public class AddRelacionCommand extends Command<Relacion_VA> {
         //endregion
     }
 
-    public AddRelacionCommand(Relacion_VA Relacion_VA) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in AddRelacion_VACommand.ctor: parameter {%s}",
-                Relacion_VA.toString()));
-        _Relacion_VA = Relacion_VA;
-        setHandler(new DBHandler());
-        _dao = DaoFactory.createRelacion_VADao(getHandler());
-
-
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving AddRelacion_VACommand.ctor: attribute {%s}",
-                _Relacion_VA.toString()));
-        //endregion
-    }
-
     @Override
     public void execute() {
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddRelacion_VACommand.execute");
         //endregion
+        try {
+            _Relacion_VA = _dao.insert(_Relacion_VA);
+        }catch(NullPointerException e){
 
-        _Relacion_VA = _dao.insert(_Relacion_VA);
+        }
 
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddRelacion_VACommand.execute");
@@ -64,5 +52,9 @@ public class AddRelacionCommand extends Command<Relacion_VA> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Relacion_VADao relacionVADao) {
+
     }
 }

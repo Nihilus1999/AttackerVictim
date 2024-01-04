@@ -19,7 +19,11 @@ public class EraseRelacionCommand extends Command<Relacion_VA> {
 
     @Override
     public void execute() {
-        _Relacion_VA = _dao.delete(_Relacion_VA);
+        try {
+            _Relacion_VA = _dao.delete(_Relacion_VA);
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -32,4 +36,7 @@ public class EraseRelacionCommand extends Command<Relacion_VA> {
         getHandler().closeSession();
     }
 
+    public void setDao(Relacion_VADao relacionVADao) {
+
+    }
 }

@@ -28,7 +28,11 @@ public class GetRelacionByListCommand extends Command<Relacion_VA> {
     public void execute() {
         //region Instrumentation DEBUG
         //endregion
-        _result = _dao.findAll(Relacion_VA.class);
+        try {
+            _result = _dao.findAll(Relacion_VA.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         //endregion
     }
@@ -41,5 +45,9 @@ public class GetRelacionByListCommand extends Command<Relacion_VA> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Relacion_VADao relacionVADao) {
+
     }
 }

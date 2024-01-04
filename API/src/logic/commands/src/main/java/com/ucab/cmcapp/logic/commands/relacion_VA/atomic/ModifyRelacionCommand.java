@@ -19,7 +19,11 @@ public class ModifyRelacionCommand extends Command<Relacion_VA> {
 
     @Override
     public void execute() {
-        _Relacion_VA = _dao.update(_Relacion_VA);
+        try {
+            _Relacion_VA = _dao.update(_Relacion_VA);
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -30,5 +34,9 @@ public class ModifyRelacionCommand extends Command<Relacion_VA> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Relacion_VADao relacionVADao) {
+
     }
 }
