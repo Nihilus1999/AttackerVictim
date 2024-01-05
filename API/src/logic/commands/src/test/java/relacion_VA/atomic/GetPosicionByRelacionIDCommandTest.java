@@ -2,9 +2,8 @@ package relacion_VA.atomic;
 
 import com.ucab.cmcapp.common.entities.Historico_Usuario;
 import com.ucab.cmcapp.common.entities.Relacion_VA;
-import com.ucab.cmcapp.logic.commands.relacion_VA.atomic.GetPosicionByRelacionIDCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionByRelacionIDCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
-import com.ucab.cmcapp.persistence.DaoFactory;
 import com.ucab.cmcapp.persistence.dao.Relacion_VADao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -7,6 +7,7 @@ public class Zona_SeguraDto extends BaseDto {
 
     private Usuario_VictimaDto _victima;
 
+
     public Zona_SeguraDto() {
 
     }
