@@ -1,4 +1,4 @@
-package com.ucab.cmcapp.logic.commands.relacion_VA.atomic;
+package com.ucab.cmcapp.logic.commands.operaciones.atomic;
 
 import com.ucab.cmcapp.common.entities.Historico_Usuario;
 import com.ucab.cmcapp.common.entities.Relacion_VA;
@@ -7,15 +7,13 @@ import com.ucab.cmcapp.persistence.DBHandler;
 import com.ucab.cmcapp.persistence.DaoFactory;
 import com.ucab.cmcapp.persistence.dao.Relacion_VADao;
 
-import java.util.List;
-
-public class GetPosicionByRelacionIDCommand extends Command<Relacion_VA> {
+public class GetPosicionVictimaByRelacionIdCommand extends Command<Relacion_VA> {
 
     private Relacion_VA _relacion_va;
-    private List<Historico_Usuario> _result;
+    private Historico_Usuario _result;
     private Relacion_VADao _dao;
 
-    public GetPosicionByRelacionIDCommand(Relacion_VA relacion_va) {
+    public GetPosicionVictimaByRelacionIdCommand(Relacion_VA relacion_va) {
         //region Instrumentation DEBUG
         //endregion
 
@@ -33,7 +31,7 @@ public class GetPosicionByRelacionIDCommand extends Command<Relacion_VA> {
         //region Instrumentation DEBUG
         //endregion
         try {
-            _result = _dao.getPosicionByRelacionId(_relacion_va);
+            _result = _dao.getPosicionVictimaByRelacionId(_relacion_va);
         }catch(NullPointerException e){
 
         }
@@ -42,7 +40,7 @@ public class GetPosicionByRelacionIDCommand extends Command<Relacion_VA> {
     }
 
     @Override
-    public List <Historico_Usuario> getReturnParam() {
+    public Historico_Usuario getReturnParam() {
         return _result;
     }
 

@@ -6,6 +6,7 @@ import com.ucab.cmcapp.persistence.dao.*;
 
 public class DaoFactory {
     private DaoFactory() {
+
     }
 
     public static AdministradorDao createAdministradorDao(DBHandler handler) {

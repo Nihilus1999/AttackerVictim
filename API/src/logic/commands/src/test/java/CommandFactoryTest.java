@@ -9,6 +9,7 @@ import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
+import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionByRelacionIDCommand;
 import com.ucab.cmcapp.logic.commands.relacion_VA.atomic.*;
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;

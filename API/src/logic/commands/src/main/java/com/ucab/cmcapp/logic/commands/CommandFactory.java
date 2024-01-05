@@ -7,6 +7,9 @@ import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
+import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionAtacanteByRelacionIdCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionByRelacionIDCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionVictimaByRelacionIdCommand;
 import com.ucab.cmcapp.logic.commands.relacion_VA.atomic.*;
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
@@ -339,10 +342,6 @@ public class CommandFactory {
         return new GetRelacionByListCommand(handler);
     }
 
-    public static GetPosicionByRelacionIDCommand createGetPosicionByRelacionIDCommand(Relacion_VA relacion) {
-        return new GetPosicionByRelacionIDCommand(relacion);
-    }
-
 
     // POST/AGREGAR RELACION_VICTIMA-ATACANTE
     public static AddRelacionCommand createAddRelacion_VACommand(Relacion_VA usuarioRelacion, DBHandler handler) {
@@ -492,6 +491,18 @@ public class CommandFactory {
         return new ModifyCoordenadaCommand(coordenada, handler);
     }
 
+    //OPERACIONES
 
+    public static GetPosicionByRelacionIDCommand createGetPosicionByRelacionIDCommand(Relacion_VA relacion) {
+        return new GetPosicionByRelacionIDCommand(relacion);
+    }
+
+    public static GetPosicionAtacanteByRelacionIdCommand createGetPosicionAtacanteByRelacionIdCommand(Relacion_VA relacion) {
+        return new GetPosicionAtacanteByRelacionIdCommand(relacion);
+    }
+
+    public static GetPosicionVictimaByRelacionIdCommand createGetPosicionVictimaByRelacionIdCommand(Relacion_VA relacion) {
+        return new GetPosicionVictimaByRelacionIdCommand(relacion);
+    }
 
 }

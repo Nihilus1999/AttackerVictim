@@ -36,7 +36,7 @@ public class Relacion_VADao extends BaseDao<Relacion_VA> {
         List<Historico_Usuario> results;
         try {
 
-            String customSql = "SELECT hu.* FROM historico_usuario hu INNER JOIN ((SELECT MAX(hu.id) AS ultimo_registro, 'usuario_victima' AS entidad FROM historico_usuario hu INNER JOIN usuario u ON hu.id_usuario = u.id INNER JOIN usuario_victima uv ON u.id = uv.id_usuario INNER JOIN relacion_VA rva ON uv.id = rva.id_usuario_victima WHERE rva.id = 1 GROUP BY entidad) UNION (SELECT MAX(hu.id) AS ultimo_registro, 'usuario_atacante' AS entidad FROM historico_usuario hu INNER JOIN usuario u ON hu.id_usuario = u.id INNER JOIN usuario_atacante ua ON u.id = ua.id_usuario INNER JOIN relacion_VA rva ON ua.id = rva.id_usuario_atacante WHERE rva.id = 1 GROUP BY entidad)) ult ON hu.id = ult.ultimo_registro;\n";
+            String customSql = "SELECT hu.* FROM historico_usuario hu INNER JOIN ((SELECT MAX(hu.id) AS ultimo_registro, 'usuario_victima' AS entidad FROM historico_usuario hu INNER JOIN usuario u ON hu.id_usuario = u.id INNER JOIN usuario_victima uv ON u.id = uv.id_usuario INNER JOIN relacion_VA rva ON uv.id = rva.id_usuario_victima WHERE rva.id = "+ relacionId.get_id() + " GROUP BY entidad) UNION (SELECT MAX(hu.id) AS ultimo_registro, 'usuario_atacante' AS entidad FROM historico_usuario hu INNER JOIN usuario u ON hu.id_usuario = u.id INNER JOIN usuario_atacante ua ON u.id = ua.id_usuario INNER JOIN relacion_VA rva ON ua.id = rva.id_usuario_atacante WHERE rva.id = "+ relacionId.get_id() + " GROUP BY entidad)) ult ON hu.id = ult.ultimo_registro;";
             Query query = _em.createNativeQuery(customSql, Historico_Usuario.class);
 
             results = query.getResultList();
@@ -53,5 +53,53 @@ public class Relacion_VADao extends BaseDao<Relacion_VA> {
         }
 
         return results;
+    }
+
+    public Historico_Usuario getPosicionAtacanteByRelacionId(Relacion_VA relacionId) {
+        List<Historico_Usuario> results;
+        try {
+
+            String customSql = "SELECT hu.* FROM historico_usuario hu INNER JOIN usuario u ON hu.id_usuario = u.id INNER JOIN usuario_atacante ua ON u.id = ua.id_usuario INNER JOIN relacion_VA rva ON ua.id = rva.id_usuario_atacante WHERE rva.id = "+ relacionId.get_id() +" ORDER BY hu.id DESC LIMIT 1;";
+
+            Query query = _em.createNativeQuery(customSql, Historico_Usuario.class);
+
+            results = query.getResultList();
+
+            if (results.size() < 1)
+                return null;
+
+        } catch (NoResultException e) {
+
+            return null;
+
+        } catch (Exception e) {
+            throw new CupraException(e.getMessage());
+        }
+
+        return results.get(0);
+    }
+
+    public Historico_Usuario getPosicionVictimaByRelacionId(Relacion_VA relacionId) {
+        List<Historico_Usuario> results;
+        try {
+
+            String customSql = "SELECT hu.* FROM historico_usuario hu INNER JOIN usuario u ON hu.id_usuario = u.id INNER JOIN usuario_victima uv ON u.id = uv.id_usuario INNER JOIN relacion_VA rva ON uv.id = rva.id_usuario_victima WHERE rva.id = "+ relacionId.get_id() +" ORDER BY hu.id DESC LIMIT 1;";
+
+            Query query = _em.createNativeQuery(customSql, Historico_Usuario.class);
+
+            results = query.getResultList();
+
+            if (results.size() < 1)
+                return null;
+
+        } catch (NoResultException e) {
+
+            return null;
+
+        } catch (Exception e) {
+            throw new CupraException(e.getMessage());
+        }
+
+        return results.get(0);
     }
 }
