@@ -78,4 +78,13 @@ public class EntityFactory {
         return new Coordenada(id);
     }
 
+
+    //NOTIFICACION
+    public static Notificacion createNotificacion() {
+        return new Notificacion();
+    }
+    public static Notificacion createNotificacion(long id) {
+        return new Notificacion(id);
+    }
+
 }

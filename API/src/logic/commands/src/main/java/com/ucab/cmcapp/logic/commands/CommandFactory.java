@@ -7,9 +7,9 @@ import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
-import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionAtacanteByRelacionIdCommand;
-import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionByRelacionIDCommand;
-import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionVictimaByRelacionIdCommand;
+import com.ucab.cmcapp.logic.commands.notificacion.atomic.*;
+import com.ucab.cmcapp.logic.commands.notificacion.composite.*;
+import com.ucab.cmcapp.logic.commands.operaciones.atomic.*;
 import com.ucab.cmcapp.logic.commands.relacion_VA.atomic.*;
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
@@ -491,7 +491,63 @@ public class CommandFactory {
         return new ModifyCoordenadaCommand(coordenada, handler);
     }
 
-    //OPERACIONES
+    //NOTIFICACION COMMAND
+
+    // GET HISTORICO_USUARIO
+    public static GetNotificacionCommand createGetNotificacionCommand(Notificacion notificacionUsuario) {
+        return new GetNotificacionCommand(notificacionUsuario);
+    }
+
+    public static GetNotificacionByIdCommand createGetNotificacionByIdCommand(DBHandler handler, long notificacionId) {
+        return new GetNotificacionByIdCommand(handler, notificacionId);
+    }
+
+    public static GetAllNotificacionCommand createGetAllNotificacionCommand(){
+        return new GetAllNotificacionCommand();
+    }
+
+    public static GetNotificacionByListCommand createGetNotificacionByListCommand(DBHandler handler) {
+        return new GetNotificacionByListCommand(handler);
+    }
+
+    public static GetNotificacionByUsuarioIdCommand createGetNotificacionByUsuarioCommand(Notificacion notificacion) {
+        return new GetNotificacionByUsuarioIdCommand(notificacion);
+    }
+
+
+    // POST/AGREGAR HISTORICO_USUARIO
+    public static AddNotificacionCommand createAddNotificacionCommand(Notificacion notificacion, DBHandler handler) {
+        return new AddNotificacionCommand(notificacion, handler);
+    }
+
+    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
+        return new AddUsuarioCommand(user);
+    }*/
+
+    public static CreateNotificacionCommand createCreateNotificacionCommand(Notificacion notificacion) {
+        return new CreateNotificacionCommand(notificacion);
+    }
+
+    //DELETE HISTORICO_USUARIO
+
+    public static DeleteNotificacionCommand createDeleteNotificacionCommand(Notificacion notificacion) {
+        return new DeleteNotificacionCommand(notificacion);
+    }
+
+    public static EraseNotificacionCommand createEraseNotificacionCommand(Notificacion notificacion, DBHandler handler) {
+        return new EraseNotificacionCommand(notificacion, handler);
+    }
+
+    //UPDATE HISTORICO_USUARIO
+    public static UpdateNotificacionCommand createUpdateNotificacionCommand(Notificacion notificacion){
+        return new UpdateNotificacionCommand(notificacion);
+    }
+
+    public static ModifyNotificacionCommand createModifyNotificacionCommand(Notificacion notificacion, DBHandler handler){
+        return new ModifyNotificacionCommand(notificacion, handler);
+    }
+
+    //OPERACIONES COMMAND
 
     public static GetPosicionByRelacionIDCommand createGetPosicionByRelacionIDCommand(Relacion_VA relacion) {
         return new GetPosicionByRelacionIDCommand(relacion);

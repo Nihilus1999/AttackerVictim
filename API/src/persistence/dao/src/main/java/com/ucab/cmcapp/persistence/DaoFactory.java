@@ -107,6 +107,21 @@ public class DaoFactory {
         }
     }
 
+    public static NotificacionDao createNotificacionDao(DBHandler handler) {
+        try{
+            return new NotificacionDao(handler);
+        }catch(NoClassDefFoundError e){
+            return null;
+        }
+        catch(ExceptionInInitializerError e){
+            return null;
+        }
+        catch(Exception e){
+            return null;
+        }
+
+    }
+
 
 
 }

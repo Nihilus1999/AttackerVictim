@@ -88,7 +88,7 @@ public class HistoricoService extends BaseService {
             if (command.getReturnParam() != null)
                 responseDTO = Historico_UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
             else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No hay historico asociado al ID " + usuarioId + "del usuario")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No hay historico asociado al ID " + usuarioId + " del usuario")).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de ejecutar la ruta id usuario" + e.getMessage())).build();
         } finally {
