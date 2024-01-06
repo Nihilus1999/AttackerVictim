@@ -35,4 +35,8 @@ public class ModifyNotificacionCommand extends Command<Notificacion> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setDao(NotificacionDao notificacionDao) {
+
+    }
 }

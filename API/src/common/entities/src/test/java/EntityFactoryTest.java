@@ -133,4 +133,39 @@ public class EntityFactoryTest {
         assertNotNull(coordenada);
         assertEquals(id, coordenada.get_id());
     }
+
+    //NOTIFICACION
+
+    @Test
+    public void testCreateNotificacion() {
+        // Arrange
+        Notificacion notificacion;
+
+        // Act
+        notificacion = EntityFactory.createNotificacion();
+
+        // Assert
+        assertNotNull(notificacion);
+        assertEquals(0, notificacion.get_id());
+        assertNull(notificacion.get_tipo());
+        assertNull(notificacion.get_descripcion());
+        assertNull(notificacion.get_usuario());
+    }
+
+    @Test
+    public void testCreateNotificacionWithId() {
+        // Arrange
+        long id = 1;
+        Notificacion notificacion;
+
+        // Act
+        notificacion = EntityFactory.createNotificacion(id);
+
+        // Assert
+        assertNotNull(notificacion);
+        assertEquals(id, notificacion.get_id());
+        assertNull(notificacion.get_tipo());
+        assertNull(notificacion.get_descripcion());
+        assertNull(notificacion.get_usuario());
+    }
 }

@@ -46,4 +46,7 @@ public class GetAllNotificacionCommand extends Command <Notificacion> {
         getHandler().closeSession();
     }
 
+    public void setGetNotificacionByListCommand(GetNotificacionByListCommand getNotificacionByListCommand) {
+
+    }
 }

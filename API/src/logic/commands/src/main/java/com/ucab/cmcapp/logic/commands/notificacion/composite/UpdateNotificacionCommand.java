@@ -42,4 +42,7 @@ public class UpdateNotificacionCommand extends Command<Notificacion> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setModifyNotificacionCommand(ModifyNotificacionCommand modifyNotificacionCommand) {
+    }
 }

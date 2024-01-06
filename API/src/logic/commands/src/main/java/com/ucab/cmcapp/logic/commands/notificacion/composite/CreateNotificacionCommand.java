@@ -59,5 +59,7 @@ public class CreateNotificacionCommand extends Command<Notificacion> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
-    
+
+    public void setAddNotificacionCommand(AddNotificacionCommand addNotificacionCommand) {
+    }
 }

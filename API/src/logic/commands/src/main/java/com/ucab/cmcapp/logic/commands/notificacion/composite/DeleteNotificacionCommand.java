@@ -45,4 +45,7 @@ public class DeleteNotificacionCommand extends Command<Notificacion> {
     }
 
 
+    public void setEraseNotificacionCommand(EraseNotificacionCommand eraseNotificacionCommand) {
+
+    }
 }

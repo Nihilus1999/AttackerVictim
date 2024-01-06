@@ -36,7 +36,7 @@ public class EraseNotificacionCommand extends Command<Notificacion> {
         getHandler().closeSession();
     }
 
-    public void setNotificacionUsuario(Notificacion result) {
-        
+    public void setDao(NotificacionDao notificacionDao) {
+
     }
 }

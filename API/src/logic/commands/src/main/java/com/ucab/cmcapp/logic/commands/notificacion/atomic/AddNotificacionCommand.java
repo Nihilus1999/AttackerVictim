@@ -54,4 +54,7 @@ public class AddNotificacionCommand extends Command<Notificacion> {
         getHandler().closeSession();
     }
 
+    public void setDao(NotificacionDao notificacionDao) {
+
+    }
 }

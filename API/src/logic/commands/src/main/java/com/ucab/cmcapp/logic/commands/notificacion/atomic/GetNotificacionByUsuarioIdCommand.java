@@ -38,4 +38,7 @@ public class GetNotificacionByUsuarioIdCommand extends Command<Notificacion> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setDao(NotificacionDao notificacionDao) {
+    }
 }

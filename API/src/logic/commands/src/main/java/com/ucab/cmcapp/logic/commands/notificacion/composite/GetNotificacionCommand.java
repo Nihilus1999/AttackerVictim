@@ -50,4 +50,6 @@ public class GetNotificacionCommand extends Command<Notificacion> {
         getHandler().closeSession();
     }
 
+    public void setGetNotificacionByIdCommand(GetNotificacionByIdCommand getNotificacionByIdCommand) {
+    }
 }
