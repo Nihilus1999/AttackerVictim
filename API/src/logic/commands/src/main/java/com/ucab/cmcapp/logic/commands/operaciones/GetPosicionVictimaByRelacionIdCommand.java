@@ -1,4 +1,4 @@
-package com.ucab.cmcapp.logic.commands.operaciones.atomic;
+package com.ucab.cmcapp.logic.commands.operaciones;
 
 import com.ucab.cmcapp.common.entities.Historico_Usuario;
 import com.ucab.cmcapp.common.entities.Relacion_VA;

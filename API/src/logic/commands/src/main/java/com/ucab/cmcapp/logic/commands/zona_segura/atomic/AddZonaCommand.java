@@ -28,28 +28,16 @@ public class AddZonaCommand extends Command<Zona_Segura> {
         //endregion
     }
 
-    public AddZonaCommand(Zona_Segura Zona_Segura) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in AddZona_SeguraCommand.ctor: parameter {%s}",
-                Zona_Segura.toString()));
-        _Zona_Segura = Zona_Segura;
-        setHandler(new DBHandler());
-        _dao = DaoFactory.createZona_SeguraDao(getHandler());
-
-
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving AddZona_SeguraCommand.ctor: attribute {%s}",
-                _Zona_Segura.toString()));
-        //endregion
-    }
-
     @Override
     public void execute() {
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddZona_SeguraCommand.execute");
         //endregion
+        try {
+            _Zona_Segura = _dao.insert(_Zona_Segura);
+        }catch(NullPointerException e){
 
-        _Zona_Segura = _dao.insert(_Zona_Segura);
+        }
 
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddZona_SeguraCommand.execute");
@@ -64,5 +52,8 @@ public class AddZonaCommand extends Command<Zona_Segura> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Zona_SeguraDao zonaSeguraDao) {
     }
 }

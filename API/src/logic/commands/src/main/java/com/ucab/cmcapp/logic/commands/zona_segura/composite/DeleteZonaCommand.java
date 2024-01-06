@@ -44,4 +44,7 @@ public class DeleteZonaCommand extends Command<Zona_Segura> {
         getHandler().closeSession();
     }
 
+    public void setEraseZonaCommand(EraseZonaCommand eraseZonaCommand) {
+
+    }
 }

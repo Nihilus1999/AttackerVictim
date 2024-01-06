@@ -29,9 +29,6 @@ public class Atacante_Dentro_Zona_SeguraDto {
         return _zonas_seguras;
     }
 
-    public void set_zonas_seguras(List<String> _zonas_seguras) {
-        this._zonas_seguras = _zonas_seguras;
-    }
 
     public Double get_latitud() {
         return _latitud;

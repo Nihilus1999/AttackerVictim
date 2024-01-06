@@ -49,4 +49,7 @@ public class GetZonaCommand extends Command<Zona_Segura> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetZonaByIdCommand(GetZonaByIdCommand getZonaByIdCommand) {
+    }
 }

@@ -43,4 +43,7 @@ public class UpdateZonaCommand extends Command<Zona_Segura> {
         getHandler().closeSession();
     }
 
+    public void setModifyZonaCommand(ModifyZonaCommand modifyZonaCommand) {
+
+    }
 }

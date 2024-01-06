@@ -1,4 +1,4 @@
-package com.ucab.cmcapp.logic.commands.operaciones.atomic;
+package com.ucab.cmcapp.logic.commands.operaciones;
 
 import com.ucab.cmcapp.common.entities.Historico_Usuario;
 import com.ucab.cmcapp.common.entities.Relacion_VA;
@@ -51,7 +51,7 @@ public class GetPosicionByRelacionIDCommand extends Command<Relacion_VA> {
         getHandler().closeSession();
     }
 
-    public void setDao(Relacion_VADao relacionVADao) {
+    public void setDao(Relacion_VADao dao) {
 
     }
 }

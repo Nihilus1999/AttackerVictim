@@ -9,7 +9,11 @@ import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
-import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionByRelacionIDCommand;
+import com.ucab.cmcapp.logic.commands.notificacion.atomic.*;
+import com.ucab.cmcapp.logic.commands.notificacion.composite.*;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionAtacanteByRelacionIdCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionByRelacionIDCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionVictimaByRelacionIdCommand;
 import com.ucab.cmcapp.logic.commands.relacion_VA.atomic.*;
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
@@ -1233,6 +1237,163 @@ public class CommandFactoryTest {
         // Assert
         assertNotNull(command);
         assertNotEquals(coordenada, command.getReturnParam());
+    }
+
+    @Test
+    public void testCreateGetNotificacionCommand() {
+        // Arrange
+        Notificacion notificacionUsuario = new Notificacion();
+
+        // Act
+        GetNotificacionCommand command = CommandFactory.createGetNotificacionCommand(notificacionUsuario);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateGetNotificacionByIdCommand() {
+        // Arrange
+        DBHandler handler = new DBHandler();
+        long notificacionId = 1;
+
+        // Act
+        GetNotificacionByIdCommand command = CommandFactory.createGetNotificacionByIdCommand(handler, notificacionId);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateGetAllNotificacionCommand() {
+        // Act
+        GetAllNotificacionCommand command = CommandFactory.createGetAllNotificacionCommand();
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateGetNotificacionByListCommand() {
+        // Arrange
+        DBHandler handler = new DBHandler();
+
+        // Act
+        GetNotificacionByListCommand command = CommandFactory.createGetNotificacionByListCommand(handler);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateGetNotificacionByUsuarioCommand() {
+        // Arrange
+        Notificacion notificacion = new Notificacion();
+
+        // Act
+        GetNotificacionByUsuarioIdCommand command = CommandFactory.createGetNotificacionByUsuarioCommand(notificacion);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateAddNotificacionCommand() {
+        // Arrange
+        Notificacion notificacion = new Notificacion();
+        DBHandler handler = new DBHandler();
+
+        // Act
+        AddNotificacionCommand command = CommandFactory.createAddNotificacionCommand(notificacion, handler);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateCreateNotificacionCommand() {
+        // Arrange
+        Notificacion notificacion = new Notificacion();
+
+        // Act
+        CreateNotificacionCommand command = CommandFactory.createCreateNotificacionCommand(notificacion);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateDeleteNotificacionCommand() {
+        // Arrange
+        Notificacion notificacion = new Notificacion();
+
+        // Act
+        DeleteNotificacionCommand command = CommandFactory.createDeleteNotificacionCommand(notificacion);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateEraseNotificacionCommand() {
+        // Arrange
+        Notificacion notificacion = new Notificacion();
+        DBHandler handler = new DBHandler();
+
+        // Act
+        EraseNotificacionCommand command = CommandFactory.createEraseNotificacionCommand(notificacion, handler);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateUpdateNotificacionCommand() {
+        // Arrange
+        Notificacion notificacion = new Notificacion();
+
+        // Act
+        UpdateNotificacionCommand command = CommandFactory.createUpdateNotificacionCommand(notificacion);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateModifyNotificacionCommand() {
+        // Arrange
+        Notificacion notificacion = new Notificacion();
+        DBHandler handler = new DBHandler();
+
+        // Act
+        ModifyNotificacionCommand command = CommandFactory.createModifyNotificacionCommand(notificacion, handler);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateGetPosicionAtacanteByRelacionIdCommand() {
+        // Arrange
+        Relacion_VA relacion = new Relacion_VA();
+
+        // Act
+        GetPosicionAtacanteByRelacionIdCommand command = CommandFactory.createGetPosicionAtacanteByRelacionIdCommand(relacion);
+
+        // Assert
+        assertNotNull(command);
+    }
+
+    @Test
+    public void testCreateGetPosicionVictimaByRelacionIdCommand() {
+        // Arrange
+        Relacion_VA relacion = new Relacion_VA();
+
+        // Act
+        GetPosicionVictimaByRelacionIdCommand command = CommandFactory.createGetPosicionVictimaByRelacionIdCommand(relacion);
+
+        // Assert
+        assertNotNull(command);
     }
 
 }

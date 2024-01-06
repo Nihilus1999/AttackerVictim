@@ -9,7 +9,9 @@ import com.ucab.cmcapp.logic.commands.historico_usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.historico_usuario.composite.*;
 import com.ucab.cmcapp.logic.commands.notificacion.atomic.*;
 import com.ucab.cmcapp.logic.commands.notificacion.composite.*;
-import com.ucab.cmcapp.logic.commands.operaciones.atomic.*;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionAtacanteByRelacionIdCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionByRelacionIDCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionVictimaByRelacionIdCommand;
 import com.ucab.cmcapp.logic.commands.relacion_VA.atomic.*;
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.*;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
@@ -493,7 +495,7 @@ public class CommandFactory {
 
     //NOTIFICACION COMMAND
 
-    // GET HISTORICO_USUARIO
+    // GET NOTIFICACION
     public static GetNotificacionCommand createGetNotificacionCommand(Notificacion notificacionUsuario) {
         return new GetNotificacionCommand(notificacionUsuario);
     }
@@ -515,7 +517,7 @@ public class CommandFactory {
     }
 
 
-    // POST/AGREGAR HISTORICO_USUARIO
+    // POST/AGREGAR NOTIFICACION
     public static AddNotificacionCommand createAddNotificacionCommand(Notificacion notificacion, DBHandler handler) {
         return new AddNotificacionCommand(notificacion, handler);
     }
@@ -528,7 +530,7 @@ public class CommandFactory {
         return new CreateNotificacionCommand(notificacion);
     }
 
-    //DELETE HISTORICO_USUARIO
+    //DELETE NOTIFICACION
 
     public static DeleteNotificacionCommand createDeleteNotificacionCommand(Notificacion notificacion) {
         return new DeleteNotificacionCommand(notificacion);
@@ -538,7 +540,7 @@ public class CommandFactory {
         return new EraseNotificacionCommand(notificacion, handler);
     }
 
-    //UPDATE HISTORICO_USUARIO
+    //UPDATE NOTIFICACION
     public static UpdateNotificacionCommand createUpdateNotificacionCommand(Notificacion notificacion){
         return new UpdateNotificacionCommand(notificacion);
     }

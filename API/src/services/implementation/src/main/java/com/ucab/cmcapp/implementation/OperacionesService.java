@@ -1,13 +1,12 @@
 package com.ucab.cmcapp.implementation;
 
-import com.ucab.cmcapp.common.entities.Historico_Usuario;
 import com.ucab.cmcapp.common.entities.Relacion_VA;
 import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.GetAllCoordenadaCommand;
-import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionAtacanteByRelacionIdCommand;
-import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionByRelacionIDCommand;
-import com.ucab.cmcapp.logic.commands.operaciones.atomic.GetPosicionVictimaByRelacionIdCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionAtacanteByRelacionIdCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionByRelacionIDCommand;
+import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionVictimaByRelacionIdCommand;
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.GetRelacionCommand;
 import com.ucab.cmcapp.logic.commands.zona_segura.atomic.GetZonaByVictimaIdCommand;
 import com.ucab.cmcapp.logic.dtos.dtos.*;
@@ -22,7 +21,6 @@ import com.ucab.cmcapp.logic.mappers.Zona_SeguraMapper;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
 import java.util.List;
 
 @Path("/operaciones")

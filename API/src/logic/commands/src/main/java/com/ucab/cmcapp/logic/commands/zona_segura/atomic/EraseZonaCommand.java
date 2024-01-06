@@ -19,7 +19,11 @@ public class EraseZonaCommand extends Command<Zona_Segura> {
 
     @Override
     public void execute() {
-        _Zona_Segura = _dao.delete(_Zona_Segura);
+        try {
+            _Zona_Segura = _dao.delete(_Zona_Segura);
+        }catch(NullPointerException e){
+
+        }
     }
 
     @Override
@@ -32,4 +36,7 @@ public class EraseZonaCommand extends Command<Zona_Segura> {
         getHandler().closeSession();
     }
 
+    public void setDao(Zona_SeguraDao zonaSeguraDao) {
+
+    }
 }

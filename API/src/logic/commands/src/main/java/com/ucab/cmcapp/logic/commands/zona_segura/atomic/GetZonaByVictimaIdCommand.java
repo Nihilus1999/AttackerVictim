@@ -22,7 +22,11 @@ public class GetZonaByVictimaIdCommand extends Command<Zona_Segura> {
 
     @Override
     public void execute() {
-        _result = _dao.getZonaByVictimaId(_zonaSegura.get_victima());
+        try {
+            _result = _dao.getZonaByVictimaId(_zonaSegura.get_victima());
+        }catch (NullPointerException e){
+
+        }
     }
 
     @Override
@@ -35,4 +39,7 @@ public class GetZonaByVictimaIdCommand extends Command<Zona_Segura> {
         getHandler().closeSession();
     }
 
+    public void setDao(Zona_SeguraDao zonaSeguraDao) {
+
+    }
 }

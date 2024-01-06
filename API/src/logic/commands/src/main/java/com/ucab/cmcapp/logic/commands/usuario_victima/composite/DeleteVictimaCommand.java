@@ -44,4 +44,6 @@ public class DeleteVictimaCommand extends Command<Usuario_Victima> {
         getHandler().closeSession();
     }
 
+    public void setCommandFactory(CommandFactory commandFactory) {
+    }
 }

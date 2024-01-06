@@ -48,9 +48,11 @@ public class AddVictimaCommand extends Command<Usuario_Victima> {
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddUsuario_VictimaCommand.execute");
         //endregion
+        try {
+            _Usuario_Victima = _dao.insert(_Usuario_Victima);
+        }catch(NullPointerException e){
 
-        _Usuario_Victima = _dao.insert(_Usuario_Victima);
-
+        }
         //region Instrumentation DEBUG
         _logger.debug("Get in  AddUsuario_VictimaCommand.execute");
         //endregion
@@ -64,5 +66,9 @@ public class AddVictimaCommand extends Command<Usuario_Victima> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Usuario_VictimaDao dao) {
+
     }
 }

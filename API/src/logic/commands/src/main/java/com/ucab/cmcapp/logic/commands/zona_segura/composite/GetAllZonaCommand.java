@@ -44,4 +44,8 @@ public class GetAllZonaCommand extends Command <Zona_Segura> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setGetZonaByListCommand(GetZonaByListCommand getZonaByListCommand) {
+
+    }
 }

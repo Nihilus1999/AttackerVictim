@@ -33,7 +33,11 @@ public class GetZonaByIdCommand extends Command<Zona_Segura> {
         //region Instrumentation DEBUG
         _logger.debug("Get in  GetZona_SeguraByIdCommand.execute");
         //endregion
-        _result = _dao.find(_userId, Zona_Segura.class);
+        try {
+            _result = _dao.find(_userId, Zona_Segura.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         _logger.debug("Leaving  GetZona_SeguraByIdCommand.execute");
         //endregion
@@ -47,5 +51,9 @@ public class GetZonaByIdCommand extends Command<Zona_Segura> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Zona_SeguraDao zonaSeguraDao) {
+
     }
 }

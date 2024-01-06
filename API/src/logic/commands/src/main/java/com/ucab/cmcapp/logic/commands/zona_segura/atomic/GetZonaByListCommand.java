@@ -28,7 +28,11 @@ public class GetZonaByListCommand extends Command<Zona_Segura> {
     public void execute() {
         //region Instrumentation DEBUG
         //endregion
-        _result = _dao.findAll(Zona_Segura.class);
+        try {
+            _result = _dao.findAll(Zona_Segura.class);
+        }catch(NullPointerException e){
+
+        }
         //region Instrumentation DEBUG
         //endregion
     }
@@ -41,5 +45,8 @@ public class GetZonaByListCommand extends Command<Zona_Segura> {
     @Override
     public void closeHandlerSession() {
         getHandler().closeSession();
+    }
+
+    public void setDao(Zona_SeguraDao zonaSeguraDao) {
     }
 }

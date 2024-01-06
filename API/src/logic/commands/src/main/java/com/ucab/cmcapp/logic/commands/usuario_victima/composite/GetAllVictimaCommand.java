@@ -44,4 +44,8 @@ public class GetAllVictimaCommand extends Command <Usuario_Victima> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
+    public void setCommandFactory(CommandFactory commandFactory) {
+
+    }
 }
