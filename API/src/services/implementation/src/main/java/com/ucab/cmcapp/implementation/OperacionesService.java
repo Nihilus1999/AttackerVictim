@@ -29,7 +29,7 @@ import java.util.List;
 public class OperacionesService extends BaseService {
     @GET
     @Path("distancia-separacion/{id_relacion_va}")
-    public Response getSeparationDistanceByIncidentId(@PathParam("id_relacion_va") long relacionId) {
+    public Response getDistanciaSeparacionByRelacionId(@PathParam("id_relacion_va") long relacionId) {
         Relacion_VA entity;
         List<Historico_UsuarioDto> responseDTO = null;
         GetPosicionByRelacionIDCommand command = null;
@@ -115,7 +115,7 @@ public class OperacionesService extends BaseService {
 
     @GET
     @Path("atacante_dentro_Zona_Segura/{relacion_id}")
-    public Response getVerifyAttackerInSafeZone(@PathParam("relacion_id") long incidentId) {
+    public Response getAtacanteEnZonaSegura(@PathParam("relacion_id") long incidentId) {
 
         //definicion de variables para relacion_va
         Relacion_VA relacionEntity;
