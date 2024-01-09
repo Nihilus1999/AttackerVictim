@@ -3,6 +3,8 @@ package com.ucab.cmcapp.common.util;
 import com.ucab.cmcapp.common.exceptions.JWTCreateException;
 import com.ucab.cmcapp.common.exceptions.JWTSetKeyException;
 import com.ucab.cmcapp.common.exceptions.JWTVerifyException;
+import com.ucab.cmcapp.logic.dtos.dtos.AdministradorDto;
+import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -49,7 +51,7 @@ public class JWT {
      * @param subject JWT's Subject (User ID)
      * @return Token JWT
      */
-    public static String createToken(String subject) {
+    public static String createTokenUsuario(UsuarioDto subject) {
         String result;
 
         //region Instrumentation DEBUG
@@ -60,7 +62,35 @@ public class JWT {
 
             result = Jwts.builder()
                     .setIssuer(_issuer)
-                    .setSubject(subject)
+                    .setSubject(subject.get_alias())
+                    .setNotBefore(new Date())
+                    .setIssuedAt(new Date())
+                    .setId(UUID.randomUUID().toString())
+                    .signWith(_secretKey, SignatureAlgorithm.forName(_algorithm))
+                    .compact();
+        } catch (Exception e) {
+            throw new JWTCreateException(e.getMessage());
+        }
+
+        //region Instrumentation DEBUG
+        _logger.debug("Leaving JWT.createToken: token {}", result);
+        //endregion
+
+        return result;
+    }
+
+    public static String createTokenAdmin(AdministradorDto subject) {
+        String result;
+
+        //region Instrumentation DEBUG
+        _logger.debug("Entering in JWT.createToken: subject {}", subject);
+        //endregion
+
+        try {
+
+            result = Jwts.builder()
+                    .setIssuer(_issuer)
+                    .setSubject(subject.get_alias())
                     .setNotBefore(new Date())
                     .setIssuedAt(new Date())
                     .setId(UUID.randomUUID().toString())
@@ -105,29 +135,24 @@ public class JWT {
         //endregion
     }
 
-    public static String verifyToken(String token) {
-        String result = "";
-
-        //region Instrumentation DEBUG
-        _logger.debug("Entering in JWT.verifyToken: verifyToken {}", token);
-        //endregion
-
+    public static UsuarioDto verifyToken(String token) {
+        UsuarioDto result = new UsuarioDto();
         try {
             Jws<Claims> claims = Jwts.parser()
                     .requireIssuer(_issuer)
                     .setSigningKey(_secretKey)
                     .parseClaimsJws(token);
 
-            result = claims.getBody().getSubject();
-        } catch (Exception e) {
-            _logger.error("invalid token");
+            String username = claims.getBody().getSubject();
+            // Recuperando el tipo del usuario
+            String type = (String) claims.getBody().get("type");
+
+            result.set_alias(username);
+        }catch (Exception e){
+            _logger.error("Invalid token");
             _logger.error(e.getMessage(), e);
             throw new JWTVerifyException(e.getMessage());
         }
-
-        //region Instrumentation DEBUG
-        _logger.debug("Leaving JWT.createToken: result {}", result);
-        //endregion
 
         return result;
     }

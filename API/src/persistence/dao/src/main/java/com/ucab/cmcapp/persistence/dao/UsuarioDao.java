@@ -3,6 +3,7 @@ package com.ucab.cmcapp.persistence.dao;
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.*;
 import com.ucab.cmcapp.common.exceptions.CupraException;
+import com.ucab.cmcapp.common.exceptions.NotFoundException;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,8 +68,10 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            return null;
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
+            throw new NotFoundException("Nombre de usuario no existente");
         } catch (Exception e) {
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
 

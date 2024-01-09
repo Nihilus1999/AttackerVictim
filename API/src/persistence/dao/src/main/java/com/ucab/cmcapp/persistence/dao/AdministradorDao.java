@@ -4,6 +4,7 @@ import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Administrador;
 import com.ucab.cmcapp.common.entities.Administrador;
 import com.ucab.cmcapp.common.exceptions.CupraException;
+import com.ucab.cmcapp.common.exceptions.NotFoundException;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,8 +69,10 @@ public class AdministradorDao extends BaseDao<Administrador> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            return null;
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
+            throw new NotFoundException("Alias Administrador no existe");
         } catch (Exception e) {
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
 

@@ -2,6 +2,7 @@ package com.ucab.cmcapp.implementation;
 
 import com.ucab.cmcapp.common.exceptions.JWTVerifyException;
 import com.ucab.cmcapp.common.util.JWT;
+import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,17 +58,17 @@ public class BaseService extends Application {
      *
      * @param credential JWT provided by the user
      */
-    public Long validateCredentials(String credential) {
-        Long userId = null;
+    public UsuarioDto validateCredentials(String credential) {
+        UsuarioDto user = null;
         try {
-            userId = Long.parseLong(JWT.verifyToken(credential));
+            user = JWT.verifyToken(credential);
             // region Instrumentation DEBUG
-            _logger.debug("Authenticating User id: {}", userId);
+            _logger.debug("Authenticating User id: {}", user);
             // endregion
         } catch (JWTVerifyException e) {
             _logger.error(e.getMessage(), e);
             throw e;
         }
-        return userId;
+        return user;
     }
 }
