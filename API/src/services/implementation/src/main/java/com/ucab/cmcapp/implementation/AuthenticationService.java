@@ -9,12 +9,11 @@ import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.GetAdministradorByAliasCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByAliasCommand;
-import com.ucab.cmcapp.logic.dtos.utilities.CredentialsDto;
+import com.ucab.cmcapp.logic.dtos.utilities.CredencialesDto;
 import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.security.PermitAll;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -29,7 +28,7 @@ public class AuthenticationService extends BaseService{
 
     @POST
     @Path("/administrador")
-    public Response authenticateAdmin(CredentialsDto credentials){
+    public Response authenticateAdmin(CredencialesDto credentiales){
         GetAdministradorByAliasCommand command;
         //region Instrumentation DEBUG
         _logger.debug( "Get in AuthenticationService.authenticate" );
@@ -37,11 +36,11 @@ public class AuthenticationService extends BaseService{
 
         try {
             Administrador admin = new Administrador();
-            admin.set_alias(credentials.getAlias());
+            admin.set_alias(credentiales.get_alias());
             command = CommandFactory.createGetAdministradorByAliasCommand(admin);
             command.execute();
             Administrador foundUser = command.getReturnParam();
-            if(credentials.getClave().equals(foundUser.get_clave())){
+            if(credentiales.get_clave().equals(foundUser.get_clave())){
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>(new ArrayList(),"La Autenticacion se ha hecho correctamente")).build();
             }else{
                 throw new AuthenticationException("Contraseña incorrecta");
@@ -62,7 +61,7 @@ public class AuthenticationService extends BaseService{
                     .entity("Validation error: " + e.getMessage())
                     .build());
         }catch (Exception e){
-            _logger.error("error {} authenticating user {}: {}", e.getMessage(), credentials.getAlias(), e.getCause());
+            _logger.error("error {} authenticating user {}: {}", e.getMessage(), credentiales.get_alias(), e.getCause());
             throw new WebApplicationException( Response.status( Response.Status.INTERNAL_SERVER_ERROR ).
                     entity( e ).build() );
         }
@@ -70,7 +69,7 @@ public class AuthenticationService extends BaseService{
 
     @POST
     @Path("/usuario")
-    public Response authenticateUsuario(CredentialsDto credentials){
+    public Response authenticateUsuario(CredencialesDto credenciales){
         GetUsuarioByAliasCommand command;
         //region Instrumentation DEBUG
         _logger.debug( "Get in AuthenticationService.authenticate" );
@@ -78,12 +77,11 @@ public class AuthenticationService extends BaseService{
 
         try {
             Usuario usuario = new Usuario();
-            usuario.set_alias(credentials.getAlias());
+            usuario.set_alias(credenciales.get_alias());
             command = CommandFactory.createGetUsuarioByAliasCommand(usuario);
             command.execute();
             Usuario foundUser = command.getReturnParam();
-            UsuarioMapper mapper = new UsuarioMapper();
-            if(credentials.getClave().equals(foundUser.get_clave())){
+            if(credenciales.get_clave().equals(foundUser.get_clave())){
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>(new ArrayList(),"La autenticacion se ha hecho correctamente")).build();
             }else{
                 throw new AuthenticationException("Contraseña incorrecta");
@@ -104,7 +102,7 @@ public class AuthenticationService extends BaseService{
                     .entity("Validation error: " + e.getMessage())
                     .build());
         }catch (Exception e){
-            _logger.error("error {} authenticating user {}: {}", e.getMessage(), credentials.getAlias(), e.getCause());
+            _logger.error("error {} authenticating user {}: {}", e.getMessage(), credenciales.get_alias(), e.getCause());
             throw new WebApplicationException( Response.status( Response.Status.INTERNAL_SERVER_ERROR ).
                     entity( e ).build() );
         }
