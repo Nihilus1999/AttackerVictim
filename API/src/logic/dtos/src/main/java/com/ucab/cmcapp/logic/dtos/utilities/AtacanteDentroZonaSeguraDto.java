@@ -1,9 +1,9 @@
-package com.ucab.cmcapp.logic.dtos.dtos;
+package com.ucab.cmcapp.logic.dtos.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Atacante_Dentro_Zona_SeguraDto {
+public class AtacanteDentroZonaSeguraDto {
 
     private Boolean _dentro;
 
@@ -13,7 +13,7 @@ public class Atacante_Dentro_Zona_SeguraDto {
 
     private Double _longitud;
 
-    public Atacante_Dentro_Zona_SeguraDto() {
+    public AtacanteDentroZonaSeguraDto() {
 
     }
 

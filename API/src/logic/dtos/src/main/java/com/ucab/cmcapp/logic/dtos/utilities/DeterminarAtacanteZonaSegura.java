@@ -1,6 +1,5 @@
 package com.ucab.cmcapp.logic.dtos.utilities;
 
-import com.ucab.cmcapp.logic.dtos.dtos.Atacante_Dentro_Zona_SeguraDto;
 import com.ucab.cmcapp.logic.dtos.dtos.CoordenadaDto;
 import com.ucab.cmcapp.logic.dtos.dtos.Historico_UsuarioDto;
 import com.ucab.cmcapp.logic.dtos.dtos.Zona_SeguraDto;
@@ -8,10 +7,10 @@ import com.ucab.cmcapp.logic.dtos.dtos.Zona_SeguraDto;
 import java.awt.geom.Path2D;
 import java.util.*;
 
-public class determinarAtacanteZonaSegura {
+public class DeterminarAtacanteZonaSegura {
 
-    public Atacante_Dentro_Zona_SeguraDto verifyAttackerInSafeZone(Historico_UsuarioDto lastAttackerCoordinate, List<Zona_SeguraDto> posibleZones, List<CoordenadaDto> posiblesCoordenadas) {
-        Atacante_Dentro_Zona_SeguraDto resultDto = new Atacante_Dentro_Zona_SeguraDto();
+    public AtacanteDentroZonaSeguraDto verifyAttackerInSafeZone(Historico_UsuarioDto lastAttackerCoordinate, List<Zona_SeguraDto> posibleZones, List<CoordenadaDto> posiblesCoordenadas) {
+        AtacanteDentroZonaSeguraDto resultDto = new AtacanteDentroZonaSeguraDto();
         Double attackerLatitude = lastAttackerCoordinate.get_latitud();
         Double attackerLongitude = lastAttackerCoordinate.get_longitud();
         Map<String, List<Double>> latitudesMap = new HashMap<>();

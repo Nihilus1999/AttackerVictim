@@ -1,7 +1,7 @@
 package utilities;
 
 import com.ucab.cmcapp.logic.dtos.dtos.Historico_UsuarioDto;
-import com.ucab.cmcapp.logic.dtos.utilities.calcularDistanciaSeparacionDto;
+import com.ucab.cmcapp.logic.dtos.utilities.CalcularDistanciaSeparacionDto;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ public class calcularDistanciaSeparacionDtoTest {
 
     @Test
     public void testCalcularDistanciaSeperacion() {
-        calcularDistanciaSeparacionDto dto = new calcularDistanciaSeparacionDto();
+        CalcularDistanciaSeparacionDto dto = new CalcularDistanciaSeparacionDto();
 
         Historico_UsuarioDto usuario1 = new Historico_UsuarioDto();
         usuario1.set_latitud(10.0);

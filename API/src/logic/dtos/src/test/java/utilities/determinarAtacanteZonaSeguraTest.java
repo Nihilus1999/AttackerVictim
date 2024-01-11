@@ -1,31 +1,28 @@
 package utilities;
 
-import com.ucab.cmcapp.logic.dtos.dtos.Atacante_Dentro_Zona_SeguraDto;
+import com.ucab.cmcapp.logic.dtos.utilities.AtacanteDentroZonaSeguraDto;
 import com.ucab.cmcapp.logic.dtos.dtos.CoordenadaDto;
 import com.ucab.cmcapp.logic.dtos.dtos.Historico_UsuarioDto;
 import com.ucab.cmcapp.logic.dtos.dtos.Zona_SeguraDto;
-import com.ucab.cmcapp.logic.dtos.utilities.determinarAtacanteZonaSegura;
+import com.ucab.cmcapp.logic.dtos.utilities.DeterminarAtacanteZonaSegura;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.geom.Path2D;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class determinarAtacanteZonaSeguraTest {
 
-    private determinarAtacanteZonaSegura determinarAtacanteZonaSegura;
+    private DeterminarAtacanteZonaSegura determinarAtacanteZonaSegura;
     private Historico_UsuarioDto lastAttackerCoordinate;
     private List<Zona_SeguraDto> posibleZones;
     private List<CoordenadaDto> posiblesCoordenadas;
 
     @BeforeEach
     public void setUp() {
-        determinarAtacanteZonaSegura = new determinarAtacanteZonaSegura();
+        determinarAtacanteZonaSegura = new DeterminarAtacanteZonaSegura();
         lastAttackerCoordinate = new Historico_UsuarioDto();
         lastAttackerCoordinate.set_latitud(10.0);
         lastAttackerCoordinate.set_longitud(20.0);
@@ -47,14 +44,14 @@ public class determinarAtacanteZonaSeguraTest {
     @Test
     public void testVerifyAttackerInSafeZone() {
         // Arrange
-        Atacante_Dentro_Zona_SeguraDto expectedDto = new Atacante_Dentro_Zona_SeguraDto();
+        AtacanteDentroZonaSeguraDto expectedDto = new AtacanteDentroZonaSeguraDto();
         expectedDto.set_dentro(true);
         expectedDto.get_zonas_seguras().add("Zona1");
         expectedDto.set_latitud(10.0);
         expectedDto.set_longitud(20.0);
 
         // Act
-        Atacante_Dentro_Zona_SeguraDto resultDto = determinarAtacanteZonaSegura.verifyAttackerInSafeZone(lastAttackerCoordinate, posibleZones, posiblesCoordenadas);
+        AtacanteDentroZonaSeguraDto resultDto = determinarAtacanteZonaSegura.verifyAttackerInSafeZone(lastAttackerCoordinate, posibleZones, posiblesCoordenadas);
 
         // Assert
         assertNotNull(resultDto);

@@ -45,6 +45,34 @@ public class JWT {
     }
 
     /**
+     * Name: verifyToken
+     * Description: Method to check if JWT is valid
+     *
+     * @param token   Token JWT
+     * @param subject Subject del JWT (User ID)
+     */
+    public static void verifyToken(String token, String subject) {
+        //region Instrumentation DEBUG
+        _logger.debug("Entering in JWT.verifyToken: token {}, subject {}", token, subject);
+        //endregion
+
+        try {
+            Jwts.parser()
+                    .requireSubject(subject)
+                    .requireIssuer(_issuer)
+                    .setSigningKey(_secretKey)
+                    .parseClaimsJws(token);
+        } catch (Exception e) {
+            _logger.error(e.getMessage(), e);
+            throw new JWTVerifyException(e.getMessage());
+        }
+
+        //region Instrumentation DEBUG
+        _logger.debug("Leaving JWT.verifyToken");
+        //endregion
+    }
+
+    /**
      * Name: createToken
      * Description: Method that creates a JWT based on the subject (see RFC 7519)
      *
@@ -107,35 +135,29 @@ public class JWT {
         return result;
     }
 
-    /**
-     * Name: verifyToken
-     * Description: Method to check if JWT is valid
-     *
-     * @param token   Token JWT
-     * @param subject Subject del JWT (User ID)
-     */
-    public static void verifyToken(String token, String subject) {
-        //region Instrumentation DEBUG
-        _logger.debug("Entering in JWT.verifyToken: token {}, subject {}", token, subject);
-        //endregion
-
+    public static AdministradorDto verifyTokenAdmin(String token) {
+        AdministradorDto result = new AdministradorDto();
         try {
-            Jwts.parser()
-                    .requireSubject(subject)
+            Jws<Claims> claims = Jwts.parser()
                     .requireIssuer(_issuer)
                     .setSigningKey(_secretKey)
                     .parseClaimsJws(token);
-        } catch (Exception e) {
+
+            String username = claims.getBody().getSubject();
+            // Recuperando el tipo del usuario
+            String type = (String) claims.getBody().get("type");
+
+            result.set_alias(username);
+        }catch (Exception e){
+            _logger.error("Invalid token");
             _logger.error(e.getMessage(), e);
             throw new JWTVerifyException(e.getMessage());
         }
 
-        //region Instrumentation DEBUG
-        _logger.debug("Leaving JWT.verifyToken");
-        //endregion
+        return result;
     }
 
-    public static UsuarioDto verifyToken(String token) {
+    public static UsuarioDto verifyTokenUsuario(String token) {
         UsuarioDto result = new UsuarioDto();
         try {
             Jws<Claims> claims = Jwts.parser()

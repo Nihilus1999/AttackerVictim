@@ -93,7 +93,7 @@ class BaseServiceTest {
 
         // Act & Assert
         Assertions.assertThrows(JWTVerifyException.class, () -> {
-            baseService.validateCredentials(invalidCredential);
+            baseService.validateCredentialsAdmin(invalidCredential);
         });
     }
 }

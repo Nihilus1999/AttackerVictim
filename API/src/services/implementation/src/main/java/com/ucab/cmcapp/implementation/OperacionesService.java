@@ -10,8 +10,9 @@ import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionVictimaByRelacionId
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.GetRelacionCommand;
 import com.ucab.cmcapp.logic.commands.zona_segura.atomic.GetZonaByVictimaIdCommand;
 import com.ucab.cmcapp.logic.dtos.dtos.*;
-import com.ucab.cmcapp.logic.dtos.utilities.calcularDistanciaSeparacionDto;
-import com.ucab.cmcapp.logic.dtos.utilities.determinarAtacanteZonaSegura;
+import com.ucab.cmcapp.logic.dtos.utilities.AtacanteDentroZonaSeguraDto;
+import com.ucab.cmcapp.logic.dtos.utilities.CalcularDistanciaSeparacionDto;
+import com.ucab.cmcapp.logic.dtos.utilities.DeterminarAtacanteZonaSegura;
 import com.ucab.cmcapp.logic.mappers.CoordenadaMapper;
 import com.ucab.cmcapp.logic.mappers.Historico_UsuarioMapper;
 import com.ucab.cmcapp.logic.mappers.Relacion_VAMapper;
@@ -42,7 +43,7 @@ public class OperacionesService extends BaseService {
 
             if (command.getReturnParam() != null) {
                 responseDTO = Historico_UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
-                distanciaSeparacion = new calcularDistanciaSeparacionDto().calcularDistanciaSeperacion(responseDTO.get(0), responseDTO.get(1));
+                distanciaSeparacion = new CalcularDistanciaSeparacionDto().calcularDistanciaSeperacion(responseDTO.get(0), responseDTO.get(1));
 
             } else
 
@@ -137,7 +138,7 @@ public class OperacionesService extends BaseService {
         GetAllCoordenadaCommand coordenadaCommand = null;
 
         //resultado del json
-        Atacante_Dentro_Zona_SeguraDto resultDto;
+        AtacanteDentroZonaSeguraDto resultDto;
 
 
         try {
@@ -186,7 +187,7 @@ public class OperacionesService extends BaseService {
 
             //operacion de determinar si atacante esta en zona segura
 
-           resultDto = new determinarAtacanteZonaSegura().verifyAttackerInSafeZone(historyDto, zonaDto,coordenadaDto);
+           resultDto = new DeterminarAtacanteZonaSegura().verifyAttackerInSafeZone(historyDto, zonaDto,coordenadaDto);
 
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Ocurrio un error interno en la base de datos: " + e.getMessage())).build();

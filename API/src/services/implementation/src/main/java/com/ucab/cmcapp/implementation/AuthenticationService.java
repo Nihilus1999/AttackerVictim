@@ -28,7 +28,6 @@ public class AuthenticationService extends BaseService{
     private static Logger _logger = LoggerFactory.getLogger( AuthenticationService.class );
 
     @POST
-    @PermitAll
     @Path("/administrador")
     public Response authenticateAdmin(CredentialsDto credentials){
         GetAdministradorByAliasCommand command;
@@ -70,7 +69,6 @@ public class AuthenticationService extends BaseService{
     }
 
     @POST
-    @PermitAll
     @Path("/usuario")
     public Response authenticateUsuario(CredentialsDto credentials){
         GetUsuarioByAliasCommand command;

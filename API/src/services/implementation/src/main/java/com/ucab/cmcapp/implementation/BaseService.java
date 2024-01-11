@@ -2,6 +2,7 @@ package com.ucab.cmcapp.implementation;
 
 import com.ucab.cmcapp.common.exceptions.JWTVerifyException;
 import com.ucab.cmcapp.common.util.JWT;
+import com.ucab.cmcapp.logic.dtos.dtos.AdministradorDto;
 import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,15 +54,29 @@ public class BaseService extends Application {
         throw new WebApplicationException(Response.status(status).entity(e).build());
     }
 
+    public AdministradorDto validateCredentialsAdmin(String credential) {
+        AdministradorDto admin = null;
+        try {
+            admin = JWT.verifyTokenAdmin(credential);
+            // region Instrumentation DEBUG
+            _logger.debug("Authenticating User id: {}", admin);
+            // endregion
+        } catch (JWTVerifyException e) {
+            _logger.error(e.getMessage(), e);
+            throw e;
+        }
+        return admin;
+    }
+
     /**
      * Method for JWT validation
      *
      * @param credential JWT provided by the user
      */
-    public UsuarioDto validateCredentials(String credential) {
+    public UsuarioDto validateCredentialsUsuario(String credential) {
         UsuarioDto user = null;
         try {
-            user = JWT.verifyToken(credential);
+            user = JWT.verifyTokenUsuario(credential);
             // region Instrumentation DEBUG
             _logger.debug("Authenticating User id: {}", user);
             // endregion

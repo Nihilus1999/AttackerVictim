@@ -2,7 +2,7 @@ package com.ucab.cmcapp.logic.dtos.utilities;
 
 import com.ucab.cmcapp.logic.dtos.dtos.Historico_UsuarioDto;
 
-public class calcularDistanciaSeparacionDto {
+public class CalcularDistanciaSeparacionDto {
 
     int EARTH_RADIUS = 6371;
     double SEMI_MAJOR_AXIS_MT = 6378137;
