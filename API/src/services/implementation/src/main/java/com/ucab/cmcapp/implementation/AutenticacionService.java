@@ -100,7 +100,8 @@ public class AutenticacionService extends BaseService{
             throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
                     .entity("Validation error: " + e.getMessage())
                     .build());
-        }catch (Exception e){
+        }
+        catch (Exception e){
             _logger.error("error {} authenticating user {}: {}", e.getMessage(), credenciales.get_alias(), e.getCause());
             throw new WebApplicationException( Response.status( Response.Status.INTERNAL_SERVER_ERROR ).
                     entity( e ).build() );
