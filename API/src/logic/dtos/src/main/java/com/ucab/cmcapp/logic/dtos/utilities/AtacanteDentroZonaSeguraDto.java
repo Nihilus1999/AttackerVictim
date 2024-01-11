@@ -45,4 +45,8 @@ public class AtacanteDentroZonaSeguraDto {
     public void set_longitud(Double _longitud) {
         this._longitud = _longitud;
     }
+
+    public void set_zonas_seguras(List<String> zonasSeguras) {
+
+    }
 }
