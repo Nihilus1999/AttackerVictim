@@ -10,7 +10,6 @@ import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.GetAdministradorByAliasCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByAliasCommand;
 import com.ucab.cmcapp.logic.dtos.utilities.CredencialesDto;
-import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,16 +21,16 @@ import java.util.ArrayList;
 @Path("/login")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class AuthenticationService extends BaseService{
+public class AutenticacionService extends BaseService{
 
-    private static Logger _logger = LoggerFactory.getLogger( AuthenticationService.class );
+    private static Logger _logger = LoggerFactory.getLogger( AutenticacionService.class );
 
     @POST
     @Path("/administrador")
     public Response authenticateAdmin(CredencialesDto credentiales){
         GetAdministradorByAliasCommand command;
         //region Instrumentation DEBUG
-        _logger.debug( "Get in AuthenticationService.authenticate" );
+        _logger.debug( "Get in AutenticacionService.authenticate" );
         //endregion
 
         try {
@@ -72,7 +71,7 @@ public class AuthenticationService extends BaseService{
     public Response authenticateUsuario(CredencialesDto credenciales){
         GetUsuarioByAliasCommand command;
         //region Instrumentation DEBUG
-        _logger.debug( "Get in AuthenticationService.authenticate" );
+        _logger.debug( "Get in AutenticacionService.authenticate" );
         //endregion
 
         try {
