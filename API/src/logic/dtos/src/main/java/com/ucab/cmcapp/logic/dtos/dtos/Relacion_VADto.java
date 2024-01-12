@@ -4,6 +4,7 @@ package com.ucab.cmcapp.logic.dtos.dtos;
 public class Relacion_VADto extends BaseDto {
 
     private float _distancia;
+    private int _tiempo;
     private Usuario_VictimaDto _usuario_victima;
     private Usuario_AtacanteDto _usuario_atacante;
 
@@ -22,6 +23,14 @@ public class Relacion_VADto extends BaseDto {
 
     public void set_distancia(float _distancia) {
         this._distancia = _distancia;
+    }
+
+    public int get_tiempo() {
+        return _tiempo;
+    }
+
+    public void set_tiempo(int _tiempo) {
+        this._tiempo = _tiempo;
     }
 
     public Usuario_VictimaDto get_usuario_victima() {

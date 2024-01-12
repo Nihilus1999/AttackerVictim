@@ -19,6 +19,7 @@ public class Relacion_VAMapper extends BaseMapper {
 
         entity.set_id(dto.getId());
         entity.set_distancia(dto.get_distancia());
+        entity.set_tiempo(dto.get_tiempo());
 
         if ( Objects.nonNull( dto.get_usuario_victima() ) ) {
             entity.set_usuario_victima( Usuario_VictimaMapper.mapDtoToEntity( dto.get_usuario_victima() ) );
@@ -27,8 +28,6 @@ public class Relacion_VAMapper extends BaseMapper {
         if ( Objects.nonNull( dto.get_usuario_atacante() ) ) {
             entity.set_usuario_atacante(Usuario_AtacanteMapper.mapDtoToEntity( dto.get_usuario_atacante() ) );
         }
-
-
 
         return entity;
     }
@@ -39,6 +38,7 @@ public class Relacion_VAMapper extends BaseMapper {
 
         dto.setId(entity.get_id());
         dto.set_distancia(entity.get_distancia());
+        dto.set_tiempo(entity.get_tiempo());
 
         if(Objects.nonNull(entity.get_usuario_victima()))
             dto.set_usuario_victima( Usuario_VictimaMapper.mapEntityToDto( entity.get_usuario_victima()));
@@ -64,6 +64,7 @@ public class Relacion_VAMapper extends BaseMapper {
             Relacion_VADto = new Relacion_VADto();
             Relacion_VADto.setId(relacionUsuario.get_id());
             Relacion_VADto.set_distancia(relacionUsuario.get_distancia());
+            Relacion_VADto.set_tiempo(relacionUsuario.get_tiempo());
 
             if (Objects.nonNull(relacionUsuario.get_usuario_victima()))
                 Relacion_VADto.set_usuario_victima(Usuario_VictimaMapper.mapEntityToDto(relacionUsuario.get_usuario_victima()));

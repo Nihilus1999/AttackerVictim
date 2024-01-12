@@ -2,6 +2,7 @@ package com.ucab.cmcapp.common.entities;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -17,6 +18,9 @@ public class Relacion_VA {
 
     @Column(name = "distancia", nullable = false)
     private float _distancia;
+
+    @Column(name = "tiempo", nullable = false)
+    private int _tiempo;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "id_usuario_victima", nullable = false, unique = true)
@@ -53,6 +57,14 @@ public class Relacion_VA {
 
     public void set_distancia(float _distancia) {
         this._distancia = _distancia;
+    }
+
+    public int get_tiempo() {
+        return _tiempo;
+    }
+
+    public void set_tiempo(int _tiempo) {
+        this._tiempo = _tiempo;
     }
 
     public Usuario_Victima get_usuario_victima() {
