@@ -101,11 +101,11 @@ INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_vict
 INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (40.20, 8, 5, 5);
 
 /* Relacion_VA por id:
-id 1 = victima lorasmar y el atacante egyorffy0
-id 2 = victima shorsley1 y el atacante lstable2
-id 3 = victima arubury3 y el atacante wgayler4
-id 4 = victima skarpfen5 y el atacante sdand6
-id 5 = victima mtooher7 y el atacante lhowe8
+id 1 = victima lorasmar (1) y el atacante egyorffy0 (2)
+id 2 = victima shorsley1 (3) y el atacante lstable2 (4)
+id 3 = victima arubury3 (5) y el atacante wgayler4 (6)
+id 4 = victima skarpfen5 (7) y el atacante sdand6 (8)
+id 5 = victima mtooher7 (9) y el atacante lhowe8 (10)
  */
 
 
