@@ -71,6 +71,19 @@ public class Relacion_VATest {
     }
 
     @Test
+    public void testGetSetTiempo() {
+        // Arrange
+        int tiempo = 5;
+        Relacion_VA relacionVA = new Relacion_VA();
+
+        // Act
+        relacionVA.set_tiempo(tiempo);
+
+        // Assert
+        assertEquals(tiempo, relacionVA.get_tiempo());
+    }
+
+    @Test
     public void testGetSetUsuarioVictima() {
         // Arrange
         Usuario_Victima usuarioVictima = new Usuario_Victima();

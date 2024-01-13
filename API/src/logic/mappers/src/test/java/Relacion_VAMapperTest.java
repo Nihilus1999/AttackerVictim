@@ -28,6 +28,7 @@ public class Relacion_VAMapperTest {
         // Arrange
         dto.setId(1L);
         dto.set_distancia(10);
+        dto.set_tiempo(10);
 
         // Act
         Relacion_VA result = Relacion_VAMapper.mapDtoToEntity(dto);
@@ -36,6 +37,7 @@ public class Relacion_VAMapperTest {
         Assertions.assertNotNull(result);
         Assertions.assertEquals(dto.getId(), result.get_id());
         Assertions.assertEquals(dto.get_distancia(), result.get_distancia());
+        Assertions.assertEquals(dto.get_tiempo(), result.get_tiempo());
         // Verificar que se llame a los mappers correspondientes
         Assertions.assertNull(result.get_usuario_victima());
         Assertions.assertNull(result.get_usuario_atacante());
@@ -46,6 +48,7 @@ public class Relacion_VAMapperTest {
         // Arrange
         entity.set_id(1L);
         entity.set_distancia(10);
+        entity.set_tiempo(10);
 
         // Act
         Relacion_VADto result = Relacion_VAMapper.mapEntityToDto(entity);
@@ -54,6 +57,7 @@ public class Relacion_VAMapperTest {
         Assertions.assertNotNull(result);
         Assertions.assertEquals(entity.get_id(), result.getId());
         Assertions.assertEquals(entity.get_distancia(), result.get_distancia());
+        Assertions.assertEquals(entity.get_tiempo(), result.get_tiempo());
         // Verificar que se llame a los mappers correspondientes
         Assertions.assertNull(result.get_usuario_victima());
         Assertions.assertNull(result.get_usuario_atacante());

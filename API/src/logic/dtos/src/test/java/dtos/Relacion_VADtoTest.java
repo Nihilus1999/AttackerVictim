@@ -18,6 +18,15 @@ public class Relacion_VADtoTest {
     }
 
     @Test
+    public void testGetSetTiempo() {
+        int tiempo = 5;
+        Relacion_VADto dto = new Relacion_VADto();
+        dto.set_tiempo(tiempo);
+
+        Assert.assertEquals(tiempo, dto.get_tiempo(),0.001);
+    }
+
+    @Test
     public void testConstructorWithIdParameter() {
         long id = 1L;
         Relacion_VADto relacionVA = new Relacion_VADto(id);
