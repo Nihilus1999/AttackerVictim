@@ -13,7 +13,7 @@ public class GetAdministradorByAliasCommand extends Command<Administrador> {
     private Administrador _Administrador;
     private AdministradorDao _dao;
 
-    private static Logger _logger = LoggerFactory.getLogger(AddAdministradorCommand.class);
+    private static Logger _logger = LoggerFactory.getLogger(GetAdministradorByAliasCommand.class);
 
     public GetAdministradorByAliasCommand(Administrador Administrador) {
         try {

@@ -17,6 +17,8 @@ public class Relacion_VAMapper extends BaseMapper {
     public static Relacion_VA mapDtoToEntity(Relacion_VADto dto) throws ParseException {
         Relacion_VA entity = EntityFactory.createRelacion_VA();
 
+        _logger.debug( "Tomar en Relacion_VAMapper.mapDtoToEntity: dto {}", dto );
+
         entity.set_id(dto.getId());
         entity.set_distancia(dto.get_distancia());
         entity.set_tiempo(dto.get_tiempo());
@@ -29,12 +31,15 @@ public class Relacion_VAMapper extends BaseMapper {
             entity.set_usuario_atacante(Usuario_AtacanteMapper.mapDtoToEntity( dto.get_usuario_atacante() ) );
         }
 
+        _logger.debug( "Dejando Relacion_VAMapper.mapDtoToEntity: dto {}", entity);
+
         return entity;
     }
 
     public static Relacion_VADto mapEntityToDto(Relacion_VA entity) {
         final Relacion_VADto dto = new Relacion_VADto();
 
+        _logger.debug( "Tomar en Relacion_VAMapper.mapEntityToDto: entity {}", entity );
 
         dto.setId(entity.get_id());
         dto.set_distancia(entity.get_distancia());
@@ -51,6 +56,9 @@ public class Relacion_VAMapper extends BaseMapper {
 
     public static Relacion_VA mapDtoToEntity(long id) {
         Relacion_VA entity = EntityFactory.createRelacion_VA(id);
+
+        _logger.debug( "Tomar en Relacion_VAMapper.mapDtoToEntity: id {}", id );
+
         entity.set_id(id);
         return entity;
     }
@@ -58,6 +66,8 @@ public class Relacion_VAMapper extends BaseMapper {
     public static List<Relacion_VADto> mapEntityListToDtoList(List<Relacion_VA> entityList){
         List<Relacion_VADto> dtoList = new ArrayList<Relacion_VADto>();
         Relacion_VADto Relacion_VADto;
+
+        _logger.debug( "Tomar en Relacion_VAMapper.mapEntityListToDtoList: entityList {}", entityList );
 
         for (Relacion_VA relacionUsuario : entityList) {
 
@@ -76,6 +86,9 @@ public class Relacion_VAMapper extends BaseMapper {
             dtoList.add(Relacion_VADto);
 
         }
+
+        _logger.debug( "Dejando Relacion_VAMapper.mapEntityListToDtoList: entityList {}", dtoList );
+
 
         return dtoList;
     }

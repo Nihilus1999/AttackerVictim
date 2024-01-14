@@ -15,7 +15,7 @@ public class ModifyAdministradorCommand extends Command<Administrador> {
     private Administrador _Administrador;
     private AdministradorDao _dao;
 
-    private static Logger _logger = LoggerFactory.getLogger(AddAdministradorCommand.class);
+    private static Logger _logger = LoggerFactory.getLogger(ModifyAdministradorCommand.class);
 
     public ModifyAdministradorCommand(Administrador Administrador, DBHandler handler) {
         try {
@@ -32,10 +32,14 @@ public class ModifyAdministradorCommand extends Command<Administrador> {
     @Override
     public void execute() {
         try{
+            _logger.debug("Tomando de ModifyAdministradorCommand.execute");
+
             _Administrador = _dao.update(_Administrador);
         }catch(NullPointerException e){
 
         }
+
+        _logger.debug("Dejando en ModifyAdministradorCommand.execute");
 
     }
 

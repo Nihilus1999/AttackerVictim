@@ -20,12 +20,19 @@ import java.util.List;
 public class RelacionService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(RelacionService.class);
 
+    /**
+     * 
+     * @param relacionId
+     * @return
+     */
     @GET
     @Path("/{id}")
     public Response getRelacion(@PathParam("id") long relacionId) {
         Relacion_VA entity;
         Relacion_VADto responseDTO = null;
         GetRelacionCommand command = null;
+
+        _logger.debug( "Tomando de Relacion_VAService.getRelacion" );
 
         try {
             entity = Relacion_VAMapper.mapDtoToEntity(relacionId);
@@ -43,6 +50,8 @@ public class RelacionService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando Relacion_VAService.getRelacion" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + relacionId + " de la relacion victima-atacante ha sido encontrado correctamente")).build();
     }
 
@@ -51,6 +60,8 @@ public class RelacionService extends BaseService {
     public Response getAllRelacion() {
         List <Relacion_VADto> responseDTO = null;
         GetAllRelacionCommand command = null;
+
+        _logger.debug( "Tomando de Relacion_VAService.getAllRelacion" );
 
         try {
             command = CommandFactory.createGetAllRelacion_VACommand();
@@ -68,6 +79,8 @@ public class RelacionService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando Relacion_VAService.getALlRelacion" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos las relaciones victima-atacante se han obtenida correctamente")).build();
     }
 
@@ -76,6 +89,8 @@ public class RelacionService extends BaseService {
         Relacion_VA entity;
         Relacion_VADto responseDTO = null;
         CreateRelacionCommand command = null;
+
+        _logger.debug( "Tomando de Relacion_VAService.addRelacion" );
 
         try {
             entity = Relacion_VAMapper.mapDtoToEntity(relacionUsuarioDto);
@@ -89,6 +104,8 @@ public class RelacionService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando Relacion_VAService.addRelacion" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La relacion victima-atacante ha sido creado correctamente")).build();
     }
 
@@ -98,6 +115,8 @@ public class RelacionService extends BaseService {
         Relacion_VA entity;
         Relacion_VADto responseDTO = null;
         DeleteRelacionCommand command = null;
+
+        _logger.debug( "Tomando de Relacion_VAService.deleteRelacion" );
 
         try {
             entity = Relacion_VAMapper.mapDtoToEntity(relacionId);
@@ -117,6 +136,8 @@ public class RelacionService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando Relacion_VAService.deleteRelacion" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La relacion victima-atacante ha sido eliminado correctamente")).build();
     }
 
@@ -125,6 +146,9 @@ public class RelacionService extends BaseService {
         Relacion_VA entity;
         Relacion_VADto responseDTO = null;
         UpdateRelacionCommand command = null;
+
+        _logger.debug( "Tomando de Relacion_VAService.updateRelacion" );
+
         try {
             entity = Relacion_VAMapper.mapDtoToEntity(usuarioRelacionDto);
             command = CommandFactory.createUpdateRelacion_VACommand(entity);
@@ -139,6 +163,9 @@ public class RelacionService extends BaseService {
             if (command != null)
                 command.closeHandlerSession();
         }
+
+        _logger.debug( "Dejando Relacion_VAService.updateRelacion" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La relacion victima-atacante con el ID " + usuarioRelacionDto.getId() + " se actualizo correctamente")).build();
     }
 }

@@ -2,14 +2,19 @@ package com.ucab.cmcapp.logic.commands.relacion_VA.atomic;
 
 import com.ucab.cmcapp.common.entities.Relacion_VA;
 import com.ucab.cmcapp.logic.commands.Command;
+import com.ucab.cmcapp.logic.commands.administrador.atomic.AddAdministradorCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
 import com.ucab.cmcapp.persistence.DaoFactory;
 import com.ucab.cmcapp.persistence.dao.Relacion_VADao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ModifyRelacionCommand extends Command<Relacion_VA> {
 
     private Relacion_VA _Relacion_VA;
     private Relacion_VADao _dao;
+
+    private static Logger _logger = LoggerFactory.getLogger(ModifyRelacionCommand.class);
 
     public ModifyRelacionCommand(Relacion_VA Relacion_VA, DBHandler handler) {
         setHandler(handler);
@@ -20,10 +25,12 @@ public class ModifyRelacionCommand extends Command<Relacion_VA> {
     @Override
     public void execute() {
         try {
+            _logger.debug("Tomando de ModifyRelacionCommand.execute");
             _Relacion_VA = _dao.update(_Relacion_VA);
         }catch(NullPointerException e){
 
         }
+        _logger.debug("Dejando en ModifyRelacionCommand.execute");
     }
 
     @Override

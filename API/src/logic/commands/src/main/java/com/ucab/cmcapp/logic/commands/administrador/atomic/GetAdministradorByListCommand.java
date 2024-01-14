@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GetAdministradorByListCommand extends Command<Administrador> {
 
-    private static Logger _logger = LoggerFactory.getLogger(GetAdministradorByIdCommand.class);
+    private static Logger _logger = LoggerFactory.getLogger(GetAdministradorByListCommand.class);
 
     private List<Administrador> _result;
     private AdministradorDao _dao;
@@ -28,17 +28,17 @@ public class GetAdministradorByListCommand extends Command<Administrador> {
 
     @Override
     public void execute() {
-        //region Instrumentation DEBUG
+
         _logger.debug("Tomando de GetAdministradorByListCommand.execute");
-        //endregion
+
         try {
             _result = _dao.findAll(Administrador.class);
         }catch(NullPointerException e){
 
         }
-        //region Instrumentation DEBUG
+
         _logger.debug("Dejando GetAdministradorByListCommand.execute");
-        //endregion
+
     }
 
     @Override

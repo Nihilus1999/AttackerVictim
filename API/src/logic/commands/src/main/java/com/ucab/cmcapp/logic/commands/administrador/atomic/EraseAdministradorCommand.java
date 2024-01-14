@@ -13,7 +13,7 @@ public class EraseAdministradorCommand extends Command<Administrador> {
     private Administrador _Administrador;
     private AdministradorDao _dao;
 
-    private static Logger _logger = LoggerFactory.getLogger(AddAdministradorCommand.class);
+    private static Logger _logger = LoggerFactory.getLogger(EraseAdministradorCommand.class);
 
     public EraseAdministradorCommand(Administrador Administrador, DBHandler handler) {
 
