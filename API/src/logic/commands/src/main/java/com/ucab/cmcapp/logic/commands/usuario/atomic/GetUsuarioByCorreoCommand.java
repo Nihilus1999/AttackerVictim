@@ -14,30 +14,27 @@ public class GetUsuarioByCorreoCommand extends Command<Usuario> {
     private UsuarioDao _dao;
 
     public GetUsuarioByCorreoCommand(Usuario usuario) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetUserByEmailCommand.ctor: parameter {%s}", usuario.toString()));
+
+        _logger.debug(String.format("Tomando de GetUsuarioByCorreoCommand.ctor: parameter {%s}", usuario.toString()));
+
         _usuario = usuario;
         setHandler(new DBHandler());
         _dao = DaoFactory.createUsuarioDao(getHandler());
 
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Leavin GetUserByEmailCommand.ctor: atribute {%s}", _usuario.toString()));
-        //endregion
+        _logger.debug(String.format("Dejando GetUsuarioByCorreoCommand.ctor: atribute {%s}", _usuario.toString()));
+
     }
 
     @Override
     public void execute() {
-        //region Instrumentation DEBUG
-        _logger.debug("Get in  GetUserByEmailCommand.execute");
-        //endregion
+
+        _logger.debug("Tomando GetUsuarioByCorreoCommand.execute");
         try{
             _usuario = _dao.getUsuarioByCorreo(_usuario.get_correo());
         }catch(NullPointerException e){
 
         }
-        //region Instrumentation DEBUG
-        _logger.debug("Leavin  GetUserByEmailCommand.execute");
-        //endregion
+        _logger.debug("Dejando GetUsuarioByCorreoCommand.execute");
     }
 
     @Override

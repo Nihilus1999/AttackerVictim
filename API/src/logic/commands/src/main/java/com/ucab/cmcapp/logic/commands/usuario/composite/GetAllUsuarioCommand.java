@@ -12,19 +12,24 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 public class GetAllUsuarioCommand extends Command <Usuario> {
-    private static Logger _logger = LoggerFactory.getLogger(GetUsuarioCommand.class);
+    private static Logger _logger = LoggerFactory.getLogger(GetAllUsuarioCommand.class);
     private List<Usuario> _usuario;
 
     public GetAllUsuarioCommand() {
-        //region Instrumentation DEBUG
+
+        _logger.debug("Entrando GetAllUsuarioCommand.ctor");
 
         setHandler(new DBHandler());
 
-        //endregion
+        _logger.debug("Dejando GetAllUsuarioCommand.ctor");
+
     }
 
     @Override
     public void execute() {
+
+        _logger.debug("Entrando GetAllUsuarioCommand.execute");
+
         try {
             GetUsuarioByListCommand getUsuarioByListCommand = CommandFactory.createGetUsuarioByListCommand(getHandler());
             getUsuarioByListCommand.execute();
@@ -34,6 +39,8 @@ public class GetAllUsuarioCommand extends Command <Usuario> {
             getHandler().closeSession();
             throw e;
         }
+
+        _logger.debug("Dejando GetAllUsuarioCommand.execute");
     }
 
     @Override

@@ -18,6 +18,9 @@ public class ModifyAdministradorCommand extends Command<Administrador> {
     private static Logger _logger = LoggerFactory.getLogger(ModifyAdministradorCommand.class);
 
     public ModifyAdministradorCommand(Administrador Administrador, DBHandler handler) {
+
+        _logger.debug(String.format("Tomar de ModifyAdministradorCommand.ctor: parameter {%s}",
+                Administrador.toString()));
         try {
             setHandler(handler);
             _Administrador = Administrador;
@@ -27,6 +30,9 @@ public class ModifyAdministradorCommand extends Command<Administrador> {
         }catch(NullPointerException e){
 
         }
+
+        _logger.debug(String.format("Dejando ModifyAdministradorCommand.ctor: attribute {%s}",
+                _Administrador.toString()));
     }
 
     @Override

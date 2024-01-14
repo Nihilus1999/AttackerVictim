@@ -17,8 +17,13 @@ public class UpdateAdministradorCommand extends Command<Administrador> {
     private static Logger _logger = LoggerFactory.getLogger(CreateAdministradorCommand.class);
 
     public UpdateAdministradorCommand(Administrador Administrador) {
+
+        _logger.debug("Entrando en UpdateAdministradorCommand.ctor");
+
         _Administrador = Administrador;
         setHandler(new DBHandler());
+
+        _logger.debug("Dejando en UpdateAdministradorCommand.ctor");
     }
 
     @Override

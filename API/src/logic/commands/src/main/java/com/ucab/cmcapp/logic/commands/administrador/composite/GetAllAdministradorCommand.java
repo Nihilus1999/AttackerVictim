@@ -12,15 +12,17 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 public class GetAllAdministradorCommand extends Command <Administrador> {
-    private static Logger _logger = LoggerFactory.getLogger(GetAdministradorCommand.class);
+    private static Logger _logger = LoggerFactory.getLogger(GetAllAdministradorCommand.class);
     private List<Administrador> _Administrador;
 
     public GetAllAdministradorCommand() {
-        //region Instrumentation DEBUG
+
+        _logger.debug("Entrando GetAllAdministradorCommand.ctor");
 
         setHandler(new DBHandler());
 
-        //endregion
+        _logger.debug("Dejando GetAllAdministradorCommand.ctor");
+
     }
 
     @Override

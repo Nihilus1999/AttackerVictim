@@ -24,6 +24,12 @@ import java.util.List;
 public class UsuarioService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(UsuarioService.class);
 
+    /**
+     * Obtiene un usuario por su ID.
+     *
+     * @param usuarioId ID del usuario a obtener.
+     * @return La respuesta HTTP con el usuario encontrado o un mensaje de error si no se encuentra.
+     */
     @GET
     @Path("/{id}")
     public Response getUsuario(@PathParam("id") long usuarioId) {
@@ -50,6 +56,11 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + usuarioId + " del usuario ha sido encontrado correctamente")).build();
     }
 
+    /**
+     * Obtiene todos los usuarios.
+     *
+     * @return La respuesta HTTP con la lista de usuarios encontrados o un mensaje de error si no hay usuarios en la base de datos.
+     */
     @GET
     @Path("/todos")
     public Response getAllUsuario() {
@@ -75,7 +86,12 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Los usuarios se han obtenido correctamente")).build();
     }
 
-
+    /**
+     * Obtiene un usuario por su correo electrónico.
+     *
+     * @param correo Correo electrónico del usuario a obtener.
+     * @return La respuesta HTTP con el usuario encontrado o un mensaje de error si no se encuentra.
+     */
     @GET
     @Path("correo/{correo}")
     public Response getUsuarioByCorreo(@PathParam("correo") String correo) {
@@ -102,6 +118,12 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL correo " + correo + " del usuario ha sido encontrado exitosamente")).build();
     }
 
+    /**
+     * Obtiene un usuario por su alias.
+     *
+     * @param alias Alias del usuario a obtener.
+     * @return La respuesta HTTP con el usuario encontrado o un mensaje de error si no se encuentra.
+     */
     @GET
     @Path("alias/{alias}")
     public Response getUsuarioByAlias(@PathParam("alias") String alias) {
@@ -128,6 +150,12 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL usuario con el alias " + alias + " ha sido encontrado exitosamente")).build();
     }
 
+    /**
+     * Obtiene un usuario por su número de cédula.
+     *
+     * @param cedula Número de cédula del usuario a obtener.
+     * @return La respuesta HTTP con el usuario encontrado o un mensaje de error si no se encuentra.
+     */
     @GET
     @Path("cedula/{cedula}")
     public Response getUsuarioByCedula(@PathParam("cedula") String cedula) {
@@ -154,6 +182,12 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la cedula " + cedula + " ha sido encontrado exitosamente")).build();
     }
 
+    /**
+     * Obtiene un usuario por su dirección MAC.
+     *
+     * @param mac Dirección MAC del usuario a obtener.
+     * @return La respuesta HTTP con el usuario encontrado o un mensaje de error si no se encuentra.
+     */
     @GET
     @Path("mac/{mac}")
     public Response getUsuarioByMac(@PathParam("mac") String mac) {
@@ -180,6 +214,12 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con la MAC " + mac + " ha sido encontrado exitosamente")).build();
     }
 
+    /**
+     * Agrega un nuevo usuario.
+     *
+     * @param usuarioDto El objeto `UsuarioDto` que representa los datos del usuario a agregar.
+     * @return La respuesta HTTP con el usuario agregado o un mensaje de error si no se puede agregar.
+     */
     @POST
     public Response addUsuario(UsuarioDto usuarioDto) {
         Usuario entity;
@@ -202,7 +242,12 @@ public class UsuarioService extends BaseService {
     }
 
 
-
+    /**
+     * Elimina un usuario por su ID.
+     *
+     * @param usuarioId ID del usuario a eliminar.
+     * @return La respuesta HTTP con el usuario eliminado o un mensaje de error si no se puede eliminar.
+     */
     @DELETE
     @Path("/{id}")
     public Response deleteUsuario(@PathParam("id") long usuarioId) {
@@ -231,7 +276,12 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido eliminado correctamente")).build();
     }
 
-
+    /**
+     * Actualiza los datos de un usuario.
+     *
+     * @param usuarioDto El objeto `UsuarioDto` que representa los nuevos datos del usuario.
+     * @return La respuesta HTTP con el usuario actualizado o un mensaje de error si no se puede actualizar.
+     */
     @PUT
     public Response updateUsuario(UsuarioDto usuarioDto) {
         Usuario entity;

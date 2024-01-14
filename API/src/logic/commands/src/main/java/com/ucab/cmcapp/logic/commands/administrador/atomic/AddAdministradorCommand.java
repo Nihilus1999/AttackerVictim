@@ -21,11 +21,9 @@ public class AddAdministradorCommand extends Command<Administrador> {
             _Administrador = Administrador;
             _dao = DaoFactory.createAdministradorDao(getHandler());
 
-
-            //region Instrumentation DEBUG
             _logger.debug(String.format("Dejando AddAdministradorCommand.ctor: attribute {%s}",
                     _Administrador.toString()));
-            //endregion
+
         }catch(NoClassDefFoundError e){
 
         }

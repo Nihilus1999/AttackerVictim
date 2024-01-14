@@ -21,12 +21,12 @@ public class DeleteAdministradorCommand extends Command<Administrador> {
 
 
 
-        //region Instrumentation DEBUG
         _logger.debug("Entrando en DeleteAdministradorCommand.ctor");
-        //endregion
 
         _Administrador = Administrador;
         setHandler(new DBHandler());
+
+        _logger.debug("Dejando en DeleteAdministradorCommand.ctor");
     }
 
     @Override

@@ -15,33 +15,29 @@ public class GetUsuarioByIdCommand extends Command<Usuario> {
     private UsuarioDao _dao;
 
     public GetUsuarioByIdCommand(DBHandler handler, long userId) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetUsuarioByIdCommand.ctor: parameter {%s}", userId));
-        //endregion
+
+        _logger.debug(String.format("Tomando GetUsuarioByIdCommand.ctor: parameter {%s}", userId));
 
         _userId = userId;
         setHandler(handler);
         _dao = DaoFactory.createUsuarioDao(getHandler());
 
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving GetUsuarioByIdCommand.ctor: attribute {%s}", userId));
-        //endregion
+        _logger.debug(String.format("Dejando GetUsuarioByIdCommand.ctor: attribute {%s}", userId));
+
     }
 
     @Override
     public void execute() {
-        //region Instrumentation DEBUG
-        _logger.debug("Get in  GetUsuarioByIdCommand.execute");
-        //endregion
+
+        _logger.debug("Tomando de GetUsuarioByIdCommand.execute");
+
         try{
             _result = _dao.find(_userId, Usuario.class);
         }catch(NullPointerException e){
 
         }
 
-        //region Instrumentation DEBUG
-        _logger.debug("Leaving  GetUsuarioByIdCommand.execute");
-        //endregion
+        _logger.debug("Dejando GetUsuarioByIdCommand.execute");
     }
 
     @Override

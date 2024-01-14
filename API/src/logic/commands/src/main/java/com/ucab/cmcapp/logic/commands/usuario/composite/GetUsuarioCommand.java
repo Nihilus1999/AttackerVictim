@@ -14,21 +14,23 @@ public class GetUsuarioCommand extends Command<Usuario> {
     long _id;
 
     public GetUsuarioCommand(Usuario usuario) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetUsuarioCommand.ctor: parameter {%s}",
+
+        _logger.debug(String.format("Entrando GetUsuarioCommand.ctor: parameter {%s}",
                 usuario.toString()));
+
         _id = usuario.get_id();
         _usuario = usuario;
         setHandler(new DBHandler());
 
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving GetUsuarioCommand.ctor: attribute {%s}",
+        _logger.debug(String.format("Dejando GetUsuarioCommand.ctor: attribute {%s}",
                 _usuario.toString()));
-        //endregion
     }
 
     @Override
     public void execute() {
+
+        _logger.debug("Entrando GetUsuarioCommand.execute");
+
         try {
             GetUsuarioByIdCommand getUsuarioByIdCommand = CommandFactory.createGetUsuarioByIdCommand(getHandler(), _id);
             getUsuarioByIdCommand.execute();
@@ -38,6 +40,8 @@ public class GetUsuarioCommand extends Command<Usuario> {
             getHandler().closeSession();
             throw e;
         }
+
+        _logger.debug("Dejando GetUsuarioCommand.execute");
     }
 
     @Override

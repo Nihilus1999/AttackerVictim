@@ -14,17 +14,15 @@ public class GetAdministradorCommand extends Command<Administrador> {
     long _id;
 
     public GetAdministradorCommand(Administrador Administrador) {
-        //region Instrumentation DEBUG
         _logger.debug(String.format("Tomar de GetAdministradorCommand.ctor: parameter {%s}",
                 Administrador.toString()));
+
         _id = Administrador.get_id();
         _Administrador = Administrador;
         setHandler(new DBHandler());
 
-        //region Instrumentation DEBUG
         _logger.debug(String.format("Dejando GetAdministradorCommand.ctor: attribute {%s}",
                 _Administrador.toString()));
-        //endregion
     }
 
     @Override

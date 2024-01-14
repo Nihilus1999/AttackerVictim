@@ -15,23 +15,19 @@ public class CreateUsuarioCommand extends Command<Usuario> {
     private AddUsuarioCommand _addUsuarioCommand;
 
     public CreateUsuarioCommand(Usuario usuario) {
-        //region Instrumentation DEBUG
-        _logger.debug("Entering CreateUsuarioCommand.ctor");
-        //endregion
+
+        _logger.debug("Entrando CreateUsuarioCommand.ctor");
 
         _usuario = usuario;
         setHandler(new DBHandler());
 
-        //region Instrumentation DEBUG
-        _logger.debug("Leaving CreateUsuarioCommand.ctor");
-        //endregion
+
+        _logger.debug("Dejando CreateUsuarioCommand.ctor");
     }
 
     @Override
     public void execute() {
-        //region Instrumentation DEBUG
-        _logger.debug("Entering CreateUsuarioCommand.execute");
-        //endregion
+        _logger.debug("Entrando CreateUsuarioCommand.execute");
 
         try {
             getHandler().beginTransaction();
@@ -45,9 +41,8 @@ public class CreateUsuarioCommand extends Command<Usuario> {
             getHandler().closeSession();
             throw e;
         }
-        //region Instrumentation DEBUG
-        _logger.debug("Leaving CreateUsuarioCommand.execute");
-        //endregion
+
+        _logger.debug("Dejando CreateUsuarioCommand.execute");
     }
 
     @Override

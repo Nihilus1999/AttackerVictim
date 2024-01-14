@@ -5,25 +5,38 @@ import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.persistence.DBHandler;
 import com.ucab.cmcapp.persistence.DaoFactory;
 import com.ucab.cmcapp.persistence.dao.UsuarioDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GetUsuarioByMacCommand extends Command<Usuario> {
 
     private Usuario _usuario;
     private UsuarioDao _dao;
 
+    private static Logger _logger = LoggerFactory.getLogger(GetUsuarioByMacCommand.class);
+
     public GetUsuarioByMacCommand(Usuario usuario) {
+        _logger.debug(String.format("Tomar de GetUsuarioCommand.ctor: parameter {%s}",
+                usuario.toString()));
         _usuario = usuario;
         setHandler(new DBHandler());
         _dao = DaoFactory.createUsuarioDao(getHandler());
+        _logger.debug(String.format("Dejando de GetUsuarioCommand.ctor: parameter {%s}",
+                _usuario.toString()));
     }
 
     @Override
     public void execute() {
+
+        _logger.debug("Tomando de  GetUsuarioCommand.execute");
+
         try {
             _usuario = _dao.getUsuarioByMac(_usuario.get_direccion_mac());
         }catch(NullPointerException e){
 
         }
+
+        _logger.debug("Dejando de  GetUsuarioCommand.execute");
     }
 
     @Override

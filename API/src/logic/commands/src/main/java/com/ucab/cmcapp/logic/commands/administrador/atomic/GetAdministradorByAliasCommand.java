@@ -25,7 +25,8 @@ public class GetAdministradorByAliasCommand extends Command<Administrador> {
             _dao = DaoFactory.createAdministradorDao(getHandler());
 
             _logger.debug(String.format("Dejando de GetAdministradorCommand.ctor: parameter {%s}",
-                    Administrador.toString()));
+                    _Administrador.toString()));
+
         }catch(NoClassDefFoundError e){
 
         }
@@ -41,7 +42,6 @@ public class GetAdministradorByAliasCommand extends Command<Administrador> {
         }catch(NullPointerException e){
 
         }
-
 
         _logger.debug("Dejando de  GetAdministradorCommand.execute");
     }
