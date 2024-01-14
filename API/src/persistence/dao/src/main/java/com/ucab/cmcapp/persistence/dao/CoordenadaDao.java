@@ -5,6 +5,7 @@ import com.ucab.cmcapp.common.entities.Coordenada;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.common.exceptions.CupraException;
+import com.ucab.cmcapp.common.exceptions.NotFoundException;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,8 @@ public class CoordenadaDao extends BaseDao<Coordenada> {
 
     public List<Coordenada> getCoordenadaByZonaId(Zona_Segura zonaId) {
         List<Coordenada> results;
+        _logger.debug(String.format("tomando de CoordenadaDao.getCoordenadaByZona: parametro {%s}", zonaId));
+
         try {
             CriteriaQuery<Coordenada> query = _builder.createQuery(Coordenada.class);
             Root<Coordenada> root = query.from(Coordenada.class);
@@ -49,12 +52,14 @@ public class CoordenadaDao extends BaseDao<Coordenada> {
                 return null;
 
         } catch (NoResultException e) {
-            //return Collections.emptyList();  // En caso de que quieras retornar []
-            return null;
+            _logger.error(String.format("Error CoordenadaDao.getCoordenadaByZona: No Result {%s}", e.getMessage()));
+            throw new NotFoundException("coordenada por zona no existe");
         } catch (Exception e) {
+            _logger.error( String.format( "Error CoordenadaDao.getCoordenadaByZona: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
 
+        _logger.debug(String.format("Dejando UsuarioDao.getUsuarioByCorreo: result {%s}", results));
         return results;
     }
 
