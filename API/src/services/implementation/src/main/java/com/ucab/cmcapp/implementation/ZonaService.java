@@ -21,12 +21,20 @@ import java.util.List;
 public class ZonaService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(ZonaService.class);
 
+    /**
+     * Obtiene una zona segura por su ID.
+     *
+     * @param zonasId ID de la zona segura a buscar.
+     * @return Objeto Response con la información de la zona segura encontrada.
+     */
     @GET
     @Path("/{id}")
     public Response getZonas(@PathParam("id") long zonasId) {
         Zona_Segura entity;
         Zona_SeguraDto responseDTO = null;
         GetZonaCommand command = null;
+
+        _logger.debug( "Tomando de ZonaService.getZonas" );
 
         try {
             entity = Zona_SeguraMapper.mapDtoToEntity(zonasId);
@@ -44,14 +52,23 @@ public class ZonaService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando ZonaService.getZonas" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + zonasId + " de la zona segura ha sido encontrado correctamente")).build();
     }
 
+    /**
+     * Obtiene todas las zonas seguras.
+     *
+     * @return Objeto Response con la lista de todas las zonas seguras encontradas.
+     */
     @GET
     @Path("/todos")
     public Response getAllZonas() {
         List <Zona_SeguraDto> responseDTO = null;
         GetAllZonaCommand command = null;
+
+        _logger.debug( "Tomando de ZonaService.getAllZonas" );
 
         try {
             command = CommandFactory.createGetAllZona_SeguraCommand();
@@ -69,16 +86,25 @@ public class ZonaService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando ZonaService.getAllZonas" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos las zonas seguras se han obtenido correctamente")).build();
     }
 
-
+    /**
+     * Obtiene todas las zonas seguras asociadas a una víctima por su ID.
+     *
+     * @param victimaId ID de la víctima.
+     * @return Objeto Response con la lista de zonas seguras asociadas a la víctima.
+     */
     @GET
     @Path("victima/{victima_id}")
-    public Response getAllZonasByUsuarioId(@PathParam("victima_id") long victimaId) {
+    public Response getAllZonasByVictimaId(@PathParam("victima_id") long victimaId) {
         Zona_Segura entity;
         List<Zona_SeguraDto> responseDTO = null;
         GetZonaByVictimaIdCommand command = null;
+
+        _logger.debug( "Tomando de ZonaService.getAllZonasByVictimaId" );
 
         try {
             entity = Zona_SeguraMapper.mapDtoToEntityUsuarioId(victimaId);
@@ -96,14 +122,24 @@ public class ZonaService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando de ZonaService.getAllZonasByVictimaId" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zonas seguras de la victima con el ID " + victimaId + " se han obtenido correctamente")).build();
     }
 
+    /**
+     * Agrega una nueva zona segura.
+     *
+     * @param zonasSegurasDto Objeto con los datos de la zona segura a agregar.
+     * @return Objeto Response con la información de la zona segura agregada.
+     */
     @POST
     public Response addZonas(Zona_SeguraDto zonasSegurasDto) {
         Zona_Segura entity;
         Zona_SeguraDto responseDTO = null;
         CreateZonaCommand command = null;
+
+        _logger.debug( "Tomando de ZonaService.addZonas" );
 
         try {
             entity = Zona_SeguraMapper.mapDtoToEntity(zonasSegurasDto);
@@ -117,15 +153,25 @@ public class ZonaService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando de ZonaService.addZonas" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zona segura ha sido creado correctamente")).build();
     }
 
+    /**
+     * Elimina una zona segura por su ID.
+     *
+     * @param zonasId ID de la zona segura a eliminar.
+     * @return Objeto Response con la información de la zona segura eliminada.
+     */
     @DELETE
     @Path("/{id}")
     public Response deleteZonas(@PathParam("id") long zonasId) {
         Zona_Segura entity;
         Zona_SeguraDto responseDTO = null;
         DeleteZonaCommand command = null;
+
+        _logger.debug( "Tomando de ZonaService.DeleteZonas" );
 
         try {
             entity = Zona_SeguraMapper.mapDtoToEntity(zonasId);
@@ -145,14 +191,25 @@ public class ZonaService extends BaseService {
                 command.closeHandlerSession();
         }
 
+        _logger.debug( "Dejando de ZonaService.DeleteZonas" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zona segura ha sido eliminado correctamente")).build();
     }
 
+    /**
+     * Actualiza una zona segura.
+     *
+     * @param zonasSegurasDto Objeto con los datos de la zona segura a actualizar.
+     * @return Objeto Response con la información de la zona segura actualizada.
+     */
     @PUT
     public Response updateZonas(Zona_SeguraDto zonasSegurasDto) {
         Zona_Segura entity;
         Zona_SeguraDto responseDTO = null;
         UpdateZonaCommand command = null;
+
+        _logger.debug( "Tomando de ZonaService.UpdateZonas" );
+
         try {
             entity = Zona_SeguraMapper.mapDtoToEntity(zonasSegurasDto);
             command = CommandFactory.createUpdateZona_SeguraCommand(entity);
@@ -167,6 +224,9 @@ public class ZonaService extends BaseService {
             if (command != null)
                 command.closeHandlerSession();
         }
+
+        _logger.debug( "Dejando de ZonaService.UpdateZonas" );
+
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zona segura con el ID " + zonasSegurasDto.getId() + " se actualizo correctamente")).build();
     }
 }
