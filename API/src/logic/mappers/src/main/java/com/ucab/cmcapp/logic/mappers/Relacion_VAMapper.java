@@ -14,6 +14,12 @@ import java.util.Objects;
 public class Relacion_VAMapper extends BaseMapper {
     private static Logger _logger = LoggerFactory.getLogger(Relacion_VAMapper.class);
 
+    /**
+     * Realiza un Mapeo de la entidad Dto a una entidad Entity para guardarla en base de datos
+     * @param dto variable de tipo objeto Relacion_VADto
+     * @return retorna la entidad mapeada
+     * @throws ParseException
+     */
     public static Relacion_VA mapDtoToEntity(Relacion_VADto dto) throws ParseException {
         Relacion_VA entity = EntityFactory.createRelacion_VA();
 
@@ -36,6 +42,12 @@ public class Relacion_VAMapper extends BaseMapper {
         return entity;
     }
 
+    /**
+     * Realiza un Mapeo de la entidad Entity a una entidad Dto para usarla en el endpoint
+     * @param entity tipo de dato objeto Relacion_VA
+     * @return retorna un dto
+     */
+
     public static Relacion_VADto mapEntityToDto(Relacion_VA entity) {
         final Relacion_VADto dto = new Relacion_VADto();
 
@@ -54,6 +66,12 @@ public class Relacion_VAMapper extends BaseMapper {
         return dto;
     }
 
+    /**
+     * realiza un mapeo de la entidad dto a una entidad entity para la base de datos
+     * @param id variable de tipo entera
+     * @return retorna la entidad mapeada
+     */
+
     public static Relacion_VA mapDtoToEntity(long id) {
         Relacion_VA entity = EntityFactory.createRelacion_VA(id);
 
@@ -62,6 +80,12 @@ public class Relacion_VAMapper extends BaseMapper {
         entity.set_id(id);
         return entity;
     }
+
+    /**
+     * realiza un mapeo de la entidad entity a una entidad dto para usarlo en el endpoint
+     * @param entityList variable de tipo Objeto-lista Relacion_VA
+     * @return retorna el mapper de la entidad
+     */
 
     public static List<Relacion_VADto> mapEntityListToDtoList(List<Relacion_VA> entityList){
         List<Relacion_VADto> dtoList = new ArrayList<Relacion_VADto>();
