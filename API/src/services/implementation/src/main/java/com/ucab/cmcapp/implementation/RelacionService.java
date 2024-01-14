@@ -21,9 +21,9 @@ public class RelacionService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(RelacionService.class);
 
     /**
-     * 
-     * @param relacionId
-     * @return
+     * Realiza un Get de la tabla relacion_va apartir del id
+     * @param relacionId variable de tipo int
+     * @return retorna un status de la entidad con mensajes de descripcion
      */
     @GET
     @Path("/{id}")
@@ -55,6 +55,11 @@ public class RelacionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + relacionId + " de la relacion victima-atacante ha sido encontrado correctamente")).build();
     }
 
+    /**
+     * realiza un get de todos los datos de la relacion_va
+     * @return retorna un status de la entidad con mensaje de descripcion
+     */
+
     @GET
     @Path("/todos")
     public Response getAllRelacion() {
@@ -84,6 +89,12 @@ public class RelacionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos las relaciones victima-atacante se han obtenida correctamente")).build();
     }
 
+    /**
+     * Realiza un Post de la entidad suministrada
+     * @param relacionUsuarioDto variable de tipo objeto de la relacionDto
+     * @return retorna un status response de la entidad con mensaje de descripcion
+     */
+
     @POST
     public Response addRelacion(Relacion_VADto relacionUsuarioDto) {
         Relacion_VA entity;
@@ -108,6 +119,12 @@ public class RelacionService extends BaseService {
 
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La relacion victima-atacante ha sido creado correctamente")).build();
     }
+
+    /**
+     * realiza un delete de la entidad suministrada
+     * @param relacionId variable de tipo entera que busca la entidad
+     * @return retorna un status de la entidad
+     */
 
     @DELETE
     @Path("/{id}")
@@ -140,6 +157,12 @@ public class RelacionService extends BaseService {
 
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La relacion victima-atacante ha sido eliminado correctamente")).build();
     }
+
+    /**
+     * realizar un update de la entidad sumistrada
+     * @param usuarioRelacionDto variable de tipo objeto relacion_VADto
+     * @return retorna un status de la entidad
+     */
 
     @PUT
     public Response updateRelacion(Relacion_VADto usuarioRelacionDto) {
