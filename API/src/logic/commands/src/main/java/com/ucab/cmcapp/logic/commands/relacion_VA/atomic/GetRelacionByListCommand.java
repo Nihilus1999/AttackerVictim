@@ -20,14 +20,10 @@ public class GetRelacionByListCommand extends Command<Relacion_VA> {
 
 
     public GetRelacionByListCommand(DBHandler handler) {
-        //region Instrumentation DEBUG
-        //endregion
 
         setHandler(handler);
         _dao = DaoFactory.createRelacion_VADao(getHandler());
 
-        //region Instrumentation DEBUG
-        //endregion
     }
 
     @Override

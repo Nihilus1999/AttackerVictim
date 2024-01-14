@@ -32,7 +32,7 @@ public class EraseRelacionCommand extends Command<Relacion_VA> {
     @Override
     public void execute() {
         try {
-            _logger.debug("Tomando de  EraseRelacionCommand.execute");
+            _logger.debug("Tomando de EraseRelacionCommand.execute");
             _Relacion_VA = _dao.delete(_Relacion_VA);
         }catch(NullPointerException e){
 

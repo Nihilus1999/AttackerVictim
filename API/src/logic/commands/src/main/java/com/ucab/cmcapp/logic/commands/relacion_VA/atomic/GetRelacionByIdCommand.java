@@ -15,32 +15,24 @@ public class GetRelacionByIdCommand extends Command<Relacion_VA> {
     private Relacion_VADao _dao;
 
     public GetRelacionByIdCommand(DBHandler handler, long userId) {
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetRelacion_VAByIdCommand.ctor: parameter {%s}", userId));
-        //endregion
+        _logger.debug(String.format("Tomando GetRelacion_VAByIdCommand.ctor: parameter {%s}", userId));
 
         _userId = userId;
         setHandler(handler);
         _dao = DaoFactory.createRelacion_VADao(getHandler());
 
-        //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving GetRelacion_VAByIdCommand.ctor: attribute {%s}", userId));
-        //endregion
+        _logger.debug(String.format("Dejando GetRelacion_VAByIdCommand.ctor: attribute {%s}", userId));
     }
 
     @Override
     public void execute() {
-        //region Instrumentation DEBUG
-        _logger.debug("Get in  GetRelacion_VAByIdCommand.execute");
-        //endregion
+        _logger.debug("Tomando GetRelacion_VAByIdCommand.execute");
         try {
             _result = _dao.find(_userId, Relacion_VA.class);
         }catch(NullPointerException e){
 
         }
-        //region Instrumentation DEBUG
-        _logger.debug("Leaving  GetRelacion_VAByIdCommand.execute");
-        //endregion
+        _logger.debug("Dejando  GetRelacion_VAByIdCommand.execute");
     }
 
     @Override
