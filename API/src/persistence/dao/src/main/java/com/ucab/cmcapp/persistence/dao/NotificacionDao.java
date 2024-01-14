@@ -5,6 +5,7 @@ import com.ucab.cmcapp.common.entities.Notificacion;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.entities.Zona_Segura;
 import com.ucab.cmcapp.common.exceptions.CupraException;
+import com.ucab.cmcapp.common.exceptions.NotFoundException;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,8 +35,16 @@ public class NotificacionDao extends BaseDao<Notificacion> {
         _builder = _em.getCriteriaBuilder();
     }
 
+    /**
+     * Devuelve una lista de notificaciones de ese usuario con el id
+     * @param usuarioId es una entera donde se toma el id de usuario
+     * @return devuelve una lista de notificaciones
+     */
+
     public List<Notificacion> getNotificacionByUsuarioId(Usuario usuarioId) {
         List<Notificacion> results;
+        _logger.debug(String.format("tomando de NotificacionDao.getNotificacionByUsuario: parametro {%s}", usuarioId));
+
         try {
             CriteriaQuery<Notificacion> query = _builder.createQuery(Notificacion.class);
             Root<Notificacion> root = query.from(Notificacion.class);
@@ -49,12 +58,13 @@ public class NotificacionDao extends BaseDao<Notificacion> {
                 return null;
 
         } catch (NoResultException e) {
-            //return Collections.emptyList();  // En caso de que quieras retornar []
-            return null;
+            _logger.error( String.format( "Error NotificacionDao.getNotificacionByUsuario: No Result {%s}", e.getMessage() ) );
+            throw new NotFoundException("Notificacion del Usuario no existe");
         } catch (Exception e) {
+            _logger.error( String.format( "Error NotificacionDao.getNotificacionByUsuario: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
-
+        _logger.debug(String.format("Dejando NotificacionDao.getNotificacionByUsuario: result {%s}", results));
         return results;
     }
 
