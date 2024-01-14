@@ -7,18 +7,27 @@ import com.ucab.cmcapp.logic.dtos.dtos.Zona_SeguraDto;
 import java.awt.geom.Path2D;
 import java.util.*;
 
-public class DeterminarAtacanteZonaSegura {
+public class DeterminarAtacanteZonaSeguraDto {
 
-    public AtacanteDentroZonaSeguraDto verifyAttackerInSafeZone(Historico_UsuarioDto lastAttackerCoordinate, List<Zona_SeguraDto> posibleZones, List<CoordenadaDto> posiblesCoordenadas) {
+
+    /**
+     * Verifica si un atacante se encuentra dentro de una zona segura.
+     *
+     * @param AtacanteCoordenadas Coordenadas del último atacante.
+     * @param ZonasSeguras Lista de posibles zonas seguras.
+     * @param CoordenadasZonas Lista de posibles coordenadas.
+     * @return Objeto `AtacanteDentroZonaSeguraDto` con la información del atacante dentro de la zona segura.
+     */
+    public AtacanteDentroZonaSeguraDto AtacanteDentroZonaSegura(Historico_UsuarioDto AtacanteCoordenadas, List<Zona_SeguraDto> ZonasSeguras, List<CoordenadaDto> CoordenadasZonas) {
         AtacanteDentroZonaSeguraDto resultDto = new AtacanteDentroZonaSeguraDto();
-        Double attackerLatitude = lastAttackerCoordinate.get_latitud();
-        Double attackerLongitude = lastAttackerCoordinate.get_longitud();
+        Double attackerLatitude = AtacanteCoordenadas.get_latitud();
+        Double attackerLongitude = AtacanteCoordenadas.get_longitud();
         Map<String, List<Double>> latitudesMap = new HashMap<>();
         Map<String, List<Double>> longitudesMap = new HashMap<>();
         List<String> zoneKeys = new ArrayList<>();
 
-        for (Zona_SeguraDto zona : posibleZones) {
-            for (CoordenadaDto coordenada : posiblesCoordenadas) {
+        for (Zona_SeguraDto zona : ZonasSeguras) {
+            for (CoordenadaDto coordenada : CoordenadasZonas) {
                 if (zona.getId() == coordenada.get_zona_segura().getId()) {
                     String zoneName = zona.get_nombre();
                     latitudesMap.computeIfAbsent(zoneName, k -> new ArrayList<>()).add(coordenada.get_latitud());
@@ -38,7 +47,7 @@ public class DeterminarAtacanteZonaSegura {
             Double[] latitudeArray = latitudeList.toArray(new Double[0]);
             Double[] longitudeArray = longitudeList.toArray(new Double[0]);
 
-            boolean insideSafeZone = calculateCoordinatesInArea(attackerLatitude, attackerLongitude, latitudeArray, longitudeArray);
+            boolean insideSafeZone = calculoCoordenadasArea(attackerLatitude, attackerLongitude, latitudeArray, longitudeArray);
             if (insideSafeZone) {
                 resultDto.set_dentro(true);
                 resultDto.get_zonas_seguras().add(zoneName);
@@ -50,16 +59,25 @@ public class DeterminarAtacanteZonaSegura {
         return resultDto;
     }
 
-    public boolean calculateCoordinatesInArea(Double personLatitude, Double personLongitude, Double[] areaLatitudes, Double[] areaLongitudes) {
+    /**
+     * Calcula si unas coordenadas se encuentran dentro de un área determinada.
+     *
+     * @param AtacanteLatitud  Latitud de la persona.
+     * @param AtacanteLongitud Longitud de la persona.
+     * @param AreaLatitud   Latitudes del área.
+     * @param AreaLongitud  Longitudes del área.
+     * @return `true` si las coordenadas se encuentran dentro del área, `false` en caso contrario.
+     */
+    public boolean calculoCoordenadasArea(Double AtacanteLatitud, Double AtacanteLongitud, Double[] AreaLatitud, Double[] AreaLongitud) {
         // Crear un objeto Path2D para representar el polígono de la zona
         Path2D.Double zonaPoligono = new Path2D.Double();
-        zonaPoligono.moveTo(areaLongitudes[0], areaLatitudes[0]);
-        for (int i = 1; i < areaLatitudes.length; i++) {
-            zonaPoligono.lineTo(areaLongitudes[i], areaLatitudes[i]);
+        zonaPoligono.moveTo(AreaLongitud[0], AreaLatitud[0]);
+        for (int i = 1; i < AreaLatitud.length; i++) {
+            zonaPoligono.lineTo(AreaLongitud[i], AreaLatitud[i]);
         }
         zonaPoligono.closePath();
 
         // Comprobar si la persona se encuentra dentro de la zona determinada
-        return zonaPoligono.contains(personLongitude, personLatitude);
+        return zonaPoligono.contains(AtacanteLongitud, AtacanteLatitud);
     }
 }

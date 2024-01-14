@@ -12,7 +12,7 @@ import com.ucab.cmcapp.logic.commands.zona_segura.atomic.GetZonaByVictimaIdComma
 import com.ucab.cmcapp.logic.dtos.dtos.*;
 import com.ucab.cmcapp.logic.dtos.utilities.AtacanteDentroZonaSeguraDto;
 import com.ucab.cmcapp.logic.dtos.utilities.CalcularDistanciaSeparacionDto;
-import com.ucab.cmcapp.logic.dtos.utilities.DeterminarAtacanteZonaSegura;
+import com.ucab.cmcapp.logic.dtos.utilities.DeterminarAtacanteZonaSeguraDto;
 import com.ucab.cmcapp.logic.mappers.CoordenadaMapper;
 import com.ucab.cmcapp.logic.mappers.Historico_UsuarioMapper;
 import com.ucab.cmcapp.logic.mappers.Relacion_VAMapper;
@@ -187,7 +187,7 @@ public class OperacionesService extends BaseService {
 
             //operacion de determinar si atacante esta en zona segura
 
-           resultDto = new DeterminarAtacanteZonaSegura().verifyAttackerInSafeZone(historyDto, zonaDto,coordenadaDto);
+           resultDto = new DeterminarAtacanteZonaSeguraDto().AtacanteDentroZonaSegura(historyDto, zonaDto,coordenadaDto);
 
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Ocurrio un error interno en la base de datos: " + e.getMessage())).build();

@@ -10,6 +10,14 @@ public class CalcularDistanciaSeparacionDto {
     double FLATTENING = 1 / 298.257223563;
     double ERROR_TOLERANCE = 1e-12;
 
+    /**
+     * Calcula la distancia de separación entre dos usuarios utilizando sus coordenadas geográficas.
+     *
+     * @param usuario1 Objeto `Historico_UsuarioDto` que representa las coordenadas del primer usuario.
+     * @param usuario2 Objeto `Historico_UsuarioDto` que representa las coordenadas del segundo usuario.
+     * @return La distancia de separación entre los dos usuarios en metros.
+     */
+
     public double calcularDistanciaSeperacion(Historico_UsuarioDto usuario1, Historico_UsuarioDto usuario2){
 
         double latitude1 = usuario1.get_latitud();

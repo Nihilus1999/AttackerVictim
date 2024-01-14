@@ -4,7 +4,7 @@ import com.ucab.cmcapp.logic.dtos.utilities.AtacanteDentroZonaSeguraDto;
 import com.ucab.cmcapp.logic.dtos.dtos.CoordenadaDto;
 import com.ucab.cmcapp.logic.dtos.dtos.Historico_UsuarioDto;
 import com.ucab.cmcapp.logic.dtos.dtos.Zona_SeguraDto;
-import com.ucab.cmcapp.logic.dtos.utilities.DeterminarAtacanteZonaSegura;
+import com.ucab.cmcapp.logic.dtos.utilities.DeterminarAtacanteZonaSeguraDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class determinarAtacanteZonaSeguraTest {
 
-    private DeterminarAtacanteZonaSegura determinarAtacanteZonaSegura;
+    private DeterminarAtacanteZonaSeguraDto determinarAtacanteZonaSeguraDto;
     private Historico_UsuarioDto lastAttackerCoordinate;
     private List<Zona_SeguraDto> posibleZones;
     private List<CoordenadaDto> posiblesCoordenadas;
 
     @BeforeEach
     public void setUp() {
-        determinarAtacanteZonaSegura = new DeterminarAtacanteZonaSegura();
+        determinarAtacanteZonaSeguraDto = new DeterminarAtacanteZonaSeguraDto();
         lastAttackerCoordinate = new Historico_UsuarioDto();
         lastAttackerCoordinate.set_latitud(10.0);
         lastAttackerCoordinate.set_longitud(20.0);
@@ -51,7 +51,7 @@ public class determinarAtacanteZonaSeguraTest {
         expectedDto.set_longitud(20.0);
 
         // Act
-        AtacanteDentroZonaSeguraDto resultDto = determinarAtacanteZonaSegura.verifyAttackerInSafeZone(lastAttackerCoordinate, posibleZones, posiblesCoordenadas);
+        AtacanteDentroZonaSeguraDto resultDto = determinarAtacanteZonaSeguraDto.AtacanteDentroZonaSegura(lastAttackerCoordinate, posibleZones, posiblesCoordenadas);
 
         // Assert
         assertNotNull(resultDto);
@@ -70,7 +70,7 @@ public class determinarAtacanteZonaSeguraTest {
         Double[] areaLongitudes = {20.0, 30.0, 40.0};
 
         // Act
-        boolean result = determinarAtacanteZonaSegura.calculateCoordinatesInArea(personLatitude, personLongitude, areaLatitudes, areaLongitudes);
+        boolean result = determinarAtacanteZonaSeguraDto.calculoCoordenadasArea(personLatitude, personLongitude, areaLatitudes, areaLongitudes);
 
         // Assert
         assertFalse(result);

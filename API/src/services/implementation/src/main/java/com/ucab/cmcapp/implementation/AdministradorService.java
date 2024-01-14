@@ -22,7 +22,12 @@ import java.util.List;
 public class AdministradorService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(AdministradorService.class);
 
-    //creando los servicios
+    /**
+     * Obtiene un objeto Administrador por su ID.
+     *
+     * @param adminId ID del Administrador a obtener.
+     * @return Respuesta HTTP con el objeto AdministradorDto correspondiente al ID proporcionado.
+     */
     @GET
     @Path("/{id}")
     public Response getAdministrador(@PathParam("id") long adminId) {
@@ -53,6 +58,11 @@ public class AdministradorService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + adminId + " del Administrador ha sido encontrado correctamente")).build();
     }
 
+    /**
+     * Obtiene todos los objetos Administrador.
+     *
+     * @return Respuesta HTTP con una lista de objetos AdministradorDto.
+     */
     @GET
     @Path("/todos")
     public Response getAllAdministrador() {
@@ -82,7 +92,12 @@ public class AdministradorService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Los Administradores se han obtenido correctamente")).build();
     }
 
-
+    /**
+     * Obtiene un objeto Administrador por su correo electrónico.
+     *
+     * @param correo Correo electrónico del Administrador a obtener.
+     * @return Respuesta HTTP con el objeto AdministradorDto correspondiente al correo proporcionado.
+     */
     @GET
     @Path("correo/{correo}")
     public Response getAdministradorByCorreo(@PathParam("correo") String correo) {
@@ -113,6 +128,12 @@ public class AdministradorService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL correo " + correo + " del Administrador ha sido encontrado exitosamente")).build();
     }
 
+    /**
+     * Obtiene un objeto Administrador por su alias.
+     *
+     * @param alias Alias del Administrador a obtener.
+     * @return Respuesta HTTP con el objeto AdministradorDto correspondiente al alias proporcionado.
+     */
     @GET
     @Path("alias/{alias}")
     public Response getAdministradorByAlias(@PathParam("alias") String alias) {
@@ -143,7 +164,12 @@ public class AdministradorService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL Administrador con el alias " + alias + " ha sido encontrado exitosamente")).build();
     }
 
-    
+    /**
+     * Agrega un nuevo Administrador.
+     *
+     * @param AdministradorDto Objeto AdministradorDto a agregar.
+     * @return Respuesta HTTP con el objeto AdministradorDto creado.
+     */
     @POST
     public Response addAdministrador(AdministradorDto AdministradorDto) {
         Administrador entity;
@@ -169,8 +195,12 @@ public class AdministradorService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El Administrador ha sido creado correctamente")).build();
     }
 
-
-
+    /**
+     * Elimina un Administrador por su ID.
+     *
+     * @param adminId ID del Administrador a eliminar.
+     * @return Respuesta HTTP con el objeto AdministradorDto eliminado.
+     */
     @DELETE
     @Path("/{id}")
     public Response deleteAdministrador(@PathParam("id") long adminId) {
@@ -203,7 +233,12 @@ public class AdministradorService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El Administrador ha sido eliminado correctamente")).build();
     }
 
-
+    /**
+     * Actualiza un Administrador existente.
+     *
+     * @param AdministradorDto Objeto AdministradorDto con los datos actualizados.
+     * @return Respuesta HTTP con el objeto AdministradorDto actualizado.
+     */
     @PUT
     public Response updateAdministrador(AdministradorDto AdministradorDto) {
         Administrador entity;

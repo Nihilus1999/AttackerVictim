@@ -15,10 +15,11 @@ public class Relacion_VAMapper extends BaseMapper {
     private static Logger _logger = LoggerFactory.getLogger(Relacion_VAMapper.class);
 
     /**
-     * Realiza un Mapeo de la entidad Dto a una entidad Entity para guardarla en base de datos
-     * @param dto variable de tipo objeto Relacion_VADto
-     * @return retorna la entidad mapeada
-     * @throws ParseException
+     * Convierte un objeto `Relacion_VADto` en un objeto `Relacion_VA` correspondiente para guardar en la base de datos.
+     *
+     * @param dto Objeto `Relacion_VADto` a convertir.
+     * @return Objeto `Relacion_VA` convertido.
+     * @throws ParseException Si se produce un error al analizar una fecha en el proceso de conversión.
      */
     public static Relacion_VA mapDtoToEntity(Relacion_VADto dto) throws ParseException {
         Relacion_VA entity = EntityFactory.createRelacion_VA();
@@ -43,11 +44,11 @@ public class Relacion_VAMapper extends BaseMapper {
     }
 
     /**
-     * Realiza un Mapeo de la entidad Entity a una entidad Dto para usarla en el endpoint
-     * @param entity tipo de dato objeto Relacion_VA
-     * @return retorna un dto
+     * Convierte un objeto `Relacion_VA` en un objeto `Relacion_VADto` correspondiente para usar en el endpoint.
+     *
+     * @param entity Objeto `Relacion_VA` a convertir.
+     * @return Objeto `Relacion_VADto` convertido.
      */
-
     public static Relacion_VADto mapEntityToDto(Relacion_VA entity) {
         final Relacion_VADto dto = new Relacion_VADto();
 
@@ -67,11 +68,11 @@ public class Relacion_VAMapper extends BaseMapper {
     }
 
     /**
-     * realiza un mapeo de la entidad dto a una entidad entity para la base de datos
-     * @param id variable de tipo entera
-     * @return retorna la entidad mapeada
+     * Crea un objeto `Relacion_VA` a partir de un ID.
+     *
+     * @param id ID de la relación.
+     * @return Objeto `Relacion_VA` creado.
      */
-
     public static Relacion_VA mapDtoToEntity(long id) {
         Relacion_VA entity = EntityFactory.createRelacion_VA(id);
 
@@ -82,11 +83,11 @@ public class Relacion_VAMapper extends BaseMapper {
     }
 
     /**
-     * realiza un mapeo de la entidad entity a una entidad dto para usarlo en el endpoint
-     * @param entityList variable de tipo Objeto-lista Relacion_VA
-     * @return retorna el mapper de la entidad
+     * Convierte una lista de objetos `Relacion_VA` en una lista de objetos `Relacion_VADto` correspondientes para usar en el endpoint.
+     *
+     * @param entityList Lista de objetos `Relacion_VA` a convertir.
+     * @return Lista de objetos `Relacion_VADto` convertidos.
      */
-
     public static List<Relacion_VADto> mapEntityListToDtoList(List<Relacion_VA> entityList){
         List<Relacion_VADto> dtoList = new ArrayList<Relacion_VADto>();
         Relacion_VADto Relacion_VADto;

@@ -12,6 +12,14 @@ import java.util.List;
 public class AdministradorMapper extends BaseMapper {
     private static Logger _logger = LoggerFactory.getLogger(AdministradorMapper.class);
 
+
+    /**
+     * Convierte un objeto `AdministradorDto` en un objeto `Administrador` correspondiente.
+     *
+     * @param dto Objeto `AdministradorDto` a convertir.
+     * @return Objeto `Administrador` convertido.
+     * @throws ParseException Si se produce un error al analizar una fecha en el proceso de conversión.
+     */
     public static Administrador mapDtoToEntity(AdministradorDto dto) throws ParseException {
         Administrador entity = EntityFactory.createAdministrador();
 
@@ -25,6 +33,12 @@ public class AdministradorMapper extends BaseMapper {
         return entity;
     }
 
+    /**
+     * Convierte un objeto `Administrador` en un objeto `AdministradorDto` correspondiente.
+     *
+     * @param entity Objeto `Administrador` a convertir.
+     * @return Objeto `AdministradorDto` convertido.
+     */
     public static AdministradorDto mapEntityToDto(Administrador entity) {
         final AdministradorDto dto = new AdministradorDto();
 
@@ -38,6 +52,12 @@ public class AdministradorMapper extends BaseMapper {
         return dto;
     }
 
+    /**
+     * Crea un objeto `Administrador` a partir de un ID.
+     *
+     * @param id ID del administrador.
+     * @return Objeto `Administrador` creado.
+     */
     public static Administrador mapDtoToEntity(long id) {
         Administrador entity = EntityFactory.createAdministrador(id);
 
@@ -47,6 +67,12 @@ public class AdministradorMapper extends BaseMapper {
         return entity;
     }
 
+    /**
+     * Convierte una lista de objetos `Administrador` en una lista de objetos `AdministradorDto` correspondientes.
+     *
+     * @param entityList Lista de objetos `Administrador` a convertir.
+     * @return Lista de objetos `AdministradorDto` convertidos.
+     */
     public static List<AdministradorDto> mapEntityListToDtoList(List<Administrador> entityList){
         List<AdministradorDto> dtoList = new ArrayList<AdministradorDto>();
         AdministradorDto AdministradorDto;
@@ -65,6 +91,12 @@ public class AdministradorMapper extends BaseMapper {
         return dtoList;
     }
 
+    /**
+     * Crea un objeto `Administrador` a partir de una dirección de correo electrónico.
+     *
+     * @param email Dirección de correo electrónico del administrador.
+     * @return Objeto `Administrador` creado.
+     */
     public static Administrador mapDtoToEntityCorreo(String email) {
         Administrador entity = EntityFactory.createAdministrador();
 
@@ -74,6 +106,12 @@ public class AdministradorMapper extends BaseMapper {
         return entity;
     }
 
+    /**
+     * Crea un objeto `Administrador` a partir de un alias.
+     *
+     * @param alias Alias del administrador.
+     * @return Objeto `Administrador` creado.
+     */
     public static Administrador mapDtoToEntityAlias(String alias){
         Administrador entity = EntityFactory.createAdministrador();
 

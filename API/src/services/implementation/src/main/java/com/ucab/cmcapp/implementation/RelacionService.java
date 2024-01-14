@@ -21,9 +21,10 @@ public class RelacionService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(RelacionService.class);
 
     /**
-     * Realiza un Get de la tabla relacion_va apartir del id
-     * @param relacionId variable de tipo int
-     * @return retorna un status de la entidad con mensajes de descripcion
+     * Realiza un Get de la tabla relacion_va a partir del ID.
+     *
+     * @param relacionId ID de la relación a obtener.
+     * @return Respuesta HTTP con el objeto Relacion_VADto correspondiente al ID proporcionado.
      */
     @GET
     @Path("/{id}")
@@ -55,11 +56,12 @@ public class RelacionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + relacionId + " de la relacion victima-atacante ha sido encontrado correctamente")).build();
     }
 
-    /**
-     * realiza un get de todos los datos de la relacion_va
-     * @return retorna un status de la entidad con mensaje de descripcion
-     */
 
+    /**
+     * Obtiene todos los objetos Relacion_VA.
+     *
+     * @return Respuesta HTTP con una lista de objetos Relacion_VADto.
+     */
     @GET
     @Path("/todos")
     public Response getAllRelacion() {
@@ -90,9 +92,10 @@ public class RelacionService extends BaseService {
     }
 
     /**
-     * Realiza un Post de la entidad suministrada
-     * @param relacionUsuarioDto variable de tipo objeto de la relacionDto
-     * @return retorna un status response de la entidad con mensaje de descripcion
+     * Agrega una nueva relación.
+     *
+     * @param relacionUsuarioDto Objeto Relacion_VADto a agregar.
+     * @return Respuesta HTTP con el objeto Relacion_VADto creado.
      */
 
     @POST
@@ -121,11 +124,11 @@ public class RelacionService extends BaseService {
     }
 
     /**
-     * realiza un delete de la entidad suministrada
-     * @param relacionId variable de tipo entera que busca la entidad
-     * @return retorna un status de la entidad
+     * Elimina una relación por su ID.
+     *
+     * @param relacionId ID de la relación a eliminar.
+     * @return Respuesta HTTP con el objeto Relacion_VADto eliminado.
      */
-
     @DELETE
     @Path("/{id}")
     public Response deleteRelacion(@PathParam("id") long relacionId) {
@@ -159,11 +162,11 @@ public class RelacionService extends BaseService {
     }
 
     /**
-     * realizar un update de la entidad sumistrada
-     * @param usuarioRelacionDto variable de tipo objeto relacion_VADto
-     * @return retorna un status de la entidad
+     * Actualiza una relación existente.
+     *
+     * @param usuarioRelacionDto Objeto Relacion_VADto con los datos actualizados.
+     * @return Respuesta HTTP con el objeto Relacion_VADto actualizado.
      */
-
     @PUT
     public Response updateRelacion(Relacion_VADto usuarioRelacionDto) {
         Relacion_VA entity;
