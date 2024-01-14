@@ -35,6 +35,12 @@ public class CoordenadaDao extends BaseDao<Coordenada> {
         _builder = _em.getCriteriaBuilder();
     }
 
+    /**
+     * Este metodo devuelve una lista de zonas seguras
+     * @param zonaId zonaId es el id de la zona segura
+     * @return retorna todas las coordenadas de esa zona segura
+     */
+
     public List<Coordenada> getCoordenadaByZonaId(Zona_Segura zonaId) {
         List<Coordenada> results;
         _logger.debug(String.format("tomando de CoordenadaDao.getCoordenadaByZona: parametro {%s}", zonaId));
