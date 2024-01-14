@@ -32,6 +32,12 @@ public class UsuarioDao extends BaseDao<Usuario> {
         _builder = _em.getCriteriaBuilder();
     }
 
+    /**
+     * Devuelve un usuario apartir de un correo
+     * @param correo variable de tipo String
+     * @return retorna un usuario
+     */
+
     public Usuario getUsuarioByCorreo(String correo) {
         Usuario result = EntityFactory.createUsuario();
         _logger.debug(String.format("Tomando en UsuarioDao.getUserByCorreo: parameter {%s}", correo));
@@ -50,12 +56,15 @@ public class UsuarioDao extends BaseDao<Usuario> {
             _logger.error(String.format("Error UsuarioDao.getUsuarioByCorreo: {%s}", e.getMessage()));
             throw new CupraException(e.getMessage());
         }
-        //region Instrumentation
         _logger.debug(String.format("Dejando UsuarioDao.getUsuarioByCorreo: result {%s}", result));
-        //endregion
-
         return result;
     }
+
+    /**
+     * Devuelve un usuario apartir de un alias
+     * @param alias variable de tipo String
+     * @return retorna un usuario
+     */
 
     public Usuario getUsuarioByAlias(String alias) {
         Usuario result = EntityFactory.createUsuario();
@@ -82,6 +91,12 @@ public class UsuarioDao extends BaseDao<Usuario> {
         return result;
     }
 
+    /**
+     * Devuelve un usuario apartir de una cedula
+     * @param cedula variable de tipo String
+     * @return retorna un usuario
+     */
+
     public Usuario getUsuarioByCedula(String cedula) {
         Usuario result = EntityFactory.createUsuario();
         _logger.debug(String.format("Tomando en UsuarioDao.getUserByCedula: parameter {%s}", cedula));
@@ -104,6 +119,12 @@ public class UsuarioDao extends BaseDao<Usuario> {
         _logger.debug(String.format("Dejando UsuarioDao.getUsuarioByCedula: result {%s}", result));
         return result;
     }
+
+    /**
+     * Devuelve un usuario apartir de una mac
+     * @param mac variable de tipo String
+     * @return retorna un usuario
+     */
 
     public Usuario getUsuarioByMac(String mac) {
         Usuario result = EntityFactory.createUsuario();
