@@ -34,7 +34,7 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
     public Usuario getUsuarioByCorreo(String correo) {
         Usuario result = EntityFactory.createUsuario();
-        _logger.debug(String.format("Get in UsuarioDao.getUserByEmail: parameter {%s}", correo));
+        _logger.debug(String.format("Tomando en UsuarioDao.getUserByCorreo: parameter {%s}", correo));
         try {
             CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
             Root<Usuario> root = query.from(Usuario.class);
@@ -51,7 +51,7 @@ public class UsuarioDao extends BaseDao<Usuario> {
             throw new CupraException(e.getMessage());
         }
         //region Instrumentation
-        _logger.debug(String.format("Leavin UsuarioDao.getUsuarioByCorreo: result {%s}", result));
+        _logger.debug(String.format("Dejando UsuarioDao.getUsuarioByCorreo: result {%s}", result));
         //endregion
 
         return result;
@@ -59,6 +59,8 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
     public Usuario getUsuarioByAlias(String alias) {
         Usuario result = EntityFactory.createUsuario();
+        _logger.debug(String.format("Tomando en UsuarioDao.getUserByAlias: parameter {%s}", alias));
+
         try {
             CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
             Root<Usuario> root = query.from(Usuario.class);
@@ -68,18 +70,21 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
-            throw new NotFoundException("Nombre de usuario no existente");
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByAlias: No Result {%s}", e.getMessage() ) );
+            throw new NotFoundException("Alias de usuario no existente");
         } catch (Exception e) {
-            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByAlias: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
+
+        _logger.debug(String.format("Dejando UsuarioDao.getUsuarioByAlias: result {%s}", result));
 
         return result;
     }
 
     public Usuario getUsuarioByCedula(String cedula) {
         Usuario result = EntityFactory.createUsuario();
+        _logger.debug(String.format("Tomando en UsuarioDao.getUserByCedula: parameter {%s}", cedula));
         try {
             CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
             Root<Usuario> root = query.from(Usuario.class);
@@ -89,16 +94,20 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            return null;
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByCedula: No Result {%s}", e.getMessage() ) );
+            throw new NotFoundException("Cedula de usuario no existente");
         } catch (Exception e) {
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByCedula: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
 
+        _logger.debug(String.format("Dejando UsuarioDao.getUsuarioByCedula: result {%s}", result));
         return result;
     }
 
     public Usuario getUsuarioByMac(String mac) {
         Usuario result = EntityFactory.createUsuario();
+        _logger.debug(String.format("Tomando en UsuarioDao.getUserByMac: parameter {%s}", mac));
         try {
             CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
             Root<Usuario> root = query.from(Usuario.class);
@@ -108,11 +117,14 @@ public class UsuarioDao extends BaseDao<Usuario> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            return null;
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByMac: No Result {%s}", e.getMessage() ) );
+            throw new NotFoundException("Mac de usuario no existente");
         } catch (Exception e) {
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByMac: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
 
+        _logger.debug(String.format("Dejando UsuarioDao.getUsuarioByMac: result {%s}", result));
         return result;
     }
 
