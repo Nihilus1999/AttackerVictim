@@ -15,8 +15,17 @@ import java.util.Objects;
 public class Zona_SeguraMapper extends BaseMapper {
     private static Logger _logger = LoggerFactory.getLogger(Zona_SeguraMapper.class);
 
+    /**
+     * Mapea un objeto Zona_SeguraDto a una entidad Zona_Segura.
+     *
+     * @param dto El objeto Zona_SeguraDto que se va a mapear.
+     * @return La entidad Zona_Segura mapeada.
+     * @throws ParseException Si se produce un error al analizar el objeto.
+     */
     public static Zona_Segura mapDtoToEntity(Zona_SeguraDto dto) throws ParseException {
         Zona_Segura entity = EntityFactory.createZona_Segura();
+
+        _logger.debug( "Tomar en AdministradorMapper.mapDtoToEntity: dto {}", dto );
 
         entity.set_id(dto.getId());
         entity.set_nombre(dto.get_nombre());
@@ -28,8 +37,16 @@ public class Zona_SeguraMapper extends BaseMapper {
         return entity;
     }
 
+    /**
+     * Mapea una entidad Zona_Segura a un objeto Zona_SeguraDto.
+     *
+     * @param entity La entidad Zona_Segura que se va a mapear.
+     * @return El objeto Zona_SeguraDto mapeado.
+     */
     public static Zona_SeguraDto mapEntityToDto(Zona_Segura entity) {
         final Zona_SeguraDto dto = new Zona_SeguraDto();
+
+        _logger.debug( "Tomar en Zona_SeguraMapper.mapDtoToEntity: dto {}", dto );
 
         dto.setId(entity.get_id());
         dto.set_nombre(entity.get_nombre());
@@ -40,15 +57,32 @@ public class Zona_SeguraMapper extends BaseMapper {
         return dto;
     }
 
+    /**
+     * Mapea un id a una entidad Zona_Segura.
+     *
+     * @param id El id que se va a mapear.
+     * @return La entidad Zona_Segura mapeada.
+     */
     public static Zona_Segura mapDtoToEntity(long id) {
+
+        _logger.debug( "Tomar en Zona_SeguraMapper.mapDtoToEntity: dto {}", id );
+
         Zona_Segura entity = EntityFactory.createZona_Segura(id);
         entity.set_id(id);
         return entity;
     }
 
+    /**
+     * Mapea una lista de entidades Zona_Segura a una lista de objetos Zona_SeguraDto.
+     *
+     * @param entityList La lista de entidades Zona_Segura que se va a mapear.
+     * @return La lista de objetos Zona_SeguraDto mapeados.
+     */
     public static List<Zona_SeguraDto> mapEntityListToDtoList(List<Zona_Segura> entityList){
         List<Zona_SeguraDto> dtoList = new ArrayList<Zona_SeguraDto>();
         Zona_SeguraDto Zona_SeguraDto;
+
+        _logger.debug( "Tomar en Zona_SeguraMapper.mapDtoToEntity: dto {}", dtoList );
 
         for (Zona_Segura zonasSegura : entityList) {
 
@@ -66,7 +100,16 @@ public class Zona_SeguraMapper extends BaseMapper {
         return dtoList;
     }
 
+    /**
+     * Mapea un id de usuario a una entidad Zona_Segura.
+     *
+     * @param usuarioId El id del usuario que se va a mapear.
+     * @return La entidad Zona_Segura mapeada.
+     */
     public static Zona_Segura mapDtoToEntityUsuarioId(long usuarioId){
+
+        _logger.debug( "Tomar en Zona_SeguraMapper.mapDtoToEntity: dto {}", usuarioId );
+
         Usuario_Victima victima = new Usuario_Victima(usuarioId);
         Zona_Segura zonaSegura = EntityFactory.createZona_Segura();
         zonaSegura.set_victima(victima);
