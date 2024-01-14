@@ -33,6 +33,12 @@ public class AdministradorDao extends BaseDao<Administrador> {
         _builder = _em.getCriteriaBuilder();
     }
 
+    /**
+     * Devuelve un administrador a traves de un correo
+     * @param correo variable de tipo String
+     * @return retorna un adminstrador si lo encuentra
+     */
+
     public Administrador getAdministradorByCorreo(String correo) {
         Administrador result = EntityFactory.createAdministrador();
         _logger.debug(String.format("tomando de AdministradorDao.getUsuarioByCorreo: parametro {%s}", correo));
@@ -55,6 +61,12 @@ public class AdministradorDao extends BaseDao<Administrador> {
 
         return result;
     }
+
+    /**
+     * Devuelve un administrador a traves de un alias
+     * @param alias variable de tipo String
+     * @return retorna un adminstrador si lo encuentra
+     */
 
     public Administrador getAdministradorByAlias(String alias) {
         Administrador result = EntityFactory.createAdministrador();
