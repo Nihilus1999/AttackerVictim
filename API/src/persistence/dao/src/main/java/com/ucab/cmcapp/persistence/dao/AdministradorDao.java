@@ -41,7 +41,7 @@ public class AdministradorDao extends BaseDao<Administrador> {
 
     public Administrador getAdministradorByCorreo(String correo) {
         Administrador result = EntityFactory.createAdministrador();
-        _logger.debug(String.format("tomando de AdministradorDao.getUsuarioByCorreo: parametro {%s}", correo));
+        _logger.debug(String.format("tomando de AdministradorDao.getAdministradorByCorreo: parametro {%s}", correo));
         try {
             CriteriaQuery<Administrador> query = _builder.createQuery(Administrador.class);
             Root<Administrador> root = query.from(Administrador.class);
@@ -51,13 +51,13 @@ public class AdministradorDao extends BaseDao<Administrador> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            _logger.error(String.format("Error AdministradorDao.getUsuarioByCorreo: No Result {%s}", e.getMessage()));
+            _logger.error(String.format("Error AdministradorDao.getAdministradorByCorreo: No Result {%s}", e.getMessage()));
             throw new NotFoundException("Correo Administrador no existe");
         } catch (Exception e) {
-            _logger.error(String.format("Error AdministradorDao.getUsuarioByCorreo: {%s}", e.getMessage()));
+            _logger.error(String.format("Error AdministradorDao.getAdministradorByCorreo: {%s}", e.getMessage()));
             throw new CupraException(e.getMessage());
         }
-        _logger.debug(String.format("Dejando AdministradorDao.getUsuarioByCorreo: result {%s}", result));
+        _logger.debug(String.format("Dejando AdministradorDao.getAdministradorByCorreo: result {%s}", result));
 
         return result;
     }
@@ -86,6 +86,7 @@ public class AdministradorDao extends BaseDao<Administrador> {
             _logger.error( String.format( "Error UsuarioDao.getUsuarioByAlias: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
+        _logger.debug(String.format("Dejando AdministradorDao.getAdministradorByAlias: result {%s}", result));
 
         return result;
     }
