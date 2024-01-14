@@ -4,6 +4,7 @@ import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Historico_Usuario;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.exceptions.CupraException;
+import com.ucab.cmcapp.common.exceptions.NotFoundException;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +34,15 @@ public class Historico_UsuarioDao extends BaseDao<Historico_Usuario> {
         _builder = _em.getCriteriaBuilder();
     }
 
+    /**
+     * devuelve una lista de historico por el id del usuario ingresado
+     * @param usuarioId
+     * @return retorna una lista de historico del usuario
+     */
+
     public List<Historico_Usuario> getAllHistoricoByUserId(Usuario usuarioId) {
         List<Historico_Usuario> results;
+        _logger.debug(String.format("tomando de Historico_UsuarioDao.getHistoricoByUsuario: parametro {%s}", usuarioId));
         try {
             CriteriaQuery<Historico_Usuario> query = _builder.createQuery(Historico_Usuario.class);
             Root<Historico_Usuario> root = query.from(Historico_Usuario.class);
@@ -48,12 +56,13 @@ public class Historico_UsuarioDao extends BaseDao<Historico_Usuario> {
                 return null;
 
         } catch (NoResultException e) {
-            //return Collections.emptyList();  // En caso de que quieras retornar []
-            return null;
+            _logger.error( String.format( "Error Historico_UsuarioDao.getHistoricoByUsuario: No Result {%s}", e.getMessage() ) );
+            throw new NotFoundException("Historico del Usuario no existe");
         } catch (Exception e) {
+            _logger.error( String.format( "Error Historico_UsuarioDao.getHistoricoByUsuario: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
-
+        _logger.debug(String.format("Dejando Historico_UsuarioDao.getHistoricoByUsuario: result {%s}", results));
         return results;
     }
 }
