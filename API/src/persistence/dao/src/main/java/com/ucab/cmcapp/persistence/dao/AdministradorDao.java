@@ -46,20 +46,19 @@ public class AdministradorDao extends BaseDao<Administrador> {
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
             _logger.error(String.format("Error AdministradorDao.getUsuarioByCorreo: No Result {%s}", e.getMessage()));
-            return null;
+            throw new NotFoundException("Correo Administrador no existe");
         } catch (Exception e) {
             _logger.error(String.format("Error AdministradorDao.getUsuarioByCorreo: {%s}", e.getMessage()));
             throw new CupraException(e.getMessage());
         }
-        //region Instrumentation
         _logger.debug(String.format("Dejando AdministradorDao.getUsuarioByCorreo: result {%s}", result));
-        //endregion
 
         return result;
     }
 
     public Administrador getAdministradorByAlias(String alias) {
         Administrador result = EntityFactory.createAdministrador();
+        _logger.debug(String.format("tomando de AdministradorDao.getUsuarioByAlias: parametro {%s}", alias));
         try {
             CriteriaQuery<Administrador> query = _builder.createQuery(Administrador.class);
             Root<Administrador> root = query.from(Administrador.class);
@@ -69,10 +68,10 @@ public class AdministradorDao extends BaseDao<Administrador> {
 
             result = _em.createQuery(query).getSingleResult();
         } catch (NoResultException e) {
-            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByAlias: No Result {%s}", e.getMessage() ) );
             throw new NotFoundException("Alias Administrador no existe");
         } catch (Exception e) {
-            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
+            _logger.error( String.format( "Error UsuarioDao.getUsuarioByAlias: No Result {%s}", e.getMessage() ) );
             throw new CupraException(e.getMessage());
         }
 
