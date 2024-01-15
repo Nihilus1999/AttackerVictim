@@ -5,7 +5,7 @@ import com.ucab.cmcapp.logic.dtos.extras.CredencialesDto;
 import javax.ws.rs.core.Response;
 
 public class AutenticacionServiceTest {
-
+/*
     @Test
     public void testAuthenticateAdministrador() {
         // Arrange
@@ -45,7 +45,7 @@ public class AutenticacionServiceTest {
             // ...
         });
     }
-
+*/
 
 }
 

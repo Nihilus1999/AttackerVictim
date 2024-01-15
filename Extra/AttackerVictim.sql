@@ -46,9 +46,6 @@ INSERT INTO usuario (nombre, activate, apellido, alias, cedula, correo, direccio
 VALUES ('Mariann', 0, 'Tooher', 'mtooher7', 'V-876.643.924', 'mtooher7@gmail.com', '1D-0C-73-FB-62-4E','mtooher7');
 INSERT INTO usuario (nombre, activate, apellido, alias, cedula, correo, direccion_mac,clave)
 VALUES ('Lonna', 0, 'Howe', 'lhowe8', 'V-32.523.477', 'lhowe8@hotmail.com', 'B7-07-05-C9-64-66','lhowe8');
-INSERT INTO usuario (nombre, activate, apellido, alias, cedula, correo, direccion_mac,clave)
-VALUES ('Catina', 0, 'Heathwood', 'cheathwood9', 'V-78.716.837', 'cheathwood9@gmail.com', 'A5-83-50-3B-03-AD','cheathwood9');
-
 
 
 /* NOTIFICACION */

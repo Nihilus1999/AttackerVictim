@@ -12,11 +12,15 @@ public class LDAPUsuarioDto {
 
     private static DirContext connection;
 
+
     public LDAPUsuarioDto() {
         newConnection();
     }
 
-    /* create connection during object creation */
+
+    /**
+     * Crea una nueva conexión con el servidor LDAP utilizando las propiedades de configuración predefinidas.
+     */
     public void newConnection() {
         Properties env = new Properties();
         env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
@@ -35,6 +39,12 @@ public class LDAPUsuarioDto {
         }
     }
 
+    /**
+     * Agrega un nuevo usuario al servidor LDAP con el alias y la clave especificados.
+     *
+     * @param alias El alias del usuario.
+     * @param clave La clave del usuario.
+     */
     public static void agregarUsuario(String alias, String clave) {
         Attributes attributes = new BasicAttributes();
         Attribute attribute = new BasicAttribute("objectClass");
@@ -54,6 +64,11 @@ public class LDAPUsuarioDto {
 
     }
 
+    /**
+     * Elimina un usuario existente del servidor LDAP.
+     *
+     * @param alias El alias del usuario a eliminar.
+     */
     public void eliminarUsuario(String alias) {
         try {
             connection.destroySubcontext("cn=" + alias + ",ou=usuario,ou=system");
@@ -64,6 +79,13 @@ public class LDAPUsuarioDto {
         }
     }
 
+    /**
+     * Autentica a un usuario en el servidor LDAP utilizando el alias y la clave especificados.
+     *
+     * @param alias El alias del usuario.
+     * @param clave La clave del usuario.
+     * @return `true` si la autenticación es exitosa, `false` en caso contrario.
+     */
     public static boolean autenticarUsuario(String alias, String clave) {
         try {
             Properties env = new Properties();
@@ -81,6 +103,12 @@ public class LDAPUsuarioDto {
         }
     }
 
+    /**
+     * Actualiza la clave de un usuario existente en el servidor LDAP.
+     *
+     * @param alias El alias del usuario.
+     * @param clave La nueva clave del usuario.
+     */
     public void actualizarClaveUsuario(String alias, String clave) {
         try {
             String dnBase = ",ou=usuario,ou=system";
@@ -92,31 +120,5 @@ public class LDAPUsuarioDto {
             System.out.println("Error: " + e.getMessage());
         }
     }
-
-    public static void main(String[] args) {
-
-        boolean borrar = true;
-        boolean agregar = false;
-
-        try {
-            LDAPUsuarioDto app = new LDAPUsuarioDto();
-
-            if (agregar) {
-                app.agregarUsuario("hola", "hola");
-            }
-
-            if (borrar) {
-                app.eliminarUsuario("jesumanu");
-                app.eliminarUsuario("hola");
-                app.eliminarUsuario("kate");
-                app.eliminarUsuario("pedrito3");
-            }
-
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-    }
-
 }
 
