@@ -92,31 +92,5 @@ public class LDAPUsuarioDto {
             System.out.println("Error: " + e.getMessage());
         }
     }
-
-    public static void main(String[] args) {
-
-        boolean borrar = true;
-        boolean agregar = false;
-
-        try {
-            LDAPUsuarioDto app = new LDAPUsuarioDto();
-
-            if (agregar) {
-                app.agregarUsuario("hola", "hola");
-            }
-
-            if (borrar) {
-                app.eliminarUsuario("jesumanu");
-                app.eliminarUsuario("hola");
-                app.eliminarUsuario("kate");
-                app.eliminarUsuario("pedrito3");
-            }
-
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-    }
-
 }
 
