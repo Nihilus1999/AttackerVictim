@@ -51,7 +51,7 @@ public class AutenticacionService extends BaseService{
                 if(!credenciales.get_clave().equals(admin.get_clave())){
                     return Response.status(Response.Status.UNAUTHORIZED).entity(new CustomResponse<>(false, "La contraseña es invalida")).build();
                 }
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>(false, "El administrador no existe")).build();
+                return Response.status(Response.Status.NOT_FOUND).entity(new CustomResponse<>(false, "El administrador no existe")).build();
             }
         }catch (NotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(new CustomResponse<>(false, "El administrador no existe")).build();
@@ -91,7 +91,7 @@ public class AutenticacionService extends BaseService{
                 if(!credenciales.get_clave().equals(user.get_clave())){
                     return Response.status(Response.Status.UNAUTHORIZED).entity(new CustomResponse<>(false, "La contraseña es invalida")).build();
                 }
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>(false, "El usuario no existe")).build();
+                return Response.status(Response.Status.NOT_FOUND).entity(new CustomResponse<>(false, "El usuario no existe")).build();
             }
         }catch (NotFoundException e) {
             _logger.error("Validation error: {}", e.getMessage());
