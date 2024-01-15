@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 
 const NotificationComponent = () => {
     var lastChecked = useState();
+    var contador = 0;
 
     const checkForNotifications = async () => {
         try {
@@ -13,7 +14,7 @@ const NotificationComponent = () => {
             console.log('ultimoGuardado: ',lastChecked);
             console.log('ID actual: ', response.id);
 
-            if((response !== null) && (response.id !== lastChecked)){
+            if((response !== null) && (response.id !== lastChecked) && (contador !== 0)){
 
                 if(response._tipo === 'Alerta 1'){
                     Swal.fire({
@@ -23,19 +24,20 @@ const NotificationComponent = () => {
                         confirmButtonText: 'Aceptar'
                     });
                 }
-                lastChecked = response.id;
             }
-
+            lastChecked = response.id;
+            contador++;
+            
         } catch (error) {
             console.error('Error al verificar notificaciones', error);
         }
     };
 
-    // useEffect(() => {
-    //     const interval = setInterval(checkForNotifications, 5000); // Revisa cada 5 segundos
-    //     console.log('hola');
-    //     return () => clearInterval(interval);
-    // }, []);
+    useEffect(() => {
+        const interval = setInterval(checkForNotifications, 5000); // Revisa cada 5 segundos
+        console.log('hola');
+        return () => clearInterval(interval);
+    }, []);
 
     return <></>;
 };
