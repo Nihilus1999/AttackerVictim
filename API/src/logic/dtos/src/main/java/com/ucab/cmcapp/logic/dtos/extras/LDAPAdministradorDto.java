@@ -11,11 +11,13 @@ public class LDAPAdministradorDto {
 
 private DirContext connection;
 
-public LDAPAdministradorDto() {
-    newConnection();
-}
+    public LDAPAdministradorDto() {
+        newConnection();
+    }
 
-
+    /**
+     * Crea una nueva conexión con el servidor LDAP utilizando las propiedades de configuración predefinidas.
+     */
     public void newConnection() {
         Properties env = new Properties();
         env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
@@ -34,6 +36,12 @@ public LDAPAdministradorDto() {
         }
     }
 
+    /**
+     * Agrega un nuevo administrador al servidor LDAP con el alias y la clave especificados.
+     *
+     * @param alias El alias del administrador.
+     * @param clave La clave del administrador.
+     */
     public void agregarAdministrator(String alias, String clave) {
         Attributes attributes = new BasicAttributes();
         Attribute attribute = new BasicAttribute("objectClass");
@@ -52,6 +60,11 @@ public LDAPAdministradorDto() {
 
     }
 
+    /**
+     * Elimina un administrador existente del servidor LDAP.
+     *
+     * @param alias El alias del administrador a eliminar.
+     */
     public void eliminarAdministrator(String alias) {
         try {
             connection.destroySubcontext("cn=" + alias + ",ou=administrador,ou=system");
@@ -62,6 +75,13 @@ public LDAPAdministradorDto() {
         }
     }
 
+    /**
+     * Autentica a un administrador en el servidor LDAP utilizando el alias y la clave especificados.
+     *
+     * @param alias El alias del administrador.
+     * @param clave La clave del administrador.
+     * @return `true` si la autenticación es exitosa, `false` en caso contrario.
+     */
     public static boolean autenticarAdministrator(String alias, String clave) {
         try {
             Properties env = new Properties();
@@ -79,6 +99,12 @@ public LDAPAdministradorDto() {
         }
     }
 
+    /**
+     * Actualiza la clave de un administrador existente en el servidor LDAP.
+     *
+     * @param alias El alias del administrador.
+     * @param clave La nueva clave del administrador.
+     */
     public void actualizarClaveAdministrador(String alias, String clave) {
         try {
             String dnBase = ",ou=administrador,ou=system";
