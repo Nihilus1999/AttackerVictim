@@ -1,6 +1,6 @@
 package utilities;
 
-import com.ucab.cmcapp.logic.dtos.utilities.CredencialesDto;
+import com.ucab.cmcapp.logic.dtos.extras.CredencialesDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

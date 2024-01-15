@@ -6,8 +6,14 @@ import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.GetAdministradorByAliasCommand;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.GetAdministradorByCorreoCommand;
 import com.ucab.cmcapp.logic.commands.administrador.composite.*;
+import com.ucab.cmcapp.logic.commands.usuario.composite.GetUsuarioCommand;
+import com.ucab.cmcapp.logic.commands.usuario.composite.UpdateUsuarioCommand;
 import com.ucab.cmcapp.logic.dtos.dtos.AdministradorDto;
+import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
+import com.ucab.cmcapp.logic.dtos.extras.LDAPAdministradorDto;
+import com.ucab.cmcapp.logic.dtos.extras.LDAPUsuarioDto;
 import com.ucab.cmcapp.logic.mappers.AdministradorMapper;
+import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -175,6 +181,7 @@ public class AdministradorService extends BaseService {
         Administrador entity;
         AdministradorDto responseDTO = null;
         CreateAdministradorCommand command = null;
+        LDAPAdministradorDto agregar = new LDAPAdministradorDto();
 
         _logger.debug( "Tomando de AdministradorService.addAdministrador" );
 
@@ -183,9 +190,15 @@ public class AdministradorService extends BaseService {
             command = CommandFactory.createCreateAdministradorCommand(entity);
             command.execute();
             responseDTO = AdministradorMapper.mapEntityToDto(command.getReturnParam());
+
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un Administrador", e.getMessage())).build();
         } finally {
+
+            if (LDAPAdministradorDto.autenticarAdministrator(AdministradorDto.get_alias(), AdministradorDto.get_clave()) == false){
+                agregar.agregarAdministrator(AdministradorDto.get_alias(), AdministradorDto.get_clave());
+            }
+
             if (command != null)
                 command.closeHandlerSession();
         }
@@ -243,23 +256,47 @@ public class AdministradorService extends BaseService {
     public Response updateAdministrador(AdministradorDto AdministradorDto) {
         Administrador entity;
         AdministradorDto responseDTO = null;
-        UpdateAdministradorCommand command = null;
+        UpdateAdministradorCommand commandAct = null;
+        AdministradorDto ldap = null;
+        GetAdministradorCommand CommandObt = null;
+        LDAPAdministradorDto update = new LDAPAdministradorDto();
 
         _logger.debug( "Tomando de AdministradorService.updateAdministrador" );
 
         try {
+
+            entity = AdministradorMapper.mapDtoToEntity(AdministradorDto.getId());
+            CommandObt = CommandFactory.createGetAdministradorCommand(entity);
+            CommandObt.execute();
+
+            if (CommandObt.getReturnParam() != null) {
+                ldap = AdministradorMapper.mapEntityToDto(CommandObt.getReturnParam());
+            }
+            else {
+                return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("[GENERAL EXCEPTION] at method updateUser, user with id " + AdministradorDto.getId() + " could not be found")).build();
+            }
+
             entity = AdministradorMapper.mapDtoToEntity(AdministradorDto);
-            command = CommandFactory.createUpdateAdministradorCommand(entity);
-            command.execute();
-            if (command.getReturnParam() != null)
-                responseDTO = AdministradorMapper.mapEntityToDto(command.getReturnParam());
-            else
+            commandAct = CommandFactory.createUpdateAdministradorCommand(entity);
+            commandAct.execute();
+            if (commandAct.getReturnParam() != null) {
+                responseDTO = AdministradorMapper.mapEntityToDto(commandAct.getReturnParam());
+            }else {
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo editar el ID: " + AdministradorDto.getId()) + " debido a que no existe en la base de datos").build();
+            }
+
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar el Administrador: " + e.getMessage())).build();
         } finally {
-            if (command != null)
-                command.closeHandlerSession();
+
+            if (LDAPAdministradorDto.autenticarAdministrator(ldap.get_alias(), ldap.get_clave()) == true) {
+                update.actualizarClaveAdministrador(ldap.get_alias(), AdministradorDto.get_clave());
+            }
+
+            if (commandAct != null)
+                commandAct.closeHandlerSession();
+            if (CommandObt != null)
+                CommandObt.closeHandlerSession();
         }
 
         _logger.debug( "Dejando AdministradorService.updateAdministrador" );

@@ -1,4 +1,4 @@
-package com.ucab.cmcapp.logic.dtos.utilities;
+package com.ucab.cmcapp.logic.dtos.extras;
 
 public class CredencialesDto {
     private String _alias;

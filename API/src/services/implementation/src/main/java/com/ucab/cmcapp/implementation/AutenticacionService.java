@@ -9,7 +9,9 @@ import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.GetAdministradorByAliasCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByAliasCommand;
-import com.ucab.cmcapp.logic.dtos.utilities.CredencialesDto;
+import com.ucab.cmcapp.logic.dtos.extras.LDAPAdministradorDto;
+import com.ucab.cmcapp.logic.dtos.extras.CredencialesDto;
+import com.ucab.cmcapp.logic.dtos.extras.LDAPUsuarioDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,88 +25,86 @@ import java.util.ArrayList;
 @Consumes(MediaType.APPLICATION_JSON)
 public class AutenticacionService extends BaseService{
 
-    private static Logger _logger = LoggerFactory.getLogger( AutenticacionService.class );
+    private static Logger _logger = LoggerFactory.getLogger(AutenticacionService.class);
 
+    /**
+     * Autentica a un administrador utilizando las credenciales proporcionadas.
+     *
+     * @param credenciales Las credenciales de autenticación del administrador.
+     * @return Un objeto de tipo Response con el resultado de la autenticación.
+     */
     @POST
     @Path("/administrador")
-    public Response authenticateAdmin(CredencialesDto credentiales){
-        GetAdministradorByAliasCommand command;
-        //region Instrumentation DEBUG
-        _logger.debug( "Get in AutenticacionService.authenticate" );
-        //endregion
+    public Response autenticarAdministrador(CredencialesDto credenciales){
 
-        try {
-            Administrador admin = new Administrador();
-            admin.set_alias(credentiales.get_alias());
-            command = CommandFactory.createGetAdministradorByAliasCommand(admin);
+        _logger.debug( "Entrando en AutenticacionService.autenticarAdministrador" );
+        GetAdministradorByAliasCommand command = null;
+        try{
+            Administrador administrador = new Administrador();
+            administrador.set_alias(credenciales.get_alias());
+            command = CommandFactory.createGetAdministradorByAliasCommand(administrador);
             command.execute();
-            Administrador foundUser = command.getReturnParam();
-            if(credentiales.get_clave().equals(foundUser.get_clave())){
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>(new ArrayList(),"La Autenticacion se ha hecho correctamente")).build();
-            }else{
-                throw new AuthenticationException("Contraseña incorrecta");
+            Administrador admin = command.getReturnParam();
+            if(LDAPAdministradorDto.autenticarAdministrator(credenciales.get_alias(), credenciales.get_clave())){
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>(true, "El administrador ha ingresado correctamente")).build();
+            } else {
+                if(!credenciales.get_clave().equals(admin.get_clave())){
+                    return Response.status(Response.Status.UNAUTHORIZED).entity(new CustomResponse<>(false, "La contraseña es invalida")).build();
+                }
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>(false, "El administrador no existe")).build();
             }
-        }catch (JsonValidationException e){
-            _logger.error("Validation error: {}", e.getMessage());
-            throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Validation error: " + e.getMessage())
-                    .build());
-        }catch (AuthenticationException e){
-            _logger.error("Validation error: {}", e.getMessage());
-            throw new WebApplicationException(Response.status(Response.Status.FORBIDDEN)
-                    .entity("Validation error: " + e.getMessage())
-                    .build());
-        }catch (NotFoundException e){
-            _logger.error("Validation error: {}", e.getMessage());
-            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
-                    .entity("Validation error: " + e.getMessage())
-                    .build());
-        }catch (Exception e){
-            _logger.error("error {} authenticating user {}: {}", e.getMessage(), credentiales.get_alias(), e.getCause());
-            throw new WebApplicationException( Response.status( Response.Status.INTERNAL_SERVER_ERROR ).
-                    entity( e ).build() );
+        }catch (NotFoundException e) {
+            return Response.status(Response.Status.NOT_FOUND).entity(new CustomResponse<>(false, "El administrador no existe")).build();
+
+        }
+        catch(Exception e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno al validar " + e.getMessage())).build();
+        }
+        finally {
+            _logger.debug( "Dejando en AutenticacionService.autenticarAdministrador" );
+            if (command != null)
+                command.closeHandlerSession();
         }
     }
 
+    /**
+     * Autentica a un usuario utilizando las credenciales proporcionadas.
+     *
+     * @param credenciales Las credenciales de autenticación del usuario.
+     * @return Un objeto de tipo Response con el resultado de la autenticación.
+     */
     @POST
     @Path("/usuario")
-    public Response authenticateUsuario(CredencialesDto credenciales){
-        GetUsuarioByAliasCommand command;
-        //region Instrumentation DEBUG
-        _logger.debug( "Get in AutenticacionService.authenticate" );
-        //endregion
+    public Response autenticarUsuario(CredencialesDto credenciales){
+        GetUsuarioByAliasCommand command = null;
 
-        try {
+        _logger.debug( "Entrando en AutenticacionService.autenticarUsuario" );
+        try{
             Usuario usuario = new Usuario();
             usuario.set_alias(credenciales.get_alias());
             command = CommandFactory.createGetUsuarioByAliasCommand(usuario);
             command.execute();
-            Usuario foundUser = command.getReturnParam();
-            if(credenciales.get_clave().equals(foundUser.get_clave())){
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>(new ArrayList(),"La autenticacion se ha hecho correctamente")).build();
-            }else{
-                throw new AuthenticationException("Contraseña incorrecta");
+            Usuario user = command.getReturnParam();
+            if(LDAPUsuarioDto.autenticarUsuario(credenciales.get_alias(), credenciales.get_clave())){
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>(true, "El usuario ha ingresado correctamente")).build();
+            } else {
+                if(!credenciales.get_clave().equals(user.get_clave())){
+                    return Response.status(Response.Status.UNAUTHORIZED).entity(new CustomResponse<>(false, "La contraseña es invalida")).build();
+                }
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>(false, "El usuario no existe")).build();
             }
-        }catch (JsonValidationException e){
+        }catch (NotFoundException e) {
             _logger.error("Validation error: {}", e.getMessage());
-            throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Validation error: " + e.getMessage())
-                    .build());
-        }catch (AuthenticationException e){
-            _logger.error("Validation error: {}", e.getMessage());
-            throw new WebApplicationException(Response.status(Response.Status.FORBIDDEN)
-                    .entity("Validation error: " + e.getMessage())
-                    .build());
-        }catch (NotFoundException e){
-            _logger.error("Validation error: {}", e.getMessage());
-            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
-                    .entity("Validation error: " + e.getMessage())
-                    .build());
+            return Response.status(Response.Status.NOT_FOUND).entity(new CustomResponse<>(false, "El usuario no existe")).build();
         }
-        catch (Exception e){
-            _logger.error("error {} authenticating user {}: {}", e.getMessage(), credenciales.get_alias(), e.getCause());
-            throw new WebApplicationException( Response.status( Response.Status.INTERNAL_SERVER_ERROR ).
-                    entity( e ).build() );
+        catch(Exception e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno al validar " + e.getMessage())).build();
+        }
+        finally {
+            _logger.debug( "Dejando en AutenticacionService.autenticarUsuario" );
+            if (command != null)
+                command.closeHandlerSession();
         }
     }
+
 }
