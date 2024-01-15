@@ -1,9 +1,8 @@
 import com.ucab.cmcapp.implementation.AutenticacionService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import com.ucab.cmcapp.logic.dtos.utilities.CredencialesDto;
+import com.ucab.cmcapp.logic.dtos.extras.CredencialesDto;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.WebApplicationException;
 
 public class AutenticacionServiceTest {
 

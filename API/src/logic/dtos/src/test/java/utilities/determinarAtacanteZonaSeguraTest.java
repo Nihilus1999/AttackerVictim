@@ -1,10 +1,10 @@
 package utilities;
 
-import com.ucab.cmcapp.logic.dtos.utilities.AtacanteDentroZonaSeguraDto;
+import com.ucab.cmcapp.logic.dtos.extras.AtacanteDentroZonaSeguraDto;
 import com.ucab.cmcapp.logic.dtos.dtos.CoordenadaDto;
 import com.ucab.cmcapp.logic.dtos.dtos.Historico_UsuarioDto;
 import com.ucab.cmcapp.logic.dtos.dtos.Zona_SeguraDto;
-import com.ucab.cmcapp.logic.dtos.utilities.DeterminarAtacanteZonaSeguraDto;
+import com.ucab.cmcapp.logic.dtos.extras.DeterminarAtacanteZonaSeguraDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

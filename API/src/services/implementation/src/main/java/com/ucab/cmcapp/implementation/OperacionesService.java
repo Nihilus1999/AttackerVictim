@@ -10,9 +10,9 @@ import com.ucab.cmcapp.logic.commands.operaciones.GetPosicionVictimaByRelacionId
 import com.ucab.cmcapp.logic.commands.relacion_VA.composite.GetRelacionCommand;
 import com.ucab.cmcapp.logic.commands.zona_segura.atomic.GetZonaByVictimaIdCommand;
 import com.ucab.cmcapp.logic.dtos.dtos.*;
-import com.ucab.cmcapp.logic.dtos.utilities.AtacanteDentroZonaSeguraDto;
-import com.ucab.cmcapp.logic.dtos.utilities.CalcularDistanciaSeparacionDto;
-import com.ucab.cmcapp.logic.dtos.utilities.DeterminarAtacanteZonaSeguraDto;
+import com.ucab.cmcapp.logic.dtos.extras.AtacanteDentroZonaSeguraDto;
+import com.ucab.cmcapp.logic.dtos.extras.CalcularDistanciaSeparacionDto;
+import com.ucab.cmcapp.logic.dtos.extras.DeterminarAtacanteZonaSeguraDto;
 import com.ucab.cmcapp.logic.mappers.CoordenadaMapper;
 import com.ucab.cmcapp.logic.mappers.Historico_UsuarioMapper;
 import com.ucab.cmcapp.logic.mappers.Relacion_VAMapper;

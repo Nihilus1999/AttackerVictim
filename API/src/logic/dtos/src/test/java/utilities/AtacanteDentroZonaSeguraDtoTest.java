@@ -1,6 +1,6 @@
 package utilities;
 
-import com.ucab.cmcapp.logic.dtos.utilities.AtacanteDentroZonaSeguraDto;
+import com.ucab.cmcapp.logic.dtos.extras.AtacanteDentroZonaSeguraDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

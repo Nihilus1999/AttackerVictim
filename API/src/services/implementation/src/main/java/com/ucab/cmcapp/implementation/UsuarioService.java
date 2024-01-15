@@ -9,6 +9,7 @@ import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByCedulaCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByMacCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
 import com.ucab.cmcapp.logic.dtos.dtos.UsuarioDto;
+import com.ucab.cmcapp.logic.dtos.extras.LDAPUsuarioDto;
 import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -225,15 +226,23 @@ public class UsuarioService extends BaseService {
         Usuario entity;
         UsuarioDto responseDTO = null;
         CreateUsuarioCommand command = null;
+        LDAPUsuarioDto agregar = new LDAPUsuarioDto();
 
         try {
             entity = UsuarioMapper.mapDtoToEntity(usuarioDto);
             command = CommandFactory.createCreateUsuarioCommand(entity);
             command.execute();
             responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+
+
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
         } finally {
+
+            if (LDAPUsuarioDto.autenticarUsuario(usuarioDto.get_alias(), usuarioDto.get_clave()) == false){
+                agregar.agregarUsuario(usuarioDto.get_alias(), usuarioDto.get_clave());
+            }
+
             if (command != null)
                 command.closeHandlerSession();
         }
@@ -286,20 +295,48 @@ public class UsuarioService extends BaseService {
     public Response updateUsuario(UsuarioDto usuarioDto) {
         Usuario entity;
         UsuarioDto responseDTO = null;
-        UpdateUsuarioCommand command = null;
+        UsuarioDto ldap = null;
+        UpdateUsuarioCommand commandAct = null;
+        GetUsuarioCommand CommandObt = null;
+        LDAPUsuarioDto update = new LDAPUsuarioDto();
+
         try {
+
+            entity = UsuarioMapper.mapDtoToEntity(usuarioDto.getId());
+            CommandObt = CommandFactory.createGetUsuarioCommand(entity);
+            CommandObt.execute();
+
+            if (CommandObt.getReturnParam() != null) {
+                ldap = UsuarioMapper.mapEntityToDto(CommandObt.getReturnParam());
+            }
+            else {
+                return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("[GENERAL EXCEPTION] at method updateUser, user with id " + usuarioDto.getId() + " could not be found")).build();
+            }
+
             entity = UsuarioMapper.mapDtoToEntity(usuarioDto);
-            command = CommandFactory.createUpdateUsuarioCommand(entity);
-            command.execute();
-            if (command.getReturnParam() != null)
-                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            else
+            commandAct = CommandFactory.createUpdateUsuarioCommand(entity);
+            commandAct.execute();
+            if (commandAct.getReturnParam() != null) {
+                responseDTO = UsuarioMapper.mapEntityToDto(commandAct.getReturnParam());
+            }
+            else {
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo editar el ID: " + usuarioDto.getId()) + " debido a que no existe en la base de datos").build();
+            }
+
         } catch (Exception e) {
+
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar el usuario: " + e.getMessage())).build();
+
         } finally {
-            if (command != null)
-                command.closeHandlerSession();
+
+            if (LDAPUsuarioDto.autenticarUsuario(ldap.get_alias(), ldap.get_clave()) == true) {
+                update.actualizarClaveUsuario(ldap.get_alias(), usuarioDto.get_clave());
+            }
+
+            if (commandAct != null)
+                commandAct.closeHandlerSession();
+            if (CommandObt != null)
+                CommandObt.closeHandlerSession();
         }
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con el ID " + usuarioDto.getId() + " se actualizo correctamente")).build();
     }
