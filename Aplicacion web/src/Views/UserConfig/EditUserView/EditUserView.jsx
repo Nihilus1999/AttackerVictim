@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import UserModel from '../../../Models/UserModel';
-import './EditUserView.css';
 import { useParams, useNavigate } from 'react-router-dom';
 
 function EditUserView() {

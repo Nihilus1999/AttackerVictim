@@ -5,7 +5,6 @@ import Dashboard from './Views/Dashboard/Dashboard';
 import SegureZone from './Views/SegureZone/SegureZone';
 import Settings from './Views/Settings/Settings.jsx';
 import './Views/LoginView/LoginView.css';
-import './Views/UserConfig/GlobalCssUserConfig.css';
 import UserConfigView from './Views/UserConfig/UserConfigView/UserConfigView.jsx';
 import AddUserView from './Views/UserConfig/AddUserView/AddUserView.jsx';
 import ViewUserView from './Views/UserConfig/ViewUserView.jsx';

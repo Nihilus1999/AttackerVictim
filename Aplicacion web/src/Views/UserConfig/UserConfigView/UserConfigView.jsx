@@ -1,5 +1,4 @@
 import React from 'react';
-import './UserConfigView.css';
 import { useNavigate } from 'react-router-dom';
 
 function UserConfigView() {
