@@ -1,6 +1,6 @@
 import Url from '../config.js';
 export default class UserModel {
-    constructor(_nombre, _apellido, _alias, _cedula, _correo, _direccion_mac, _clave) {
+    constructor(_nombre, _apellido, _alias, _cedula, _correo, _direccion_mac, _clave, _tipo_usuario) {
         this._nombre = _nombre;
         this._apellido = _apellido;
         this._alias = _alias;
@@ -8,9 +8,12 @@ export default class UserModel {
         this._correo = _correo;
         this._direccion_mac = _direccion_mac;
         this._clave = _clave;
+        this._tipo_usuario = _tipo_usuario;
     }
 
     async addUser() {
+
+        delete this._tipo_usuario;
 
         try {
             const response = await fetch(Url() + '/usuario', {
@@ -36,6 +39,109 @@ export default class UserModel {
         }
     }
 
+    static async addVictima(id) {
+
+        const victim = {
+            "_usuario": {
+                "id": id
+            }
+        }
+
+        try {
+            const response = await fetch(Url() + '/victima', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(victim)
+
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+            data.success = true;
+            return data;
+        } catch (error) {
+            console.error('Error al añadir usuarioo:', error);
+        }
+    }
+
+    static async addAtacante(id) {
+
+        const atacante = {
+            "_usuario": {
+                "id": id
+            }
+        }
+
+        try {
+            const response = await fetch(Url() + '/atacante', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(atacante)
+
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+            data.success = true;
+            return data;
+        } catch (error) {
+            console.error('Error al añadir usuarioo:', error);
+        }
+    }
+
+    static async addRelacionVictimaAtacante(idVictima, idAtacante, distancia, idAtackTable, idVictimTable) {
+
+        const relacion = {
+            "_distancia": distancia,
+               "_usuario_victima": {
+                   "_usuario": {
+                       "id": idVictima
+                   },
+                   "id": idVictimTable
+               },
+               "_usuario_atacante": {
+                   "_usuario": {
+                       "id": idAtacante
+                   },
+                   "id": idAtackTable
+               }
+           }
+
+        try {
+            const response = await fetch(Url() + '/relacion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(relacion)
+
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+            data.success = true;
+            return data;
+        } catch (error) {
+            console.error('Error al añadir usuarioo:', error);
+        }
+    }
+
     static async getAllUsers() {
         try {
             const response = await fetch(Url() + '/usuario/todos');
@@ -57,6 +163,24 @@ export default class UserModel {
         console.log(Url() + '/usuario/' + userId);
         try {
             const response = await fetch(Url() + '/usuario/' + userId);
+
+            if (!response.ok) {
+                throw new Error(`Error en la solicitud HTTP: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log(data);
+            data.success = true;
+            return data;
+        } catch (error) {
+            console.error('Error al obtener los usuarios:', error);
+            //throw error;
+        }
+    }
+
+    static async getUserByNick(nick) {
+        console.log(Url() + '/usuario/alias/' + nick);
+        try {
+            const response = await fetch(Url() + '/usuario/alias/' + nick);
 
             if (!response.ok) {
                 throw new Error(`Error en la solicitud HTTP: ${response.status}`);

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserModel from '../../../Models/UserModel';
-import './EditUserView.css';
 import { useParams, useNavigate } from 'react-router-dom';
-import Navbar from '../../../Components/Navbar/Navbar';
-import Footer from '../../../Components/Footer/Footer';
 
 function EditUserView() {
   const [user, setUser] = useState({
@@ -49,7 +46,6 @@ function EditUserView() {
 
   return (
     <div>
-      <Navbar />
       <h2>Editar Usuario</h2>
         <form className='formEditUser' onSubmit={handleSubmit}>
         <input type="text" name="_nombre" value={user._nombre} onChange={handleInputChange} />
@@ -61,7 +57,6 @@ function EditUserView() {
         <input type="text" name="_clave" value={user._clave} onChange={handleInputChange} />
         <button type="submit">Guardar Cambios</button>
         </form>
-      <Footer />
     </div>
   );
 }
