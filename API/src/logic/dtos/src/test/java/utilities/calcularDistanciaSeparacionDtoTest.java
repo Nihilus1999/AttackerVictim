@@ -1,7 +1,7 @@
 package utilities;
 
 import com.ucab.cmcapp.logic.dtos.dtos.Historico_UsuarioDto;
-import com.ucab.cmcapp.logic.dtos.utilities.CalcularDistanciaSeparacionDto;
+import com.ucab.cmcapp.logic.dtos.extras.CalcularDistanciaSeparacionDto;
 import org.junit.Assert;
 import org.junit.Test;
 

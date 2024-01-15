@@ -9,7 +9,9 @@ import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.administrador.atomic.GetAdministradorByAliasCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByAliasCommand;
-import com.ucab.cmcapp.logic.dtos.utilities.CredencialesDto;
+import com.ucab.cmcapp.logic.dtos.extras.LDAPAdministradorDto;
+import com.ucab.cmcapp.logic.dtos.extras.CredencialesDto;
+import com.ucab.cmcapp.logic.dtos.extras.LDAPUsuarioDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +26,38 @@ import java.util.ArrayList;
 public class AutenticacionService extends BaseService{
 
     private static Logger _logger = LoggerFactory.getLogger( AutenticacionService.class );
+
+
+    @POST
+    @Path("/administradorLDAP")
+    public Response autenticarAdministrador(CredencialesDto credenciales){
+        try{
+            if(LDAPAdministradorDto.autenticarAdministrator(credenciales.get_alias(),credenciales.get_clave())){
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>(true, "El Administrador se ha logeado correctamente")).build();
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>(false, "El alias o la contraseña son incorrectos")).build();
+            }
+        }catch(Exception e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno en la ruta ID " + e.getMessage())).build();
+        }
+
+    }
+
+    @POST
+    @Path("/usuarioLDAP")
+    public Response autenticarUsuario(CredencialesDto credenciales){
+        try{
+            if(LDAPUsuarioDto.autenticarUsuario(credenciales.get_alias(), credenciales.get_clave())){
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>(true, "El Administrador se ha logeado correctamente")).build();
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>(false, "El alias o la contraseña son incorrectos")).build();
+            }
+        }catch(Exception e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno en la ruta ID " + e.getMessage())).build();
+        }
+
+    }
+
 
     @POST
     @Path("/administrador")

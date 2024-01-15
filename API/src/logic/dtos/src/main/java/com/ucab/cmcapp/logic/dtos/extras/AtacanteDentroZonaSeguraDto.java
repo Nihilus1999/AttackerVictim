@@ -1,4 +1,4 @@
-package com.ucab.cmcapp.logic.dtos.utilities;
+package com.ucab.cmcapp.logic.dtos.extras;
 
 import java.util.ArrayList;
 import java.util.List;
