@@ -120,5 +120,27 @@ public class LDAPUsuarioDto {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
+    public static void main(String[] args) {
+
+        boolean borrar = false;
+        boolean agregar = true;
+
+        try {
+            LDAPUsuarioDto app = new LDAPUsuarioDto();
+
+            if (agregar) {
+                app.agregarUsuario("lorasmar", "lorasmar");
+            }
+
+            if (borrar) {
+                app.eliminarUsuario("lorasmar");
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+    }
 }
 

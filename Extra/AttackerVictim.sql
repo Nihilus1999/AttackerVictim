@@ -49,27 +49,16 @@ VALUES ('Lonna', 0, 'Howe', 'lhowe8', 'V-32.523.477', 'lhowe8@hotmail.com', 'B7-
 
 
 /* NOTIFICACION */
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (1, 'Alerta 1', 'alerta', 1);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (2, 'Alerta 2', 'alerta', 2);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (3, 'Alerta 3', 'alerta', 3);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (4, 'Alerta 4', 'alerta', 4);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (5, 'Alerta 5', 'alerta', 5);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (6, 'Alerta 6', 'alerta', 6);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (7, 'Alerta 7', 'alerta', 7);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (8, 'Alerta 8', 'alerta', 8);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (9, 'Alerta 9', 'alerta', 9);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (10, 'Alerta 10', 'alerta', 10);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (11, 'SOS 1', 'SOS', 1);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (12, 'SOS 2', 'SOS', 2);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (13, 'SOS 3', 'SOS', 3);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (14, 'SOS 4', 'SOS', 4);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (15, 'SOS 5', 'SOS', 5);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (16, 'SOS 6', 'SOS', 6);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (17, 'SOS 7', 'SOS', 7);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (18, 'SOS 8', 'SOS', 8);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (19, 'SOS 9', 'SOS', 9);
-INSERT INTO notificacion (id, descripcion, tipo, id_usuario) VALUES (20, 'SOS 10', 'SOS', 10);
-
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (1, 'Alerta 1', 'alerta', 1, '2024-01-16 10:00:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (3, 'Alerta 3', 'alerta', 3, '2024-01-16 11:30:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (5, 'Alerta 5', 'alerta', 5, '2024-01-16 12:45:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (7, 'Alerta 7', 'alerta', 7, '2024-01-16 14:15:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (9, 'Alerta 9', 'alerta', 9, '2024-01-16 15:30:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (11, 'SOS 1', 'SOS', 1, '2024-01-16 16:45:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (13, 'SOS 3', 'SOS', 3, '2024-01-16 17:30:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (15, 'SOS 5', 'SOS', 5, '2024-01-16 18:15:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (17, 'SOS 7', 'SOS', 7, '2024-01-16 19:00:00');
+INSERT INTO notificacion (id, descripcion, tipo, id_usuario, fecha) VALUES (19, 'SOS 9', 'SOS', 9, '2024-01-16 20:30:00');
 
 
 /* USUARIO_VICTIMA */

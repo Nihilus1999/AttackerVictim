@@ -20,6 +20,7 @@ public class NotificacionMapper extends BaseMapper {
 
         entity.set_id(dto.getId());
         entity.set_tipo(dto.get_tipo());
+        entity.set_fecha(dto.get_fecha());
         entity.set_descripcion(dto.get_descripcion());
 
         if ( Objects.nonNull( dto.get_usuario() ) ) {
@@ -35,6 +36,7 @@ public class NotificacionMapper extends BaseMapper {
 
         dto.setId(entity.get_id());
         dto.set_tipo(entity.get_tipo());
+        dto.set_fecha(entity.get_fecha());
         dto.set_descripcion(entity.get_descripcion());
 
         if(Objects.nonNull(entity.get_usuario()))
@@ -58,6 +60,7 @@ public class NotificacionMapper extends BaseMapper {
             NotificacionDto = new NotificacionDto();
             NotificacionDto.setId(historicoUsuario.get_id());
             NotificacionDto.set_tipo(historicoUsuario.get_tipo());
+            NotificacionDto.set_fecha(historicoUsuario.get_fecha());
             NotificacionDto.set_descripcion(historicoUsuario.get_descripcion());
 
             if (Objects.nonNull(historicoUsuario.get_usuario()))
