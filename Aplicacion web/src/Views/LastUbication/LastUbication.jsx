@@ -29,6 +29,7 @@ export default function LastUbication() {
     const handleCaseClick = (caseId) => {
         navigate(`/casesLastUbication/${caseId}`);
     };
+    
 
     if (!cases){
         return (

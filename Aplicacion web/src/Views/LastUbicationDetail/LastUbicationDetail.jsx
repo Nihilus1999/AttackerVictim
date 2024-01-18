@@ -44,7 +44,6 @@ export default function LastUbicationDetail() {
         }
     };
 
-
     useEffect(() => {
         if (!authState.isAuthenticated) {
             navigate('/');
