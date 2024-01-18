@@ -26,7 +26,7 @@ function UserConfigView() {
                 </div>
             </div>
         </div>
-        );
+    );
 }
 
 export default UserConfigView;

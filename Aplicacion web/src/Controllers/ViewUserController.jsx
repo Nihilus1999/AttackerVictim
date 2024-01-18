@@ -37,6 +37,7 @@ function ViewUserController() {
             No hay casos
         </div>
     );
+    
   }
 
   return (

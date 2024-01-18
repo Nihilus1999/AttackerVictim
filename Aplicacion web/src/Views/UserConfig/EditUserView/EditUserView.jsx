@@ -108,7 +108,6 @@ function EditUserController() {
         } else {
           console.log("Error al editar usuario victima:", data);
         }
-        // navigate('/cases');
     } catch (error) {
       console.log(error);
         Swal.fire({
