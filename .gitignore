@@ -25,5 +25,7 @@
 *.rar
 
 ## APLICACION MOVIL
+/Movil - Victima/Aplicacion/node_modules/*
+/Movil - Atacante/Aplicacion2/node_modules/*
 
 ## APLICACION WEB
