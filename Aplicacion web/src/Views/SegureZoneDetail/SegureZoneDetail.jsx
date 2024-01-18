@@ -4,6 +4,9 @@ import SegureZoneModel from '../../Models/SegureZoneModel';
 import { useParams } from 'react-router-dom';
 import CaseModel from '../../Models/CaseModel';
 import Swal from 'sweetalert2';
+import { useAuth } from '../../AuthContext/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import './SegureZoneDetail.css';
 
 
 const SegureZone = () => {
@@ -14,6 +17,16 @@ const SegureZone = () => {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyAVCv2edVHkkor2XENUBSsamIXFgMFn8UM",
     });
+    const { authState } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!authState.isAuthenticated) {
+            navigate('/');
+            return;
+        }
+    }
+    , [authState.isAuthenticated, navigate]);
 
     useEffect(() => {
         const fetchZoneData = async () => {
@@ -45,9 +58,12 @@ const SegureZone = () => {
     height: "75vh",
     width: "100%"};
   
-  const defaultCenter = {
-    lat: 10.505046, lng: -66.899488
-  }
+  // const defaultCenter = {
+  //   lat: 10.505046, lng: -66.899488
+  // }
+
+  const defaultCenter = path.length > 0 ? { lat: path[0].lat, lng: path[0].lng } : { lat: 10.505046, lng: -66.899488 };
+
 
   const onMapClick = (e) => {
     setPath([...path, {lat: e.latLng.lat(), lng: e.latLng.lng()}]);
@@ -138,7 +154,7 @@ const SegureZone = () => {
 
   return (
     <>
-      <div className='divView'>
+      <div className='divView background'>
         <div className='divMap'>
           <GoogleMap
             mapContainerStyle={mapStyles}
@@ -163,10 +179,10 @@ const SegureZone = () => {
             )}
           </GoogleMap>
         </div>
-        <div>
-            <input type="text" name="nombreZona" placeholder="Nombre de la Zona" value={nombreZona} onChange={handleInputChange} />
-          <button onClick={clearPath}>Limpiar</button>
-          <button onClick={getPoinst}>Guardar</button>
+        <div className='inputs'>
+            <input className="form-control" type="text" name="nombreZona" placeholder="Nombre de la Zona" value={nombreZona} onChange={handleInputChange} />
+          <button className="btn btn-primary" onClick={clearPath}>Limpiar</button>
+          <button className="btn btn-primary" onClick={getPoinst}>Guardar</button>
         </div>
       </div>
     </>

@@ -1,46 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { useAuth } from '../../AuthContext/AuthContext';
 
 function Navbar() {
+    const { logout } = useAuth();
+    const user = JSON.parse(localStorage.getItem('isAuthenticated'));
+
   return (
     <>
       <nav className="navbar navbar-expand-lg" id='navbarMain'>
-          <div className="container-fluid">
-              <>
-                  <Link to={'/dashboard'} className="navbar-brand">
-                      AttackerVictim
-                  </Link>
-                  <div className="collapse navbar-collapse" id="navbarNav">
-                      <>
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link to={'/user-config'} className="nav-link">
-                                    Usuarios
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to={'/cases'} className="nav-link">
-                                    Zonas Seguras
-                                </Link>
-                            </li>
-                        </ul>
-                      </>
-                      <div className="nav-item dropdown">
-                          <button className='nav-link dropdown-toggle' type='button' data-bs-toggle="dropdown" aria-expanded="false">
-                              <i className="fa-solid fa-user" style={{marginRight: '6px'}}></i>
-                              <strong>Pedro</strong>
-                          </button>
-                          <ul className="dropdown-menu">
-                              <li><Link to={'/'} className="dropdown-item">Recetas personales</Link></li>
-                              <li><hr className="dropdown-divider"/></li>
-                              <li><button className='dropdown-item'>Cerrar Sesión</button></li>
-                          </ul>
-                      </div>
-                  </div>
-              </>
-          </div>
-      </nav>
+            <div className="container-fluid">
+                {user === null ? (
+                    <>
+                    <Link to ={'/'} className="navbar-brand">AttackVictim</Link>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <Link to={'/dashboard'} className="navbar-brand">
+                            AttackVictim
+                        </Link>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <ul className="navbar-nav">
+                                <li className="nav-item">
+                                    <Link to={'/user-config'} className="nav-link">
+                                        Usuarios
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to={'/cases'} className="nav-link">
+                                        Zonas Seguras
+                                    </Link>
+                                </li>
+                            </ul>
+                            <div className="nav-item dropdown">
+                                <button className='nav-link dropdown-toggle' type='button' data-bs-toggle="dropdown" aria-expanded="false"><i className="fa-solid fa-user" style={{marginRight: '6px'}}></i><strong>Usuario</strong></button>
+                                <ul className="dropdown-menu">
+                                    <li><button className='dropdown-item' onClick={logout}>Cerrar Sesión</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </>
+                )}
+            </div>
+        </nav>
     </>
     // <nav className="navbar">
     //   <Link to="/dashboard" className="nav-item">Home</Link>

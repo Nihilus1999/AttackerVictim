@@ -24,4 +24,29 @@ export default class NotificationModel {
             console.error('Hubo un problema con la petición fetch:', error);
         }
     }
+
+    static async getAllNotifications() {
+        try {
+            const response = await fetch(Url() + '/notificacion/todos', {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error en la red. Código de estado: ${response.status}`);
+            }
+
+            var data = await response.json();
+
+            if (data.response.length > 0) {
+                return data.response;
+            } else {
+                return null;
+            }
+
+        } catch (error) {
+            console.error('Hubo un problema con la petición fetch:', error);
+        }
+    
+    }
+
 }

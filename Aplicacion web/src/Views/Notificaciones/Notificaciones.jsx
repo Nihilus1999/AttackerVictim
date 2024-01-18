@@ -19,7 +19,14 @@ const NotificationComponent = () => {
                 if(response._tipo === 'Alerta 1'){
                     Swal.fire({
                         title: 'Alerta 1',
-                        text: 'El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' está en peligro',
+                        text: '¡El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' tiene al atacante muy cerca!',
+                        icon: 'warning',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }else if(response._tipo === 'Alerta SOS'){
+                    Swal.fire({
+                        title: 'AYUDA!',
+                        text: '¡El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' está en peligro!',
                         icon: 'warning',
                         confirmButtonText: 'Aceptar'
                     });

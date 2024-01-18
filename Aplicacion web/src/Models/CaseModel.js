@@ -1,6 +1,8 @@
 import Url from '../config.js';
 
 class CaseModel {
+
+
     static async getAllCases() {
         let response = await fetch(Url() + '/relacion/todos');
         let data = await response.json();
@@ -13,8 +15,43 @@ class CaseModel {
         return data;
     }
 
-    static async addSafeZone(caseId, safeZoneData) {
-        // Aquí iría la lógica para añadir una zona segura a un caso específico
+    static async updateCase(distancia, tiempo, idUsuarioVictima, idUsuarioAtacante, idVictima , idAtacante, idCaso) {
+
+        const datos = {
+            "_distancia": distancia,
+            "_tiempo": tiempo,
+               "_usuario_victima": {
+                   "_usuario": {
+                       "id": idUsuarioVictima
+                   },
+                   "id": idVictima
+               },
+               "_usuario_atacante": {
+                   "_usuario": {
+                       "id": idUsuarioAtacante
+                   },
+                   "id": idAtacante
+               },
+               "id": idCaso
+           }
+        console.log('DATOSSS: ', datos)
+
+        try {
+            const response = await fetch(Url() + '/relacion', {
+                method: 'PUT',
+                body: JSON.stringify(datos),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log(response);
+            const data = await response.json();
+            data.success = true;
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 
