@@ -24,6 +24,7 @@ function LoginView(props) {
                                 <label htmlFor="floatingInput">Alias</label>
                             </div>
                         </div>
+
                         <div className="col-8">
                             <div className="form-floating mb-3">
                                 <input 

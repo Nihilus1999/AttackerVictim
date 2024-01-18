@@ -28,6 +28,7 @@ export default class UserModel {
                 body: JSON.stringify(body)
 
             });
+            
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
