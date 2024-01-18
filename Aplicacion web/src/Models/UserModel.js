@@ -63,7 +63,6 @@ export default class UserModel {
             return data;
         } catch (error) {
             console.error('Error al actualizar usuario:', error);
-            //throw error;
         }
     }
 
