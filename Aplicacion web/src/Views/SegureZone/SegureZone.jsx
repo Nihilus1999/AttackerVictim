@@ -33,7 +33,8 @@ const SegureZone = () => {
   }
   const mapStyles = {        
     height: "75vh",
-    width: "100%"};
+    width: "100%"
+  };
   
   const defaultCenter = {
     lat: 10.505046, lng: -66.899488

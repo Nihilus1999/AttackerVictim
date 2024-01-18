@@ -186,7 +186,6 @@ const SegureZone = () => {
         </div>
       </div>
     </>
-    
   )
 }
 

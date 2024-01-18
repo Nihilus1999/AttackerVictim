@@ -35,6 +35,7 @@ function CasesController() {
                 No hay casos
             </div>
         );
+        
     }
 
     return (
