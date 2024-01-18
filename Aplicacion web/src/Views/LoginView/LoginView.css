@@ -5,6 +5,7 @@ html, body {
     width: 100%;
 }
 
+
 .background{
     background: linear-gradient(to bottom, #FFFFFF 0%, rgba(158, 171, 228, 0) 25%, rgba(158, 171, 228, 0) 75%, #FFFFFF 100%),
               radial-gradient(circle at top left, #9eabe4, rgba(158, 171, 228, 0) 60%),
