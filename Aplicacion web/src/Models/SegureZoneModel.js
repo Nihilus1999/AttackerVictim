@@ -29,7 +29,6 @@ export default class SegureZoneModel {
             return data;
         } catch (error) {
             console.error('Error al eliminar punto de zona segura:', error);
-            //throw error;
         }
     }
 

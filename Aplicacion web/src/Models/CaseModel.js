@@ -34,7 +34,6 @@ class CaseModel {
                },
                "id": idCaso
            }
-        console.log('DATOSSS: ', datos)
 
         try {
             const response = await fetch(Url() + '/relacion', {
