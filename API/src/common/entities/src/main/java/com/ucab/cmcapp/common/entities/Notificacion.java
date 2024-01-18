@@ -1,6 +1,7 @@
 package com.ucab.cmcapp.common.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "notificacion")
@@ -10,6 +11,9 @@ public class Notificacion {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long _id;
+
+    @Column(name = "fecha", nullable = false)
+    private Date _fecha;
 
     @Column(name = "tipo", nullable = false)
     private String _tipo;
@@ -27,6 +31,7 @@ public class Notificacion {
 
     public Notificacion(Notificacion notificacion) {
         _tipo = notificacion._tipo;
+        _fecha = notificacion._fecha;
         _descripcion = notificacion._descripcion;
     }
 
@@ -48,6 +53,14 @@ public class Notificacion {
 
     public void set_tipo(String _tipo) {
         this._tipo = _tipo;
+    }
+
+    public Date get_fecha() {
+        return _fecha;
+    }
+
+    public void set_fecha(Date _fecha) {
+        this._fecha = _fecha;
     }
 
     public String get_descripcion() {

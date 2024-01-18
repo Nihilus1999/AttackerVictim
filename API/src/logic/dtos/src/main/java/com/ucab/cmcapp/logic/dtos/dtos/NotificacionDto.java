@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class NotificacionDto extends BaseDto {
 
+    private Date _fecha;
     private String _tipo;
     private String _descripcion;
     private UsuarioDto _usuario;
@@ -24,6 +25,14 @@ public class NotificacionDto extends BaseDto {
 
     public void set_tipo(String _tipo) {
         this._tipo = _tipo;
+    }
+
+    public Date get_fecha() {
+        return _fecha;
+    }
+
+    public void set_fecha(Date _fecha) {
+        this._fecha = _fecha;
     }
 
     public String get_descripcion() {
