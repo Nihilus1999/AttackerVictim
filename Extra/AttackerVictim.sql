@@ -101,8 +101,8 @@ INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('UCAB', 1);
 INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('SAMBIL',1);
 INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('LA CASONA', 2);
 INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('LA CASCADA',2);
-INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('EL LIDER', 3);
-INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('MILLENIUM',3);
+INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('MILLENIUM', 3);
+INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('EL LIDER',3);
 INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('PARQUE ALI PRIMERA', 4);
 INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('PARQUE DEL ESTE',4);
 INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('UNIVERSIDAD METROPOLITANA', 5);
@@ -114,14 +114,10 @@ INSERT INTO zona_segura (nombre, id_usuario_victima) VALUES ('SAN IGNACIO',5);
 /* COORDENADAS */
 
 /* UCAB */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.464380, -66.978726,1);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.465496, -66.977413, 1);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.465927, -66.975895, 1);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.465469, -66.973420, 1);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.464810, -66.973215, 1);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.463035, -66.976306, 1);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.460823, -66.976544, 1);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.460653, -66.977628, 1);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.460793023590535, -66.97779504190349,1);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.464421200826697, -66.97868424289443, 1);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.466183070178195, -66.97653423452383, 1);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.465256458670405, -66.97311014712578, 1);
 
 /* SAMBIL */
 INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.490409041196195, -66.85496445411185,2);
@@ -130,57 +126,57 @@ INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.488653496
 INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.488403205020544, -66.85502749379523,2);
 
 /* LA CASONA */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.369366115403032, -66.98463074895947,3);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.369324412448393, -66.98365065841095,3);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.369619823521647, -66.98374670541246,3);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.368967456153198, -66.98447828439839,3);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.368446904529222, -66.98468777149372,3);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.369408132297579, -66.98505533685581,3);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.370616276774065, -66.98115555801992,3);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.369372857936256, -66.98068937756138,3);
 
 /* LA CASCADA */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.355394165914714, -67.00305103211083,4);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.355113163369834, -67.00253873020452,4);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.354590735433986, -67.00356333401719,4);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.354400761423328, -67.00315563825927,4);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.352843102258763, -67.00435111953126,4);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.353575911221645, -67.00484774460419,4);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.3558828912199, -67.00272329290334,4);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.35521793990262, -67.00075058775256,4);
 
-/* EL LIDER */
+/* MILLENIUM */
 INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.49564931412395, -66.83378426968065,5);
 INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.49545864521016, -66.83236517714514,5);
 INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.49464396761806, -66.83240924834189,5);
 
-/* MILLENIUM */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.48572374873185, -66.82175947804225,6);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.484979032045441, -66.820569335339,6);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.486953118389607, -66.82129063394703,6);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.486728522374337, -66.82011251288723,6);
+/* EL LIDER */
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.485713139989572, -66.8217702343553,6);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.486525463336918, -66.82137326743312,6);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.486187874672202, -66.82024673968095,6);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.484879715119172, -66.82046131639564,6);
 
 /* PARQUE ALI PRIMERA */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.516028801013462, -66.94159364224325,7);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.514769885535909, -66.93806278996723,7);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.51246186049311, -66.93812099082892,7);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.514483767665878, -66.94182644569003,7);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.514386191022991, -66.94181025732321,7);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.516031782160177, -66.94164932478719,7);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.514671005501436, -66.93771184207252,7);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.512244799678239, -66.93731487515034,7);
 
 /* PARQUE DEL ESTE */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.496659604820438, -66.84305498171973,8);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.494857233062335, -66.83550394524482,8);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.489207940081359, -66.84239836986562,8);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.488293282948558, -66.83793888093297,8);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.488777967133991, -66.84275573022678,8);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.496679575901187, -66.84323876765083,8);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.495060410218992, -66.83522473766088,8);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.488087106501384, -66.83774970601387,8);
 
 /* UNIVERSIDAD METROPOLITANA */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.498666358592782, -66.79835929281191,9);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.496548406512861, -66.78335227123425,9);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.501575609775246, -66.78541159438448,9);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.502622933498136, -66.79727045528419,9);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.498477914926964, -66.79893801423567,9);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.502791259564077, -66.79956162952514,9);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.502093516721988, -66.78117573020698,9);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.496765246692412, -66.780917682501,9);
 
 /* RESIDENCIA EL CAFETAL */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.474157116094633, -66.8509611841993,10);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.470500251806412, -66.8532389588693,10);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.472879723198247, -66.8540005376148,10);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.477087585785457, -66.84179151772653,10);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.468183982993427, -66.85285865983369,10);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.476187354340173, -66.85206563496126,10);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.478567804400095, -66.84405190993466,10);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.471262227195801, -66.83875116473477,10);
 
 /* SAN IGNACIO */
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.49838325431059, -66.85772633534465,11);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.49837730379655, -66.85548664358359,11);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.497945016324731, -66.85548337089182,11);
-INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.497500915716433, -66.85728260833602,11);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.497296716468417, -66.85744735573402,11);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.498056263172739, -66.85768339012019,11);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.498478232757808, -66.85552689413748,11);
+INSERT INTO coordenadas (latitud, longitud, id_zona_segura) VALUES (10.4977292363482, -66.85534450393,11);
 
 
 /* HISTORICO_USUARIO */
