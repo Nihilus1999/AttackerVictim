@@ -12,9 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Clase que proporciona métodos estáticos para mapear entre objetos Notificacion y NotificacionDto.
+ */
 public class NotificacionMapper extends BaseMapper {
     private static Logger _logger = LoggerFactory.getLogger(NotificacionMapper.class);
 
+    /**
+     * Convierte un objeto NotificacionDto en un objeto Notificacion.
+     *
+     * @param dto el objeto NotificacionDto a convertir.
+     * @return el objeto Notificacion resultante.
+     * @throws ParseException si se produce un error durante el análisis.
+     */
     public static Notificacion mapDtoToEntity(NotificacionDto dto) throws ParseException {
         Notificacion entity = EntityFactory.createNotificacion();
 
@@ -23,61 +33,81 @@ public class NotificacionMapper extends BaseMapper {
         entity.set_fecha(dto.get_fecha());
         entity.set_descripcion(dto.get_descripcion());
 
-        if ( Objects.nonNull( dto.get_usuario() ) ) {
-            entity.set_usuario( UsuarioMapper.mapDtoToEntity( dto.get_usuario() ) );
+        if (Objects.nonNull(dto.get_usuario())) {
+            entity.set_usuario(UsuarioMapper.mapDtoToEntity(dto.get_usuario()));
         }
 
         return entity;
     }
 
+    /**
+     * Convierte un objeto Notificacion en un objeto NotificacionDto.
+     *
+     * @param entity el objeto Notificacion a convertir.
+     * @return el objeto NotificacionDto resultante.
+     */
     public static NotificacionDto mapEntityToDto(Notificacion entity) {
         final NotificacionDto dto = new NotificacionDto();
-
 
         dto.setId(entity.get_id());
         dto.set_tipo(entity.get_tipo());
         dto.set_fecha(entity.get_fecha());
         dto.set_descripcion(entity.get_descripcion());
 
-        if(Objects.nonNull(entity.get_usuario()))
-            dto.set_usuario( UsuarioMapper.mapEntityToDto( entity.get_usuario()));
+        if (Objects.nonNull(entity.get_usuario()))
+            dto.set_usuario(UsuarioMapper.mapEntityToDto(entity.get_usuario()));
 
         return dto;
     }
 
+    /**
+     * Convierte un objeto NotificacionDto en un objeto Notificacion con el ID especificado.
+     *
+     * @param id el ID de la notificación.
+     * @return el objeto Notificacion resultante con el ID especificado.
+     */
     public static Notificacion mapDtoToEntity(long id) {
         Notificacion entity = EntityFactory.createNotificacion(id);
         entity.set_id(id);
         return entity;
     }
 
-    public static List<NotificacionDto> mapEntityListToDtoList(List<Notificacion> entityList){
-        List<NotificacionDto> dtoList = new ArrayList<NotificacionDto>();
-        NotificacionDto NotificacionDto;
+    /**
+     * Convierte una lista de objetos Notificacion en una lista de objetos NotificacionDto.
+     *
+     * @param entityList la lista de objetos Notificacion.
+     * @return la lista de objetos NotificacionDto resultante.
+     */
+    public static List<NotificacionDto> mapEntityListToDtoList(List<Notificacion> entityList) {
+        List<NotificacionDto> dtoList = new ArrayList<>();
+        NotificacionDto notificacionDto;
 
-        for (Notificacion historicoUsuario : entityList) {
+        for (Notificacion notificacion : entityList) {
+            notificacionDto = new NotificacionDto();
+            notificacionDto.setId(notificacion.get_id());
+            notificacionDto.set_tipo(notificacion.get_tipo());
+            notificacionDto.set_fecha(notificacion.get_fecha());
+            notificacionDto.set_descripcion(notificacion.get_descripcion());
 
-            NotificacionDto = new NotificacionDto();
-            NotificacionDto.setId(historicoUsuario.get_id());
-            NotificacionDto.set_tipo(historicoUsuario.get_tipo());
-            NotificacionDto.set_fecha(historicoUsuario.get_fecha());
-            NotificacionDto.set_descripcion(historicoUsuario.get_descripcion());
+            if (Objects.nonNull(notificacion.get_usuario()))
+                notificacionDto.set_usuario(UsuarioMapper.mapEntityToDto(notificacion.get_usuario()));
 
-            if (Objects.nonNull(historicoUsuario.get_usuario()))
-                NotificacionDto.set_usuario(UsuarioMapper.mapEntityToDto(historicoUsuario.get_usuario()));
-
-            dtoList.add(NotificacionDto);
-
+            dtoList.add(notificacionDto);
         }
 
         return dtoList;
     }
 
-    public static Notificacion mapDtoToEntityUsuarioId(long usuarioId){
+    /**
+     * Crea un objeto Notificacion con el ID de un Usuario.
+     *
+     * @param usuarioId el ID del Usuario.
+     * @return el objeto Notificacion resultante con el Usuario asociado.
+     */
+    public static Notificacion mapDtoToEntityUsuarioId(long usuarioId) {
         Usuario usuario = new Usuario(usuarioId);
-        Notificacion historico = EntityFactory.createNotificacion();
-        historico.set_usuario(usuario);
-        return historico;
+        Notificacion notificacion = EntityFactory.createNotificacion();
+        notificacion.set_usuario(usuario);
+        return notificacion;
     }
-
 }

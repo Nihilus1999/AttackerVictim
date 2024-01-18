@@ -20,6 +20,12 @@ import java.util.List;
 public class AtacanteService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(AtacanteService.class);
 
+    /**
+     * Obtiene un atacante por su ID.
+     *
+     * @param atacanteId el ID del atacante a obtener.
+     * @return una respuesta HTTP con el atacante obtenido o un mensaje de error si no existe.
+     */
     @GET
     @Path("/{id}")
     public Response getAtacante(@PathParam("id") long atacanteId) {
@@ -46,10 +52,15 @@ public class AtacanteService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + atacanteId + " del atacante ha sido encontrado correctamente")).build();
     }
 
+    /**
+     * Obtiene todos los atacantes.
+     *
+     * @return una respuesta HTTP con la lista de atacantes o un mensaje de error si la base de datos está vacía.
+     */
     @GET
     @Path("/todos")
     public Response getAllAtacante() {
-        List <Usuario_AtacanteDto> responseDTO = null;
+        List<Usuario_AtacanteDto> responseDTO = null;
         GetAllAtacanteCommand command = null;
 
         try {
@@ -58,7 +69,7 @@ public class AtacanteService extends BaseService {
             responseDTO = Usuario_AtacanteMapper.mapEntityListToDtoList(command.getReturnParam());
 
             if (responseDTO.size() == 0) {
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia ")).build();
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos está vacía ")).build();
             }
 
         } catch (Exception e) {
@@ -71,6 +82,12 @@ public class AtacanteService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos los atacantes se han obtenido correctamente")).build();
     }
 
+    /**
+     * Agrega un atacante.
+     *
+     * @param atacanteDto el DTO del atacante a agregar.
+     * @return una respuesta HTTP con el atacante agregado o un mensaje de error si ocurre algún problema.
+     */
     @POST
     public Response addAtacante(Usuario_AtacanteDto atacanteDto) {
         Usuario_Atacante entity;
@@ -89,9 +106,15 @@ public class AtacanteService extends BaseService {
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El atacante ha sido creado correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO,"El atacante ha sido creado correctamente")).build();
     }
 
+    /**
+     * Elimina un atacante por su ID.
+     *
+     * @param atacanteId el ID del atacante a eliminar.
+     * @return una respuesta HTTP con el atacante eliminado o un mensaje de error si no existe.
+     */
     @DELETE
     @Path("/{id}")
     public Response deleteAtacante(@PathParam("id") long atacanteId) {
@@ -120,6 +143,12 @@ public class AtacanteService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El atacante ha sido eliminado correctamente")).build();
     }
 
+    /**
+     * Actualiza un atacante.
+     *
+     * @param atacanteDto el DTO del atacante a actualizar.
+     * @return una respuesta HTTP con el atacante actualizado o un mensaje de error si ocurre algún problema.
+     */
     @PUT
     public Response updateAtacante(Usuario_AtacanteDto atacanteDto) {
         Usuario_Atacante entity;
@@ -139,6 +168,6 @@ public class AtacanteService extends BaseService {
             if (command != null)
                 command.closeHandlerSession();
         }
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El atacante con el ID " + atacanteDto.getId() + " se actualizo correctamente")).build();
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El atacante con el ID " + atacanteDto.getId() + " se actualizó correctamente")).build();
     }
 }
