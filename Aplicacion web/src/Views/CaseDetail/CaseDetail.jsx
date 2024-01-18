@@ -58,7 +58,7 @@ function CaseDetail() {
                         <div className="card-body">
                             <h5 className="card-title">{safeZone._nombre}</h5>
                             <p className="card-text">
-                                {/* Aquí puedes añadir más detalles de la zona segura */}
+                                {/* Aquí se pueden añadir mas detalles */}
                             </p>
                         </div>
                     </div>
