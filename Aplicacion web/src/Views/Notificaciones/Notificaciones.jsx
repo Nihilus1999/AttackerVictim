@@ -47,6 +47,7 @@ const NotificationComponent = () => {
     }, []);
 
     return <></>;
+    
 };
 
 export default NotificationComponent;

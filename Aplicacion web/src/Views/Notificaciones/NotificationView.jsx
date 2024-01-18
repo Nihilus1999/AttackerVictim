@@ -78,5 +78,4 @@ export default function Notification() {
             </div>
         </div>
     );
-    
 }
