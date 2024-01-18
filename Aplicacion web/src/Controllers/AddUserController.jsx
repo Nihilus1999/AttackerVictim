@@ -7,6 +7,7 @@ function AddUserController() {
     const [user, setUser] = useState(new UserModel('', '', '', '', '', '', '', ''));
     const [user2, setUser2] = useState(new UserModel('', '', '', '', '', '', '', ''));
     const [distancia, setDistancia] = useState('');
+    const [tiempo, setTiempo] = useState('');
 
     const handleInputChange = (event) => {
       setUser(prevUser => {
@@ -44,7 +45,10 @@ function AddUserController() {
 
     const handleInputChange3 = (event) => {
       setDistancia(event.target.value);
-      console.log(distancia);
+    };
+
+    const handleInputChange4 = (event) => {
+      setTiempo(event.target.value);
     };
 
     const handleSubmit = async (event) => {
@@ -117,7 +121,7 @@ function AddUserController() {
           }
 
           //AÑADIR RELACION CON DISTANCIA
-          const data3 = await UserModel.addRelacionVictimaAtacante(idVictim, idAtack, distancia, idAtackTable, idVictimTable);
+          const data3 = await UserModel.addRelacionVictimaAtacante(idVictim, idAtack, distancia, idAtackTable, idVictimTable, tiempo);
 
           if(data3.success) {
             Swal.fire({
@@ -140,43 +144,45 @@ function AddUserController() {
             text: 'Ocurrio un error al registrar el caso',
             icon: 'error',
             confirmButtonText: 'Seguir'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.location.href = '/dashboard';
-            }
-          });
+          })
         }
     };
 
     return (
       <div className='background'>
         <form onSubmit={handleSubmit} className='formulario'>
-          <div className='colVictim'>
-            <h1>Datos de Victima</h1>
-            <input type="text" name="_nombre" placeholder='Nombres' value={user._nombre} onChange={handleInputChange} />
-            <input type="text" name="_apellido" placeholder='Apellidos' value={user._apellido} onChange={handleInputChange} />
-            <input type="text" name="_alias" placeholder='Username' value={user._alias} onChange={handleInputChange} />
-            <input type="text" name="_cedula" placeholder='Cedula' value={user._cedula} onChange={handleInputChange} />
-            <input type="text" name="_correo" placeholder='Correo' value={user._correo} onChange={handleInputChange} />
-            <input type="text" name="_direccion_mac" placeholder='MAC' value={user._direccion_mac} onChange={handleInputChange} />
-            <input type="password" name="_clave" placeholder='Contraseña' value={user._clave} onChange={handleInputChange} />
+          <div className='background2'>
+            <div className='row colBackground'>
+              <h1>Datos de Victima</h1>
+              <input className="form-control" type="text" name="_nombre" placeholder='Nombres' value={user._nombre} onChange={handleInputChange} />
+              <input className="form-control" type="text" name="_apellido" placeholder='Apellidos' value={user._apellido} onChange={handleInputChange} />
+              <input className="form-control" type="text" name="_alias" placeholder='Username' value={user._alias} onChange={handleInputChange} />
+              <input className="form-control" type="text" name="_cedula" placeholder='Cedula' value={user._cedula} onChange={handleInputChange} />
+              <input className="form-control" type="text" name="_correo" placeholder='Correo' value={user._correo} onChange={handleInputChange} />
+              <input className="form-control" type="text" name="_direccion_mac" placeholder='MAC' value={user._direccion_mac} onChange={handleInputChange} />
+              <input className="form-control" type="password" name="_clave" placeholder='Contraseña' value={user._clave} onChange={handleInputChange} />
+            </div>
+            <div className='row colBackground'>
+              <h1>Datos de Atacante</h1>
+              <input className="form-control" type="text" name="_nombre" placeholder='Nombres' value={user2._nombre} onChange={handleInputChange2} />
+              <input className="form-control" type="text" name="_apellido" placeholder='Apellidos' value={user2._apellido} onChange={handleInputChange2} />
+              <input className="form-control" type="text" name="_alias" placeholder='Username' value={user2._alias} onChange={handleInputChange2} />
+              <input className="form-control" type="text" name="_cedula" placeholder='Cedula' value={user2._cedula} onChange={handleInputChange2} />
+              <input className="form-control" type="text" name="_correo" placeholder='Correo' value={user2._correo} onChange={handleInputChange2} />
+              <input className="form-control" type="text" name="_direccion_mac" placeholder='MAC' value={user2._direccion_mac} onChange={handleInputChange2} />
+              <input className="form-control" type="password" name="_clave" placeholder='Contraseña' value={user2._clave} onChange={handleInputChange2} />
+            </div>
+            <div className='row colBackground'>
+              <h1>Distancia máxima de acercamiento</h1>
+              <input className="form-control" type="number" name="_distancia" placeholder='Distancia' value={distancia} onChange={handleInputChange3} />
+            </div>
+            <div className='row colBackground'>
+              <h1>Tiempo de Control</h1>
+              <input className="form-control" type="number" name="_tiempo" placeholder='Tiempo' value={tiempo} onChange={handleInputChange4} />
+            </div>
+          
+            <button className='btn btn-primary' type="submit">Añadir Usuario</button>
           </div>
-          <div className='colAtack'>
-            <h1>Datos de Atacante</h1>
-            <input type="text" name="_nombre" placeholder='Nombres' value={user2._nombre} onChange={handleInputChange2} />
-            <input type="text" name="_apellido" placeholder='Apellidos' value={user2._apellido} onChange={handleInputChange2} />
-            <input type="text" name="_alias" placeholder='Username' value={user2._alias} onChange={handleInputChange2} />
-            <input type="text" name="_cedula" placeholder='Cedula' value={user2._cedula} onChange={handleInputChange2} />
-            <input type="text" name="_correo" placeholder='Correo' value={user2._correo} onChange={handleInputChange2} />
-            <input type="text" name="_direccion_mac" placeholder='MAC' value={user2._direccion_mac} onChange={handleInputChange2} />
-            <input type="password" name="_clave" placeholder='Contraseña' value={user2._clave} onChange={handleInputChange2} />
-          </div>
-          <div className='colDistancia'>
-            <h1>Distancia máxima de acercamiento</h1>
-            <input type="number" name="_distancia" placeholder='Distancia' value={distancia} onChange={handleInputChange3} />
-          </div>
-        
-        <button type="submit">Añadir Usuario</button>
         </form>
       </div>
     );

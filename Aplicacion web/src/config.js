@@ -1,3 +1,3 @@
 export default function Url() {
-    return 'http://localhost:8080/cmcapp-backend-1.0/api';
+    return 'https://falling-night-44804.pktriot.net/cmcapp-backend-1.0/api';
 }

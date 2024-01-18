@@ -3,11 +3,21 @@ import SafeZoneModel from '../../Models/SegureZoneModel';
 import CaseModel from '../../Models/CaseModel';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext/AuthContext';
 
 function CaseDetail() {
     const [safeZones, setSafeZones] = useState([]);
     const { caseId } = useParams();
     const navigate = useNavigate();
+    const { authState } = useAuth();
+
+    useEffect(() => {
+        if (!authState.isAuthenticated) {
+            navigate('/');
+            return;
+        }
+    }
+    , [authState.isAuthenticated, navigate]);
 
     useEffect(() => {
         const fetchSafeZones = async () => {
@@ -41,7 +51,7 @@ function CaseDetail() {
     }
 
     return (
-        <div>
+        <div className='background'>
             {safeZones.map(safeZone => (
                 <div key={safeZone.id} className="safe-zone-card" onClick={() => handleCaseClick(safeZone.id)}>
                     <div className="card">
@@ -54,7 +64,7 @@ function CaseDetail() {
                     </div>
                 </div>
             ))}
-            <button className='btn btn-success' onClick={() => handleAddZone()}>Añadir Zona Segura</button>
+            <button className='btn btn-primary' onClick={() => handleAddZone()}>Añadir Zona Segura</button>
         </div>
     );
 }

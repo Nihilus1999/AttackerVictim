@@ -39,6 +39,34 @@ export default class UserModel {
         }
     }
 
+    async updateUser(){
+
+        delete this._tipo_usuario;
+
+        try {
+            const response = await fetch(Url() + '/usuario', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this)
+
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+            data.success = true;
+            return data;
+        } catch (error) {
+            console.error('Error al actualizar usuario:', error);
+            //throw error;
+        }
+    }
+
     static async addVictima(id) {
 
         const victim = {
@@ -101,10 +129,11 @@ export default class UserModel {
         }
     }
 
-    static async addRelacionVictimaAtacante(idVictima, idAtacante, distancia, idAtackTable, idVictimTable) {
+    static async addRelacionVictimaAtacante(idVictima, idAtacante, distancia, idAtackTable, idVictimTable, tiempo) {
 
         const relacion = {
             "_distancia": distancia,
+            "_tiempo": tiempo,
                "_usuario_victima": {
                    "_usuario": {
                        "id": idVictima
@@ -117,7 +146,7 @@ export default class UserModel {
                    },
                    "id": idAtackTable
                }
-           }
+        }
 
         try {
             const response = await fetch(Url() + '/relacion', {
@@ -221,30 +250,6 @@ export default class UserModel {
                 console.error('Error al actualizar el usuario:', error);
                 // Manejar el error
             }
-        }
-    }
-
-    static async updateUser(userId, userData) {
-        console.log('entro al update: ', userData);
-        try {
-            const response = await fetch(Url() + `/usuario `, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userData)
-            });
-
-            if (!response.ok) {
-                throw new Error(`
-                        Error: $ { response.status }
-                        `);
-            }
-
-            return await response.json();
-        } catch (error) {
-            console.error('Error al actualizar el usuario:', error);
-            throw error;
         }
     }
 }

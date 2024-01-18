@@ -26,3 +26,13 @@
     justify-content: center;
     gap: 5px;
 }
+
+.background {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardBackground{
+    display: flex;
+    flex-wrap: wrap;
+}

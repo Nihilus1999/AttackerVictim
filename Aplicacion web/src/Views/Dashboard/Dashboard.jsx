@@ -4,21 +4,28 @@ import userImage from '../../Images/usuarios.png';
 import distanciaImage from '../../Images/distancia2.png';
 import intervalosImage from '../../Images/intervalos.png';
 import zonaSeguraImage from '../../Images/zona_segura.png';
+import { useEffect } from 'react';
 import './Dashboard.css';
+import { useAuth } from '../../AuthContext/AuthContext';
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+    const { authState } = useAuth();
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        if (!authState.isAuthenticated) {
+            navigate('/');
+            return;
+        }
+    }, [authState.isAuthenticated, navigate])
 
     return (
-        <div>
-        
-            <div className="dashboard">
-            <div className="bg"></div>
-            <div className="bg bg2"></div>
-            <div className="bg bg3"></div>
-                <Card imageSrc={userImage} buttonText="Usuarios" navigateTo="/user-config" />
-                <Card imageSrc={zonaSeguraImage} buttonText="Zonas seguras" navigateTo="/cases" />
-            </div>
-            
+        <div className='backgroundDashboard'>
+            <Card imageSrc={userImage} buttonText="Usuarios" navigateTo="/user-config" />
+            <Card imageSrc={zonaSeguraImage} buttonText="Zonas seguras" navigateTo="/cases" />
+            <Card imageSrc={intervalosImage} buttonText="Notificaciones" navigateTo="/notification" />
+            <Card imageSrc={distanciaImage} buttonText="Ultima ubicación" navigateTo="/casesLastUbication" />
         </div>
     );
 }

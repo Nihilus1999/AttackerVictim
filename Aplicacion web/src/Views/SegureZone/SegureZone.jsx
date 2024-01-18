@@ -5,16 +5,28 @@ import SegureZoneModel from '../../Models/SegureZoneModel';
 import { useParams } from 'react-router-dom';
 import CaseModel from '../../Models/CaseModel';
 import Swal from 'sweetalert2';
+import { useEffect } from 'react';
+import { useAuth } from '../../AuthContext/AuthContext';
+import { useNavigate } from "react-router-dom";
+
 
 const SegureZone = () => {
   const { caseId } = useParams();
   const [path, setPath] = useState([]);
   const [key, setKey] = useState(0);
-  //const [segureZone, setSegureZone] = useState(new SegureZoneModel('', ''));
   const [nombreZona, setNombreZona] = useState('');
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyAVCv2edVHkkor2XENUBSsamIXFgMFn8UM",
   });
+  const { authState } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!authState.isAuthenticated) {
+        navigate('/');
+        return;
+    }
+  }, [authState.isAuthenticated, navigate])
 
   const handleInputChange = (event) => {
     setNombreZona(event.target.value);
@@ -110,7 +122,7 @@ const SegureZone = () => {
 
   return (
     <>
-      <div className='divView'>
+      <div className='background divView'>
         <div className='divMap'>
           <GoogleMap
             mapContainerStyle={mapStyles}
@@ -135,10 +147,10 @@ const SegureZone = () => {
             )}
           </GoogleMap>
         </div>
-        <div>
-          <input type="text" name="nombreZona" placeholder="Nombre de la Zona" value={nombreZona} onChange={handleInputChange} />
-          <button onClick={clearPath}>Limpiar</button>
-          <button onClick={getPoinst}>Guardar</button>
+        <div className='inputs'>
+        <input className="form-control" type="text" name="nombreZona" placeholder="Nombre de la Zona" value={nombreZona} onChange={handleInputChange} />
+          <button className="btn btn-primary" onClick={clearPath}>Limpiar</button>
+          <button className="btn btn-primary" onClick={getPoinst}>Guardar</button>
         </div>
       </div>
     </>

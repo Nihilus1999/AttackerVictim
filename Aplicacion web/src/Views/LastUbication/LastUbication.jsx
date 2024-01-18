@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import CaseModel from '../Models/CaseModel';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../AuthContext/AuthContext';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useAuth } from '../../AuthContext/AuthContext';
+import { useNavigate } from "react-router-dom";
+import CaseModel from '../../Models/CaseModel';
 
-function CasesController() {
-    const [cases, setCases] = useState([]);
-    const navigate = useNavigate();
+export default function LastUbication() {
+
     const { authState } = useAuth();
+    const navigate = useNavigate();
+    const [cases, setCases] = useState([]);
 
     useEffect(() => {
         if (!authState.isAuthenticated) {
             navigate('/');
             return;
         }
-    }
-    , [authState.isAuthenticated, navigate]);
+    }, [authState.isAuthenticated, navigate]);
 
     useEffect(() => {
         const fetchCases = async () => {
@@ -26,7 +27,7 @@ function CasesController() {
     }, []);
 
     const handleCaseClick = (caseId) => {
-        navigate(`/cases/${caseId}`);
+        navigate(`/casesLastUbication/${caseId}`);
     };
 
     if (!cases){
@@ -59,5 +60,3 @@ function CasesController() {
         </div>
     );
 }
-
-export default CasesController;
