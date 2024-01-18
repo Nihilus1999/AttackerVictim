@@ -152,7 +152,7 @@ function EditUserController() {
             </div>
             <div className='row colBackground'>
               <h1>Tiempo de Control</h1>
-              <input className="form-control" type="number" name="_tiempo" placeholder='Tiempo' value={caseData._tiempo} onChange={handleInputChange} />
+              <input className="form-control" type="number" name="_tiempo" placeholder='Tiempo (Segundos)' value={caseData._tiempo} onChange={handleInputChange} />
             </div>
           
             <button className='btn btn-primary' type="submit">Editar Caso</button>

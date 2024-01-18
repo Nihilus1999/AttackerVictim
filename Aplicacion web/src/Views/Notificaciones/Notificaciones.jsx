@@ -18,15 +18,36 @@ const NotificationComponent = () => {
 
                 if(response._tipo === 'Alerta 1'){
                     Swal.fire({
-                        title: 'Alerta 1',
-                        text: '¡El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' tiene al atacante muy cerca!',
+                        title: '¡AYUDA!',
+                        text: '¡El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' tiene al atacante a menos de 10 metros!',
                         icon: 'warning',
                         confirmButtonText: 'Aceptar'
                     });
                 }else if(response._tipo === 'Alerta SOS'){
                     Swal.fire({
-                        title: 'AYUDA!',
+                        title: '¡AYUDA!',
                         text: '¡El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' está en peligro!',
+                        icon: 'warning',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }else if(response._tipo === 'Alerta 2'){
+                    Swal.fire({
+                        title: '¡AYUDA!',
+                        text: '¡El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' tiene a su atacante entre 10 y 30 metros!',
+                        icon: 'warning',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }else if(response._tipo === 'Alerta 3'){
+                    Swal.fire({
+                        title: '¡AYUDA!',
+                        text: '¡El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' tiene a su atacante entre 30 y 50 metros!',
+                        icon: 'warning',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }else if(response._tipo === 'Alerta ZONA'){
+                    Swal.fire({
+                        title: '¡AYUDA!',
+                        text: '¡El usuario ' + response._usuario._nombre + ' ' + response._usuario._apellido + ' tiene a su atacante dentro de su zona segura!',
                         icon: 'warning',
                         confirmButtonText: 'Aceptar'
                     });

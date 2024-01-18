@@ -41,9 +41,9 @@ function CaseDetail() {
 
     if (!safeZones){
         return (
-            <div>
-                <div>
-                    No hay zonas seguras
+            <div className='background'>
+                <div style={{marginBottom: '20px', padding: '10px', borderRadius: '10px'}}>
+                    <h1><strong>No hay zonas seguras</strong></h1>
                 </div>
                 <button className='btn btn-success' onClick={() => handleAddZone()}>Añadir Zona Segura</button>
             </div>

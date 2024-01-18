@@ -6,7 +6,7 @@ function Footer() {
 
   return (
       <footer className="footerStyle" style={{}}>
-          <p>© {year} RecipeApp. Todos los derechos reservados.</p>
+          <p>© {year} AttackVictim. Todos los derechos reservados.</p>
       </footer>
   );
 }
