@@ -19,8 +19,8 @@ public class Usuario_AtacanteMapper extends BaseMapper {
 
         entity.set_id(dto.getId());
 
-        if ( Objects.nonNull( dto.get_usuario() ) ) {
-            entity.set_usuario( UsuarioMapper.mapDtoToEntity( dto.get_usuario() ) );
+        if (Objects.nonNull(dto.get_usuario())) {
+            entity.set_usuario(UsuarioMapper.mapDtoToEntity(dto.get_usuario()));
         }
 
         return entity;
@@ -29,11 +29,10 @@ public class Usuario_AtacanteMapper extends BaseMapper {
     public static Usuario_AtacanteDto mapEntityToDto(Usuario_Atacante entity) {
         final Usuario_AtacanteDto dto = new Usuario_AtacanteDto();
 
-
         dto.setId(entity.get_id());
 
-        if(Objects.nonNull(entity.get_usuario()))
-            dto.set_usuario( UsuarioMapper.mapEntityToDto( entity.get_usuario()));
+        if (Objects.nonNull(entity.get_usuario()))
+            dto.set_usuario(UsuarioMapper.mapEntityToDto(entity.get_usuario()));
 
         return dto;
     }
@@ -44,23 +43,20 @@ public class Usuario_AtacanteMapper extends BaseMapper {
         return entity;
     }
 
-    public static List<Usuario_AtacanteDto> mapEntityListToDtoList(List<Usuario_Atacante> entityList){
-        List<Usuario_AtacanteDto> dtoList = new ArrayList<Usuario_AtacanteDto>();
-        Usuario_AtacanteDto Usuario_AtacanteDto;
+    public static List<Usuario_AtacanteDto> mapEntityListToDtoList(List<Usuario_Atacante> entityList) {
+        List<Usuario_AtacanteDto> dtoList = new ArrayList<>();
+        Usuario_AtacanteDto usuarioAtacanteDto;
 
         for (Usuario_Atacante atacanteUsuario : entityList) {
-
-            Usuario_AtacanteDto = new Usuario_AtacanteDto();
-            Usuario_AtacanteDto.setId(atacanteUsuario.get_id());
+            usuarioAtacanteDto = new Usuario_AtacanteDto();
+            usuarioAtacanteDto.setId(atacanteUsuario.get_id());
 
             if (Objects.nonNull(atacanteUsuario.get_usuario()))
-                Usuario_AtacanteDto.set_usuario(UsuarioMapper.mapEntityToDto(atacanteUsuario.get_usuario()));
+                usuarioAtacanteDto.set_usuario(UsuarioMapper.mapEntityToDto(atacanteUsuario.get_usuario()));
 
-            dtoList.add(Usuario_AtacanteDto);
-
+            dtoList.add(usuarioAtacanteDto);
         }
 
         return dtoList;
     }
-
 }
