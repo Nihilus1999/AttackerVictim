@@ -47,7 +47,7 @@ export default function Notification() {
             </div>
             <div className="container mt-4">
                 <table className="table table-striped table-bordered">
-                    <thead className="thead-dark">
+                    <thead className="thead-dark" style={{textAlign: 'center'}}>
                         <tr>
                             <th>Fecha</th>
                             <th>Tipo</th>
@@ -56,7 +56,7 @@ export default function Notification() {
                             {/* Añade más encabezados de columna según sea necesario */}
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style={{textAlign: 'center'}}>
                         {notifications.filter(notification => 
                             notification._usuario._nombre.toLowerCase().includes(filter.toLowerCase()) || 
                             notification._usuario._apellido.toLowerCase().includes(filter.toLowerCase())

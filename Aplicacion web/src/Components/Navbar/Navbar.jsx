@@ -34,6 +34,16 @@ function Navbar() {
                                         Zonas Seguras
                                     </Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link to={'/notification'} className="nav-link">
+                                        Notificaciones
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to={'/casesLastUbication'} className="nav-link">
+                                        Ultima ubicación
+                                    </Link>
+                                </li>
                             </ul>
                             <div className="nav-item dropdown">
                                 <button className='nav-link dropdown-toggle' type='button' data-bs-toggle="dropdown" aria-expanded="false"><i className="fa-solid fa-user" style={{marginRight: '6px'}}></i><strong>Usuario</strong></button>
