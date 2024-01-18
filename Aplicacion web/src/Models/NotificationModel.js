@@ -18,6 +18,7 @@ export default class NotificationModel {
                 return lastNotification;
             } else {
                 return null;
+                
             }
 
         } catch (error) {
