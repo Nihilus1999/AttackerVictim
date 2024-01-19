@@ -80,11 +80,11 @@ INSERT INTO usuario_atacante (id_usuario) VALUES (10);
 
 
 /* RELACION_VICTIMA-ATACANTE */
-INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (20.15, 6, 1, 1);
-INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (15.75, 5, 2, 2);
-INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (20.45, 3, 3, 3);
-INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (25.20, 7, 4, 4);
-INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (40.20, 8, 5, 5);
+INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (20.15, 60, 1, 1);
+INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (15.75, 120, 2, 2);
+INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (20.45, 30, 3, 3);
+INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (25.20, 15, 4, 4);
+INSERT INTO relacion_va (distancia, tiempo, id_usuario_atacante, id_usuario_victima) VALUES (40.20, 45, 5, 5);
 
 /* Relacion_VA por id:
 id 1 = victima lorasmar (1) y el atacante egyorffy0 (2)
@@ -92,7 +92,7 @@ id 2 = victima shorsley1 (3) y el atacante lstable2 (4)
 id 3 = victima arubury3 (5) y el atacante wgayler4 (6)
 id 4 = victima skarpfen5 (7) y el atacante sdand6 (8)
 id 5 = victima mtooher7 (9) y el atacante lhowe8 (10)
- */
+*/
 
 
 
