@@ -5,8 +5,16 @@
     <persistence-unit name="cmcapp" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <non-jta-data-source>java:/AttackerVictim_DS</non-jta-data-source>
-        <class>com.ucab.cmcapp.common.entities.User</class>
-        <class>com.ucab.cmcapp.common.entities.UserType</class>
+
+        <class>com.ucab.cmcapp.common.entities.Administrador</class>
+        <class>com.ucab.cmcapp.common.entities.Usuario</class>
+        <class>com.ucab.cmcapp.common.entities.Coordenada</class>
+        <class>com.ucab.cmcapp.common.entities.Historico_Usuario</class>
+        <class>com.ucab.cmcapp.common.entities.Zona_Segura</class>
+        <class>com.ucab.cmcapp.common.entities.Usuario_Victima</class>
+        <class>com.ucab.cmcapp.common.entities.Usuario_Atacante</class>
+        <class>com.ucab.cmcapp.common.entities.Relacion_VA</class>
+        <class>com.ucab.cmcapp.common.entities.Notificacion</class>
 
         <properties>
             <property name="hibernate.generate_statistics" value="true"/>
@@ -15,9 +23,9 @@
             <property name="hibernate.order_inserts" value="true" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="false" />
-            <!--property name="hibernate.hbm2ddl.auto" value="none" /-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="none" />-->
             <!--property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/ -->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/-->
          </properties>
 
     </persistence-unit>
