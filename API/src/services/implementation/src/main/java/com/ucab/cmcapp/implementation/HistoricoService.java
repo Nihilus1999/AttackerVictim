@@ -22,6 +22,12 @@ import java.util.List;
 public class HistoricoService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(HistoricoService.class);
 
+    /**
+     * Obtiene un historico por su ID.
+     *
+     * @param historicoId ID del historico a obtener.
+     * @return Respuesta HTTP con el historico obtenido.
+     */
     @GET
     @Path("/{id}")
     public Response getHistorico(@PathParam("id") long historicoId) {
@@ -48,6 +54,11 @@ public class HistoricoService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + historicoId + " del historico ha sido encontrado correctamente")).build();
     }
 
+    /**
+     * Obtiene todos los historicos.
+     *
+     * @return Respuesta HTTP con la lista de todos los historicos.
+     */
     @GET
     @Path("/todos")
     public Response getAllHistorico() {
@@ -73,6 +84,12 @@ public class HistoricoService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos los historicos se han obtenido correctamente")).build();
     }
 
+    /**
+     * Obtiene todos los historicos asociados a un usuario.
+     *
+     * @param usuarioId ID del usuario.
+     * @return Respuesta HTTP con la lista de historicos asociados al usuario.
+     */
     @GET
     @Path("usuario/{usuario_id}")
     public Response getAllHistoricoByUsuarioId(@PathParam("usuario_id") long usuarioId) {
@@ -99,6 +116,12 @@ public class HistoricoService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El historico del usuario con el ID " + usuarioId + " se han obtenido correctamente")).build();
     }
 
+    /**
+     * Agrega un nuevo historico.
+     *
+     * @param historicoUsuarioDto DTO del historico a agregar.
+     * @return Respuesta HTTP con el historico agregado.
+     */
     @POST
     public Response addHistorico(Historico_UsuarioDto historicoUsuarioDto) {
         Historico_Usuario entity;
@@ -120,6 +143,12 @@ public class HistoricoService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El historico ha sido creado correctamente")).build();
     }
 
+    /**
+     * Elimina un historico por su ID.
+     *
+     * @param historicoId ID del historico a eliminar.
+     * @return Respuesta HTTP con el historico eliminado.
+     */
     @DELETE
     @Path("/{id}")
     public Response deleteHistorico(@PathParam("id") long historicoId) {
@@ -149,6 +178,12 @@ public class HistoricoService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El historico ha sido eliminado correctamente")).build();
     }
 
+    /**
+     * Actualiza un historico existente.
+     *
+     * @param historicoUsuarioDto DTO del historico a actualizar.
+     * @return Respuesta HTTP con el historico actualizado.
+     */
     @PUT
     public Response updateHistorico(Historico_UsuarioDto historicoUsuarioDto) {
         Historico_Usuario entity;

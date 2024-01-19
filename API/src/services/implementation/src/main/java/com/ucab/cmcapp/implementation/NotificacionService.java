@@ -22,6 +22,12 @@ import java.util.List;
 public class NotificacionService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(NotificacionService.class);
 
+    /**
+     * Obtiene una notificación por su ID.
+     *
+     * @param NotificacionId ID de la notificación a obtener.
+     * @return Respuesta HTTP con la notificación obtenida.
+     */
     @GET
     @Path("/{id}")
     public Response getNotificacion(@PathParam("id") long NotificacionId) {
@@ -48,6 +54,11 @@ public class NotificacionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + NotificacionId + " de la Notificacion ha sido encontrado correctamente")).build();
     }
 
+    /**
+     * Obtiene todas las notificaciones.
+     *
+     * @return Respuesta HTTP con la lista de todas las notificaciones.
+     */
     @GET
     @Path("/todos")
     public Response getAllNotificacion() {
@@ -73,6 +84,12 @@ public class NotificacionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todas las Notificacions se han obtenido correctamente")).build();
     }
 
+    /**
+     * Obtiene todas las notificaciones asociadas a un usuario.
+     *
+     * @param usuarioId ID del usuario.
+     * @return Respuesta HTTP con la lista de notificaciones asociadas al usuario.
+     */
     @GET
     @Path("usuario/{usuario_id}")
     public Response getAllNotificacionByUsuarioId(@PathParam("usuario_id") long usuarioId) {
@@ -99,6 +116,12 @@ public class NotificacionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La Notificacion del usuario con el ID " + usuarioId + " se han obtenido correctamente")).build();
     }
 
+    /**
+     * Agrega una nueva notificación.
+     *
+     * @param NotificacionUsuarioDto DTO de la notificación a agregar.
+     * @return Respuesta HTTP con la notificación agregada.
+     */
     @POST
     public Response addNotificacion(NotificacionDto NotificacionUsuarioDto) {
         Notificacion entity;
@@ -120,6 +143,12 @@ public class NotificacionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La Notificacion ha sido creado correctamente")).build();
     }
 
+    /**
+     * Elimina una notificación por su ID.
+     *
+     * @param NotificacionId ID de la notificación a eliminar.
+     * @return Respuesta HTTP con la notificación eliminada.
+     */
     @DELETE
     @Path("/{id}")
     public Response deleteNotificacion(@PathParam("id") long NotificacionId) {
@@ -149,6 +178,12 @@ public class NotificacionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La Notificacion ha sido eliminado correctamente")).build();
     }
 
+    /**
+     * Actualiza una notificación existente.
+     *
+     * @param NotificacionUsuarioDto DTO de la notificación a actualizar.
+     * @return Respuesta HTTP con la notificación actualizada.
+     */
     @PUT
     public Response updateNotificacion(NotificacionDto NotificacionUsuarioDto) {
         Notificacion entity;

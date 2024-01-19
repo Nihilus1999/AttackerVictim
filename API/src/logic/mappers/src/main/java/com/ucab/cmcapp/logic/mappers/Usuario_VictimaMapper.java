@@ -14,6 +14,13 @@ import java.util.Objects;
 public class Usuario_VictimaMapper extends BaseMapper {
     private static Logger _logger = LoggerFactory.getLogger(Usuario_VictimaMapper.class);
 
+    /**
+     * Mapea un objeto Usuario_VictimaDto a una entidad Usuario_Victima.
+     *
+     * @param dto Objeto Usuario_VictimaDto a mapear.
+     * @return Entidad Usuario_Victima mapeada.
+     * @throws ParseException Si se produce un error al analizar una fecha.
+     */
     public static Usuario_Victima mapDtoToEntity(Usuario_VictimaDto dto) throws ParseException {
         Usuario_Victima entity = EntityFactory.createUsuario_Victima();
 
@@ -26,6 +33,12 @@ public class Usuario_VictimaMapper extends BaseMapper {
         return entity;
     }
 
+    /**
+     * Mapea una entidad Usuario_Victima a un objeto Usuario_VictimaDto.
+     *
+     * @param entity Entidad Usuario_Victima a mapear.
+     * @return Objeto Usuario_VictimaDto mapeado.
+     */
     public static Usuario_VictimaDto mapEntityToDto(Usuario_Victima entity) {
         final Usuario_VictimaDto dto = new Usuario_VictimaDto();
 
@@ -38,12 +51,24 @@ public class Usuario_VictimaMapper extends BaseMapper {
         return dto;
     }
 
+    /**
+     * Crea una entidad Usuario_Victima a partir de un ID.
+     *
+     * @param id ID para la entidad Usuario_Victima.
+     * @return Entidad Usuario_Victima creada.
+     */
     public static Usuario_Victima mapDtoToEntity(long id) {
         Usuario_Victima entity = EntityFactory.createUsuario_Victima(id);
         entity.set_id(id);
         return entity;
     }
 
+    /**
+     * Mapea una lista de entidades Usuario_Victima a una lista de objetos Usuario_VictimaDto.
+     *
+     * @param entityList Lista de entidades Usuario_Victima a mapear.
+     * @return Lista de objetos Usuario_VictimaDto mapeados.
+     */
     public static List<Usuario_VictimaDto> mapEntityListToDtoList(List<Usuario_Victima> entityList) {
         List<Usuario_VictimaDto> dtoList = new ArrayList<>();
         Usuario_VictimaDto usuarioVictimaDto;

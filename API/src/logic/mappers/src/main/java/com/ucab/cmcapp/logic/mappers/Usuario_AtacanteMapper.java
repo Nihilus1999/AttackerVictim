@@ -14,6 +14,13 @@ import java.util.Objects;
 public class Usuario_AtacanteMapper extends BaseMapper {
     private static Logger _logger = LoggerFactory.getLogger(Usuario_AtacanteMapper.class);
 
+    /**
+     * Mapea un objeto Usuario_AtacanteDto a una entidad Usuario_Atacante.
+     *
+     * @param dto Objeto Usuario_AtacanteDto a mapear.
+     * @return Entidad Usuario_Atacante mapeada.
+     * @throws ParseException Si se produce un error al analizar una fecha.
+     */
     public static Usuario_Atacante mapDtoToEntity(Usuario_AtacanteDto dto) throws ParseException {
         Usuario_Atacante entity = EntityFactory.createUsuario_Atacante();
 
@@ -26,6 +33,12 @@ public class Usuario_AtacanteMapper extends BaseMapper {
         return entity;
     }
 
+    /**
+     * Mapea una entidad Usuario_Atacante a un objeto Usuario_AtacanteDto.
+     *
+     * @param entity Entidad Usuario_Atacante a mapear.
+     * @return Objeto Usuario_AtacanteDto mapeado.
+     */
     public static Usuario_AtacanteDto mapEntityToDto(Usuario_Atacante entity) {
         final Usuario_AtacanteDto dto = new Usuario_AtacanteDto();
 
@@ -37,12 +50,24 @@ public class Usuario_AtacanteMapper extends BaseMapper {
         return dto;
     }
 
+    /**
+     * Crea una entidad Usuario_Atacante a partir de un ID.
+     *
+     * @param id ID para la entidad Usuario_Atacante.
+     * @return Entidad Usuario_Atacante creada.
+     */
     public static Usuario_Atacante mapDtoToEntity(long id) {
         Usuario_Atacante entity = EntityFactory.createUsuario_Atacante(id);
         entity.set_id(id);
         return entity;
     }
 
+    /**
+     * Mapea una lista de entidades Usuario_Atacante a una lista de objetos Usuario_AtacanteDto.
+     *
+     * @param entityList Lista de entidades Usuario_Atacante a mapear.
+     * @return Lista de objetos Usuario_AtacanteDto mapeados.
+     */
     public static List<Usuario_AtacanteDto> mapEntityListToDtoList(List<Usuario_Atacante> entityList) {
         List<Usuario_AtacanteDto> dtoList = new ArrayList<>();
         Usuario_AtacanteDto usuarioAtacanteDto;

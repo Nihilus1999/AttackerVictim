@@ -21,6 +21,12 @@ import java.util.List;
 public class ZonaService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(ZonaService.class);
 
+    /**
+     * Recupera una zona segura por su ID.
+     *
+     * @param zonasId ID de la zona segura a recuperar.
+     * @return Objeto Response con la zona segura encontrada o un mensaje de error.
+     */
     @GET
     @Path("/{id}")
     public Response getZonas(@PathParam("id") long zonasId) {
@@ -47,6 +53,11 @@ public class ZonaService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + zonasId + " de la zona segura ha sido encontrado correctamente")).build();
     }
 
+    /**
+     * Recupera todas las zonas seguras.
+     *
+     * @return Objeto Response con la lista de todas las zonas seguras encontradas o un mensaje de error.
+     */
     @GET
     @Path("/todos")
     public Response getAllZonas() {
@@ -72,7 +83,12 @@ public class ZonaService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos las zonas seguras se han obtenido correctamente")).build();
     }
 
-
+    /**
+     * Recupera todas las zonas seguras asociadas a un ID de víctima.
+     *
+     * @param victimaId ID de la víctima.
+     * @return Objeto Response con la lista de zonas seguras asociadas a la víctima o un mensaje de error.
+     */
     @GET
     @Path("victima/{victima_id}")
     public Response getAllZonasByUsuarioId(@PathParam("victima_id") long victimaId) {
@@ -99,6 +115,12 @@ public class ZonaService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zonas seguras de la victima con el ID " + victimaId + " se han obtenido correctamente")).build();
     }
 
+    /**
+     * Agrega una nueva zona segura.
+     *
+     * @param zonasSegurasDto Objeto Zona_SeguraDto que representa la zona segura a agregar.
+     * @return Objeto Response con la zona segura agregada o un mensaje de error.
+     */
     @POST
     public Response addZonas(Zona_SeguraDto zonasSegurasDto) {
         Zona_Segura entity;
@@ -120,6 +142,12 @@ public class ZonaService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zona segura ha sido creado correctamente")).build();
     }
 
+    /**
+     * Elimina una zona segura por su ID.
+     *
+     * @param zonasId ID de la zona segura a eliminar.
+     * @return Objeto Response con la zona segura eliminada o un mensaje de error.
+     */
     @DELETE
     @Path("/{id}")
     public Response deleteZonas(@PathParam("id") long zonasId) {
@@ -148,6 +176,12 @@ public class ZonaService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zona segura ha sido eliminado correctamente")).build();
     }
 
+    /**
+     * Actualiza una zona segura existente.
+     *
+     * @param zonasSegurasDto Objeto Zona_SeguraDto que representa la zona segura a actualizar.
+     * @return Objeto Response con la zona segura actualizada o un mensaje de error.
+     */
     @PUT
     public Response updateZonas(Zona_SeguraDto zonasSegurasDto) {
         Zona_Segura entity;

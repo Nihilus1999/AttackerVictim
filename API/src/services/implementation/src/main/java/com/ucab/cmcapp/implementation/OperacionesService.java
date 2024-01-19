@@ -28,6 +28,13 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class OperacionesService extends BaseService {
+
+    /**
+     * Obtiene la distancia de separación entre dos posiciones a partir del ID de una relación Victima-Atacante.
+     *
+     * @param relacionId ID de la relación Victima-Atacante.
+     * @return Respuesta HTTP con la distancia de separación o un mensaje de error.
+     */
     @GET
     @Path("distancia-separacion/{id_relacion_va}")
     public Response getDistanciaSeparacionByRelacionId(@PathParam("id_relacion_va") long relacionId) {
@@ -62,6 +69,12 @@ public class OperacionesService extends BaseService {
 
     }
 
+    /**
+     * Obtiene la última ubicación del atacante a partir del ID de una relación Victima-Atacante.
+     *
+     * @param relacionId ID de la relación Victima-Atacante.
+     * @return Respuesta HTTP con la última ubicación del atacante o un mensaje de error.
+     */
     @GET
     @Path("atacante_posicion/{relacion_id}")
     public Response getPosicionAtacanteByRelacionId(@PathParam("relacion_id") long relacionId) {
@@ -88,6 +101,12 @@ public class OperacionesService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Se ha obtenido la ultima ubicacion del atacante correctamente")).build();
     }
 
+    /**
+     * Obtiene la última ubicación de la víctima a partir del ID de una relación Victima-Atacante.
+     *
+     * @param relacionId ID de la relación Victima-Atacante.
+     * @return Respuesta HTTP con la última ubicación de la víctima o un mensaje de error.
+     */
     @GET
     @Path("victima_posicion/{relacion_id}")
     public Response getPosicionVictimaByRelacionId(@PathParam("relacion_id") long relacionId) {
@@ -114,6 +133,12 @@ public class OperacionesService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Se ha obtenido la ultima ubicacion de la victima correctamente")).build();
     }
 
+    /**
+     * Determina si el atacante se encuentra dentro de una zona segura a partir del ID de una relación Victima-Atacante.
+     *
+     * @param incidentId ID de la relación Victima-Atacante.
+     * @return Respuesta HTTP con el resultado de la verificación o un mensaje de error.
+     */
     @GET
     @Path("atacante_dentro_Zona_Segura/{relacion_id}")
     public Response getAtacanteEnZonaSegura(@PathParam("relacion_id") long incidentId) {
