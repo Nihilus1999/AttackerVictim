@@ -1,0 +1,13 @@
+.inputs{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs button{
+    width: 100px;
+}

@@ -40,8 +40,8 @@
         <class>com.ucab.cmcapp.common.entities.Question</class>
         <class>com.ucab.cmcapp.common.entities.Option</class>
         <class>com.ucab.cmcapp.common.entities.TextResource</class>
-        <class>com.ucab.cmcapp.common.entities.User</class>
-        <class>com.ucab.cmcapp.common.entities.UserType</class>
+        <class>com.ucab.cmcapp.common.entities.Usuario</class>
+        <class>com.ucab.cmcapp.common.entities.TipoUsuario</class>
         <class>com.ucab.cmcapp.common.entities.Workshop</class>
         <class>com.ucab.cmcapp.common.entities.Information</class>
         <class>com.ucab.cmcapp.common.entities.UserActivity</class>
@@ -51,7 +51,7 @@
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cmcapp"/>
-            <property name="javax.persistence.jdbc.user" value="admin"/>
+            <property name="javax.persistence.jdbc.usuario" value="admin"/>
             <!--            <property name="javax.persistence.jdbc.password" value="3squ3l3t0"/>-->
             <property name="javax.persistence.jdbc.password" value="password"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/>

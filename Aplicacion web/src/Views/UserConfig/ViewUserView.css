@@ -1,0 +1,38 @@
+.tablaUsuarios {
+    width: 90%;
+    text-align: center;
+}
+
+.tablaUsuarios th {
+    background-color: #5087da;
+    color: white;
+}
+
+.tablaUsuarios tr:nth-child(odd) {
+    background-color: rgb(219, 219, 219);
+}
+
+.tablaUsuarios tr:nth-child(even) {
+    background-color: rgb(184, 184, 184);
+}
+
+.divTabla {
+    display: flex;
+    justify-content: center;
+}
+
+.botonesAccion {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.background {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardBackground{
+    display: flex;
+    flex-wrap: wrap;
+}

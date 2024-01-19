@@ -1,2 +1,31 @@
-/API/src/services/implementation/target/implementation-1.0/WEB-INF/lib
-API/src/services/implementation/target/cmcapp-backend-1.0.war
+## API DE JAVA
+
+# Target routes
+/API/src/persistence/dao/target/*
+/API/src/logic/mappers/target/*
+/API/src/logic/dtos/target/*
+/API/src/logic/commands/target/*
+/API/src/common/utilities/target/*
+/API/src/common/properties/target/*
+/API/src/common/exceptions/target/*
+/API/src/common/enums/target/*
+/API/src/common/entities/target/*
+/API/src/services/implementation/target/*
+
+# Compiled class file
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+## APLICACION MOVIL
+/Movil - Victima/Aplicacion/node_modules/*
+/Movil - Atacante/Aplicacion2/node_modules/*
+
+## APLICACION WEB

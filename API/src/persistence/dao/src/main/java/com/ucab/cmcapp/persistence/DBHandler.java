@@ -11,17 +11,15 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 
-public class DBHandler
-{
-    private static Logger _logger = LoggerFactory.getLogger( DBHandler.class );
+public class DBHandler {
+    private static Logger _logger = LoggerFactory.getLogger(DBHandler.class);
     private static EntityManagerFactory _emf;
 
     private EntityManager _em;
     private EntityTransaction _tx;
     private boolean _isTransaction;
 
-    static
-    {
+    static {
         getEntityManagerFactory();
     }
 
@@ -32,29 +30,24 @@ public class DBHandler
      *
      * @return Sesion de base de datos
      */
-    public EntityManager getSession()
-    {
+    public EntityManager getSession() {
         //region Instrumentation DEBUG
-        _logger.debug( "Get in to DbHandler.getSession" );
+        _logger.debug("Get in to DbHandler.getSession");
         //endregion
 
-        try
-        {
-            if ( _em == null )
-            {
+        try {
+            if (_em == null) {
                 _em = _emf.createEntityManager();
             }
-        }
-        catch ( Exception e )
-        {
+        } catch (Exception e) {
             //region Instrumentation DEBUG
-            _logger.debug( "Exception in DbHandler.getSession : {}", e.getMessage() );
+            _logger.debug("Exception in DbHandler.getSession : {}", e.getMessage());
             //endregion
-            throw new DbHandlerException(e.getMessage() );
+            throw new DbHandlerException(e.getMessage());
         }
 
         //region Instrumentation DEBUG
-        _logger.debug( "Leaving DbHandler.getSession: EntityManager {}", _em );
+        _logger.debug("Leaving DbHandler.getSession: EntityManager {}", _em);
         //endregion
 
         return _em;
@@ -64,30 +57,25 @@ public class DBHandler
      * Name: closeSession
      * Description: Metodo que cierra la sesion de base de datos
      */
-    public void closeSession()
-    {
+    public void closeSession() {
         //region Instrumentation DEBUG
-        _logger.debug( "Get in to DbHandler.closeSession" );
+        _logger.debug("Get in to DbHandler.closeSession");
         //endregion
 
-        try
-        {
-            if ( _em != null )
-            {
+        try {
+            if (_em != null) {
                 _em.close();
                 _em = null;
             }
-        }
-        catch ( Exception e )
-        {
+        } catch (Exception e) {
             //region Instrumentation DEBUG
-            _logger.debug( "Exception in DbHandler.closeSession : {}", e.getMessage() );
+            _logger.debug("Exception in DbHandler.closeSession : {}", e.getMessage());
             //endregion
-            throw new DbHandlerException(e.getMessage() );
+            throw new DbHandlerException(e.getMessage());
         }
 
         //region Instrumentation DEBUG
-        _logger.debug( "Leaving DbHandler.closeSession" );
+        _logger.debug("Leaving DbHandler.closeSession");
         //endregion
     }
 
@@ -95,29 +83,25 @@ public class DBHandler
      * Name: beginTransaction
      * Description: Metodo que inicia una transaccion en la sesion de base de datos
      */
-    public void beginTransaction()
-    {
+    public void beginTransaction() {
         //region Instrumentation DEBUG
-        _logger.debug( "Get in to DbHandler.beginTransaction" );
+        _logger.debug("Get in to DbHandler.beginTransaction");
         //endregion
 
-        if ( _em == null )
-        {
+        if (_em == null) {
             getSession();
         }
 
-        if ( _tx == null )
-        {
+        if (_tx == null) {
             _tx = _em.getTransaction();
         }
 
-        if ( !_tx.isActive() )
-        {
+        if (!_tx.isActive()) {
             _tx.begin();
         }
 
         //region Instrumentation DEBUG
-        _logger.debug( "Leaving DbHandler.beginTransaction: EntityTransaction {}", _tx );
+        _logger.debug("Leaving DbHandler.beginTransaction: EntityTransaction {}", _tx);
         //endregion
 
     }
@@ -126,20 +110,18 @@ public class DBHandler
      * Name: finishTransaction
      * Description: Metodo que confirma los cambios (cerrando) de una transaccion abierta
      */
-    public void finishTransaction()
-    {
+    public void finishTransaction() {
         //region Instrumentation DEBUG
-        _logger.debug( "Get in to DbHandler.finishTransaction" );
+        _logger.debug("Get in to DbHandler.finishTransaction");
         //endregion
 
-        if ( _tx != null && _tx.isActive() )
-        {
+        if (_tx != null && _tx.isActive()) {
             _tx.commit();
             _tx = null;
         }
 
         //region Instrumentation DEBUG
-        _logger.debug( "Leavin DbHandler.finishTransaction" );
+        _logger.debug("Leavin DbHandler.finishTransaction");
         //endregion
     }
 
@@ -147,63 +129,57 @@ public class DBHandler
      * Name: rollbackTransaction
      * Description: Metodo que revierte los cambios efectuados en la transaccion
      */
-    public void rollbackTransaction()
-    {
+    public void rollbackTransaction() {
         //region Instrumentation DEBUG
-        _logger.debug( "Get in to DbHandler.rollbackTransaction" );
+        _logger.debug("Get in to DbHandler.rollbackTransaction");
         //endregion
 
-        if ( _tx != null && _tx.isActive() )
-        {
+        if (_tx != null && _tx.isActive()) {
             _tx.rollback();
             _tx = null;
         }
 
         //region Instrumentation DEBUG
-        _logger.debug( "Leavin DbHandler.rollbackTransaction" );
+        _logger.debug("Leavin DbHandler.rollbackTransaction");
         //endregion
     }
 
     /**
      * @return
      */
-    public boolean isTransaction()
-    {
+    public boolean isTransaction() {
         return _isTransaction;
     }
 
     /**
      * @param transaction
      */
-    public void setTransaction( boolean transaction )
-    {
+    public void setTransaction(boolean transaction) {
         _isTransaction = transaction;
     }
 
 
-    private static void getEntityManagerFactory()
-    {
+    private static void getEntityManagerFactory() {
         //region Instrumentation DEBUG
-        _logger.debug( "Getting in DBHandler.getEntityManagerFactory" );
+        _logger.debug("Getting in DBHandler.getEntityManagerFactory");
         //endregion
 
-        if ( _emf == null )
-        {
-            try
-            {
+        if (_emf == null) {
+            try {
                 _emf = Persistence.createEntityManagerFactory(Registry.getInstance().getProperty(Registry.DB_UNIT));
+            } catch( Exception e){
+
             }
-            catch ( Exception e )
-            {
+            catch (ExceptionInInitializerError e) {
                 //region Instrumentation DEBUG
-                _logger.debug( "Exception in DbHandler.getEntityManagerFactory : {}", e.getMessage() );
+                _logger.debug("Exception in DbHandler.getEntityManagerFactory : {}", e.getMessage());
                 //endregion
-                throw new DbHandlerException(e.getMessage() );
+                throw new DbHandlerException(e.getMessage());
             }
         }
 
         //region Instrumentation DEBUG
-        _logger.debug( "Leaving DBHandler.getEntityManagerFactory" );
+        _logger.debug("Leaving DBHandler.getEntityManagerFactory");
         //endregion
     }
 
