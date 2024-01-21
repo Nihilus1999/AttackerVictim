@@ -117,3 +117,6 @@ El servicio está diseñado para ser fácil de configurar y utilizar. Proporcion
 
 ### Integraciones y herramientas adicionales: 
 Packetriot ofrece integraciones con varias herramientas y servicios populares, como Docker, Kubernetes y GitHub. Además, proporciona características adicionales, como registros detallados, métricas y alertas, para facilitar la supervisión y el análisis de los túneles establecidos.
+
+### Copilar la aplicacion web:
+Se debe ejecutar los siguientes comandos: npm i para instalar dependencias y npm run dev para ejecutar
